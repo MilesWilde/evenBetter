@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  pool: 1
+  betting_deadline: 2017-10-18
+  outcome_deadline: 2017-10-18
+  description: MyString
+
+two:
+  title: MyString
+  pool: 1
+  betting_deadline: 2017-10-18
+  outcome_deadline: 2017-10-18
+  description: MyString

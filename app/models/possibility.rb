@@ -1,0 +1,2 @@
+class Possibility < ApplicationRecord
+end

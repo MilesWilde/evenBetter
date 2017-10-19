@@ -1,0 +1,2 @@
+class UserBet < ApplicationRecord
+end

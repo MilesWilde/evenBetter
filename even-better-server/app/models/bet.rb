@@ -1,6 +1,6 @@
 class Bet < ApplicationRecord
-  has_many: :users, through: :users_bets
-  has_many: :messages
-  belongs_to: :user, as: :mediator
-  belongs_to: :user, as: :creator
+  has_and_belongs_to_many :users
+  has_many :messages
+  belongs_to :mediator, class_name: :user
+  belongs_to :creator, class_name: :user
 end

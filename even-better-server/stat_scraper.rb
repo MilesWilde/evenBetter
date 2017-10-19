@@ -25,25 +25,7 @@ homeTeamVar = doc.at_xpath('//home-team')
 awayTeamVar = doc.at_xpath('//visiting-team')
 gameVariables = doc.at_xpath('//gamestate')
 
-# #Game Data
-# deliverToClient["gameType"] = gameType
-# deliverToClient["gameDate"] = gameDate
-# deliverToClient["gameTime"] = gameVariables.attr('gametime')
-
-
-# # puts "HOME TEAM"
-# deliverToClient["homeTeamName"] = homeTeamVar.attr('display_name')
-# deliverToClient["homeNickName"] = homeTeamVar.attr('nickname')
-# deliverToClient["homeScore"] = homeTeamVar.attr('score')
-# deliverToClient["homeAlias"] = homeTeamVar.attr('alias')
-
-
-# # puts "AWAY TEAM"
-# deliverToClient["awayTeamName"] = awayTeamVar.attr('display_name')
-# deliverToClient["awayNickName"] = awayTeamVar.attr('nickname')
-# deliverToClient["awayScore"] = awayTeamVar.attr('score')
-# deliverToClient["awayAlias"] = awayTeamVar.attr('alias')
-
+# All Game Details
 deliverToClient = {
     gameType: gameType,
     gameDate: gameDate,
@@ -51,11 +33,15 @@ deliverToClient = {
 
     homeTeamName: homeTeamVar.attr('display_name'),
     homeNickName: homeTeamVar.attr('nickname'),
+    homeTeamLogo: homeTeamVar.at_xpath('//team-logo').attr('link'),
+    homeTeamImage: homeTeamVar.at_xpath('//team-logo').attr('gz-image'),
     homeScore: homeTeamVar.attr('score'),
     homeAlias: homeTeamVar.attr('alias'),
 
     awayTeamName:awayTeamVar.attr('display_name'),
     awayNickName:awayTeamVar.attr('nickname'),
+    awayTeamLogo: awayTeamVar.at_xpath('//team-logo').attr('link'),
+    awayTeamImage: awayTeamVar.at_xpath('//team-logo').attr('gz-image'),
     awayScore:awayTeamVar.attr('score'),
     awayAlias:awayTeamVar.attr('alias')
 }

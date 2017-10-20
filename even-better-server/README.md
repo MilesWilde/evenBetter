@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
+To run both the React and Rails App, run 'rake start' on the even-better-server
+
 * ...

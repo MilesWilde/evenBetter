@@ -159,11 +159,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
-  foreman (~> 0.82.0)
   bcrypt (~> 3.1.7)
   factory_girl_rails
   faker
+  foreman (~> 0.82.0)
   jwt
   listen (>= 3.0.5, < 3.2)
   pg
@@ -178,8 +177,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-<<<<<<< HEAD
-   1.15.4
-=======
    1.16.0.pre.3
->>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b

@@ -4,7 +4,7 @@ FactoryGirl.define do
     last_name Faker::Name.last_name
     username Faker::Internet.user_name
     email Faker::Internet.email
-    password_hash SecureRandom.base64
+    password_digest SecureRandom.base64
     points 1000
   end
 end

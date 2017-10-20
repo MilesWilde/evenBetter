@@ -762,6 +762,7 @@ FOREIGN KEY ("outcome_id")
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3699930805919231415)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+<<<<<<< HEAD
 Started GET "/api/v1/ideas" for ::1 at 2017-10-19 18:37:45 +0000
   
 ActiveRecord::NoDatabaseError (FATAL:  database "even-better_development" does not exist
@@ -868,12 +869,29 @@ Migrating to CreateUsers (20171018174639)
 Migrating to CreateBets (20171018180503)
   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_772e4e7155"
+=======
+  [1m[35m (482.0ms)[0m  [1m[35mCREATE DATABASE "even-better_development" ENCODING = 'unicode'[0m
+  [1m[35m (323.6ms)[0m  [1m[35mCREATE DATABASE "even-better_test" ENCODING = 'unicode'[0m
+  [1m[35m (20.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (29.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3699930805919231415)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20171018174639)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_hash" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018174639"]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBets (20171018180503)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_772e4e7155"
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
 FOREIGN KEY ("mediator_id")
   REFERENCES "users" ("id")
 , CONSTRAINT "fk_rails_b0d6f5b549"
 FOREIGN KEY ("creator_id")
   REFERENCES "users" ("id")
 )[0m
+<<<<<<< HEAD
   [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
   [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180503"]]
@@ -890,12 +908,31 @@ FOREIGN KEY ("bets_id")
 Migrating to CreateMessages (20171018180603)
   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e3b11c0cbb"
+=======
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180503"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePossibilities (20171018180529)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.1ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_059c619943"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bets_id" ON "possibilities"  ("bets_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180529"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20171018180603)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e3b11c0cbb"
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
 FOREIGN KEY ("users_id")
   REFERENCES "users" ("id")
 , CONSTRAINT "fk_rails_ef25950ebe"
 FOREIGN KEY ("bets_id")
   REFERENCES "bets" ("id")
 )[0m
+<<<<<<< HEAD
   [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
   [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180603"]]
@@ -903,6 +940,15 @@ FOREIGN KEY ("bets_id")
 Migrating to CreateUsersBets (20171018184757)
   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_43f04b110c"
+=======
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180603"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsersBets (20171018184757)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_43f04b110c"
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
 FOREIGN KEY ("bets_id")
   REFERENCES "bets" ("id")
 , CONSTRAINT "fk_rails_9b01dee722"
@@ -912,6 +958,7 @@ FOREIGN KEY ("users_id")
 FOREIGN KEY ("possibilities_id")
   REFERENCES "possibilities" ("id")
 )[0m
+<<<<<<< HEAD
   [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
   [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
   [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
@@ -1445,12 +1492,585 @@ Migrating to CreateUsers (20171018174639)
 Migrating to CreateBets (20171018180503)
   [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_772e4e7155"
+=======
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018184757"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddsForeignKeyToBets (20171018194937)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "bets" ADD "outcome_id" bigint[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018194937"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-19 18:09:55.967710"], ["updated_at", "2017-10-19 18:09:55.967710"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3699930805919231415)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3699930805919231415)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3699930805919231415)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3699930805919231415)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3699930805919231415)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (115.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_development"[0m
+  [1m[35m (113.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_test"[0m
+  [1m[35m (344.7ms)[0m  [1m[35mCREATE DATABASE "even-better_development" ENCODING = 'unicode'[0m
+  [1m[35m (315.0ms)[0m  [1m[35mCREATE DATABASE "even-better_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bets" CASCADE[0m
+  [1m[35m (24.9ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "outcome_id" bigint)[0m
+  [1m[35m (18.3ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "possibilities" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bets_id" ON "possibilities"  ("bets_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (23.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_hash" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users_bets" CASCADE[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (18.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_b0d6f5b549"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.3ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_772e4e7155"
+FOREIGN KEY ("mediator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_ef25950ebe"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e3b11c0cbb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "possibilities" ADD CONSTRAINT "fk_rails_059c619943"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_43f04b110c"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_fa8d012432"
+FOREIGN KEY ("possibilities_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_9b01dee722"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171018194937)[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171018184757),
+(20171018180529),
+(20171018174639),
+(20171018180503),
+(20171018180603);
+
+[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-19 18:13:17.802432"], ["updated_at", "2017-10-19 18:13:17.802432"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "bets" CASCADE[0m
+  [1m[35m (49.5ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "outcome_id" bigint)[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35m (18.8ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "possibilities" CASCADE[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bets_id" ON "possibilities"  ("bets_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (17.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_hash" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users_bets" CASCADE[0m
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_b0d6f5b549"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_772e4e7155"
+FOREIGN KEY ("mediator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_ef25950ebe"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e3b11c0cbb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "possibilities" ADD CONSTRAINT "fk_rails_059c619943"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_43f04b110c"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_fa8d012432"
+FOREIGN KEY ("possibilities_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_9b01dee722"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171018194937)[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171018184757),
+(20171018180529),
+(20171018174639),
+(20171018180503),
+(20171018180603);
+
+[0m
+  [1m[35m (23.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-19 18:13:18.156753"], ["updated_at", "2017-10-19 18:13:18.156753"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3699930805919231415)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangePasswordHashToPasswordDigest (20171020135523)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "password_hash" TO "password_digest"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171020135523"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3699930805919231415)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5010.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (113.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_development"[0m
+  [1m[35m (110.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_test"[0m
+  [1m[35m (497.0ms)[0m  [1m[35mCREATE DATABASE "even-better_development" ENCODING = 'unicode'[0m
+  [1m[35m (378.4ms)[0m  [1m[35mCREATE DATABASE "even-better_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bets" CASCADE[0m
+  [1m[35m (27.8ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "outcome_id" bigint)[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "possibilities" CASCADE[0m
+  [1m[35m (30.5ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bets_id" ON "possibilities"  ("bets_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users_bets" CASCADE[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_b0d6f5b549"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_772e4e7155"
+FOREIGN KEY ("mediator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_ef25950ebe"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e3b11c0cbb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "possibilities" ADD CONSTRAINT "fk_rails_059c619943"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (8.7ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_43f04b110c"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_fa8d012432"
+FOREIGN KEY ("possibilities_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_9b01dee722"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (22.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171020135523)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171018184757),
+(20171018180529),
+(20171018174639),
+(20171018180503),
+(20171018194937),
+(20171018180603);
+
+[0m
+  [1m[35m (22.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-20 13:57:32.781768"], ["updated_at", "2017-10-20 13:57:32.781768"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bets" CASCADE[0m
+  [1m[35m (32.1ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "outcome_id" bigint)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
+  [1m[35m (17.9ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "possibilities" CASCADE[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bets_id" ON "possibilities"  ("bets_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users_bets" CASCADE[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
+  [1m[35m (10.0ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_b0d6f5b549"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_772e4e7155"
+FOREIGN KEY ("mediator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.3ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_ef25950ebe"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e3b11c0cbb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "possibilities" ADD CONSTRAINT "fk_rails_059c619943"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_43f04b110c"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_fa8d012432"
+FOREIGN KEY ("possibilities_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_9b01dee722"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (23.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171020135523)[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171018184757),
+(20171018180529),
+(20171018174639),
+(20171018180503),
+(20171018194937),
+(20171018180603);
+
+[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-20 13:57:33.114162"], ["updated_at", "2017-10-20 13:57:33.114162"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5010.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_development"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (111.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_development"[0m
+  [1m[35m (113.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_test"[0m
+  [1m[35m (320.8ms)[0m  [1m[35mCREATE DATABASE "even-better_development" ENCODING = 'unicode'[0m
+  [1m[35m (311.4ms)[0m  [1m[35mCREATE DATABASE "even-better_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bets" CASCADE[0m
+  [1m[35m (26.6ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "outcome_id" bigint)[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "possibilities" CASCADE[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bets_id" ON "possibilities"  ("bets_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (22.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users_bets" CASCADE[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
+  [1m[35m (18.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_b0d6f5b549"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_772e4e7155"
+FOREIGN KEY ("mediator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (9.5ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_ef25950ebe"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e3b11c0cbb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "possibilities" ADD CONSTRAINT "fk_rails_059c619943"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_43f04b110c"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (8.7ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_fa8d012432"
+FOREIGN KEY ("possibilities_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_9b01dee722"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (23.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171020135523)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171018184757),
+(20171018180529),
+(20171018174639),
+(20171018180503),
+(20171018194937),
+(20171018180603);
+
+[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-20 14:13:55.620313"], ["updated_at", "2017-10-20 14:13:55.620313"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "bets" CASCADE[0m
+  [1m[35m (25.9ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "outcome_id" bigint)[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "messages" CASCADE[0m
+  [1m[35m (38.9ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "users_id" bigint, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bets_id" ON "messages"  ("bets_id")[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_users_id" ON "messages"  ("users_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "possibilities" CASCADE[0m
+  [1m[35m (24.0ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bets_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bets_id" ON "possibilities"  ("bets_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (23.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users_bets" CASCADE[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "users_bets" ("id" bigserial primary key, "bets_id" bigint, "users_id" bigint, "possibilities_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_bets_id" ON "users_bets"  ("bets_id")[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_possibilities_id" ON "users_bets"  ("possibilities_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_bets_on_users_id" ON "users_bets"  ("users_id")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_b0d6f5b549"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_772e4e7155"
+FOREIGN KEY ("mediator_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_ef25950ebe"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_e3b11c0cbb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "possibilities" ADD CONSTRAINT "fk_rails_059c619943"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_43f04b110c"
+FOREIGN KEY ("bets_id")
+  REFERENCES "bets" ("id")
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_fa8d012432"
+FOREIGN KEY ("possibilities_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "users_bets" ADD CONSTRAINT "fk_rails_9b01dee722"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171020135523)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171018184757),
+(20171018180529),
+(20171018174639),
+(20171018180503),
+(20171018194937),
+(20171018180603);
+
+[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-20 14:13:55.959273"], ["updated_at", "2017-10-20 14:13:55.959273"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (110.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_development"[0m
+  [1m[35m (111.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even-better_test"[0m
+  [1m[35m (324.8ms)[0m  [1m[35mCREATE DATABASE "even-better_development" ENCODING = 'unicode'[0m
+  [1m[35m (322.9ms)[0m  [1m[35mCREATE DATABASE "even-better_test" ENCODING = 'unicode'[0m
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (28.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3699930805919231415)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20171018174639)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018174639"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBets (20171018180503)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_772e4e7155"
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
 FOREIGN KEY ("mediator_id")
   REFERENCES "users" ("id")
 , CONSTRAINT "fk_rails_b0d6f5b549"
 FOREIGN KEY ("creator_id")
   REFERENCES "users" ("id")
 )[0m
+<<<<<<< HEAD
   [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
   [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180503"]]
@@ -1514,6 +2134,123 @@ Started GET "/api/v1" for ::1 at 2017-10-20 09:52:54 -0400
   [1m[35m (6.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   
 ActionController::RoutingError (No route matches [GET] "/api/v1"):
+=======
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180503"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePossibilities (20171018180529)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bet_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a15c4d685c"
+FOREIGN KEY ("bet_id")
+  REFERENCES "bets" ("id")
+)[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bet_id" ON "possibilities"  ("bet_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180529"]]
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20171018180603)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "user_id" bigint, "bet_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_273a25a7a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_4d0ccc31d3"
+FOREIGN KEY ("bet_id")
+  REFERENCES "bets" ("id")
+)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_user_id" ON "messages"  ("user_id")[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bet_id" ON "messages"  ("bet_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180603"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBetsUsers (20171018184757)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3699930805919231415)[0m
+  [1m[35m (318.6ms)[0m  [1m[35mCREATE DATABASE "even_better_development" ENCODING = 'unicode'[0m
+  [1m[35m (322.9ms)[0m  [1m[35mCREATE DATABASE "even_better_test" ENCODING = 'unicode'[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3552788925724350900)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20171018174639)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "points" integer, "first_name" character varying, "last_name" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018174639"]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBets (20171018180503)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_772e4e7155"
+FOREIGN KEY ("mediator_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_b0d6f5b549"
+FOREIGN KEY ("creator_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_mediator_id" ON "bets"  ("mediator_id")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_creator_id" ON "bets"  ("creator_id")[0m
+  [1m[35mSQL (9.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180503"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePossibilities (20171018180529)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.6ms)[0m  [1m[35mCREATE TABLE "possibilities" ("id" bigserial primary key, "description" character varying, "bet_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a15c4d685c"
+FOREIGN KEY ("bet_id")
+  REFERENCES "bets" ("id")
+)[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE  INDEX  "index_possibilities_on_bet_id" ON "possibilities"  ("bet_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180529"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20171018180603)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" bigserial primary key, "content" character varying, "user_id" bigint, "bet_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_273a25a7a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_4d0ccc31d3"
+FOREIGN KEY ("bet_id")
+  REFERENCES "bets" ("id")
+)[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_user_id" ON "messages"  ("user_id")[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE  INDEX  "index_messages_on_bet_id" ON "messages"  ("bet_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018180603"]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBetsUsers (20171018184757)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3552788925724350900)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3552788925724350900)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBetsUsers (20171018184757)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "bets_users" ("id" bigserial primary key, "bet_id" bigint, "user_id" bigint, "possibility_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_fe99e9359b"
+FOREIGN KEY ("bet_id")
+  REFERENCES "bets" ("id")
+, CONSTRAINT "fk_rails_35dcf6eaf1"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_c60ca83053"
+FOREIGN KEY ("possibility_id")
+  REFERENCES "possibilities" ("id")
+)[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE  INDEX  "index_bets_users_on_bet_id" ON "bets_users"  ("bet_id")[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE  INDEX  "index_bets_users_on_user_id" ON "bets_users"  ("user_id")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_bets_users_on_possibility_id" ON "bets_users"  ("possibility_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018184757"]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddsForeignKeyToBets (20171018194937)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "bets" ADD "outcome_id" bigint[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE  INDEX  "index_bets_on_outcome_id" ON "bets"  ("outcome_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "bets" ADD CONSTRAINT "fk_rails_1bbed54670"
+FOREIGN KEY ("outcome_id")
+  REFERENCES "possibilities" ("id")
+[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171018194937"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-20 14:20:51.922982"], ["updated_at", "2017-10-20 14:20:51.922982"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3552788925724350900)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/signup" for 127.0.0.1 at 2017-10-20 12:35:55 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
   
 actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -1536,7 +2273,11 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/favicon.ico" for ::1 at 2017-10-20 09:52:56 -0400
+=======
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-10-20 12:35:56 -0400
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
@@ -1561,6 +2302,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/api/v1/users" for ::1 at 2017-10-20 09:52:59 -0400
 Processing by Api::V1::UsersController#index as HTML
   [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
@@ -1737,6 +2479,11 @@ puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
 Started GET "/api/v1" for 127.0.0.1 at 2017-10-20 10:55:36 -0400
   
 ActionController::RoutingError (No route matches [GET] "/api/v1"):
+=======
+Started GET "/auth/login" for 127.0.0.1 at 2017-10-20 12:36:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/auth/login"):
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
   
 actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -1753,13 +2500,17 @@ activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.r
 actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
 actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
 rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+<<<<<<< HEAD
 rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+=======
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
 railties (5.1.4) lib/rails/engine.rb:522:in `call'
 puma (3.10.0) lib/puma/configuration.rb:225:in `call'
 puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/api/v1/users" for 127.0.0.1 at 2017-10-20 10:55:42 -0400
 Processing by Api::V1::UsersController#index as HTML
   [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
@@ -2019,5 +2770,241 @@ Completed 200 OK in 755ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:21:10 -0400
 Processing by Api::V1::UsersController#index as JSON
 Completed 200 OK in 1207ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+=======
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:39:47 -0400
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::Response):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:2:in `<top (required)>'
+app/controllers/users_controller.rb:2:in `<top (required)>'
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:41:28 -0400
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::Response):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:2:in `<top (required)>'
+app/controllers/users_controller.rb:2:in `<top (required)>'
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:41:53 -0400
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::Response):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:2:in `<top (required)>'
+app/controllers/authentication_controller.rb:2:in `<top (required)>'
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:49:54 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Unpermitted parameters: :first_name, :last_name
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 85ms (Views: 0.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:51:10 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 79ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:51:50 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$.BzYGhtHm8ehLqrg0Ua2HuFPvS2JJtsOsezUlinMHZd4cB0ddtBPC"], ["created_at", "2017-10-20 16:51:50.199060"], ["updated_at", "2017-10-20 16:51:50.199060"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 219ms (Views: 0.2ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:59:00 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$CM3aEJfHMieOs/z91ZBUH.sCjqNXZPduixDICn2MQL1Qi8O3SfLq2"], ["created_at", "2017-10-20 16:59:00.954768"], ["updated_at", "2017-10-20 16:59:00.954768"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 223ms (Views: 0.2ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:59:03 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$Ikb1kS3WGJw.5icQkPwseO9DycvE25m1LMDIiLPxrJHhlcGKqdDiG"], ["created_at", "2017-10-20 16:59:03.144675"], ["updated_at", "2017-10-20 16:59:03.144675"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 208ms (Views: 0.2ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:59:04 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$WrwvvYf1COVxeUA6HF2Mq.MMntlwj3hMD4J2oT4lsPRGMrMNiiFTa"], ["created_at", "2017-10-20 16:59:04.810605"], ["updated_at", "2017-10-20 16:59:04.810605"]]
+  [1m[35m (9.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 204ms (Views: 0.1ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:10 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 131ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:13 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 131ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:15 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 130ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:16 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 134ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:16 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 131ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:21 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 66ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:26 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 128ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:29 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.co", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.co"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:33 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 128ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3552788925724350900)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to MakeEmailAndUsernameUnique (20171020170344)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171020170344"]]
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3552788925724350900)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 13:05:46 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$ZOvQq1AWVM5tbDT6it9nzeJKyJjlLirx8yFNfYjWD6lJmwewJuPfa"], ["created_at", "2017-10-20 17:05:46.649475"], ["updated_at", "2017-10-20 17:05:46.649475"]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 219ms (Views: 0.2ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 13:05:47 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$DAh3s55cV7v3foeubxmDNe5J11fe2wlW3fRgoP06Zl1bweDddeKJS"], ["created_at", "2017-10-20 17:05:47.902199"], ["updated_at", "2017-10-20 17:05:47.902199"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 5.1ms)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(foo@bar.com) already exists.
+: INSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"):
+  
+app/controllers/users_controller.rb:7:in `create'
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 13:06:32 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "foobarman"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 82ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 13:06:52 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 133ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 13:06:53 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 133ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 13:06:54 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 133ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 13:06:55 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 130ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+>>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
 
 

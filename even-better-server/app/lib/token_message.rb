@@ -1,5 +1,5 @@
-# app/lib/message.rb
-class Message
+# app/lib/token_message.rb
+class TokenMessage
   def self.not_found(record = 'record')
     "Sorry, #{record} not found."
   end

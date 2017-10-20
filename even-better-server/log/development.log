@@ -1507,3 +1507,233 @@ FOREIGN KEY ("outcome_id")
   [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3552788925724350900)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/signup" for 127.0.0.1 at 2017-10-20 12:35:55 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-10-20 12:35:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/auth/login" for 127.0.0.1 at 2017-10-20 12:36:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/auth/login"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:39:47 -0400
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::Response):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:2:in `<top (required)>'
+app/controllers/users_controller.rb:2:in `<top (required)>'
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:41:28 -0400
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::Response):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:2:in `<top (required)>'
+app/controllers/users_controller.rb:2:in `<top (required)>'
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:41:53 -0400
+  
+ActionController::RoutingError (uninitialized constant ApplicationController::Response):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:2:in `<top (required)>'
+app/controllers/authentication_controller.rb:2:in `<top (required)>'
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:49:54 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Unpermitted parameters: :first_name, :last_name
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 85ms (Views: 0.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:51:10 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 79ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:51:50 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$.BzYGhtHm8ehLqrg0Ua2HuFPvS2JJtsOsezUlinMHZd4cB0ddtBPC"], ["created_at", "2017-10-20 16:51:50.199060"], ["updated_at", "2017-10-20 16:51:50.199060"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 219ms (Views: 0.2ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:59:00 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$CM3aEJfHMieOs/z91ZBUH.sCjqNXZPduixDICn2MQL1Qi8O3SfLq2"], ["created_at", "2017-10-20 16:59:00.954768"], ["updated_at", "2017-10-20 16:59:00.954768"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 223ms (Views: 0.2ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:59:03 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$Ikb1kS3WGJw.5icQkPwseO9DycvE25m1LMDIiLPxrJHhlcGKqdDiG"], ["created_at", "2017-10-20 16:59:03.144675"], ["updated_at", "2017-10-20 16:59:03.144675"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 208ms (Views: 0.2ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:59:04 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Foo", "last_name"=>"Bar", "email"=>"foo@bar.com", "username"=>"foobarman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "foobarman"], ["email", "foo@bar.com"], ["first_name", "Foo"], ["last_name", "Bar"], ["password_digest", "$2a$10$WrwvvYf1COVxeUA6HF2Mq.MMntlwj3hMD4J2oT4lsPRGMrMNiiFTa"], ["created_at", "2017-10-20 16:59:04.810605"], ["updated_at", "2017-10-20 16:59:04.810605"]]
+  [1m[35m (9.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 201 Created in 204ms (Views: 0.1ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:10 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 131ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:13 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 131ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:15 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 130ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:16 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 134ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:16 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 131ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:21 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 66ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:26 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 128ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:29 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.co", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.co"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:59:33 -0400
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"foo@bar.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "foo@bar.com"], ["LIMIT", 1]]
+Completed 200 OK in 128ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+

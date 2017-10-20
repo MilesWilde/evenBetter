@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :messages
 
   validates_presence_of :first_name, :last_name, :email, :username, :password_digest
-  validates :password_digest, length: { minimum: 8 }
+  validates :password, length: { minimum: 8 }
 end

@@ -783,3 +783,1267 @@ FOREIGN KEY ("bet_id")
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "isaias"], ["email", "nathanial@moriette.com"], ["points", 1000], ["first_name", "Keshaun"], ["last_name", "Hackett"], ["password_digest", "$2a$04$2j8j6Pl1tItkNOz2z/JmhufFIFVkwjOBUM6oThKX8qWtT1RIEMhqO"], ["created_at", "2017-10-20 15:58:14.953532"], ["updated_at", "2017-10-20 15:58:14.953532"]]
   [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "nelda"], ["email", "lera.hills@kihnmurray.io"], ["points", 1000], ["first_name", "Eleanora"], ["last_name", "Cummerata"], ["password_digest", "$2a$04$0KKRore.PWj9UywCpgVwkOgr6CEQIBhwdxOha0J846afllB4vD.LK"], ["created_at", "2017-10-20 16:03:02.886726"], ["updated_at", "2017-10-20 16:03:02.886726"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:03:02 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "nelda"], ["email", "lera.hills@kihnmurray.io"], ["points", 1000], ["first_name", "Eleanora"], ["last_name", "Cummerata"], ["password_digest", "$2a$04$nsE8DU0RMHunX6UtZLO2B.eKCJPb6gevNdwhmUv7TQnzqRwNPCifO"], ["created_at", "2017-10-20 16:03:02.896559"], ["updated_at", "2017-10-20 16:03:02.896559"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:03:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "rolando"], ["email", "maynard@douglas.io"], ["points", 1000], ["first_name", "Mayra"], ["last_name", "MacGyver"], ["password_digest", "$2a$04$hlCdKRHAieXuE6PGuY0idOzDlkdElcgtUTcC0Evd1lkIu148T4CJS"], ["created_at", "2017-10-20 16:03:54.805010"], ["updated_at", "2017-10-20 16:03:54.805010"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:03:54 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "rolando"], ["email", "maynard@douglas.io"], ["points", 1000], ["first_name", "Mayra"], ["last_name", "MacGyver"], ["password_digest", "$2a$04$8lekV6OfetZEBUGhYeYr2ugyx//QuASvnXVgG706jMf3t9iNrhHuu"], ["created_at", "2017-10-20 16:03:54.814834"], ["updated_at", "2017-10-20 16:03:54.814834"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:03:54 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "margarette.murray"], ["email", "kieran.ryan@hilll.co"], ["points", 1000], ["first_name", "Eulah"], ["last_name", "Wolff"], ["password_digest", "$2a$04$MtdohlJ11DVZn4c5th33rODwb4wmc9n65ae1hayqyvso2L4k2G3LC"], ["created_at", "2017-10-20 16:04:37.298632"], ["updated_at", "2017-10-20 16:04:37.298632"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:04:37 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "margarette.murray"], ["email", "kieran.ryan@hilll.co"], ["points", 1000], ["first_name", "Eulah"], ["last_name", "Wolff"], ["password_digest", "$2a$04$963DWGHiXg0czdSE4DCwye.CQ3CR5MjyMnV8A.xB58V89ltuOUBcO"], ["created_at", "2017-10-20 16:04:37.312914"], ["updated_at", "2017-10-20 16:04:37.312914"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:04:37 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "rose"], ["email", "rico@luettgenstiedemann.net"], ["points", 1000], ["first_name", "Bertrand"], ["last_name", "Greenfelder"], ["password_digest", "$2a$04$T2BgEM2CGFR7PCNzuNdsYe18JuNNPSqAeOwnz9zOaCGWh8UNcoeqa"], ["created_at", "2017-10-20 16:07:08.984837"], ["updated_at", "2017-10-20 16:07:08.984837"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:07:08 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "rose"], ["email", "rico@luettgenstiedemann.net"], ["points", 1000], ["first_name", "Bertrand"], ["last_name", "Greenfelder"], ["password_digest", "$2a$04$of6jCrUFFbP5cxLOF9/ZCOcY.zF8XXsagaqy5LrJpojjHz7n/LQtW"], ["created_at", "2017-10-20 16:07:08.994492"], ["updated_at", "2017-10-20 16:07:08.994492"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:07:08 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:07:09 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:07:09 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:07:09 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:07:09 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:07:09 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "kayli"], ["email", "dereck_koelpin@wintheiser.io"], ["points", 1000], ["first_name", "Tristin"], ["last_name", "Nolan"], ["password_digest", "$2a$04$G2QWzeH8QgRK9JXXIwyzmOD8e8crHUwYSU9UADzffKNJ4eU1nrgD2"], ["created_at", "2017-10-20 16:08:43.619725"], ["updated_at", "2017-10-20 16:08:43.619725"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:08:43 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "kayli"], ["email", "dereck_koelpin@wintheiser.io"], ["points", 1000], ["first_name", "Tristin"], ["last_name", "Nolan"], ["password_digest", "$2a$04$1NjxihCpDa/NJUwGUEuAfu0o/AU4A4hB./4Qt7Y2Mbl.i1aSzObpW"], ["created_at", "2017-10-20 16:08:43.631741"], ["updated_at", "2017-10-20 16:08:43.631741"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:08:43 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:08:43 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:08:43 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:08:43 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:08:43 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:08:43 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "carolyne"], ["email", "rollin@gaylordkuvalis.info"], ["points", 1000], ["first_name", "Anastasia"], ["last_name", "Brakus"], ["password_digest", "$2a$04$UdBrthdvCHNimP5P4YgcpuZylLlLk3JNLWRtcFL0stlO8mvLIoCl2"], ["created_at", "2017-10-20 16:11:22.575223"], ["updated_at", "2017-10-20 16:11:22.575223"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:11:22 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"rollin@gaylordkuvalis.info", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rollin@gaylordkuvalis.info", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rollin@gaylordkuvalis.info"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rollin@gaylordkuvalis.info"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "carolyne"], ["email", "rollin@gaylordkuvalis.info"], ["points", 1000], ["first_name", "Anastasia"], ["last_name", "Brakus"], ["password_digest", "$2a$04$n/8AoFcBmMTnkzgGL1ZV.eNs5s/wqINsZ8.jI/prGbPTumM5.CUra"], ["created_at", "2017-10-20 16:11:22.605402"], ["updated_at", "2017-10-20 16:11:22.605402"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:11:22 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"jared_greenfelder@flatleybalistreri.io", "password"=>"[FILTERED]", "authentication"=>{"email"=>"jared_greenfelder@flatleybalistreri.io", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jared_greenfelder@flatleybalistreri.io"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:11:22 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Anastasia", "last_name"=>"Brakus", "username"=>"carolyne", "email"=>"rollin@gaylordkuvalis.info", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"carolyne", "email"=>"rollin@gaylordkuvalis.info", "points"=>1000, "first_name"=>"Anastasia", "last_name"=>"Brakus"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 7ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:11:22 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Anastasia", "last_name"=>"Brakus", "username"=>"carolyne", "email"=>"rollin@gaylordkuvalis.info", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"carolyne", "email"=>"rollin@gaylordkuvalis.info", "points"=>1000, "first_name"=>"Anastasia", "last_name"=>"Brakus"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:11:22 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Anastasia", "last_name"=>"Brakus", "username"=>"carolyne", "email"=>"rollin@gaylordkuvalis.info", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"carolyne", "email"=>"rollin@gaylordkuvalis.info", "points"=>1000, "first_name"=>"Anastasia", "last_name"=>"Brakus"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 8ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:11:22 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:11:22 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "mervin.kohler"], ["email", "bertrand_koelpin@abbott.info"], ["points", 1000], ["first_name", "Dorothea"], ["last_name", "Schmitt"], ["password_digest", "$2a$04$u97F2s54YD2ktKKt1RgwPOwoKscjkf/aZWBHyWXSQ2NdN98dOPhlK"], ["created_at", "2017-10-20 16:13:44.445260"], ["updated_at", "2017-10-20 16:13:44.445260"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:13:44 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "mervin.kohler"], ["email", "bertrand_koelpin@abbott.info"], ["points", 1000], ["first_name", "Dorothea"], ["last_name", "Schmitt"], ["password_digest", "$2a$04$dGthgW7/WW77A/9W4UwLLuEMLRWmdpJDm0hfR4/YGn79966dbsQ8."], ["created_at", "2017-10-20 16:13:44.459420"], ["updated_at", "2017-10-20 16:13:44.459420"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:13:44 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:13:44 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:13:44 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:13:44 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:13:44 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:13:44 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "santa"], ["email", "wilford.wisozk@cole.org"], ["points", 1000], ["first_name", "Elliot"], ["last_name", "Howe"], ["password_digest", "$2a$04$gARJpHYmE/aWWGBDavAq6OEp7GzRt7yLsW/DskqV81sCBQGO77P0G"], ["created_at", "2017-10-20 16:17:47.739868"], ["updated_at", "2017-10-20 16:17:47.739868"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:17:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "santa"], ["email", "wilford.wisozk@cole.org"], ["points", 1000], ["first_name", "Elliot"], ["last_name", "Howe"], ["password_digest", "$2a$04$8FjtFt9OKc/wxbSV3GUSaucVR0qX3oElxGlBmPgu7qQNifkC..nRm"], ["created_at", "2017-10-20 16:17:47.750747"], ["updated_at", "2017-10-20 16:17:47.750747"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:17:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:17:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:17:47 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Elliot", "last_name"=>"Howe", "username"=>"santa", "email"=>"wilford.wisozk@cole.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"santa", "email"=>"wilford.wisozk@cole.org", "points"=>1000, "first_name"=>"Elliot", "last_name"=>"Howe"}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:17:47 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Elliot", "last_name"=>"Howe", "username"=>"santa", "email"=>"wilford.wisozk@cole.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"santa", "email"=>"wilford.wisozk@cole.org", "points"=>1000, "first_name"=>"Elliot", "last_name"=>"Howe"}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:17:47 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:17:47 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "providenci"], ["email", "blanca@aufderharschuster.biz"], ["points", 1000], ["first_name", "Izaiah"], ["last_name", "Torp"], ["password_digest", "$2a$04$ZiD4FsGB2JLyljXLbNMiq.U1mzo99BrzVxokX46O1SevEekmI4cbO"], ["created_at", "2017-10-20 16:19:23.413483"], ["updated_at", "2017-10-20 16:19:23.413483"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:19:23 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "providenci"], ["email", "blanca@aufderharschuster.biz"], ["points", 1000], ["first_name", "Izaiah"], ["last_name", "Torp"], ["password_digest", "$2a$04$XRyA3SSGwBCA.cUUJgcxEuG1asRWXoC8gYCZ6Gb5SOgD/srRlt1Ki"], ["created_at", "2017-10-20 16:19:23.426362"], ["updated_at", "2017-10-20 16:19:23.426362"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:19:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:23 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "emelia.schowalter"], ["email", "gina_mitchell@green.biz"], ["points", 1000], ["first_name", "Verona"], ["last_name", "Berge"], ["password_digest", "$2a$04$cNLhrzhu8rSQurLJKPxCnuoOzw7.RCco2dnz5yGIpQM7yVsdBBPTa"], ["created_at", "2017-10-20 16:19:47.834521"], ["updated_at", "2017-10-20 16:19:47.834521"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:19:47 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "emelia.schowalter"], ["email", "gina_mitchell@green.biz"], ["points", 1000], ["first_name", "Verona"], ["last_name", "Berge"], ["password_digest", "$2a$04$Oze5T/GwaevrscEIWKE16eS8wHF9Uts9Cg7l5RwGPKIwfWfGbyMzC"], ["created_at", "2017-10-20 16:19:47.846169"], ["updated_at", "2017-10-20 16:19:47.846169"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:19:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:47 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:47 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:19:47 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "dorian_trantow"], ["email", "kamryn@cummingsmorar.net"], ["points", 1000], ["first_name", "Janice"], ["last_name", "Hessel"], ["password_digest", "$2a$04$.9QDenVMVieygU2EgSKdx.FJl0oraAWUTc0DXv7Pf39vaSptfT1fS"], ["created_at", "2017-10-20 16:20:02.217922"], ["updated_at", "2017-10-20 16:20:02.217922"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:20:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "dorian_trantow"], ["email", "kamryn@cummingsmorar.net"], ["points", 1000], ["first_name", "Janice"], ["last_name", "Hessel"], ["password_digest", "$2a$04$I7873oMLhaqYgeGuucN5c.c0nFlI1sLZwtlEvzgmgKFqxy1gtoz7i"], ["created_at", "2017-10-20 16:20:02.229012"], ["updated_at", "2017-10-20 16:20:02.229012"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:20:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:20:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:20:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:20:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:20:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:20:02 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "roberta.lowe"], ["email", "luz@paucek.org"], ["points", 1000], ["first_name", "Eldred"], ["last_name", "Larkin"], ["password_digest", "$2a$04$jOH2zjnBeX/epJa.8N7pYewce6S4Jvqqlr97ZdxaVq4N7tjwHsODu"], ["created_at", "2017-10-20 16:22:03.031031"], ["updated_at", "2017-10-20 16:22:03.031031"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:22:03 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "roberta.lowe"], ["email", "luz@paucek.org"], ["points", 1000], ["first_name", "Eldred"], ["last_name", "Larkin"], ["password_digest", "$2a$04$j7t4KNaCr0bFjHxVhM1MqOlzv/tw2zkaPwyVKviy0O/EgyuWWI/ES"], ["created_at", "2017-10-20 16:22:03.042396"], ["updated_at", "2017-10-20 16:22:03.042396"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:22:03 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:22:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Eldred", "last_name"=>"Larkin", "username"=>"roberta.lowe", "email"=>"luz@paucek.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"roberta.lowe", "email"=>"luz@paucek.org", "points"=>1000, "first_name"=>"Eldred", "last_name"=>"Larkin"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:22:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Eldred", "last_name"=>"Larkin", "username"=>"roberta.lowe", "email"=>"luz@paucek.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"roberta.lowe", "email"=>"luz@paucek.org", "points"=>1000, "first_name"=>"Eldred", "last_name"=>"Larkin"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:22:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Eldred", "last_name"=>"Larkin", "username"=>"roberta.lowe", "email"=>"luz@paucek.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"roberta.lowe", "email"=>"luz@paucek.org", "points"=>1000, "first_name"=>"Eldred", "last_name"=>"Larkin"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:22:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:22:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "zechariah"], ["email", "fern@bogan.com"], ["points", 1000], ["first_name", "Dashawn"], ["last_name", "Konopelski"], ["password_digest", "$2a$04$xhNO7QdO1ozRMhKjt1OH1O511ugO8nrHiDOvj9HSFwDPKIO6gQX86"], ["created_at", "2017-10-20 16:23:24.487867"], ["updated_at", "2017-10-20 16:23:24.487867"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:23:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "zechariah"], ["email", "fern@bogan.com"], ["points", 1000], ["first_name", "Dashawn"], ["last_name", "Konopelski"], ["password_digest", "$2a$04$obT2uw5jidxgne.N6PxMjOVaODKWpgj8xB.oEzJwlBYgwao6OCG72"], ["created_at", "2017-10-20 16:23:24.499253"], ["updated_at", "2017-10-20 16:23:24.499253"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:23:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:23:24 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:23:24 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:23:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:23:24 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:23:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "conrad"], ["email", "josh@gerlach.org"], ["points", 1000], ["first_name", "Lydia"], ["last_name", "Walter"], ["password_digest", "$2a$04$V.39qExisUQvJg.ekaFQ5OV/Ri30/HNAL6OWzsOfV1c7pkIsoqx02"], ["created_at", "2017-10-20 16:30:36.073838"], ["updated_at", "2017-10-20 16:30:36.073838"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:30:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "conrad"], ["email", "josh@gerlach.org"], ["points", 1000], ["first_name", "Lydia"], ["last_name", "Walter"], ["password_digest", "$2a$04$A8M/QbAzV2wBGUC4IQmPa.MieNEYGBtP0JnsKje.yWqr.lNmVSn4O"], ["created_at", "2017-10-20 16:30:36.084880"], ["updated_at", "2017-10-20 16:30:36.084880"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:30:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:30:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:30:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:30:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:30:36 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:30:36 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "abelardo"], ["email", "carmel@shields.name"], ["points", 1000], ["first_name", "Shawna"], ["last_name", "Steuber"], ["password_digest", "$2a$04$g9794Mv7ED.hqPelDo6Rx.pYibcitBLm5Iq9nJzVMktpKz56trOgy"], ["created_at", "2017-10-20 16:31:28.650007"], ["updated_at", "2017-10-20 16:31:28.650007"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:31:28 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "abelardo"], ["email", "carmel@shields.name"], ["points", 1000], ["first_name", "Shawna"], ["last_name", "Steuber"], ["password_digest", "$2a$04$B3sCbLsK7Ror4Jwqh.hrbuHNVprQsaK2ULUQNtZdo8Viij5Z.I55u"], ["created_at", "2017-10-20 16:31:28.662411"], ["updated_at", "2017-10-20 16:31:28.662411"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:31:28 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"haley_nolan@huel.net", "password"=>"[FILTERED]", "authentication"=>{"email"=>"haley_nolan@huel.net", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:31:28 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:31:28 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:31:28 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:31:28 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:31:28 -0400
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "braulio_langworth"], ["email", "neal.lowe@dickens.name"], ["points", 1000], ["first_name", "Shawna"], ["last_name", "Blick"], ["password_digest", "$2a$04$IRMtxgLG7.MSRlM10z8jaOQVi4uiFqOlzzko/iZgBfLgbwArFtuQG"], ["created_at", "2017-10-20 16:33:48.102300"], ["updated_at", "2017-10-20 16:33:48.102300"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:33:48 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "braulio_langworth"], ["email", "neal.lowe@dickens.name"], ["points", 1000], ["first_name", "Shawna"], ["last_name", "Blick"], ["password_digest", "$2a$04$9YRxUv9lpJkbNUqb/F.iMOl60o5if.7QvACZTYcmeU8tbbAn1VCq6"], ["created_at", "2017-10-20 16:33:48.113243"], ["updated_at", "2017-10-20 16:33:48.113243"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:33:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:33:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:33:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:33:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:33:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:33:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "amelie_ruel"], ["email", "evans@kuhlmanboyer.org"], ["points", 1000], ["first_name", "Adam"], ["last_name", "Spinka"], ["password_digest", "$2a$04$OrN./jQzIAlSa5cqD6G.0.TrYuArPO7hMB3BBddkDkv3/LFSMemPO"], ["created_at", "2017-10-20 16:34:11.589010"], ["updated_at", "2017-10-20 16:34:11.589010"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:34:11 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "amelie_ruel"], ["email", "evans@kuhlmanboyer.org"], ["points", 1000], ["first_name", "Adam"], ["last_name", "Spinka"], ["password_digest", "$2a$04$nFH/eqgrIPXfkExfkY7wFOi8V9PCm5Hu6NuiueFntaM5OuYtYdasa"], ["created_at", "2017-10-20 16:34:11.600476"], ["updated_at", "2017-10-20 16:34:11.600476"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:34:11 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:34:11 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:34:11 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:34:11 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:34:11 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:34:11 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "karelle_turcotte"], ["email", "dennis_oberbrunner@wuckert.org"], ["points", 1000], ["first_name", "Melvin"], ["last_name", "Kirlin"], ["password_digest", "$2a$04$iQP7zYtwSC9ujJpoxYXCbOq1ZNbEbpE9yzEeMyWGueIUfCx2LrW/K"], ["created_at", "2017-10-20 16:44:43.208542"], ["updated_at", "2017-10-20 16:44:43.208542"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:44:43 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"dennis_oberbrunner@wuckert.org", "password"=>"[FILTERED]", "authentication"=>{"email"=>"dennis_oberbrunner@wuckert.org", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dennis_oberbrunner@wuckert.org"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dennis_oberbrunner@wuckert.org"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "karelle_turcotte"], ["email", "dennis_oberbrunner@wuckert.org"], ["points", 1000], ["first_name", "Melvin"], ["last_name", "Kirlin"], ["password_digest", "$2a$04$mVJXnI6ifKbOJkeMbBoKPuslU8ADa1EUmj0X7qh6gMtplI1sPy7Ki"], ["created_at", "2017-10-20 16:44:43.233220"], ["updated_at", "2017-10-20 16:44:43.233220"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:44:43 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"zula@rice.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"zula@rice.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zula@rice.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:44:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Melvin", "last_name"=>"Kirlin", "username"=>"karelle_turcotte", "email"=>"dennis_oberbrunner@wuckert.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"karelle_turcotte", "email"=>"dennis_oberbrunner@wuckert.org", "points"=>1000, "first_name"=>"Melvin", "last_name"=>"Kirlin"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:44:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Melvin", "last_name"=>"Kirlin", "username"=>"karelle_turcotte", "email"=>"dennis_oberbrunner@wuckert.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"karelle_turcotte", "email"=>"dennis_oberbrunner@wuckert.org", "points"=>1000, "first_name"=>"Melvin", "last_name"=>"Kirlin"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:44:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Melvin", "last_name"=>"Kirlin", "username"=>"karelle_turcotte", "email"=>"dennis_oberbrunner@wuckert.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"karelle_turcotte", "email"=>"dennis_oberbrunner@wuckert.org", "points"=>1000, "first_name"=>"Melvin", "last_name"=>"Kirlin"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:44:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:44:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "maybelle.cole"], ["email", "gennaro.jacobi@lynch.com"], ["points", 1000], ["first_name", "Alfonzo"], ["last_name", "Simonis"], ["password_digest", "$2a$04$piwIkQIh31hbJIMFfAurs.QYDeawlRhTBQ2Z8e2Cty0MLHhfiIJru"], ["created_at", "2017-10-20 16:48:03.203947"], ["updated_at", "2017-10-20 16:48:03.203947"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:48:03 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"gennaro.jacobi@lynch.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"gennaro.jacobi@lynch.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gennaro.jacobi@lynch.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gennaro.jacobi@lynch.com"], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "maybelle.cole"], ["email", "gennaro.jacobi@lynch.com"], ["points", 1000], ["first_name", "Alfonzo"], ["last_name", "Simonis"], ["password_digest", "$2a$04$QOBx//SR0mCosEHdNsDnJug1fNgxMnloKO6UqUvnIGvkAXP8Sv3qm"], ["created_at", "2017-10-20 16:48:03.227335"], ["updated_at", "2017-10-20 16:48:03.227335"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:48:03 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"lelah@oberbrunnerparker.name", "password"=>"[FILTERED]", "authentication"=>{"email"=>"lelah@oberbrunnerparker.name", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lelah@oberbrunnerparker.name"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:48:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Alfonzo", "last_name"=>"Simonis", "username"=>"maybelle.cole", "email"=>"gennaro.jacobi@lynch.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"maybelle.cole", "email"=>"gennaro.jacobi@lynch.com", "points"=>1000, "first_name"=>"Alfonzo", "last_name"=>"Simonis"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:48:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Alfonzo", "last_name"=>"Simonis", "username"=>"maybelle.cole", "email"=>"gennaro.jacobi@lynch.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"maybelle.cole", "email"=>"gennaro.jacobi@lynch.com", "points"=>1000, "first_name"=>"Alfonzo", "last_name"=>"Simonis"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:48:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Alfonzo", "last_name"=>"Simonis", "username"=>"maybelle.cole", "email"=>"gennaro.jacobi@lynch.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"maybelle.cole", "email"=>"gennaro.jacobi@lynch.com", "points"=>1000, "first_name"=>"Alfonzo", "last_name"=>"Simonis"}}
+Unpermitted parameters: :first_name, :last_name, :username, :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:48:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:48:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "julius"], ["email", "elmo_raynor@brakuchmidt.biz"], ["points", 1000], ["first_name", "Maegan"], ["last_name", "Herzog"], ["password_digest", "$2a$04$HSoYVvzBRnAj4W4kLPisZu8VNn2YjEQihxNtCcOCaFVZ0e/BMohEG"], ["created_at", "2017-10-20 16:52:02.660236"], ["updated_at", "2017-10-20 16:52:02.660236"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:52:02 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"elmo_raynor@brakuchmidt.biz", "password"=>"[FILTERED]", "authentication"=>{"email"=>"elmo_raynor@brakuchmidt.biz", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "julius"], ["email", "elmo_raynor@brakuchmidt.biz"], ["points", 1000], ["first_name", "Maegan"], ["last_name", "Herzog"], ["password_digest", "$2a$04$S6gGcNDFW3d6QrEbpFgq4e6IMqvliyvKU85esWP.5srLtM1hbK9SW"], ["created_at", "2017-10-20 16:52:02.682219"], ["updated_at", "2017-10-20 16:52:02.682219"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:52:02 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"name@mccullough.info", "password"=>"[FILTERED]", "authentication"=>{"email"=>"name@mccullough.info", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "name@mccullough.info"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:52:02 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Maegan", "last_name"=>"Herzog", "username"=>"julius", "email"=>"elmo_raynor@brakuchmidt.biz", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"julius", "email"=>"elmo_raynor@brakuchmidt.biz", "points"=>1000, "first_name"=>"Maegan", "last_name"=>"Herzog"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "julius"], ["email", "elmo_raynor@brakuchmidt.biz"], ["first_name", "Maegan"], ["last_name", "Herzog"], ["password_digest", "$2a$04$PdCBqmiu9Ffh25Zx.c9vNOR.9DoxPFFlGfdYHuNIwch7CDjoJB0lS"], ["created_at", "2017-10-20 16:52:02.700729"], ["updated_at", "2017-10-20 16:52:02.700729"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+Completed 201 Created in 8ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:52:02 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Maegan", "last_name"=>"Herzog", "username"=>"julius", "email"=>"elmo_raynor@brakuchmidt.biz", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"julius", "email"=>"elmo_raynor@brakuchmidt.biz", "points"=>1000, "first_name"=>"Maegan", "last_name"=>"Herzog"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "julius"], ["email", "elmo_raynor@brakuchmidt.biz"], ["first_name", "Maegan"], ["last_name", "Herzog"], ["password_digest", "$2a$04$CAd0y2Bkp8FCBihtVpqHdupYVOZ74QrycWakvZY1yLqAaMvWsd6Pm"], ["created_at", "2017-10-20 16:52:02.716922"], ["updated_at", "2017-10-20 16:52:02.716922"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+Completed 201 Created in 11ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:52:02 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Maegan", "last_name"=>"Herzog", "username"=>"julius", "email"=>"elmo_raynor@brakuchmidt.biz", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"julius", "email"=>"elmo_raynor@brakuchmidt.biz", "points"=>1000, "first_name"=>"Maegan", "last_name"=>"Herzog"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "julius"], ["email", "elmo_raynor@brakuchmidt.biz"], ["first_name", "Maegan"], ["last_name", "Herzog"], ["password_digest", "$2a$04$dADHvUFCFXINb.Nq6R5UVOrsFt/BC7RYldi1NqcWPKS2/WBF4c/ja"], ["created_at", "2017-10-20 16:52:02.731396"], ["updated_at", "2017-10-20 16:52:02.731396"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elmo_raynor@brakuchmidt.biz"], ["LIMIT", 1]]
+Completed 201 Created in 8ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:52:02 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 7ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:52:02 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "shanny_runolfon"], ["email", "erik@ondrickakohler.io"], ["points", 1000], ["first_name", "Lafayette"], ["last_name", "Nicolas"], ["password_digest", "$2a$04$bAR1tJM91K7vCNwnXYNxJuH3.Us6pInDRWAlVOTFn5feHkkve9u5G"], ["created_at", "2017-10-20 16:55:05.148504"], ["updated_at", "2017-10-20 16:55:05.148504"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:55:05 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"erik@ondrickakohler.io", "password"=>"[FILTERED]", "authentication"=>{"email"=>"erik@ondrickakohler.io", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "shanny_runolfon"], ["email", "erik@ondrickakohler.io"], ["points", 1000], ["first_name", "Lafayette"], ["last_name", "Nicolas"], ["password_digest", "$2a$04$3zccoOIcz90EyN7xYcCRpuaCOSg7Z/YgwOum9aVRoVr5.pPyIlgy."], ["created_at", "2017-10-20 16:55:05.171035"], ["updated_at", "2017-10-20 16:55:05.171035"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:55:05 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"marisol@kuhicwatsica.co", "password"=>"[FILTERED]", "authentication"=>{"email"=>"marisol@kuhicwatsica.co", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "marisol@kuhicwatsica.co"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Lafayette", "last_name"=>"Nicolas", "username"=>"shanny_runolfon", "email"=>"erik@ondrickakohler.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"shanny_runolfon", "email"=>"erik@ondrickakohler.io", "points"=>1000, "first_name"=>"Lafayette", "last_name"=>"Nicolas"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "shanny_runolfon"], ["email", "erik@ondrickakohler.io"], ["first_name", "Lafayette"], ["last_name", "Nicolas"], ["password_digest", "$2a$04$837zYEUQwXMrlHeURezxz.z1ydW1ARLDT2F1W77xeNLsxqlElbayi"], ["created_at", "2017-10-20 16:55:05.189229"], ["updated_at", "2017-10-20 16:55:05.189229"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+Completed 201 Created in 13ms (Views: 0.5ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Lafayette", "last_name"=>"Nicolas", "username"=>"shanny_runolfon", "email"=>"erik@ondrickakohler.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"shanny_runolfon", "email"=>"erik@ondrickakohler.io", "points"=>1000, "first_name"=>"Lafayette", "last_name"=>"Nicolas"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "shanny_runolfon"], ["email", "erik@ondrickakohler.io"], ["first_name", "Lafayette"], ["last_name", "Nicolas"], ["password_digest", "$2a$04$PQfVq9HPpfpaZy7baZ7Np.AnAxNDi0ivNh4rvpbOEm/VHM1n4Wnmq"], ["created_at", "2017-10-20 16:55:05.209889"], ["updated_at", "2017-10-20 16:55:05.209889"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+Completed 201 Created in 11ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Lafayette", "last_name"=>"Nicolas", "username"=>"shanny_runolfon", "email"=>"erik@ondrickakohler.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"shanny_runolfon", "email"=>"erik@ondrickakohler.io", "points"=>1000, "first_name"=>"Lafayette", "last_name"=>"Nicolas"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "shanny_runolfon"], ["email", "erik@ondrickakohler.io"], ["first_name", "Lafayette"], ["last_name", "Nicolas"], ["password_digest", "$2a$04$4o1r2i75aShie.IBSYOzduSRaUlGQ3ZS6ViT.ql53Dpty3sBNOxca"], ["created_at", "2017-10-20 16:55:05.223341"], ["updated_at", "2017-10-20 16:55:05.223341"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "erik@ondrickakohler.io"], ["LIMIT", 1]]
+Completed 201 Created in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "aliya_steuber"], ["email", "frank_beier@turnerpaucek.com"], ["points", 1000], ["first_name", "Rosalinda"], ["last_name", "Schaden"], ["password_digest", "$2a$04$wdhPHjFXJPJ3zagMUR8v7edh.Xjc3dhToq.Pv4qGYeKyGi2ljfR/q"], ["created_at", "2017-10-20 16:55:31.317347"], ["updated_at", "2017-10-20 16:55:31.317347"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:55:31 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"frank_beier@turnerpaucek.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"frank_beier@turnerpaucek.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "aliya_steuber"], ["email", "frank_beier@turnerpaucek.com"], ["points", 1000], ["first_name", "Rosalinda"], ["last_name", "Schaden"], ["password_digest", "$2a$04$VshyjB4oGF6h.n0CBQczsee6XqyHRqmsjtk34Ep5VBfQUgYSqCBsy"], ["created_at", "2017-10-20 16:55:31.338505"], ["updated_at", "2017-10-20 16:55:31.338505"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:55:31 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"ruell@monahan.info", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ruell@monahan.info", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ruell@monahan.info"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:31 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Rosalinda", "last_name"=>"Schaden", "username"=>"aliya_steuber", "email"=>"frank_beier@turnerpaucek.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"aliya_steuber", "email"=>"frank_beier@turnerpaucek.com", "points"=>1000, "first_name"=>"Rosalinda", "last_name"=>"Schaden"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "aliya_steuber"], ["email", "frank_beier@turnerpaucek.com"], ["first_name", "Rosalinda"], ["last_name", "Schaden"], ["password_digest", "$2a$04$rJO0VA0N2IxrDI26ShQ8kuURHLdK7jAI1AO31IPSt2.dzOJj6ffvW"], ["created_at", "2017-10-20 16:55:31.358911"], ["updated_at", "2017-10-20 16:55:31.358911"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+Completed 201 Created in 14ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:31 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Rosalinda", "last_name"=>"Schaden", "username"=>"aliya_steuber", "email"=>"frank_beier@turnerpaucek.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"aliya_steuber", "email"=>"frank_beier@turnerpaucek.com", "points"=>1000, "first_name"=>"Rosalinda", "last_name"=>"Schaden"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "aliya_steuber"], ["email", "frank_beier@turnerpaucek.com"], ["first_name", "Rosalinda"], ["last_name", "Schaden"], ["password_digest", "$2a$04$fDq5CT4BSyRk9kUtAp/uMOVeJcfRq6QL8H4iEjFB.gntRt3fwyGbe"], ["created_at", "2017-10-20 16:55:31.380204"], ["updated_at", "2017-10-20 16:55:31.380204"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+Completed 201 Created in 7ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:31 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Rosalinda", "last_name"=>"Schaden", "username"=>"aliya_steuber", "email"=>"frank_beier@turnerpaucek.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"aliya_steuber", "email"=>"frank_beier@turnerpaucek.com", "points"=>1000, "first_name"=>"Rosalinda", "last_name"=>"Schaden"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "aliya_steuber"], ["email", "frank_beier@turnerpaucek.com"], ["first_name", "Rosalinda"], ["last_name", "Schaden"], ["password_digest", "$2a$04$E8y8Os0vebDfMPjZD0rLhu3ZZLUwLOH54c6oFfNFibFEWaZggYmkW"], ["created_at", "2017-10-20 16:55:31.392078"], ["updated_at", "2017-10-20 16:55:31.392078"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "frank_beier@turnerpaucek.com"], ["LIMIT", 1]]
+Completed 201 Created in 7ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:31 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:55:31 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "evans"], ["email", "madalyn_crooks@grantbergnaum.co"], ["points", 1000], ["first_name", "Kennedy"], ["last_name", "Konopelski"], ["password_digest", "$2a$04$mewTnVSn519SadUfIVn3.eTBlAUWNuNEhYghu7cSuS6se5sFaVFpS"], ["created_at", "2017-10-20 16:56:24.504471"], ["updated_at", "2017-10-20 16:56:24.504471"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:56:24 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"madalyn_crooks@grantbergnaum.co", "password"=>"[FILTERED]", "authentication"=>{"email"=>"madalyn_crooks@grantbergnaum.co", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "evans"], ["email", "madalyn_crooks@grantbergnaum.co"], ["points", 1000], ["first_name", "Kennedy"], ["last_name", "Konopelski"], ["password_digest", "$2a$04$CYpymDDgHng23/BQ6vb7xuB8AGAUgaEvpqLMc8YHwIzLZ7mfW.haC"], ["created_at", "2017-10-20 16:56:24.524686"], ["updated_at", "2017-10-20 16:56:24.524686"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:56:24 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"christophe@weinat.info", "password"=>"[FILTERED]", "authentication"=>{"email"=>"christophe@weinat.info", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "christophe@weinat.info"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:24 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Kennedy", "last_name"=>"Konopelski", "username"=>"evans", "email"=>"madalyn_crooks@grantbergnaum.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"evans", "email"=>"madalyn_crooks@grantbergnaum.co", "points"=>1000, "first_name"=>"Kennedy", "last_name"=>"Konopelski"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "evans"], ["email", "madalyn_crooks@grantbergnaum.co"], ["first_name", "Kennedy"], ["last_name", "Konopelski"], ["password_digest", "$2a$04$385xWkCwpr.dGW4TjsI3WuXap16t569Ge/uv1ob3Vi9fqcf4nZkGm"], ["created_at", "2017-10-20 16:56:24.540434"], ["updated_at", "2017-10-20 16:56:24.540434"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+Completed 201 Created in 11ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:24 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Kennedy", "last_name"=>"Konopelski", "username"=>"evans", "email"=>"madalyn_crooks@grantbergnaum.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"evans", "email"=>"madalyn_crooks@grantbergnaum.co", "points"=>1000, "first_name"=>"Kennedy", "last_name"=>"Konopelski"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "evans"], ["email", "madalyn_crooks@grantbergnaum.co"], ["first_name", "Kennedy"], ["last_name", "Konopelski"], ["password_digest", "$2a$04$OYxrhB.Abn11hg/GAjNsAe6NyQRcqsjf8K1TrftBowRVqnuw0cIh2"], ["created_at", "2017-10-20 16:56:24.555989"], ["updated_at", "2017-10-20 16:56:24.555989"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+Completed 201 Created in 8ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:24 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Kennedy", "last_name"=>"Konopelski", "username"=>"evans", "email"=>"madalyn_crooks@grantbergnaum.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"evans", "email"=>"madalyn_crooks@grantbergnaum.co", "points"=>1000, "first_name"=>"Kennedy", "last_name"=>"Konopelski"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "evans"], ["email", "madalyn_crooks@grantbergnaum.co"], ["first_name", "Kennedy"], ["last_name", "Konopelski"], ["password_digest", "$2a$04$ULLY9/6x8SGdfJELzQIuPOi8cnEDPK.9KHQ1sIHz3JqtZT9S.rOWO"], ["created_at", "2017-10-20 16:56:24.571275"], ["updated_at", "2017-10-20 16:56:24.571275"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "madalyn_crooks@grantbergnaum.co"], ["LIMIT", 1]]
+Completed 201 Created in 7ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:24 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:24 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "chloe"], ["email", "bria_rutherford@kemmer.io"], ["points", 1000], ["first_name", "Eino"], ["last_name", "Spencer"], ["password_digest", "$2a$04$dMfhEytNzILv.ksLVhHTbOTeCbV1u6oKeCA/sNI34Pb2z4s4c0UkK"], ["created_at", "2017-10-20 16:56:48.801445"], ["updated_at", "2017-10-20 16:56:48.801445"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:56:48 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"bria_rutherford@kemmer.io", "password"=>"[FILTERED]", "authentication"=>{"email"=>"bria_rutherford@kemmer.io", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "chloe"], ["email", "bria_rutherford@kemmer.io"], ["points", 1000], ["first_name", "Eino"], ["last_name", "Spencer"], ["password_digest", "$2a$04$5OfHfr4TClewTUhi6BobousrGhUVM0I5tttENwnlrI7OQ9asT1xOe"], ["created_at", "2017-10-20 16:56:48.822708"], ["updated_at", "2017-10-20 16:56:48.822708"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:56:48 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"stefan@stamm.org", "password"=>"[FILTERED]", "authentication"=>{"email"=>"stefan@stamm.org", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "stefan@stamm.org"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:48 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Eino", "last_name"=>"Spencer", "username"=>"chloe", "email"=>"bria_rutherford@kemmer.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"chloe", "email"=>"bria_rutherford@kemmer.io", "points"=>1000, "first_name"=>"Eino", "last_name"=>"Spencer"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "chloe"], ["email", "bria_rutherford@kemmer.io"], ["first_name", "Eino"], ["last_name", "Spencer"], ["password_digest", "$2a$04$P2BmiMTHfrw9/XqK72T0FeoVYu/jUuldPed3eBAn1NUBFcKpqp3me"], ["created_at", "2017-10-20 16:56:48.843609"], ["updated_at", "2017-10-20 16:56:48.843609"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+Completed 201 Created in 13ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:48 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Eino", "last_name"=>"Spencer", "username"=>"chloe", "email"=>"bria_rutherford@kemmer.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"chloe", "email"=>"bria_rutherford@kemmer.io", "points"=>1000, "first_name"=>"Eino", "last_name"=>"Spencer"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "chloe"], ["email", "bria_rutherford@kemmer.io"], ["first_name", "Eino"], ["last_name", "Spencer"], ["password_digest", "$2a$04$yi0emIoimaRbDc8bJkg7X.qaFnj1nFfgPZ0qw8RNI7Z3iMJS0Vety"], ["created_at", "2017-10-20 16:56:48.865174"], ["updated_at", "2017-10-20 16:56:48.865174"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+Completed 201 Created in 10ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:48 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Eino", "last_name"=>"Spencer", "username"=>"chloe", "email"=>"bria_rutherford@kemmer.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"chloe", "email"=>"bria_rutherford@kemmer.io", "points"=>1000, "first_name"=>"Eino", "last_name"=>"Spencer"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "chloe"], ["email", "bria_rutherford@kemmer.io"], ["first_name", "Eino"], ["last_name", "Spencer"], ["password_digest", "$2a$04$o8xumR5.zd2gFIfpyYrNMOpP/gvVuTPNAR98byts/fvYoS7g7T9Gi"], ["created_at", "2017-10-20 16:56:48.879239"], ["updated_at", "2017-10-20 16:56:48.879239"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bria_rutherford@kemmer.io"], ["LIMIT", 1]]
+Completed 201 Created in 8ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:48 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:56:48 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "ardith"], ["email", "ray@witting.info"], ["points", 1000], ["first_name", "Jamal"], ["last_name", "Kuhlman"], ["password_digest", "$2a$04$X6YRzlM69i0ye8QMz94NLetUGb6LC.OqKFgdP6KDbRbVL3xs2rHXa"], ["created_at", "2017-10-20 16:57:49.430887"], ["updated_at", "2017-10-20 16:57:49.430887"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:57:49 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"ray@witting.info", "password"=>"[FILTERED]", "authentication"=>{"email"=>"ray@witting.info", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "points", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["username", "ardith"], ["email", "ray@witting.info"], ["points", 1000], ["first_name", "Jamal"], ["last_name", "Kuhlman"], ["password_digest", "$2a$04$U/k20DfOZivO6Y2FafZ.SeffI7lymvze9vAxotv1V42.FVhd6d.v."], ["created_at", "2017-10-20 16:57:49.452464"], ["updated_at", "2017-10-20 16:57:49.452464"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/auth/login" for 127.0.0.1 at 2017-10-20 12:57:49 -0400
+Processing by AuthenticationController#authenticate as HTML
+  Parameters: {"email"=>"mike.trantow@becker.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"mike.trantow@becker.com", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :authentication
+Unpermitted parameter: :authentication
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.trantow@becker.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:57:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Jamal", "last_name"=>"Kuhlman", "username"=>"ardith", "email"=>"ray@witting.info", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"ardith", "email"=>"ray@witting.info", "points"=>1000, "first_name"=>"Jamal", "last_name"=>"Kuhlman"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "ardith"], ["email", "ray@witting.info"], ["first_name", "Jamal"], ["last_name", "Kuhlman"], ["password_digest", "$2a$04$QAe.i3y3U4DumQ7/e2Cs0.YlxvBbsCIEl5d1V6KGGN3oYEMNqRTdu"], ["created_at", "2017-10-20 16:57:49.471447"], ["updated_at", "2017-10-20 16:57:49.471447"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:57:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Jamal", "last_name"=>"Kuhlman", "username"=>"ardith", "email"=>"ray@witting.info", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"ardith", "email"=>"ray@witting.info", "points"=>1000, "first_name"=>"Jamal", "last_name"=>"Kuhlman"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "ardith"], ["email", "ray@witting.info"], ["first_name", "Jamal"], ["last_name", "Kuhlman"], ["password_digest", "$2a$04$mbCr7vn4K3D15o8gxZCVleZ7cj9YXH07HSUW5jtQ9z9PJ0Lv0wW8C"], ["created_at", "2017-10-20 16:57:49.492015"], ["updated_at", "2017-10-20 16:57:49.492015"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+Completed 201 Created in 9ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:57:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"first_name"=>"Jamal", "last_name"=>"Kuhlman", "username"=>"ardith", "email"=>"ray@witting.info", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "points"=>1000, "user"=>{"username"=>"ardith", "email"=>"ray@witting.info", "points"=>1000, "first_name"=>"Jamal", "last_name"=>"Kuhlman"}}
+Unpermitted parameters: :points, :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "ardith"], ["email", "ray@witting.info"], ["first_name", "Jamal"], ["last_name", "Kuhlman"], ["password_digest", "$2a$04$h0AlSRske0vpYWQ9fc3z4exQXNBDQ5XhLAz/nY8lNE.vbjc2fgS7W"], ["created_at", "2017-10-20 16:57:49.505602"], ["updated_at", "2017-10-20 16:57:49.505602"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ray@witting.info"], ["LIMIT", 1]]
+Completed 201 Created in 8ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:57:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-20 12:57:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m

@@ -2607,6 +2607,7 @@ Processing by Api::V1::UsersController#index as HTML
 Completed 200 OK in 86ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
 Started GET "/api/v1/users" for 127.0.0.1 at 2017-10-20 11:38:41 -0400
   [1m[35m (6.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by Api::V1::UsersController#index as HTML
@@ -3014,6 +3015,18 @@ ActiveRecord::NoDatabaseError (FATAL:  database "even_better_development" does n
 ):
   
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+=======
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 14:01:39 -0400
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (0.21.0) lib/pg.rb:56:in `initialize'
+pg (0.21.0) lib/pg.rb:56:in `new'
+pg (0.21.0) lib/pg.rb:56:in `connect'
+>>>>>>> f44bdfcf458dd83d2f23838a035ad9403e40c851
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
@@ -3055,12 +3068,25 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/api/v1/users" for ::1 at 2017-10-20 14:03:27 -0400
   
 ActiveRecord::NoDatabaseError (FATAL:  database "even_better_development" does not exist
 ):
   
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+=======
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 14:08:24 -0400
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (0.21.0) lib/pg.rb:56:in `initialize'
+pg (0.21.0) lib/pg.rb:56:in `new'
+pg (0.21.0) lib/pg.rb:56:in `connect'
+>>>>>>> f44bdfcf458dd83d2f23838a035ad9403e40c851
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
 activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
@@ -3102,6 +3128,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even_better_development"[0m
   [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even_better_test"[0m
   [1m[35m (523.6ms)[0m  [1m[35mCREATE DATABASE "even_better_development" ENCODING = 'unicode'[0m
@@ -3945,6 +3972,33 @@ rack (2.0.3) lib/rack/etag.rb:25:in `call'
 rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
 rack (2.0.3) lib/rack/head.rb:12:in `call'
 activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+=======
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 14:08:29 -0400
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (0.21.0) lib/pg.rb:56:in `initialize'
+pg (0.21.0) lib/pg.rb:56:in `new'
+pg (0.21.0) lib/pg.rb:56:in `connect'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.4) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.4) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.4) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
+>>>>>>> f44bdfcf458dd83d2f23838a035ad9403e40c851
 actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
 activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
 actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
@@ -3971,6 +4025,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/api/v1/users" for ::1 at 2017-10-20 15:02:47 -0400
 Processing by Api::V1::UsersController#index as HTML
 Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
@@ -4037,6 +4092,33 @@ rack (2.0.3) lib/rack/etag.rb:25:in `call'
 rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
 rack (2.0.3) lib/rack/head.rb:12:in `call'
 activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+=======
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 14:09:11 -0400
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (0.21.0) lib/pg.rb:56:in `initialize'
+pg (0.21.0) lib/pg.rb:56:in `new'
+pg (0.21.0) lib/pg.rb:56:in `connect'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.4) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.4) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.4) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
+>>>>>>> f44bdfcf458dd83d2f23838a035ad9403e40c851
 actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
 activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
 actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
@@ -4063,6 +4145,7 @@ puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
 puma (3.10.0) lib/puma/server.rb:437:in `process_client'
 puma (3.10.0) lib/puma/server.rb:301:in `block in run'
 puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/api/v1/users" for ::1 at 2017-10-20 15:04:32 -0400
 Processing by Api::V1::UsersController#index as */*
   Parameters: {"user"=>{}}
@@ -4070,3 +4153,5 @@ Processing by Api::V1::UsersController#index as */*
 Completed 200 OK in 251ms (Views: 0.1ms | ActiveRecord: 0.7ms)
 
 
+=======
+>>>>>>> f44bdfcf458dd83d2f23838a035ad9403e40c851

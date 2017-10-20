@@ -5,7 +5,7 @@ class UsersContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      users: []
+      games: []
     }
   }
 
@@ -13,7 +13,7 @@ class UsersContainer extends Component {
     axios.get('http://localhost:3001/api/v1/users.json')
     .then(response => {
       console.log(response)
-      this.setState({users: response.data})
+      this.setState({games: response.data.games})
     })
     .catch(error => console.log(error))
   }
@@ -21,18 +21,16 @@ class UsersContainer extends Component {
   render() {
     return (
       <div>
-        {this.state.users.map((user) => {
+        {this.state.games.map((game) => {
           return(
-            <div className="tile" key={user.id} >
-              <h4>{user.username}</h4>
-              <p>{user.first_name}</p>
-              <p>{user.last_name}</p>
-              <p>{user.password_hash}</p>
+            <div>
+              <h4>{game.gameType}</h4>
+              <p>{game.awayTeamName} at {game.homeTeamName}</p>        
             </div>
           )       
         })}
       </div>
-    );
+    )
   }
 }
 

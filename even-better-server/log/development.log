@@ -1856,3 +1856,168 @@ Processing by Api::V1::UsersController#index as HTML
 Completed 200 OK in 86ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/api/v1/users" for 127.0.0.1 at 2017-10-20 11:38:41 -0400
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 200 OK in 225ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2017-10-20 11:38:45 -0400
+Processing by Api::V1::UsersController#index as HTML
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2017-10-20 11:39:39 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 200 OK in 152ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:42:24 -0400
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as JSON
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 45ms (Views: 11.8ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:45:47 -0400
+Processing by Api::V1::UsersController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2017-10-20 11:46:06 -0400
+Processing by Api::V1::UsersController#index as HTML
+Completed 200 OK in 197ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:46:09 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 53ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:47:48 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 229ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:48:55 -0400
+Processing by Api::V1::UsersController#index as JSON
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:48:57 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 2337ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 192ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:50:44 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 309ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:54:09 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 246ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:54:36 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 154ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:56:05 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 287ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:56:05 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 95ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:56:15 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 171ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:56:26 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 123ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:58:45 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 231ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:58:53 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 72ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 11:59:59 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 1215ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:00:19 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 197ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:00:43 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 188ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:01:08 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 191ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:02:24 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 1213ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:02:53 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:11:02 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 211ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:11:11 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:11:52 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 257ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:13:59 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 274ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:20:00 -0400
+Processing by Api::V1::UsersController#index as JSON
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:20:00 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 1246ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 755ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 12:21:10 -0400
+Processing by Api::V1::UsersController#index as JSON
+Completed 200 OK in 1207ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+

@@ -1642,3 +1642,9 @@ Processing by Api::V1::UsersController#index as JSON
 Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/api/v1/users.json" for ::1 at 2017-10-20 10:32:11 -0400
+Processing by Api::V1::UsersController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.6ms)
+
+

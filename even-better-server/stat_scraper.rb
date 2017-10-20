@@ -6,7 +6,7 @@ require 'json'
 
 
 # puts "### Getting the RAW HTML of the page"
-urlGameVersion = "NBA"
+urlGameVersion = "MLB"
 urlGameDate = "20171018"
 html = open("http://scores.nbcsports.msnbc.com/ticker/data/gamesMSNBC.js.asp?sport=#{urlGameVersion}&period=#{urlGameDate}").read
 

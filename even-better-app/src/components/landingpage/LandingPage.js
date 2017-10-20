@@ -5,9 +5,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (

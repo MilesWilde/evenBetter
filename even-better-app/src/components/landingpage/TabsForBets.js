@@ -1,5 +1,6 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import SportsBet from './SportsBet'
 
 const styles = {
   headline: {
@@ -35,9 +36,7 @@ export default class TabsForBets extends React.Component {
           <div>
             <h2 style={styles.headline}>Place your sports bets here!</h2>
             <p>
-              Tabs are also controllable if you want to programmatically pass them their values.
-              This allows for more functionality in Tabs such as not
-              having any Tab selected or assigning them different values.
+              <SportsBet />
             </p>
           </div>
         </Tab>

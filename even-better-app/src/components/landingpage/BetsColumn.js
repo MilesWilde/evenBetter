@@ -26,7 +26,7 @@ export default class BetsColumn extends Component {
 
   render() {
     return (
-    <div class="betting-history">
+    <div className="betting-history">
         <h3>Bets Column</h3>
       <Table onRowSelection={this.handleRowSelection}>
         <TableHeader>

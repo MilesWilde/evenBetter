@@ -14,13 +14,13 @@ class LandingPage extends Component {
     return (
       <div>
         <MuiThemeProvider>
-          <div class=" create-bet-buttons container">
+          <div className=" create-bet-buttons container">
             <Buttons />
           </div>
-          <div class=" users-columns container">
-            <div class="invite-column column-center"><InviteColumn /></div>
-            <div class="bets-column column-left"><BetsColumn /></div>
-            <div class="points-column column-right"><PointsColumn /></div>
+          <div className=" users-columns container">
+            <div className="invite-column column-center"><InviteColumn /></div>
+            <div className="bets-column column-left"><BetsColumn /></div>
+            <div className="points-column column-right"><PointsColumn /></div>
           </div>
         </MuiThemeProvider>
       </div>

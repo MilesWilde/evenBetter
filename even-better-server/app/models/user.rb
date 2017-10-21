@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :bets
   has_many :messages
+  has_many :bets, foreign_key: :mediator_id
+  has_many :bets, foreign_key: :creator_id
 
   validates_presence_of :first_name, :last_name, :email, :username, :password_digest
   validates_uniqueness_of :email, :username

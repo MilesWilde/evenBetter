@@ -14,9 +14,9 @@ injectTapEventPlugin();
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider >
         <AppBar
-            title="Title"
+            title="EvenBetter"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
           />
           <Main />

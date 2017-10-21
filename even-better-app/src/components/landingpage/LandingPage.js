@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-
-import injectTapEventPlugin from 'react-tap-event-plugin'
+import './LandingPage.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
+
+import InviteColumn from './InviteColumn'
+import PointsColumn from './PointsColumn'
+import BetsColumn from './BetsColumn'
+import Buttons from './Buttons'
+
 
 class LandingPage extends Component {
 
@@ -10,7 +14,14 @@ class LandingPage extends Component {
     return (
       <div>
         <MuiThemeProvider>
-            <h1>Here will go the LANDING PAGE</h1>
+          <div className=" create-bet-buttons container">
+            <Buttons />
+          </div>
+          <div className=" users-columns container">
+            <div className="invite-column column-center"><InviteColumn /></div>
+            <div className="bets-column column-left"><BetsColumn /></div>
+            <div className="points-column column-right"><PointsColumn /></div>
+          </div>
         </MuiThemeProvider>
       </div>
     )

@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.column-left{ 
+    width: 33%;
+}
+
+.column-center{ 
+    width: 33%;
+}
+
+.column-right{ 
+    width: 33%;
+}

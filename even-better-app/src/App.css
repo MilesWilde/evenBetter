@@ -1,5 +1,6 @@
 * {
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 .App {
   text-align: center;

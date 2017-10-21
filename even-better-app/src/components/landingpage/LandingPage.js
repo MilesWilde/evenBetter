@@ -16,7 +16,10 @@ class LandingPage extends Component {
       <div>
         <MuiThemeProvider>
           <div className=" create-bet-buttons container">
-            <Buttons />
+            <Buttons 
+                autoDetectWindowHeight={true}
+                autoScrollBodyContent={true}
+            />
           </div>
           <div className=" create-bet-buttons container">
             <PopupBets />

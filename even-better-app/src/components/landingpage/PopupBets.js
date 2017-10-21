@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import TabsForBets from './TabsForBets'
+import './css/LandingPage.css';
 
 /**
  * Dialog with action buttons. The actions are passed in as an array of React objects,
@@ -42,9 +43,10 @@ export default class PopupBets extends React.Component {
     return (
       <div>
         <RaisedButton label="PLACE BET" onClick={this.handleOpen} />
-        <Dialog
+        <Dialog className = "letmescroll"
           title="Dialog With Actions"
           actions={actions}
+          autoScrollBodyContent = {true}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}

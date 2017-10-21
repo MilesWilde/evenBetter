@@ -8,6 +8,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
+
 export default class BetsColumn extends Component {
   state = {
     selected: [1],
@@ -25,36 +26,36 @@ export default class BetsColumn extends Component {
 
   render() {
     return (
-    <div>
+    <div class="betting-history">
         <h3>Bets Column</h3>
       <Table onRowSelection={this.handleRowSelection}>
         <TableHeader>
           <TableRow>
             <TableHeaderColumn>ID</TableHeaderColumn>
-            <TableHeaderColumn>Name</TableHeaderColumn>
-            <TableHeaderColumn>Status</TableHeaderColumn>
+            <TableHeaderColumn>Bet Placed</TableHeaderColumn>
+            <TableHeaderColumn>Result</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>
           <TableRow selected={this.isSelected(0)}>
             <TableRowColumn>1</TableRowColumn>
-            <TableRowColumn>John Smith</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
+            <TableRowColumn>Even Better wins best project</TableRowColumn>
+            <TableRowColumn>WIN</TableRowColumn>
           </TableRow>
           <TableRow selected={this.isSelected(1)}>
             <TableRowColumn>2</TableRowColumn>
-            <TableRowColumn>Randal White</TableRowColumn>
-            <TableRowColumn>Unemployed</TableRowColumn>
+            <TableRowColumn>Trump wins the elections</TableRowColumn>
+            <TableRowColumn>LOSE</TableRowColumn>
           </TableRow>
           <TableRow selected={this.isSelected(2)}>
             <TableRowColumn>3</TableRowColumn>
-            <TableRowColumn>Stephanie Sanders</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
+            <TableRowColumn>Mike chugs a pitcher of beer</TableRowColumn>
+            <TableRowColumn>LOSE</TableRowColumn>
           </TableRow>
           <TableRow selected={this.isSelected(3)}>
             <TableRowColumn>4</TableRowColumn>
-            <TableRowColumn>Steve Brown</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
+            <TableRowColumn>I'm all out of ideas now</TableRowColumn>
+            <TableRowColumn>CANCELLED</TableRowColumn>
           </TableRow>
         </TableBody>
       </Table>

@@ -18,9 +18,9 @@ class LandingPage extends Component {
             <Buttons />
           </div>
           <div class=" users-columns container">
-            <div class="column-center"><InviteColumn /></div>
-            <div class="column-left"><BetsColumn /></div>
-            <div class="column-right"><PointsColumn /></div>
+            <div class="invite-column column-center"><InviteColumn /></div>
+            <div class="bets-column column-left"><BetsColumn /></div>
+            <div class="points-column column-right"><PointsColumn /></div>
           </div>
         </MuiThemeProvider>
       </div>

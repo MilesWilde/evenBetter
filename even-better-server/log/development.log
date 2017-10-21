@@ -762,7 +762,6 @@ FOREIGN KEY ("outcome_id")
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3699930805919231415)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-<<<<<<< HEAD
 Started GET "/api/v1/ideas" for ::1 at 2017-10-19 18:37:45 +0000
   
 ActiveRecord::NoDatabaseError (FATAL:  database "even-better_development" does not exist
@@ -869,7 +868,6 @@ Migrating to CreateUsers (20171018174639)
 Migrating to CreateBets (20171018180503)
   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_772e4e7155"
-=======
   [1m[35m (482.0ms)[0m  [1m[35mCREATE DATABASE "even-better_development" ENCODING = 'unicode'[0m
   [1m[35m (323.6ms)[0m  [1m[35mCREATE DATABASE "even-better_test" ENCODING = 'unicode'[0m
   [1m[35m (20.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
@@ -884,7 +882,6 @@ Migrating to CreateUsers (20171018174639)
 Migrating to CreateBets (20171018180503)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "bets" ("id" bigserial primary key, "title" character varying, "pool" integer, "betting_deadline" date, "outcome_deadline" date, "description" character varying, "mediator_id" bigint, "creator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_772e4e7155"
->>>>>>> a2feb1364fa22213646a9b9d074fe92053c8673b
 FOREIGN KEY ("mediator_id")
   REFERENCES "users" ("id")
 , CONSTRAINT "fk_rails_b0d6f5b549"

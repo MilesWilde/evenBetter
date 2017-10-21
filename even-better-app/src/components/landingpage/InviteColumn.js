@@ -17,7 +17,6 @@ const InviteColumn = () => (
       <Menu desktop={true} width={320}>
         <MenuItem
           primaryText="Bet - EvenBetter wins best project"
-          checked={true}
           rightIcon={<ArrowDropRight />}
           menuItems={[
             <MenuItem primaryText="Accept" />,
@@ -27,7 +26,6 @@ const InviteColumn = () => (
         <Divider />
         <MenuItem
         primaryText="Bet - John shows up late to class"
-        checked={true}
         rightIcon={<ArrowDropRight />}
         menuItems={[
           <MenuItem primaryText="Accept" />,

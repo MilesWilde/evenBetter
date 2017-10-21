@@ -5,7 +5,16 @@ module Api::V1
     def index
         @bets = Bet.all
         render json: @bets
-      
+    end
+
+    def create
+    end
+
+    def show
+        @bet = Bet.find params[:id]
+    end
+
+    def destroy
     end
   end
 

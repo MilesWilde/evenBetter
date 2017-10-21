@@ -3,6 +3,8 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import TabsForBets from './TabsForBets'
+
 /**
  * Dialog with action buttons. The actions are passed in as an array of React objects,
  * in this example [FlatButtons](/#/components/flat-button).
@@ -39,7 +41,7 @@ export default class PopupBets extends React.Component {
 
     return (
       <div>
-        <RaisedButton label="CREATE PERSONAL BET" onClick={this.handleOpen} />
+        <RaisedButton label="PLACE BET" onClick={this.handleOpen} />
         <Dialog
           title="Dialog With Actions"
           actions={actions}
@@ -47,7 +49,8 @@ export default class PopupBets extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          The actions in this window were passed in as an array of React objects.
+          <TabsForBets />
+
         </Dialog>
       </div>
     );

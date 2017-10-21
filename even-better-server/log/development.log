@@ -4070,3 +4070,96 @@ Processing by Api::V1::UsersController#index as */*
 Completed 200 OK in 251ms (Views: 0.1ms | ActiveRecord: 0.7ms)
 
 
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 12:20:05 -0400
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman"}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (7.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jasonbateman@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jbates"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 149ms (Views: 0.3ms | ActiveRecord: 32.9ms)
+
+
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5055.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even_better_development"[0m
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 13:45:56 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman"}}
+Unpermitted parameter: :user
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (36.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jasonbateman@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jbates"], ["LIMIT", 1]]
+  [1m[35m (6.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 380ms (Views: 3.7ms | ActiveRecord: 147.3ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 13:46:34 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman"}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jasonbateman@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jbates"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 111ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 13:47:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman"}}
+Completed 500 Internal Server Error in 349ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<UsersController:0x00007fdf3e4a3bf0>):
+  
+app/controllers/users_controller.rb:7:in `create'
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 13:48:29 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"jbates", "email"=>"jasonbateman@gmail.com", "first_name"=>"Jason", "last_name"=>"Bateman"}}
+Unpermitted parameter: :user
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 13:56:11 -0400
+Unpermitted parameter: :user
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jasonbateman@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jbates"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 588992ms (Views: 0.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 13:58:18 -0400
+Processing by UsersController#create as HTML
+Processing by UsersController#create as HTML
+Started POST "/signup" for 127.0.0.1 at 2017-10-21 13:58:18 -0400
+  Parameters: {"username"=>"greenlantern", "first_name"=>"Hal", "last_name"=>"Jordan", "email"=>"green@lantern.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"greenlantern", "email"=>"green@lantern.com", "first_name"=>"Hal", "last_name"=>"Jordan"}}
+  Parameters: {"username"=>"greenlantern", "first_name"=>"Hal", "last_name"=>"Jordan", "email"=>"green@lantern.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"greenlantern", "email"=>"green@lantern.com", "first_name"=>"Hal", "last_name"=>"Jordan"}}
+Processing by UsersController#create as HTML
+  Parameters: {"username"=>"greenlantern", "first_name"=>"Hal", "last_name"=>"Jordan", "email"=>"green@lantern.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"greenlantern", "email"=>"green@lantern.com", "first_name"=>"Hal", "last_name"=>"Jordan"}}
+Unpermitted parameter: :user
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "green@lantern.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "greenlantern"], ["LIMIT", 1]]
+  [1m[35mSQL (50.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "greenlantern"], ["email", "green@lantern.com"], ["first_name", "Hal"], ["last_name", "Jordan"], ["password_digest", "$2a$10$fm0KYMWg726UDX56THmdn.KT/T6ynHTgPfnFVcfwRQmLyIGikiKSS"], ["created_at", "2017-10-21 17:58:59.521030"], ["updated_at", "2017-10-21 17:58:59.521030"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5050.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even_better_development"[0m
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5049.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "even_better_development"[0m

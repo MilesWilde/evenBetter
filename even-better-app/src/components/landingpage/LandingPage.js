@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './LandingPage.css';
+import './css/LandingPage.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import InviteColumn from './InviteColumn'

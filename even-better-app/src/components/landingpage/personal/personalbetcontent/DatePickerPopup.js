@@ -6,16 +6,10 @@ import DatePicker from 'material-ui/DatePicker';
  * You can also disable the Dialog passing `true` to the `disabled` property.
  * To display the year selection first, set the `openToYearSelection` property to `true`.
  */
-
-//  Used to disallow users from picking games for which there is no data yet
-function disableRandomDates() {
-  return Math.random() > 0.7;
-}
-
 const DatePickerPopup = () => (
   <div>
-    <DatePicker hintText="Date for game" mode="landscape" shouldDisableDate={disableRandomDates} />
-    {/* <DatePicker hintText="Bet deadline" /> */}
+    <DatePicker hintText="Bet deadline" />
+    <DatePicker hintText="Decison Deadline (Mediator)" />
   </div>
 );
 

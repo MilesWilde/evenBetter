@@ -8,6 +8,17 @@ module Api::V1
     end
 
     def create
+      bet = current_user.bets.create(
+        title: params[:title],
+        description: params[:description],
+        betting_deadline: params[:betting_deadline],
+        outcome_deadline: params[:outcome_deadline],
+        creator: current_user,
+        mediator_id: params[:mediator_id] || nil
+      )
+
+      # Add users to the bet
+      params[:users].map{ |id| BetUser.create(bet: bet, user_id: id) }
     end
 
     def show

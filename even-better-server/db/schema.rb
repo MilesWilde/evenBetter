@@ -31,15 +31,14 @@ ActiveRecord::Schema.define(version: 20171020170344) do
     t.index ["outcome_id"], name: "index_bets_on_outcome_id"
   end
 
-  create_table "bets_users", force: :cascade do |t|
-    t.bigint "bet_id"
-    t.bigint "user_id"
+  create_table "bets_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bet_id", null: false
     t.bigint "possibility_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bet_id"], name: "index_bets_users_on_bet_id"
     t.index ["possibility_id"], name: "index_bets_users_on_possibility_id"
-    t.index ["user_id"], name: "index_bets_users_on_user_id"
+    t.index ["user_id", "bet_id"], name: "index_bets_users_on_user_id_and_bet_id", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
@@ -76,9 +75,7 @@ ActiveRecord::Schema.define(version: 20171020170344) do
   add_foreign_key "bets", "possibilities", column: "outcome_id"
   add_foreign_key "bets", "users", column: "creator_id"
   add_foreign_key "bets", "users", column: "mediator_id"
-  add_foreign_key "bets_users", "bets"
   add_foreign_key "bets_users", "possibilities"
-  add_foreign_key "bets_users", "users"
   add_foreign_key "messages", "bets"
   add_foreign_key "messages", "users"
   add_foreign_key "possibilities", "bets"

@@ -10,10 +10,6 @@ class UsersController < ApplicationController
     json_response(response, :created)
   end
 
-  def add_to_bet(bet)
-    BetUser.create(user_id: self.id, bet_id: bet.id)
-  end
-
   private
 
   def user_params

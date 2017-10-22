@@ -11,7 +11,7 @@ const style = {
 };
 
 const InviteColumn = () => (
-  <div>
+  <div class = "invite-column">
     <h3> Invite Column </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320}>

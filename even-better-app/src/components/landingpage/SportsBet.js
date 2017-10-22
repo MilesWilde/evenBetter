@@ -24,36 +24,6 @@ const SportsBet = () => (
         rows={2}
         rowsMax={4}
     /><br />
-    <TextField
-        floatingLabelText="Pick potential outcomes"
-        multiLine={true}
-        rows={2}
-        rowsMax={4}
-    /><br />
-    <TextField
-        floatingLabelText="Pick potential outcomes"
-        multiLine={true}
-        rows={2}
-        rowsMax={4}
-    /><br />
-    <TextField
-        floatingLabelText="Pick potential outcomes"
-        multiLine={true}
-        rows={2}
-        rowsMax={4}
-    /><br />
-    <TextField
-        floatingLabelText="Pick potential outcomes"
-        multiLine={true}
-        rows={2}
-        rowsMax={4}
-    /><br />
-    <TextField
-        floatingLabelText="Pick potential outcomes"
-        multiLine={true}
-        rows={2}
-        rowsMax={4}
-    /><br />
   </div>
 );
 

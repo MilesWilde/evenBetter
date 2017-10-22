@@ -8,7 +8,8 @@ import DatePicker from 'material-ui/DatePicker';
  */
 const DatePickerPopup = () => (
   <div>
-    <DatePicker hintText="Pick a date" mode="landscape" />
+    <DatePicker hintText="Date for game" mode="landscape" />
+    <DatePicker hintText="Bet deadline" />
   </div>
 );
 

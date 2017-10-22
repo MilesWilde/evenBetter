@@ -42,8 +42,11 @@ export default class PopupBets extends React.Component {
 
     return (
       <div>
-        <RaisedButton label="PLACE BET" onClick={this.handleOpen} />
-        <Dialog className = "letmescroll"
+        <br/><RaisedButton   label="PLACE BET"
+                             fullWidth={true} 
+                             onClick={this.handleOpen}
+                             backgroundColor = "green"  />
+        <Dialog
           title="Dialog With Actions"
           actions={actions}
           autoScrollBodyContent = {true}

@@ -6,6 +6,7 @@ import {
 } from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+import NameDesc from './personalbetcontent/NameDesc';
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -38,7 +39,7 @@ class PersonalStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return "Some personal bet shizz"
+      return <NameDesc />
       case 1:
         return 'Select from a list of games here';
       case 2:
@@ -56,19 +57,19 @@ class PersonalStepper extends React.Component {
       <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
         <Stepper activeStep={stepIndex}>
           <Step>
-            <StepLabel>Pick Personal and Date</StepLabel>
+            <StepLabel>Define your bet</StepLabel>
           </Step>
           <Step>
-            <StepLabel>Pick a game</StepLabel>
+            <StepLabel>Define betting pool</StepLabel>
           </Step>
           <Step>
-            <StepLabel>Pick an outcome</StepLabel>
+            <StepLabel>Define the possibilities</StepLabel>
           </Step>
         </Stepper>
         <div style={contentStyle}>
           {finished ? (
             <p>
-              You're all set! Confirm by hittin the PLACE BET! button
+              You're all set! Confirm by hitting the PLACE BET! button
             </p>
           ) : (
             <div>

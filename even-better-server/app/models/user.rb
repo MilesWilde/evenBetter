@@ -11,8 +11,4 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, :username
   validates :password, length: { minimum: 8 }
 
-  def add_to_bet(bet)
-    BetUser.new(user_id: id, bet_id: bet.id).save!
-  end
-
 end

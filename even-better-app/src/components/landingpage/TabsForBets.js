@@ -34,7 +34,6 @@ export default class TabsForBets extends React.Component {
       >
         <Tab label="SPORTS BET" value="a">
           <div>
-            <h2 style={styles.headline}>Place your sports bets here!</h2>
             <p>
               <SportsBet />
             </p>

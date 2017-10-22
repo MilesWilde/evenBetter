@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :mediated, foreign_key: 'mediator_id', class_name: 'Bet'
   has_many :owned, foreign_key: 'creator_id', class_name: 'Bet'
+  has_many :bet_users
+  has_many :possibilities, through: :bet_users
 
   validates_presence_of :first_name, :last_name, :email, :username, :password_digest
   validates_uniqueness_of :email, :username

@@ -6,65 +6,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts '---CREATING USERS AND BETS THAT THEY OWN---'
-5.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    username: Faker::Internet.user_name,
-    password: '12345678',
-    password_confirmation: '12345678',
-    points: 1000
-  )
-
-  deadline = Faker::Time.forward(5)
-  bet = user.bets.create!(
-    title: Faker::Seinfeld.quote,
-    betting_deadline: Faker::Time.between(Date.today, deadline),
-    outcome_deadline: deadline,
-    description: Faker::Lorem.paragraph,
-    creator: user
-  )
-  2.times do
-    bet.possibilities.create(description: Faker::Commerce.product_name)
-  end
-
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    username: Faker::Internet.user_name,
-    password: '12345678',
-    password_confirmation: '12345678',
-    points: 0
-  )
-
-  deadline = Faker::Time.backward(5)
-  bet = user.bets.create!(
-    title: Faker::Seinfeld.quote,
-    betting_deadline: deadline,
-    outcome_deadline: Faker::Time.between(deadline, Date.today),
-    description: Faker::Lorem.paragraph,
-    creator: user
-    )
-    2.times do
-      bet.possibilities.create(description: Faker::Commerce.product_name)
-    end
+puts '--- CREATING USERS ---'
+30.times do
+  FactoryGirl.create(:user)
 end
 
-puts '---CREATING USERS AND ADDING THEM TO EXISTING BETS---'
+puts '--- CREATING BETS WITH 2 POSSIBILITIES AND 2 USERS EACH ---'
+30.times do
+  bet = FactoryGirl.create(:bet, { creator: User.random, mediator: User.random })
+  2.times do
+    FactoryGirl.create(:possibility, { bet: bet })
+  end
+  2.times do
+    bet_user = nil
+    loop do
+      bet_user = BetUser.new(user: User.random, bet: Bet.random, possibility: Possibility.random)
+      break if(!BetUser.exists?(user_id: bet_user.user_id, bet_id: bet_user.bet_id))
+    end
+    bet_user.save!
+  end
+end
+
+puts '--- ADDING ADDITIONAL USERS TO RANDOM BETS ---'
 20.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    username: Faker::Internet.user_name,
-    password: '12345678',
-    password_confirmation: '12345678',
-    points: 1000
-  )
+  bet_user = nil
+  loop do
+    bet_user = BetUser.new(user: User.random, bet: Bet.random, possibility: Possibility.random)
+    break if(!BetUser.exists?(user_id: bet_user.user_id, bet_id: bet_user.bet_id))
+  end
+  bet_user.save!
+end
 
-  user.bets << Bet.random
+puts '--- CREATING ADDITIONAL POSSIBILITIES FOR RANDOM BETS ---'
+20.times do
+  FactoryGirl.create(:possibility, { bet: Bet.random })
+end
 
+puts '--- CREATING MESSAGES ---'
+100.times do
+  FactoryGirl.create(:message, { user: User.random, bet: Bet.random })
 end

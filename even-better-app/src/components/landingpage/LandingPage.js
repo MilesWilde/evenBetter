@@ -3,7 +3,7 @@ import './css/LandingPage.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import InviteColumn from './InviteColumn'
-import BetsColumn from './BetsColumn'
+import BetsColumn from './sports/BetsColumn'
 import PopupBets from './PopupBets'
 
 

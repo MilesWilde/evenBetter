@@ -1,15 +1,16 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import SportsBet from './SportsBet'
+import SportsBet from './sports/SportsBet'
+import PersonalBet from './personal/PersonalBet'
 
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-};
+// const styles = {
+//   headline: {
+//     fontSize: 24,
+//     paddingTop: 16,
+//     marginBottom: 12,
+//     fontWeight: 400,
+//   },
+// };
 
 export default class TabsForBets extends React.Component {
 
@@ -40,15 +41,12 @@ export default class TabsForBets extends React.Component {
           </div>
         </Tab>
         <Tab label="PERSONAL BET" value="b">
-          <div>
-            <h2 style={styles.headline}>Bet on anything you want!</h2>
-            <p>
-              This is another example of a controllable tab. Remember, if you
-              use controllable Tabs, you need to give all of your tabs values or else
-              you wont be able to select them.
-            </p>
-          </div>
-        </Tab>
+        <div>
+          <p>
+            <PersonalBet />
+          </p>
+        </div>
+      </Tab>
       </Tabs>
     );
   }

@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-const styles = {
-  customWidth: {
-    width: 150,
-  },
-};
-
 /**
  * `SelectField` is implemented as a controlled component,
  * with the current selection set through the `value` property.

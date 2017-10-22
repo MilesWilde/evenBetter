@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import DatePickerPopup from './DatePickerPopup'
 
 const SportsBet = () => (
   <div>
@@ -10,9 +11,7 @@ const SportsBet = () => (
       floatingLabelText="Pick a Sport"
     />
     <br />
-    <TextField
-        floatingLabelText="Pick a Date"
-    /><br />
+    <DatePickerPopup />
     <TextField
         floatingLabelText="Choose users to join bet"
     /><br />

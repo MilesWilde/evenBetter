@@ -9,6 +9,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import NameDesc from './personalbetcontent/NameDesc';
 import BettingPool from './personalbetcontent/BettingPool'
+import PossibleBets from './personalbetcontent/PossibleBets'
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -45,7 +46,7 @@ class PersonalStepper extends React.Component {
       case 1:
         return <BettingPool />
       case 2:
-        return 'Select the outcome of the game here';
+        return <PossibleBets />
       default:
         return 'Come on, make a Personal Bet!!';
     }

@@ -25,12 +25,26 @@ module Api::V1
         @users.map{ |user| @bet.users << user }
         render json: @bet.to_json({ include: [:possibilities, :users] }), status: :created
       else
-        render json: { message: "Validation failed: Users must have at least 2 users"}, status: :unprocessable_entity
+        json_response({ message: "Validation failed: Users must have at least 2 users"}, :unprocessable_entity)
       end
     end
 
     def show
       render json: @bet.to_json({ include: [:possibilities, :users] })
+    end
+
+    def update
+      if @bet.mediator != current_user
+        json_response({ message: 'Validation failed: Only the mediator can set the outcome' }, :forbidden)
+      elsif @bet.outcome_id
+        json_response({ message: 'Validation failed: An outcome has already been set' }, :forbidden)
+      elsif !@bet.possibilities.exists?(params[:outcome_id])
+        json_response({ message: 'Validation failed: Cannot select a possibility from another bet' }, :forbidden)
+      else
+        @bet.outcome = Possibility.find(params[:outcome_id])
+        @bet.save!
+        json_response(@bet)
+      end
     end
 
     def destroy

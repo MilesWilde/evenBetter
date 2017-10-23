@@ -6,6 +6,7 @@ class Bet < ApplicationRecord
   has_many :messages
   has_many :possibilities
   belongs_to :mediator, class_name: 'User'
+  belongs_to :outcome, class_name: 'Possibility'
 
   validates_presence_of :title, :betting_deadline, :outcome_deadline, :creator
   validate :must_have_at_least_2_possibilities

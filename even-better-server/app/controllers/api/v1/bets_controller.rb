@@ -10,23 +10,16 @@ module Api::V1
     end
 
     def create
-      if @bet = current_user.owned.create!(bet_params)
-        @bet.users << current_user
-        # Add users to the bet
-        params[:users].map{ |id| @bet.users << User.find(id) }
-        json_response({
-          details: @bet,
-          possibilities: @bet.possibilities,
-          users: @bet.users
-         },
-          :created)
-      else
-
-      end
+      @bet = current_user.owned.create!(bet_params)
+      @bet.users << current_user
+      # Add users to the bet
+      params[:users].map{ |id| @bet.users << User.find(id) }
+      params[:possibilities].map{ |possibility| @bet.possibilities.create!(description: possibility) }
+      render json: @bet.to_json({ include: [:possibilities, :users] }), status: :created
     end
 
     def show
-      json_response(@bet)
+      render json: @bet.to_json({ include: [:possibilities, :users] })
     end
 
     def destroy
@@ -35,7 +28,7 @@ module Api::V1
     private
 
     def bet_params
-      params.permit(:title, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users)
+      params.permit(:title, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities)
     end
 
     def set_bet

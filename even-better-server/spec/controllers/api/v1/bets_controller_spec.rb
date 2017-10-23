@@ -22,6 +22,7 @@ RSpec.describe 'Bets API v1', type: :request do
     end
   end
 
+  # test suite for GET /api/v1/bets/:id
   describe 'GET /api/v1/bets/:id' do
     before { get "/api/v1/bets/#{bet_id}", headers: headers}
 
@@ -68,7 +69,7 @@ RSpec.describe 'Bets API v1', type: :request do
       before { post '/api/v1/bets', params: valid_attributes.to_json, headers: headers }
 
       it 'creates a bet' do
-        expect(json['details']['title']).to eq(valid_attributes[:title])
+        expect(json['title']).to eq(valid_attributes[:title])
       end
 
       it 'returns the status code 201' do

@@ -1,0 +1,52 @@
+#left-pane {
+  height: 600px;
+  width: 33%;
+  float: left;
+  text-align: center;
+  padding-top: 50px;
+}
+#middle-pane {
+  height: 600px;
+  width: 34%;
+  float: left;
+  text-align: center;
+  padding-top: 50px;
+}
+#right-pane {
+  height: 600px;
+  width: 33%;
+  float: left;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+.text-div {
+  position: relative;
+  width: 90%;
+}
+
+#top-image{
+  padding-top: 64px;
+}
+
+#footer-bar{
+  padding: 15px 0 10px 0px;
+  background-color: #2A3A3F;
+  color: #fff;
+}
+
+#top-nav{
+  float:right;
+}

@@ -26,14 +26,29 @@ class PersonalStepper extends React.Component {
       {
         name: '',
         description: ''
+      },
+      {
+        names: [],
+        mediator: '',
+        betDeadlineDate: '',
+        betDeadlineTime:''
       }
     ]
   };
 
-  handleNext = (data) => {
-    const {stepIndex} = this.state;
+  handleNext = (userData) => {
+    const {stepIndex, data} = this.state;
+    const newData = data;
+
+    if (stepIndex === 0) {
+      newData[0] = {
+        name: userData.name,
+        description: userData.description
+      }
+    }
 
     this.setState({
+      data: newData,
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
@@ -50,9 +65,9 @@ class PersonalStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <NameDesc handleNext={this.handleNext} data={this.state.data[0]} stepIndex={stepIndex}/>
+      return <NameDesc name={this.state.data[0].name} description={this.state.data[0].description} handlePrev={this.handlePrev} handleNext={this.handleNext} data={this.state.data[0]} stepIndex={stepIndex}/>
       case 1:
-        return <BettingPool />
+        return <BettingPool handleNext={this.handleNext} data={this.state.data[1]} stepIndex={stepIndex} />
       case 2:
         return <PossibleBets />
       default:

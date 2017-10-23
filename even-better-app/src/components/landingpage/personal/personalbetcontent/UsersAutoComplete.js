@@ -24,6 +24,7 @@ export default class UsersAutoComplete extends Component {
       <div>
         <AutoComplete
             hintText="Enter participant names"
+            filter={AutoComplete.caseInsensitiveFilter}
             dataSource={this.state.dataSource}
             onUpdateInput={this.handleUpdateInput}
         />

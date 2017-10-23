@@ -14,8 +14,8 @@ class NameDesc extends React.Component {
     super(props);
 
     this.state = {
-      name: '',
-      description: '',
+      name: this.props.name,
+      description: this.props.description,
       errors: []
     }
   }
@@ -43,6 +43,7 @@ class NameDesc extends React.Component {
     }
 
     if (errors.length === 0) {
+ 
       this.props.handleNext({
         name: this.state.name,
         description: this.state.description
@@ -76,7 +77,8 @@ class NameDesc extends React.Component {
 
         <FlatButton
           label="Back"
-          onClick={this.handlePrev}
+          disabled={this.props.stepIndex === 0}
+          onClick={this.props.handlePrev}
           style={{marginRight: 12}}
         />
         <RaisedButton

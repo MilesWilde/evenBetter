@@ -20,6 +20,17 @@
   padding-top: 50px;
 }
 
+
+#top {
+  padding-top: 74px;
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+#top-nav {
+}
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -38,7 +49,7 @@
 }
 
 #top-image{
-  padding-top: 64px;
+  padding-top: 0px;
 }
 
 #footer-bar{

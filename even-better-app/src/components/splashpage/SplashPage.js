@@ -31,15 +31,17 @@ class SplashPage extends Component {
             </div>
           }
         />
+
         <div id="top">
+          <div id="top-nav">
+            <a href="#information">Info</a>
+          </div>
           <center>
             <img id="top-image" src ="https://fthmb.tqn.com/tLrasJkIfuzOpe8lclrJY66lcMQ=/768x0/filters:no_upscale()/sports_betting_board_78396227-56a8f1955f9b58b7d0f69d65.jpg" />
           </center>
-          <div id="top-nav">
 
-            <a href="#information">Info</a>
-          </div>
         </div>
+
         <div id="information" className="container">
           <div id="left-pane">
             <img src ="https://betoclock.com/wp-content/uploads/2015/01/betting_3.jpg" height="65" width="85" />

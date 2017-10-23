@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
-
+import Chatroom from './components/Chatroom/Chatroom'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -16,6 +16,9 @@ const Main = () => (
     </Switch>
     <Switch>
       <Route path='/signup' component={UserRegistration}/>
+    </Switch>
+    <Switch>
+      <Route path='/chatroom' component={Chatroom}/>
     </Switch>
   </main>
 )

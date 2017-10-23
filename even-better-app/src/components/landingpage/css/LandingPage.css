@@ -1,13 +1,21 @@
-.container {
+.users-columns {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
 }
 
-.column-left{ 
+.invite-column {
     flex: 1;
+    height: 100vw;
 }
 
-.column-center{ 
-    flex: 2;
+.invite-column h3 {
+    color:green;
 }
+
+.bets-column {
+    flex:3;
+    height: 100vw;
+}
+
+

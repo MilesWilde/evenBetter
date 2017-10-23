@@ -3,7 +3,7 @@ import './css/LandingPage.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import InviteColumn from './InviteColumn'
-import BetsColumn from './sports/BetsColumn'
+import BetsColumn from './BetsColumn'
 import PopupBets from './PopupBets'
 
 
@@ -17,8 +17,8 @@ class LandingPage extends Component {
             <PopupBets />
           </div>
           <div className=" users-columns container">
-            <div className="invite-column  column-left"><InviteColumn /></div>
-            <div className="bets-column column-center"><BetsColumn /></div>
+            <div className="invite-column"><InviteColumn /></div>
+            <div className="bets-column"><BetsColumn /></div>
           </div>
         </MuiThemeProvider>
       </div>

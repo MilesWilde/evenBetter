@@ -5,9 +5,11 @@ const NameDesc = () => (
   <div>
     <TextField
         floatingLabelText="Name your bet"
+        errorText="This field is required"
     /><br />
     <TextField
         floatingLabelText="Describe your bet"
+        errorText="This field is required"
         multiLine={true}
         rows={2}
         rowsMax={4}

@@ -2,33 +2,46 @@ require 'json'
 
 module Api::V1
   class BetsController < ApplicationController
+    before_action :set_bet, only: [:show, :update, :destroy]
+
     def index
-        @bets = Bet.all
+        @bets = current_user.bets
         render json: @bets
     end
 
     def create
-      bet = current_user.bets.create(
-        title: params[:title],
-        description: params[:description],
-        betting_deadline: params[:betting_deadline],
-        outcome_deadline: params[:outcome_deadline],
-        creator: current_user,
-        mediator_id: params[:mediator_id] || nil
-      )
+      if @bet = current_user.owned.create!(bet_params)
+        @bet.users << current_user
+        # Add users to the bet
+        params[:users].map{ |id| @bet.users << User.find(id) }
+        json_response({
+          details: @bet,
+          possibilities: @bet.possibilities,
+          users: @bet.users
+         },
+          :created)
+      else
 
-      # Add users to the bet
-      params[:users].map{ |id| BetUser.create(bet: bet, user_id: id) }
+      end
     end
 
     def show
-        @bet = Bet.find params[:id]
+      json_response(@bet)
     end
 
     def destroy
     end
-  end
 
+    private
+
+    def bet_params
+      params.permit(:title, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users)
+    end
+
+    def set_bet
+      @bet = Bet.find(params[:id])
+    end
+  end
 
 end
 

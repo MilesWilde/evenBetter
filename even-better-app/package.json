@@ -8,9 +8,13 @@
     "jquery": "^3.2.1",
     "material-ui": "^0.19.4",
     "react": "^16.0.0",
+    "react-bootstrap-table": "^4.1.0",
     "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-tap-event-plugin": "^3.0.2",
+    "webpack": "^3.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

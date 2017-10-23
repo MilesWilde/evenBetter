@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.column-left{ 
+    flex: 1;
+}
+
+.column-center{ 
+    flex: 2;
+}

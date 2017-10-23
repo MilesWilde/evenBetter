@@ -20,18 +20,6 @@ class SplashPage extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <AppBar
-          style={{position:'fixed'}}
-          title='EvenBetter'
-          iconClassNameRight='muidocs-icon-navigation-expand-more'
-          iconElementRight={
-            <div>
-              <FlatButton label="Sign In" />
-              <FlatButton label="Register" />
-            </div>
-          }
-        />
-
         <div id="top">
           <div id="top-nav">
             <a href="#information">Info</a>

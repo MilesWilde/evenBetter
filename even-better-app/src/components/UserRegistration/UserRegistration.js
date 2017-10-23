@@ -66,7 +66,7 @@ class UserRegistration extends Component {
       this.props.history.push("/landing");
     })
     .catch(error => {
-      // debugger
+      debugger
       this.setState({
         ...this.state,
         usernameExists: error.response.data.message.includes('Username'),

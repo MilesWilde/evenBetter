@@ -22,14 +22,22 @@ class PersonalStepper extends React.Component {
   state = {
     finished: false,
     stepIndex: 0,
+    data: [
+      {
+        name: '',
+        description: ''
+      }
+    ]
   };
 
-  handleNext = () => {
+  handleNext = (data) => {
     const {stepIndex} = this.state;
+
     this.setState({
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
+    //Check NameDesc here for empty text fields
   };
 
   handlePrev = () => {
@@ -42,7 +50,7 @@ class PersonalStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <NameDesc />
+      return <NameDesc handleNext={this.handleNext} data={this.state.data[0]} stepIndex={stepIndex}/>
       case 1:
         return <BettingPool />
       case 2:
@@ -88,6 +96,7 @@ class PersonalStepper extends React.Component {
                   label={stepIndex === 2 ? 'Finish' : 'Next'}
                   primary={true}
                   onClick={this.handleNext}
+                  //Check e.target.vale of text field in <NameDesc /> for data. 
                 />
               </div>
             </div>

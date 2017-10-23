@@ -36,10 +36,10 @@ class NameDesc extends React.Component {
 
     let errors = [];
     if (this.state.name === '') {
-      errors.push('name cannot be blank.')
+      errors[0] = 'name cannot be blank.'
     }
     if (this.state.description === '') {
-      errors.push('description cannot be blank.')
+      errors[1] = 'description cannot be blank.'
     }
 
     if (errors.length === 0) {
@@ -60,13 +60,13 @@ class NameDesc extends React.Component {
             value={this.state.name} 
             onChange={this._handleNameFieldChange}
             floatingLabelText="Name your bet"
-            errorText="This field is required"/>
+            errorText = {this.state.errors[0]} />
           <br />
           <TextField 
             value={this.state.description} 
             onChange={this._handleDescFieldChange}
             floatingLabelText="Describe your bet"
-            errorText="This field is required"
+            errorText={this.state.errors[1]} 
             multiLine={true}
             rows={2}
             rowsMax={4}/>

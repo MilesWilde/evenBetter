@@ -10,12 +10,23 @@ module Api::V1
     end
 
     def create
-      @bet = current_user.owned.create!(bet_params)
-      @bet.users << current_user
-      # Add users to the bet
-      params[:users].map{ |id| @bet.users << User.find(id) }
-      params[:possibilities].map{ |possibility| @bet.possibilities.create!(description: possibility) }
-      render json: @bet.to_json({ include: [:possibilities, :users] }), status: :created
+      @user_ids = params[:users] || []
+      @possibilities = params[:possibilities] || []
+      @user_ids.push(current_user.id)
+      @users = User.where(id: params[:users])
+      # need to validate number of users in controller
+      # can't add them and call save because it tries to create them in the users table
+      if @users.length >= 2
+        @bet = current_user.owned.new(bet_params)
+        # add the possibilities
+        @possibilities.map{ |possibility| @bet.possibilities.build(description: possibility) }
+        @bet.save!
+        # Add users to the bet
+        @users.map{ |user| @bet.users << user }
+        render json: @bet.to_json({ include: [:possibilities, :users] }), status: :created
+      else
+        render json: { message: "Validation failed: Users must have at least 2 users"}, status: :unprocessable_entity
+      end
     end
 
     def show

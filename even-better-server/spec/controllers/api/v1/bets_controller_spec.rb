@@ -58,12 +58,13 @@ RSpec.describe 'Bets API v1', type: :request do
       description: Faker::Lorem.sentence,
       betting_deadline: Time.now + 1.day,
       outcome_deadline: Time.now + 2.day,
-      users: [users.map { |user| user.id }],
+      users: users.map { |user| user.id },
       possibilities: [
         Faker::Commerce.product_name,
         Faker::Commerce.product_name
       ]
     } }
+
 
     context 'when the request is valid' do
       before { post '/api/v1/bets', params: valid_attributes.to_json, headers: headers }
@@ -86,7 +87,7 @@ RSpec.describe 'Bets API v1', type: :request do
       end
 
       it 'returns a valid failure message' do
-        expect(response.body).to match(/Validation failed: Betting deadline can't be blank/)
+        expect(response.body).to match(/Validation failed:/)
       end
     end
 

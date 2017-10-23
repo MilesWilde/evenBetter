@@ -8,4 +8,19 @@ class Bet < ApplicationRecord
   belongs_to :mediator, class_name: 'User'
 
   validates_presence_of :title, :betting_deadline, :outcome_deadline, :creator
+  validate :must_have_at_least_2_possibilities
+
+  private
+
+  def must_have_at_least_2_users
+    unless self.users.length >= 2
+      errors.add(:users, "must have at least 2 users")
+    end
+  end
+
+  def must_have_at_least_2_possibilities
+    unless self.possibilities.length >=2
+      errors.add(:possibilities, "must have at least 2 possibilities")
+    end
+  end
 end

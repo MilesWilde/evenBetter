@@ -4,7 +4,7 @@
     align-items: flex-end;
 }
 
-.invite-column {
+.left-column {
     flex: 1;
     height: 100vw;
 }
@@ -13,8 +13,16 @@
     color:green;
 }
 
+.points-column {
+
+}
+
+.points-column h3 {
+    color: red;
+}
+
 .bets-column {
-    flex:3;
+    flex:1;
     height: 100vw;
 }
 

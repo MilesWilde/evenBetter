@@ -1,15 +1,14 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import DatePickerPopup from './DatePickerPopup'
+import UsersAutoComplete from './UsersAutoComplete'
+import MediatorAutoComplete from './MediatorAutoComplete'
 
 const NameDesc = () => (
     <div>
-    <TextField
-        floatingLabelText="Choose users to join bet"
-    /><br />
-    <TextField
-        floatingLabelText="Choose a mediator (Optional)"
-    /><br />
+        <UsersAutoComplete />
+        <MediatorAutoComplete />
+    <br />
     <DatePickerPopup />
   </div>
 );

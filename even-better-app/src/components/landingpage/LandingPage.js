@@ -17,7 +17,10 @@ class LandingPage extends Component {
             <PopupBets />
           </div>
           <div className=" users-columns container">
-            <div className="invite-column"><InviteColumn /></div>
+            <div className = "left-column">
+              <div className="invite-column"><InviteColumn /></div>
+              <div className="points-column"><InviteColumn /></div>
+            </div>
             <div className="bets-column"><BetsColumn /></div>
           </div>
         </MuiThemeProvider>

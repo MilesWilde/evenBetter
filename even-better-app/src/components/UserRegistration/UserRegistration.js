@@ -11,10 +11,14 @@ class UserRegistration extends Component {
       last_name: '',
       email: '',
       password: '',
-      password_confirmation: ''
+      password_confirmation: '',
+      usernameExists: false,
+      usernameError: 'This Username already exists. Please try another.',
+      emailExists: false,
+      emailError: 'This Email already exists. Please try another.'
     }
   }
-
+ /*
   handleUsernameChange = (e) => {
     this.setState({username: e.target.value})
   }
@@ -38,24 +42,32 @@ class UserRegistration extends Component {
   handlePasswordConfirmationChange = (e) => {
      this.setState({password_confirmation: e.target.value});
   }
+*/
 
-  // handleInputChange = function(e) {
-  //   this.setState({[e.target.name]: e.target.value})
-  // }
+  handleInputChange = (e) => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    })
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     var user =  {
-        username: "jbates",
-        email: "jasonbateman@gmail.com",
-        first_name: "Jason",
-        last_name: "Bateman",
-        password: "12345",
-        password_confirmation: "12345"
+        username: this.state.username,
+        email: this.state.email,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        password: this.state.password,
+        password_confirmation: this.state.password_confirmation
     };
-    axios.post('/signup', this.state)
+    axios.post('/signup', user)
     .then(response => {
-      console.log(response)
+      this.props.history.push("/landing");
+    })
+    .catch(error => {
+      this.state.usernameExists = error.response.data.message.includes('Username');
+      this.state.emailExists = error.response.data.message.includes('Email');
     })
   }
 
@@ -64,12 +76,12 @@ class UserRegistration extends Component {
       <div>
         <h1>Register Now!</h1>
         <form onSubmit={this.handleSubmit}>
-          <TextField name="username" hintText="Username" value={this.state.username} onChange={this.handleUsernameChange}/> <br />
-          <TextField name="first_name" hintText="First Name" value={this.state.first_name} onChange={this.handleFirstNameChange}/> <br />
-          <TextField name="last_name" hintText="Last Name" value={this.state.last_name} onChange={this.handleLastNameChange}/> <br />
-          <TextField name="email" type="email" hintText="Email" value={this.state.email} onChange={this.handleEmailChange}/> <br />
-          <TextField name="password" type="password" hintText="Password" value={this.state.password} onChange={this.handlePasswordChange}/> <br />
-          <TextField name="password_confirmation" type="password" hintText="Confirm Password" value={this.state.password_confirmation} onChange={this.handlePasswordConfirmationChange}/> <br />
+          <TextField name="username" hintText="Username" errorText={this.state.usernameExists ? this.state.usernameError : ""} value={this.state.username} onChange={this.handleInputChange}/> <br />
+          <TextField name="first_name" hintText="First Name" value={this.state.first_name} onChange={this.handleInputChange}/> <br />
+          <TextField name="last_name" hintText="Last Name" value={this.state.last_name} onChange={this.handleInputChange}/> <br />
+          <TextField name="email" type="email" hintText="Email" errorText={this.state.emailExists ? this.state.emailError : ""} value={this.state.email} onChange={this.handleInputChange}/> <br />
+          <TextField name="password" type="password" hintText="Password" value={this.state.password} onChange={this.handleInputChange}/> <br />
+          <TextField name="password_confirmation" type="password" hintText="Confirm Password" value={this.state.password_confirmation} onChange={this.handleInputChange}/> <br />
           <input type="submit" value="Submit" />
         </form>
       </div>

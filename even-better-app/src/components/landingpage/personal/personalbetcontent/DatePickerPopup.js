@@ -9,14 +9,17 @@ import TimePicker from 'material-ui/TimePicker';
  */
 const DatePickerPopup = () => (
   <div>
-    <DatePicker hintText="Bet deadline date" />
+    <DatePicker hintText="Bet deadline date"
+                autoOk = {true}
+                //errorText = {this.props.error}
+                />
     <TimePicker
-      hintText="Bet deadline time"
-    />
-    <DatePicker hintText="Decison Deadline (Mediator)" />
-    <TimePicker
-      hintText="Decision deadline time"
-    />
+                hintText="Bet deadline time"
+                autoOk = {true} />
+    <DatePicker hintText="Decison Deadline (Mediator)"
+                autoOk = {true} />
+    <TimePicker hintText="Decision deadline time"
+                autoOk = {true} />
   </div>
 );
 

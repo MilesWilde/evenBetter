@@ -24,9 +24,12 @@ export default class MediatorAutoComplete extends Component {
       <div>
         <AutoComplete
             hintText="Pick a mediator"
+            value={this.props.mediator} 
+            onChange={this.props._handleUsersFieldChange}
             filter={AutoComplete.caseInsensitiveFilter}
             dataSource={this.state.dataSource}
             onUpdateInput={this.handleUpdateInput}
+            errorText = {this.props.error} 
         />
       </div>
     );

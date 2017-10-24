@@ -24,9 +24,12 @@ export default class UsersAutoComplete extends Component {
       <div>
         <AutoComplete
             hintText="Enter participant names"
+            value={this.props.names} 
+            onChange={this.props._handleUsersFieldChange}
             filter={AutoComplete.caseInsensitiveFilter}
             dataSource={this.state.dataSource}
             onUpdateInput={this.handleUpdateInput}
+            errorText = {this.props.error} 
         />
       </div>
     );

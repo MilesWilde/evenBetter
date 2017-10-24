@@ -68,7 +68,7 @@ class BettingPool extends React.Component  {
                 <UsersAutoComplete names = {this.state.names} _handleUsersFieldChange = {this._handleUsersFieldChange} error = {this.state.errors[0]}/>
                 <MediatorAutoComplete mediator = {this.state.mediator} _handleMediatorFieldChange = {this._handleMediatorFieldChange} error = {this.state.errors[1]}/>
             <br />
-            <DatePickerPopup error = {this.state.errors[2]} />
+            <DatePickerPopup />
             <FlatButton
                 label="Back"
                 disabled={this.props.stepIndex === 0}

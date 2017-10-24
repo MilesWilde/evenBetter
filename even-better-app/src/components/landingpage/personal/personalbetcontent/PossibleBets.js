@@ -27,17 +27,16 @@ class PossibleBets extends React.Component {
   }
 
   handleChange(newData) {
-    let stateValue = this.state.value
-    stateValue.push(newData)
-    this.setState({value: stateValue})
+    this.setState({value: newData})
   }
 
-  handleMoveNext = (data) => {
+  handleMoveNext = () => {
     let error = ''
     if(this.state.value.length < 2) {
       error = 'There must be atleast 2 possibilities'
     }
     if (error.length === 0) {
+      console.log("State value is: ", this.state.value)
       this.props.handleNext({
         possibilities: this.state.value
       })

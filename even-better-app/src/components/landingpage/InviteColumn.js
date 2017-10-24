@@ -4,6 +4,7 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+import Invite from './Invite'
 
 const style = {
   display: 'inline-block',
@@ -15,6 +16,10 @@ const InviteColumn = () => (
     <h3> Invite Column </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320} maxHeight={250}>
+        <Invite
+          fromUser="Arsalan"
+          betTitle="This will actually work"
+        />
         <MenuItem
           primaryText="Bet - EvenBetter wins best project"
           rightIcon={<ArrowDropRight />}

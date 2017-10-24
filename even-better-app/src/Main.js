@@ -2,6 +2,8 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
+import SplashPage from './components/splashpage/SplashPage'
+
 
 
 // The Main component renders one of the three provided
@@ -16,6 +18,9 @@ const Main = () => (
     </Switch>
     <Switch>
       <Route path='/signup' component={UserRegistration}/>
+    </Switch>
+    <Switch>
+      <Route exact path='/' component={SplashPage}/>
     </Switch>
   </main>
 )

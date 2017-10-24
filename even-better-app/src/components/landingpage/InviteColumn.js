@@ -14,7 +14,7 @@ const InviteColumn = () => (
   <div class = "invite-column">
     <h3> Invite Column </h3>
     <Paper style={style}>
-      <Menu desktop={true} width={320}>
+      <Menu desktop={true} width={320} maxHeight={250}>
         <MenuItem
           primaryText="Bet - EvenBetter wins best project"
           rightIcon={<ArrowDropRight />}
@@ -31,7 +31,47 @@ const InviteColumn = () => (
           <MenuItem primaryText="Accept" />,
           <MenuItem primaryText="Decline" />,
         ]}
-      />
+        />
+        <MenuItem
+          primaryText="Bet - John shows up late to class"
+          rightIcon={<ArrowDropRight />}
+          menuItems={[
+            <MenuItem primaryText="Accept" />,
+            <MenuItem primaryText="Decline" />,
+          ]}
+        />
+        <MenuItem
+          primaryText="Bet - John shows up late to class"
+          rightIcon={<ArrowDropRight />}
+          menuItems={[
+            <MenuItem primaryText="Accept" />,
+            <MenuItem primaryText="Decline" />,
+          ]}
+        />
+                <MenuItem
+          primaryText="Bet - John shows up late to class"
+          rightIcon={<ArrowDropRight />}
+          menuItems={[
+            <MenuItem primaryText="Accept" />,
+            <MenuItem primaryText="Decline" />,
+          ]}
+        />
+                <MenuItem
+          primaryText="Bet - John shows up late to class"
+          rightIcon={<ArrowDropRight />}
+          menuItems={[
+            <MenuItem primaryText="Accept" />,
+            <MenuItem primaryText="Decline" />,
+          ]}
+        />
+                <MenuItem
+          primaryText="Bet - John shows up late to class"
+          rightIcon={<ArrowDropRight />}
+          menuItems={[
+            <MenuItem primaryText="Accept" />,
+            <MenuItem primaryText="Decline" />,
+          ]}
+        />
       </Menu>
     </Paper>
   </div>

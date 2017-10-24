@@ -8,7 +8,6 @@ import Main from './Main'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
-import SplashPage from './components/splashpage/SplashPage'
 import FlatButton from 'material-ui/FlatButton';
 
 injectTapEventPlugin();
@@ -20,7 +19,7 @@ injectTapEventPlugin();
 class App extends Component {
   render() {
     return (
- 
+
       <MuiThemeProvider >
         <AppBar
           style={{position:'fixed'}}
@@ -33,8 +32,7 @@ class App extends Component {
             </div>
           }
         />
-        
-        <SplashPage />
+
         <Main />
       </MuiThemeProvider>
     );

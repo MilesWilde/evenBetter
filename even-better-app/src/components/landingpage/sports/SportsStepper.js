@@ -20,11 +20,30 @@ class SportsStepper extends React.Component {
   state = {
     finished: false,
     stepIndex: 0,
+    data: [
+      {
+        sport: ''
+      }
+    ]
   };
 
-  handleNext = () => {
-    const {stepIndex} = this.state;
+  handleNext = (userData) => {
+    console.log('Im inside handlenext Sports')
+    const {stepIndex, data} = this.state;
+    const tempStateHold = data;
+
+    if (stepIndex === 0) {
+      tempStateHold[0] = {
+        sport: userData.sport,
+      }
+    }
+    if (stepIndex === 1) {
+      tempStateHold[1] = {
+      }
+    }
+    console.log("TempstateHold", tempStateHold)
     this.setState({
+      data: tempStateHold,
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
@@ -40,7 +59,9 @@ class SportsStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <DateandSport />
+      return <DateandSport  data={this.state.data[0]}
+                            stepIndex={this.state.stepIndex}
+                            />
       case 1:
         return 'Select from a list of games here';
       case 2:

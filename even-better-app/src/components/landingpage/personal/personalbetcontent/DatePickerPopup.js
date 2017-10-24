@@ -30,12 +30,12 @@ class DatePickerPopup extends React.Component {
     {this.props._handleChangeBetTime(betDeadlineTime)}
   }
 
-  _handledecisionDeadlineDate = (e, decisionDeadlineDate) => {
+  _handleDecisionDeadlineDate = (e, decisionDeadlineDate) => {
     this.setState({decisionDeadlineDate: decisionDeadlineDate})
     {this.props._handleChangeDecisionDeadline(decisionDeadlineDate)}
   }
 
-  _handledecisionDeadlineTime = (e, decisionDeadlineTime) => {
+  _handleDecisionDeadlineTime = (e, decisionDeadlineTime) => {
     this.setState({decisionDeadlineTime: decisionDeadlineTime})
     {this.props._handleChangeDecisionTime(decisionDeadlineTime)}
   }

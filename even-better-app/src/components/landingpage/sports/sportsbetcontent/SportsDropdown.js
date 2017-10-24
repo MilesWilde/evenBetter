@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import DatePicker from 'material-ui/DatePicker';
+
 
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -9,9 +11,14 @@ export default class SportsDropdown extends Component {
   state = {
     value: 1,
     sport: '',
+    gameDate: ''
   };
 
   handleChange = (event, index, value) => this.setState({value});
+
+  _handleGameDate = (e, gameDate) => {
+    this.setState({gameDate: gameDate})
+  }
 
   handleMoveNext = () => {
     let sport=''
@@ -33,6 +40,7 @@ export default class SportsDropdown extends Component {
       
     this.props.handleNext({
       sport: sport,
+      gameDate: this.state.gameDate
     });
 
   }
@@ -52,6 +60,11 @@ export default class SportsDropdown extends Component {
           <MenuItem value={4} primaryText="EPL - English Soccer" />
           <MenuItem value={5} primaryText="MLS - American Soccer" />
         </SelectField>
+        <DatePicker   hintText="Date for game"
+                      mode="landscape"
+                      autoOk = {true}
+                      onChange = {this._handleGameDate} />
+
 
         <FlatButton
                   label="Back"

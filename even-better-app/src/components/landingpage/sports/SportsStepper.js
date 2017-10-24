@@ -22,7 +22,8 @@ class SportsStepper extends React.Component {
     stepIndex: 0,
     data: [
       {
-        sport: ''
+        sport: '',
+        gameDate: ''
       }
     ]
   };
@@ -35,6 +36,7 @@ class SportsStepper extends React.Component {
     if (stepIndex === 0) {
       tempStateHold[0] = {
         sport: userData.sport,
+        gameDate: userData.gameDate
       }
     }
 

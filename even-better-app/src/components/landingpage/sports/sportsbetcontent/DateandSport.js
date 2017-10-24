@@ -20,7 +20,6 @@ class DateandSport extends React.Component {
                       handlePrev={this.state.sportsHandlePrev}
                       />
       <br />
-      <DatePickerPopup />
     </div>
     );
   }

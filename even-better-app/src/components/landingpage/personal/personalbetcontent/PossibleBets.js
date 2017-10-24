@@ -11,7 +11,8 @@ class PossibleBets extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: [],
+      error:''
     };
 
     this.styles = {
@@ -26,8 +27,23 @@ class PossibleBets extends React.Component {
   }
 
   handleChange(newData) {
-    this.setState({newData})
-    this.props.possibilities.push(newData)
+    let stateValue = this.state.value
+    stateValue.push(newData)
+    this.setState({value: stateValue})
+  }
+
+  handleMoveNext = (data) => {
+    let error = ''
+    if(this.state.value.length < 2) {
+      error = 'There must be atleast 2 possibilities'
+    }
+    if (error.length === 0) {
+      this.props.handleNext({
+        possibilities: this.state.value
+      })
+    } else {
+      this.setState({error: error})
+    }
   }
 
   render () {
@@ -36,7 +52,8 @@ class PossibleBets extends React.Component {
         <ChipInput
           floatingLabelText={"Enter the possibilities"}
           onChange={(chips) => this.handleChange(chips)}
-        /> <br />
+          errorText = {this.state.error}
+        /> <br /><br />
 
         <FlatButton
           label="Back"

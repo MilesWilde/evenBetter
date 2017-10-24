@@ -65,6 +65,11 @@ class PersonalStepper extends React.Component {
         decisionDeadlineTime: userData.decisionDeadlineTime,
       }
     }
+    if (stepIndex === 2) {
+      tempStateHold[2] = {
+        possibilities: userData.possibilities
+      }
+    }
     console.log("TempstateHold", tempStateHold)
     this.setState({
       data: tempStateHold,
@@ -101,7 +106,7 @@ class PersonalStepper extends React.Component {
                               handlePrev={this.handlePrev}
                               data={this.state.data[1]} 
                               stepIndex={stepIndex}
-                              possibilities={this.state.possibilities}
+                              possibilities={this.state.data[2].possibilities}
                               />
       default:
         return 'Come on, make a Personal Bet!!';
@@ -133,19 +138,6 @@ class PersonalStepper extends React.Component {
           ) : (
             <div>
               <p>{this.getStepContent(stepIndex)}</p>
-              <div style={{marginTop: 12}}>
-                <FlatButton
-                  label="Back"
-                  disabled={stepIndex === 0}
-                  onClick={this.handlePrev}
-                  style={{marginRight: 12}}
-                />
-                <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  primary={true}
-                  onClick={this.handleNext}
-                />
-              </div>
             </div>
           )}
         </div>

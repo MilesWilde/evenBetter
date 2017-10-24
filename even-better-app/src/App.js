@@ -22,7 +22,7 @@ class App extends Component {
     return (
 
       <MuiThemeProvider >
-        <AppBar
+        {/* <AppBar
           style={{position:'fixed'}}
           title='EvenBetter'
           iconClassNameRight='muidocs-icon-navigation-expand-more'
@@ -32,7 +32,7 @@ class App extends Component {
               <FlatButton label="Register" />
             </div>
           }
-        />
+        /> */}
 
         <Main />
       </MuiThemeProvider>

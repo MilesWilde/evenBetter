@@ -10,10 +10,7 @@ import Cable from 'actioncable'
 // Child components
 import ChatBar from './ChatBar'
 import ChatMessageArea from './ChatMessageArea'
-
-const divStyle = {
-  minHeight: '100px'
-}
+import BetDetails from './BetDetails'
 
 class Bet extends Component {
   constructor(props) {
@@ -31,14 +28,24 @@ class Bet extends Component {
   render() {
     return(
       <MuiThemeProvider>
-
-        <ChatMessageArea chatLogs={ this.state.chatLogs } />
-        <ChatBar
-          currentChatMessage={ this.state.currentChatMessage }
-          updateCurrentChatMessage={ this.updateCurrentChatMessage }
-          handleChatInputKeyPress={ this.handleChatInputKeyPress }
-          handleSendEvent={ this.handleSendEvent }
-        />
+        <div id='bet-container'>
+          <div id='bet-details-container'>
+            <BetDetails />
+          </div>
+          <div id='bet-chat-container'>
+            <div id='bet-chat-log'>
+              <ChatMessageArea chatLogs={ this.state.chatLogs } />
+            </div>
+            <div id='bet-chat-bar'>
+              <ChatBar
+                currentChatMessage={ this.state.currentChatMessage }
+                updateCurrentChatMessage={ this.updateCurrentChatMessage }
+                handleChatInputKeyPress={ this.handleChatInputKeyPress }
+                handleSendEvent={ this.handleSendEvent }
+              />
+            </div>
+          </div>
+        </div>
       </MuiThemeProvider>
     )
   }
@@ -70,10 +77,12 @@ class Bet extends Component {
 
   handleSendEvent = (event) => {
     event.preventDefault();
-    this.chats.create(this.state.currentChatMessage);
-    this.setState({
-      currentChatMessage: ''
-    });
+    if (this.state.currentChatMessage){
+      this.chats.create(this.state.currentChatMessage);
+      this.setState({
+        currentChatMessage: ''
+      });
+    }
   }
 
   handleChatInputKeyPress = (event) => {

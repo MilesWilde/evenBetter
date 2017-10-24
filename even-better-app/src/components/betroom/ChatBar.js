@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './betroom.css'
 
 class ChatBar extends Component{
   constructor (props) {

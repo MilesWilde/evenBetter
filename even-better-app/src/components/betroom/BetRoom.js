@@ -7,6 +7,8 @@ import $ from 'jquery';
 import MessageList from './MessageList'
 import ChatBar from './ChatBar'
 import SideBar from './SideBar'
+import './betroom.css'
+
 
 class BetRoom extends Component {
 

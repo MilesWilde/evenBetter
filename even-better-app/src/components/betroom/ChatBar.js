@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './betroom.css'
 
 class ChatBar extends Component{
   constructor (props) {
@@ -13,21 +14,17 @@ class ChatBar extends Component{
     }
   }
   // event handler for hitting enter on user box
-  handleUserPress(event){
-    if(event.key == 'Enter'){
-      this.props.userInput(event.target.value);
-    }
-  }
+
   
   render(){
     console.log("Rendering <ChatBar>")
     return (
       <footer className="chatbar">
-        <input 
+        {/* <input 
           className="chatbar-username" 
           placeholder="Your Name (Optional)" 
           onKeyPress={this.handleUserPress.bind(this)}
-          defaultValue = {this.props.currentUser}/>
+          defaultValue = {this.props.currentUser}/> */}
         <input 
           className="chatbar-message" 
           placeholder="Type a message and hit ENTER" 

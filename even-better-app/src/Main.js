@@ -16,7 +16,7 @@ const Main = () => (
       <Route path='/landing' component={LandingPage}/>
     </Switch>
     <Switch>
-      <Route path='betroom' component={BetRoom}/>
+      <Route path='/betroom' component={BetRoom}/>
     </Switch>
     <Switch>
       <Route path='/signup' component={UserRegistration}/>

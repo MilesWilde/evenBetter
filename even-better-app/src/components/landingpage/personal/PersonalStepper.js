@@ -37,6 +37,9 @@ class PersonalStepper extends React.Component {
           betDeadlineTime:null,
           decisionDeadlineDate: null,
           decisionDeadlineTime:null        
+        },
+        {
+          possibilities:[]
         }
       ]
     }
@@ -80,14 +83,26 @@ class PersonalStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <NameDesc name={this.state.data[0].name} description={this.state.data[0].description} handlePrev={this.handlePrev} handleNext={this.handleNext} data={this.state.data[0]} stepIndex={stepIndex}/>
+      return <NameDesc        name={this.state.data[0].name} 
+                              description={this.state.data[0].description} 
+                              handlePrev={this.handlePrev} 
+                              handleNext={this.handleNext} 
+                              data={this.state.data[0]} 
+                              stepIndex={stepIndex}
+                              />
       case 1:
         return <BettingPool   handleNext={this.handleNext}
                               handlePrev={this.handlePrev}
                               data={this.state.data[1]} 
-                              stepIndex={stepIndex} />
+                              stepIndex={stepIndex} 
+                              />
       case 2:
-        return <PossibleBets />
+        return <PossibleBets  handleNext={this.handleNext}
+                              handlePrev={this.handlePrev}
+                              data={this.state.data[1]} 
+                              stepIndex={stepIndex}
+                              possibilities={this.state.possibilities}
+                              />
       default:
         return 'Come on, make a Personal Bet!!';
     }
@@ -129,7 +144,6 @@ class PersonalStepper extends React.Component {
                   label={stepIndex === 2 ? 'Finish' : 'Next'}
                   primary={true}
                   onClick={this.handleNext}
-                  //Check e.target.vale of text field in <NameDesc /> for data. 
                 />
               </div>
             </div>

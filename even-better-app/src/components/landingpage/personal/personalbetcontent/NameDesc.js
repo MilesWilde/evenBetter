@@ -84,8 +84,7 @@ class NameDesc extends React.Component {
         <RaisedButton
           label={this.props.stepIndex === 2 ? 'Finish' : 'Next'}
           primary={true}
-          onClick={this.handleMoveNext}
-          //Check e.target.vale of text field in <NameDesc /> for data. 
+          onClick={this.handleMoveNext}          //Check e.target.vale of text field in <NameDesc /> for data. 
         />
         </div>
       </div>

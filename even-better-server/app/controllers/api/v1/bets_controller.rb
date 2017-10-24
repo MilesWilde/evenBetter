@@ -17,7 +17,7 @@ module Api::V1
       # need to validate number of users in controller
       # can't add them and call save because it tries to create them in the users table
       if @users.length >= 2
-        @bet = current_user.owned.new(bet_params)
+        @bet = current_user.created_bets.new(bet_params)
         # add the possibilities
         @possibilities.map{ |possibility| @bet.possibilities.build(description: possibility) }
         @bet.save!

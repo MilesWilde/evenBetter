@@ -11,15 +11,37 @@ const style = {
   margin: '16px 32px 16px 0',
 };
 
+function renderInvites(userid) {
+  var invites = [];
+  axios.get('/bets/:userid')
+  .then(response => {
+    response.forEach((bet) => {
+      if (bet.status === nil) {
+        invites.push(bet);
+      }
+    })
+    return (
+      invites.forEach((invite) => {
+        <Bet/>
+      })
+    )
+
+  }
+  return invites
+}
+
 const InviteColumn = () => (
   <div class = "invite-column">
     <h3> Invite Column </h3>
     <Paper style={style}>
+    // Retrieve entries from betusers
+    // where userid is currentuser
+    // and accepted is nill
       <Menu desktop={true} width={320} maxHeight={250}>
-        <Invite
-          fromUser="Arsalan"
-          betTitle="This will actually work"
-        />
+
+        {var invites = renderInvites(userid);}
+        {}
+
         <MenuItem
           primaryText="Bet - EvenBetter wins best project"
           rightIcon={<ArrowDropRight />}

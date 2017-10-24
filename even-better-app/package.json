@@ -9,6 +9,7 @@
     "react": "^16.0.0",
     "react-actioncable-provider": "^1.0.0",
     "react-bootstrap-table": "^4.1.0",
+    "react-counter": "^1.1.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -21,5 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.0.1"
   }
 }

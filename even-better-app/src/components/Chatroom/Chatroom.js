@@ -1,22 +1,21 @@
 import React, { Component } from 'react'
-import { ActionCableProvider } from 'react-actioncable-provider'
+import ActionCable from 'actioncable'
 const cable = ActionCable.createConsumer('ws://localhost:3001/cable')
 
+class Chatroom extends Component {
 
-class App extends Component {
-  App.cable.subscriptions.create { channel: "ChatChannel", room: "Best Room" },
-  received: (data) ->
-    @appendLine(data)
+  componentDidMount() {
+    cable.subscriptions.create('ChatChannel', {
+    // normal channel code goes here...
+    })
+  }
 
-  appendLine: (data) ->
-    html = @createLine(data)
-    $("[data-chat-room='Best Room']").append(html)
 
-  createLine: (data) ->
-
-    <article class="chat-line">
-      <span class="speaker">#{data["sent_by"]}</span>
-      <span class="body">#{data["body"]}</span>
-    </article>
-
+  render() {
+    return(
+      <h1>Connecting to AC</h1>
+      )
+  }
 }
+
+export default Chatroom

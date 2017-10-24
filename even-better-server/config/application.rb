@@ -29,8 +29,8 @@ module EvenBetterApi
       g.factory_girl dir: 'spec/factories'
     end
 
-    # Listens for Websocket requests on /websocket
-    config.action_cable.mount_path = '/websocket'
+    # Listens for Websocket requests on /cable
+    config.action_cable.mount_path = '/cable'
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
@@ -43,6 +43,5 @@ module EvenBetterApi
       end
     end
 
-    config.action_cable.disable_request_forgery_protection = true
   end
 end

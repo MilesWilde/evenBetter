@@ -9,13 +9,20 @@ import Cable from 'actioncable'
 
 // Child components
 import ChatBar from './ChatBar'
+import ChatMessageArea from './ChatMessageArea'
+
+const divStyle = {
+  minHeight: '100px'
+}
 
 class Bet extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentChatMessage: '',
-      chatLogs: []
+      chatLogs: [
+        { content: 'asdadsads' }
+      ]
     };
   }
 
@@ -26,14 +33,17 @@ class Bet extends Component {
   render() {
     return(
       <MuiThemeProvider>
-        <div className='stage'>
+        {/* <div className='stage'>
           <h1>Chat</h1>
           <div className='chat-logs'>
             <ul className='chat-logs'>
               { this.renderChatLog() }
             </ul>
           </div>
+        </div> */}
+        <div style={divStyle} >
         </div>
+        <ChatMessageArea chatLogs={ this.state.chatLogs } />
         <ChatBar
           currentChatMessage={ this.state.currentChatMessage }
           updateCurrentChatMessage={ this.updateCurrentChatMessage }
@@ -83,16 +93,16 @@ class Bet extends Component {
     }//end if
   }
 
-  renderChatLog = () => {
-    return this.state.chatLogs.map((el) => {
-      return (
-        <li key={`chat_${el.id}`}>
-          <span className='chat-message'>{ el.content }</span>
-          <span className='chat-created-at'>{ el.created_at }</span>
-        </li>
-      );
-    });
-  }
+  // renderChatLog = () => {
+  //   return this.state.chatLogs.map((el) => {
+  //     return (
+  //       <li key={`chat_${el.id}`}>
+  //         <span className='chat-message'>{ el.content }</span>
+  //         <span className='chat-created-at'>{ el.created_at }</span>
+  //       </li>
+  //     );
+  //   });
+  // }
 
 }
 

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
 // Material UI
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import PropTypes from 'prop-types';
 import { TextField, FloatingActionButton } from 'material-ui'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
@@ -24,4 +22,4 @@ class ChatBar extends Component{
   }
 }
 
-export default ChatBar;
+export default ChatBar

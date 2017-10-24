@@ -6,4 +6,8 @@ class ChatChannel < ApplicationCable::Channel
     message = Message.find(params[:id])
     stream_for message
   end
+
+  def receive(data)
+    ActionCable.server.broadcast("chat_#{params[:room]}", data)
+  end
 end

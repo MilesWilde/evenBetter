@@ -5,6 +5,7 @@ FactoryGirl.define do
     betting_deadline { Faker::Time.between(Date.today, deadline) }
     outcome_deadline { deadline }
     description { Faker::Lorem.paragraph }
+    possibilities { create_list(:possibility, 2) }
 
     trait :expired do
       deadline = Faker::Time.backward(5)

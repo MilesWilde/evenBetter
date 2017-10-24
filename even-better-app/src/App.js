@@ -8,18 +8,34 @@ import Main from './Main'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
+import SplashPage from './components/splashpage/SplashPage'
+import FlatButton from 'material-ui/FlatButton';
 
 injectTapEventPlugin();
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+
 
 class App extends Component {
   render() {
     return (
+ 
       <MuiThemeProvider >
         <AppBar
-            title="EvenBetter"
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
-          />
-          <Main />
+          style={{position:'fixed'}}
+          title='EvenBetter'
+          iconClassNameRight='muidocs-icon-navigation-expand-more'
+          iconElementRight={
+            <div>
+              <FlatButton label="Sign In" />
+              <FlatButton label="Register" />
+            </div>
+          }
+        />
+        
+        <SplashPage />
+        <Main />
       </MuiThemeProvider>
     );
   }

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:index]
       resources :games, only: [:index, :show]
-      resources :bets, only: [:index, :show, :create, :destroy] 
-       
+      resources :bets, except: [:destroy] do
+        resources :messages, except: [:update, :destroy]
+      end
+      resources :users, except: [:create, :destroy]
     end
   end
 end

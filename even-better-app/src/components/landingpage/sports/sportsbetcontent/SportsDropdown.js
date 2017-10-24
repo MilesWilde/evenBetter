@@ -62,7 +62,7 @@ export default class SportsDropdown extends Component {
         <RaisedButton
           label={this.props.stepIndex === 2 ? 'Finish' : 'Next'}
           primary={true}
-          onClick={this.props.handleMoveNext}
+          onClick={this.handleMoveNext}
         />
       </div>
     );

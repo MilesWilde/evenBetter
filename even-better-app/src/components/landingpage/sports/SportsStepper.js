@@ -37,10 +37,7 @@ class SportsStepper extends React.Component {
         sport: userData.sport,
       }
     }
-    if (stepIndex === 1) {
-      tempStateHold[1] = {
-      }
-    }
+
     console.log("TempstateHold", tempStateHold)
     this.setState({
       data: tempStateHold,
@@ -61,6 +58,7 @@ class SportsStepper extends React.Component {
       case 0:
       return <DateandSport  data={this.state.data[0]}
                             stepIndex={this.state.stepIndex}
+                            handleNext={this.handleNext}
                             />
       case 1:
         return 'Select from a list of games here';

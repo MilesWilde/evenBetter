@@ -33,10 +33,10 @@ class PersonalStepper extends React.Component {
         {
           names: '',
           mediator: '',
-          betDeadlineDate: '',
-          betDeadlineTime:'',
-          decisionDeadlineDate: '',
-          decisionDeadlineTime:''        
+          betDeadlineDate: null,
+          betDeadlineTime:null,
+          decisionDeadlineDate: null,
+          decisionDeadlineTime:null        
         }
       ]
     }
@@ -62,7 +62,7 @@ class PersonalStepper extends React.Component {
         decisionDeadlineTime: userData.decisionDeadlineTime,
       }
     }
-
+    console.log("TempstateHold", tempStateHold)
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,

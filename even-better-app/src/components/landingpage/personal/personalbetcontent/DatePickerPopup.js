@@ -7,20 +7,65 @@ import TimePicker from 'material-ui/TimePicker';
  * You can also disable the Dialog passing `true` to the `disabled` property.
  * To display the year selection first, set the `openToYearSelection` property to `true`.
  */
-const DatePickerPopup = () => (
-  <div>
-    <DatePicker hintText="Bet deadline date"
-                autoOk = {true}
-                //errorText = {this.props.error}
-                />
-    <TimePicker
-                hintText="Bet deadline time"
-                autoOk = {true} />
-    <DatePicker hintText="Decison Deadline (Mediator)"
-                autoOk = {true} />
-    <TimePicker hintText="Decision deadline time"
-                autoOk = {true} />
-  </div>
-);
+class DatePickerPopup extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      betDeadlineDate: this.props.dateProp.betDeadlineDate,
+      betDeadlineTime: this.props.dateProp.betDeadlineTime,
+      decisionDeadlineDate: this.props.dateProp.decisionDeadlineDate,
+      decisionDeadlineTime: this.props.dateProp.decisionDeadlineTime
+    }
+  }
+
+  _handleBetDeadlineDate = (e, betDeadlineDate) => {
+    this.setState({betDeadlineDate: betDeadlineDate})
+    {this.props._handleChangeBetDeadline(betDeadlineDate)}
+
+  }
+
+  _handleBetDeadlineTime = (e, betDeadlineTime) => {
+    this.setState({betDeadlineTime: betDeadlineTime})
+    {this.props._handleChangeBetTime(betDeadlineTime)}
+  }
+
+  _handledecisionDeadlineDate = (e, decisionDeadlineDate) => {
+    this.setState({decisionDeadlineDate: decisionDeadlineDate})
+    {this.props._handleChangeDecisionDeadline(decisionDeadlineDate)}
+  }
+
+  _handledecisionDeadlineTime = (e, decisionDeadlineTime) => {
+    this.setState({decisionDeadlineTime: decisionDeadlineTime})
+    {this.props._handleChangeDecisionTime(decisionDeadlineTime)}
+  }
+
+  
+  render () {
+    return(
+      <div>
+        <DatePicker hintText="Bet deadline date"
+                    autoOk = {true}
+                    onChange = {this._handleBetDeadlineDate}
+                    />
+        <TimePicker
+                    hintText="Bet deadline time"
+                    autoOk = {true}
+                    onChange = {this._handleBetDeadlineTime}
+ />
+        <DatePicker hintText="Decison Deadline (Mediator)"
+                    autoOk = {true}
+                    onChange = {this._handleDecisionDeadlineDate}
+ />
+        <TimePicker hintText="Decision deadline time"
+                    autoOk = {true}
+                    onChange = {this._handleDecisionDeadlineTime}
+ />
+      </div>
+    );
+
+  }
+}
+
 
 export default DatePickerPopup;

@@ -38,8 +38,38 @@ class BettingPool extends React.Component  {
         });
       }
 
+
+    _handleChangeBetDeadline = (e) => {
+        console.log("Bet Deadline Date is: ", e)
+        this.setState({
+            betDeadlineDate: e
+        });
+    }
+
+    _handleChangeBetTime = (e) => {
+        console.log("Bet Deadline Time is: ", e)
+        this.setState({
+            betDeadlineTime: e
+        });
+    }
+
+    _handleChangeDecisionDeadline = (e) => {
+        console.log("Decision Deadline Date is: ", e)
+        this.setState({
+            decisionDeadlineDate: e
+        });
+    }
+
+    _handleChangeDecisionTime = (e) => {
+        console.log("Decision Deadline Time is: ", e)
+        this.setState({
+            decisionDeadlineTime: e
+        });
+    }
+
     handleMoveNext = () => {
             let errors = [];
+            console.log(errors)
             if (this.state.names.length === 0) {
               errors[0] = 'Must invite users to participate'
             }
@@ -68,7 +98,13 @@ class BettingPool extends React.Component  {
                 <UsersAutoComplete names = {this.state.names} _handleUsersFieldChange = {this._handleUsersFieldChange} error = {this.state.errors[0]}/>
                 <MediatorAutoComplete mediator = {this.state.mediator} _handleMediatorFieldChange = {this._handleMediatorFieldChange} error = {this.state.errors[1]}/>
             <br />
-            <DatePickerPopup />
+            <DatePickerPopup 
+                dateProp={this.state}
+                _handleChangeBetDeadline = {this._handleChangeBetDeadline}
+                _handleChangeBetTime = {this._handleChangeBetTime}
+                _handleChangeDecisionDeadline = {this._handleChangeDecisionDeadline}
+                _handleChangeDecisionTime = {this._handleChangeDecisionTime}
+                />
             <FlatButton
                 label="Back"
                 disabled={this.props.stepIndex === 0}

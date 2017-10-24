@@ -4,7 +4,10 @@ class ChatMessage extends Component{
 
   render() {
     return(
-      <div>{this.props.content}</div>
+      <div>
+        <span>{ this.props.message.created }</span>
+        <span>{ this.props.message.content }</span>
+      </div>
     )
   }
 }

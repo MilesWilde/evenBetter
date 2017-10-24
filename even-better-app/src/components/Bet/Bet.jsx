@@ -20,9 +20,7 @@ class Bet extends Component {
     super(props);
     this.state = {
       currentChatMessage: '',
-      chatLogs: [
-        { content: 'asdadsads' }
-      ]
+      chatLogs: []
     };
   }
 
@@ -33,16 +31,7 @@ class Bet extends Component {
   render() {
     return(
       <MuiThemeProvider>
-        {/* <div className='stage'>
-          <h1>Chat</h1>
-          <div className='chat-logs'>
-            <ul className='chat-logs'>
-              { this.renderChatLog() }
-            </ul>
-          </div>
-        </div> */}
-        <div style={divStyle} >
-        </div>
+
         <ChatMessageArea chatLogs={ this.state.chatLogs } />
         <ChatBar
           currentChatMessage={ this.state.currentChatMessage }
@@ -90,19 +79,8 @@ class Bet extends Component {
   handleChatInputKeyPress = (event) => {
     if(event.key === 'Enter') {
       this.handleSendEvent(event);
-    }//end if
+    }
   }
-
-  // renderChatLog = () => {
-  //   return this.state.chatLogs.map((el) => {
-  //     return (
-  //       <li key={`chat_${el.id}`}>
-  //         <span className='chat-message'>{ el.content }</span>
-  //         <span className='chat-created-at'>{ el.created_at }</span>
-  //       </li>
-  //     );
-  //   });
-  // }
 
 }
 

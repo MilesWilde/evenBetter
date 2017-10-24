@@ -6,7 +6,7 @@ class ChatMessageArea extends Component{
   render() {
     return(
       this.props.chatLogs.map( (message) => {
-        return <ChatMessage content={message.content}/>
+        return <ChatMessage key={message.id} message={message}/>
       })
     )
   }

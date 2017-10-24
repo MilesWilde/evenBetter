@@ -8,6 +8,14 @@ class TokenMessage
     'Invalid credentials'
   end
 
+  def self.invalid_email
+    'This email is not registered'
+  end
+
+  def self.invalid_password
+    'Invalid password'
+  end
+
   def self.invalid_token
     'Invalid token'
   end

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './App.css'
 import UsersContainer from './components/UsersContainer'
@@ -29,13 +30,13 @@ class App extends Component {
           iconClassNameRight='muidocs-icon-navigation-expand-more'
           iconElementRight={
             <div>
-              <FlatButton label="Sign In" />
-              <FlatButton label="Register" />
+              <Link to={'/landing'}><FlatButton label="Home" /></Link>
+              <Link to={'/signin'}><FlatButton label="Sign In" /></Link>
+              <Link to={'/signup'}><FlatButton label="Register" /></Link>
             </div>
           }
         />
         
-        <SplashPage />
         <Main />
       </MuiThemeProvider>
     );

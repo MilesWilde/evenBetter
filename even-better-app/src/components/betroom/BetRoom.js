@@ -16,8 +16,7 @@ class BetRoom extends Component {
     this.state = {
 
       currentUser: {name: 'Anonymous'},
-      messages: [],
-      userCount: 0
+      messages: []
     };
   }
 
@@ -25,8 +24,6 @@ class BetRoom extends Component {
   // sends message to socket server when they do and server handles it
   userTextInput = (msg) =>{
     this.socket.send(JSON.stringify({
-      type: 'postNotification',
-      colour: '',
       username: this.state.currentUser.name,
       message: msg,
       id: ''
@@ -35,28 +32,20 @@ class BetRoom extends Component {
 
   componentDidMount() {
 
-    console.log("componentDidMount <App />");
+    console.log("componentDidMount <BetRoom />");
     this.socket.onopen = function(event) {
       console.log("connected")
     }
-    // when socket receives a message it is either a user joining or a message
+    // when socket receives a message
     this.socket.onmessage = (event) => {
       const incMessage = JSON.parse(event.data);
-      // checks to see if user, if so add a new user to userCount in NavBar
-      if (incMessage.type === 'userCount'){
-        let userCount = incMessage.userCount;
-        this.setState({userCount})
-      } 
-      // if not a new user, it is a message and so adds a new message to the message list
-      else {
-        const messages = this.state.messages.concat(incMessage)
-        this.setState({messages})
-      }
+      const messages = this.state.messages.concat(incMessage)
+      this.setState({messages})
     }
   }
   // rendering all contents of page
   render() {
-    console.log("Rendering <App>")
+    console.log("Rendering <BetRoom>")
     return (
       <div>
         <SideBar
@@ -74,4 +63,4 @@ class BetRoom extends Component {
     );
   }
 }
-export default App;
+export default BetRoom;

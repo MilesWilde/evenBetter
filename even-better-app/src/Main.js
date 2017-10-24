@@ -2,7 +2,8 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
-
+import SplashPage from './components/splashpage/SplashPage'
+import BetRoom from './components/betroom/BetRoom'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -15,7 +16,13 @@ const Main = () => (
       <Route path='/landing' component={LandingPage}/>
     </Switch>
     <Switch>
+      <Route path='betroom' component={BetRoom}/>
+    </Switch>
+    <Switch>
       <Route path='/signup' component={UserRegistration}/>
+    </Switch>
+    <Switch>
+      <Route exact path ='/' component={SplashPage}/>
     </Switch>
   </main>
 )

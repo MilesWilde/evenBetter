@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
 
-class SideBar extends Componenet {
+class SideBar extends Component {
     constructor(props) {
         super(props);
     }
     
 }
+
+export default SideBar

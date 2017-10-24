@@ -19,24 +19,28 @@ import PossibleBets from './personalbetcontent/PossibleBets'
  */
 class PersonalStepper extends React.Component {
 
-  state = {
-    finished: false,
-    stepIndex: 0,
-    data: [
-      {
-        name: '',
-        description: ''
-      },
-      {
-        names: [],
-        mediator: '',
-        betDeadlineDate: '',
-        betDeadlineTime:'',
-        decisionDeadlineDate: '',
-        decisionDeadlineTime:''        
-      }
-    ]
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      finished: false,
+      stepIndex: 0,
+      data: [
+        {
+          name: '',
+          description: ''
+        },
+        {
+          names: '',
+          mediator: '',
+          betDeadlineDate: '',
+          betDeadlineTime:'',
+          decisionDeadlineDate: '',
+          decisionDeadlineTime:''        
+        }
+      ]
+    }
+  }
 
   handleNext = (userData) => {
     const {stepIndex, data} = this.state;
@@ -64,7 +68,6 @@ class PersonalStepper extends React.Component {
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
-    //Check NameDesc here for empty text fields
   };
 
   handlePrev = () => {

@@ -4,18 +4,32 @@ import AutoComplete from 'material-ui/AutoComplete';
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
  */
+const colors = [
+  'Red',
+  'Orange',
+  'Yellow',
+  'Green',
+  'Blue',
+  'Purple',
+  'Black',
+  'White',
+];
+
 export default class MediatorAutoComplete extends Component {
   state = {
-    dataSource: [],
+    searchText: '',
   };
 
-  handleUpdateInput = (value) => {
+  handleUpdateInput = (searchText) => {
     this.setState({
-      dataSource: [
-        "Rahul",
-        "Rahul Ramesh",
-        "Rahul Ramesh Something",
-      ],
+      searchText: searchText,
+    });
+    this.props._handleMediatorFieldChange(searchText)
+  };
+
+  handleNewRequest = (searchText) => {
+    this.setState({
+      searchText: searchText,
     });
   };
 
@@ -23,13 +37,14 @@ export default class MediatorAutoComplete extends Component {
     return (
       <div>
         <AutoComplete
-            hintText="Pick a mediator"
-            value={this.props.mediator} 
-            onChange={this.props._handleUsersFieldChange}
-            filter={AutoComplete.caseInsensitiveFilter}
-            dataSource={this.state.dataSource}
-            onUpdateInput={this.handleUpdateInput}
-            errorText = {this.props.error} 
+          hintText="Pick a mediator"
+          searchText={this.state.searchText}
+          onUpdateInput={this.handleUpdateInput}
+          onNewRequest={this.handleNewRequest}
+          dataSource={colors}
+          filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
+          openOnFocus={true}
+          errorText = {this.props.error} 
         />
       </div>
     );

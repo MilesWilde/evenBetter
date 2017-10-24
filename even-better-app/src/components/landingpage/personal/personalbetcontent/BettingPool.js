@@ -25,37 +25,26 @@ class BettingPool extends React.Component  {
       }
 
     _handleUsersFieldChange = (e) => {
+        console.log("NAME VALUE IS", e)
         this.setState({
-            names: e.target.value
+            names: e
         });
       }
     
     _handleMediatorFieldChange = (e) => {
+        console.log("MEDIATOR VALUE IS", e)
         this.setState({
-            mediator: e.target.value
+            mediator: e
         });
       }
 
     handleMoveNext = () => {
-        
             let errors = [];
             if (this.state.names.length === 0) {
               errors[0] = 'Must invite users to participate'
             }
             if (this.state.mediator === '') {
               errors[1] = 'Must have a mediator'
-            }
-            if (this.state.betDeadlineDate === '') {
-              errors[2] = 'Must have a Bet Deadline Date'
-            }
-            if (this.state.betDeadlineTime=== '') {
-              errors[3] = 'Must have a Bet Deadline Time'
-            }
-            if (this.state.decisionDeadlineTime=== '') {
-              errors[4] = 'Must have a Decision Deadline Time'
-            }
-            if (this.state.decisionDeadlineTime=== '') {
-              errors[5] = 'Must have a Decision Deadline Time'
             }
         
             if (errors.length === 0) {
@@ -90,7 +79,6 @@ class BettingPool extends React.Component  {
                 label={this.props.stepIndex === 2 ? 'Finish' : 'Next'}
                 primary={true}
                 onClick={this.handleMoveNext}
-                //Check e.target.vale of text field in <NameDesc /> for data. 
             />
             </div>
         );

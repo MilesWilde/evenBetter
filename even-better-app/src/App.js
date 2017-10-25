@@ -39,6 +39,7 @@ class App extends Component {
             </div>
           }
         />
+        <div style={{ paddingTop: 64 }}></div>
         <main>
           <Switch>
             <Route exact path='/' component={SplashPage} />

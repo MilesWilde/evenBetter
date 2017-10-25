@@ -44,34 +44,32 @@ class Bet extends Component {
 
   render() {
     return(
-      <MuiThemeProvider>
-        <Container fluid={true}>
-          <Row>
-            <Col xs='4'>
-              <BetDetails />
-            </Col>
-            <Col xs='8'>
-              <Container fluid={true}>
-                <Row>
-                  <Col xs='12'>
-                    <ChatMessageArea chatLogs={ this.state.chatLogs } />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs='12'>
-                    <ChatBar
-                      currentChatMessage={ this.state.currentChatMessage }
-                      updateCurrentChatMessage={ this.updateCurrentChatMessage }
-                      handleChatInputKeyPress={ this.handleChatInputKeyPress }
-                      handleSendEvent={ this.handleSendEvent }
-                    />
-                  </Col>
-                </Row>
-              </Container>
-            </Col>
-          </Row>
-        </Container>
-      </MuiThemeProvider>
+      <Container fluid={true}>
+        <Row>
+          <Col xs='4'>
+            <BetDetails />
+          </Col>
+          <Col xs='8'>
+            <Container fluid={true}>
+              <Row>
+                <Col xs='12'>
+                  <ChatMessageArea chatLogs={ this.state.chatLogs } />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs='12'>
+                  <ChatBar
+                    currentChatMessage={ this.state.currentChatMessage }
+                    updateCurrentChatMessage={ this.updateCurrentChatMessage }
+                    handleChatInputKeyPress={ this.handleChatInputKeyPress }
+                    handleSendEvent={ this.handleSendEvent }
+                  />
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 

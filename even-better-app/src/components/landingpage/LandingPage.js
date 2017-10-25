@@ -6,15 +6,19 @@ import InviteColumn from './InviteColumn'
 import BetsColumn from './BetsColumn'
 import PopupBets from './PopupBets'
 import PointsColumn from './PointsColumn'
+import ChangingProgressbar from './ChangingProgressbar'
+import CircularProgressbar from 'react-circular-progressbar';
+var pointsFunction = require('../landingpage/ranklogic')
 
 
 class LandingPage extends Component {
-
   render() {
     return (
       <div>
         <MuiThemeProvider>
-          <h1>{window.localStorage.first_name} {window.localStorage.last_name} points: {window.localStorage.user_points}</h1>
+          <h1>{window.localStorage.first_name} {window.localStorage.last_name} total points: {window.localStorage.user_points}</h1>
+          <h1>Next level: {pointsFunction.rankDetermine(window.localStorage.user_points).nextLevel} points!</h1>
+          <ChangingProgressbar percentages ={[0,window.localStorage.points_percent]} />
           <div className=" create-bet-buttons container">
             <PopupBets />
           </div>

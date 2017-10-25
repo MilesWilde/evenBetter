@@ -19,7 +19,7 @@ const Main = () => (
       <Route exact path='/' component={SplashPage} />
     </Switch>
     <Switch>
-      <Route path='/landing' component={LandingPage}/>
+      <Route path='/landing'  component={LandingPage}/>
     </Switch>
     <Switch>
       <Route path='/signup' component={UserRegistration}/>
@@ -30,7 +30,7 @@ const Main = () => (
     <Switch>
       <Route path='/auth/login' component={Login}/>
     </Switch>
-    </main>
+  </main>
 )
 
 export default Main

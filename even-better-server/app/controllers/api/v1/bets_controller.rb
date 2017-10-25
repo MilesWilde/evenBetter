@@ -56,7 +56,8 @@ module Api::V1
     end
 
     def find_creator
-      render json: @bet.creator
+      @bet = Bet.find(params[:id])
+      render json: @bet[:creator_id]
     end
 
     private

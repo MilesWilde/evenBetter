@@ -13,8 +13,8 @@ Rails.application.routes.draw do
       end
       resources :games, only: [:index, :show]
       get 'bets/invites', to: 'bets#get_invites'
+      get 'bets/:bet_id/creator', to: 'bets#find_creator'
       resources :bets, except: [:destroy] do
-        get '/creator', to: 'bets#find_creator'
         resources :messages, only: [:index]
       end
       resources :users, except: [:create, :destroy]

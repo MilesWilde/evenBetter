@@ -1,4 +1,4 @@
-import api from './betApi'
+import api from './api'
 
 /*
 This file will represent each data endpoint on your api. It's designed to look a

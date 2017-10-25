@@ -37,8 +37,12 @@ class Login extends Component {
     };
     axios.post('/auth/login', user)
     .then(response => {
-      debugger
       window.localStorage.auth_token = response.data.auth_token;
+      window.localStorage.user_id = response.data.user_id;
+      window.localStorage.user_points = response.data.user_points;
+      window.localStorage.user_bets = response.data.user_bets;
+      window.localStorage.first_name = response.data.first_name;
+      window.localStorage.last_name = response.data.last_name;
       this.props.history.push("/landing");
     })
     .catch(error => {
@@ -48,7 +52,6 @@ class Login extends Component {
         passwordInvalid: error.response.data.message.includes('password'),
         errorMessage: error.response.data.message
       });
-      debugger
     })
   }
 

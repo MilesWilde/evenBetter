@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './App.css'
 import UsersContainer from './components/UsersContainer'
@@ -19,24 +20,46 @@ injectTapEventPlugin();
 
 class App extends Component {
   render() {
-    return (
-
-      <MuiThemeProvider >
-        {/* <AppBar
-          style={{position:'fixed'}}
-          title='EvenBetter'
-          iconClassNameRight='muidocs-icon-navigation-expand-more'
-          iconElementRight={
-            <div>
-              <FlatButton label="Sign In" />
-              <FlatButton label="Register" />
-            </div>
-          }
-        /> */}
-
-        <Main />
-      </MuiThemeProvider>
-    );
+    if(window.localStorage.auth_token)
+      return (
+        <MuiThemeProvider >
+          <div className="topDiv">
+            <AppBar
+              style={{position:'fixed'}}
+              title={<Link to="/landing">EvenBetter</Link>}
+              iconClassNameRight='muidocs-icon-navigation-expand-more'
+              iconElementRight={
+                <div>
+                  <Link to="/landing"><FlatButton label="Home" /></Link>
+                  <Link to="/"><FlatButton label="About" /></Link>
+                </div>
+              }
+            />
+          </div>
+          <Main />
+        </MuiThemeProvider>
+      );
+    else {
+      return (
+        <MuiThemeProvider >
+          <div className="topDiv">
+            <AppBar
+              style={{position:'fixed'}}
+              title={<Link to="/">EvenBetter</Link>}
+              iconClassNameRight='muidocs-icon-navigation-expand-more'
+              iconElementRight={
+                <div>
+                  <Link to="/auth/login"><FlatButton label="Sign In" /></Link>
+                  <Link to="/signup"><FlatButton label="Register" /></Link>
+                  <Link to="/"><FlatButton label="About" /></Link>
+                </div>
+              }
+            />
+          </div>
+          <Main />
+        </MuiThemeProvider>
+      );
+    }
   }
 
 }

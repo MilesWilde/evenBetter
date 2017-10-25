@@ -5,7 +5,6 @@ import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
-import SplashPage from './components/splashpage/SplashPage'
 
 
 // The Main component renders one of the three provided

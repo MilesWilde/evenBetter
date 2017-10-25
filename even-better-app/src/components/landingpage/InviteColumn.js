@@ -21,14 +21,11 @@ var config = {
 
 // Finds the creator of a particular bet by ID
 function findBetCreator(betID) {
-  debugger
   axios.get(`/api/v1/bets/${betID}`, config)
   .then(response => {
-    debugger
     return response
   })
   .catch(error => {
-    debugger
     return error
   })
   // render error page

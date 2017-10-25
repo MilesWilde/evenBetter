@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import Login from './components/Login/Login'
+import SplashPage from './components/splashpage/SplashPage'
 
 
 // The Main component renders one of the three provided
@@ -20,6 +21,9 @@ const Main = () => (
     </Switch>
     <Switch>
       <Route path='/auth/login' component={Login}/>
+    </Switch>
+    <Switch>
+      <Route exact path='/' component={SplashPage}/>
     </Switch>
     </main>
 )

@@ -10,22 +10,20 @@ const style = {
   margin: '16px 32px 16px 0',
 };
 
-const InviteColumn = () => (
+
+//called from LandingPage
+//need to pass rank, amount of points in rank, and number of points to next rank
+const InviteColumn = ({userID}) => (
   <div class = "invite-column">
     <h3> Invite Column </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320}>
         <MenuItem
-          primaryText="Bet - EvenBetter wins best project"
-          rightIcon={<ArrowDropRight />}
-          menuItems={[
-            <MenuItem primaryText="Accept" />,
-            <MenuItem primaryText="Decline" />,
-          ]}
+          primaryText={`Your points: ${window.localStorage.user_points}`}
         />
         <Divider />
         <MenuItem
-        primaryText="Bet - John shows up late to class"
+        primaryText={window.localStorage.user_points}
         rightIcon={<ArrowDropRight />}
         menuItems={[
           <MenuItem primaryText="Accept" />,

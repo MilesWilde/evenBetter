@@ -5,7 +5,7 @@ module Api::V1
     before_action :set_bet, only: [:show, :update, :destroy]
 
     def index
-        @bets = current_user.bets
+        @bets = Bet.all
         render json: @bets
     end
 

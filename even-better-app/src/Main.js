@@ -1,13 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
 import SplashPage from './components/splashpage/SplashPage'
-import SplashPage from './components/splashpage/SplashPage'
-
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster

@@ -22,7 +22,7 @@ class Login extends Component {
     }
   }
 
-    handleInputChange = (e) => {
+  handleInputChange = (e) => {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value

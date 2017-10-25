@@ -3,9 +3,11 @@ import MenuItem from 'material-ui/MenuItem';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 
 class Invite extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
+      betID: this.props.betID,
       accepted: null
     }
   }
@@ -13,7 +15,7 @@ class Invite extends Component {
   render() {
     return (
       <MenuItem
-        primaryText="Test Invite"
+        primaryText={this.props.betTitle + " - from " + this.props.fromUser}
         rightIcon={<ArrowDropRight />}
         menuItems={[
           <MenuItem primaryText="Accept" />,
@@ -23,3 +25,5 @@ class Invite extends Component {
     )
   }
 }
+
+export default Invite;

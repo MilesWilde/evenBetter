@@ -11,6 +11,7 @@ module Api::V1
       @user = User.find(params[:id])
       render json: @user
     end
+
   end
 
 

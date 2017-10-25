@@ -14,12 +14,13 @@ class GamesList extends React.Component {
         this.state = {
             homeTeam: 'Cavs',
             awayTeam: 'Warriors',
-            fixture: ''
+            fixtures: ''
 
         }
     }
 
     componentWillMount() {
+        var listOfFixtures = []
         console.log("this.props.data", this.props.data)
         GameStore.findAll({
             params: {
@@ -30,14 +31,14 @@ class GamesList extends React.Component {
         .then((result) => {
             console.log("AXIOS CALL", result)
             result.games.map((game) => {    
-                console.log(game.homeTeamName, " @ ", game.awayTeamName)
+                listOfFixtures.push(game.homeTeamName + " @ " + game.awayTeamName)
             })
         })
         .catch((errors) => console.log("AXIOS CALL", errors))
 
 
         this.setState({
-            fixture: this.state.homeTeam + " @ " + this.state.awayTeam
+            fixtures: listOfFixtures
         })
     }
 
@@ -58,7 +59,9 @@ class GamesList extends React.Component {
         return (
             <div>
                 <List>
-                <ListItem primaryText={this.state.fixture} />
+                this.state.fixtures.map((fixture) => {
+                    <ListItem primaryText={fixture} />
+                })
                 <ListItem primaryText="Raptors @ Spurs" />
                 <ListItem primaryText="Astros @ Yankees" />
                 <ListItem primaryText="Toronto FC @ Seattle Sounders" />

@@ -27,8 +27,14 @@ class GamesList extends React.Component {
                 gameDate: this.props.data.gameDate
             }
         })
-        .then((result) => console.log("AXIOS CALL", result))
+        .then((result) => {
+            console.log("AXIOS CALL", result)
+            result.games.map((game) => {    
+                console.log(game.homeTeamName, " @ ", game.awayTeamName)
+            })
+        })
         .catch((errors) => console.log("AXIOS CALL", errors))
+
 
         this.setState({
             fixture: this.state.homeTeam + " @ " + this.state.awayTeam

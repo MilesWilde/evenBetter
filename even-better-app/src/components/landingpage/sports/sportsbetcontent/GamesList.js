@@ -30,7 +30,6 @@ class GamesList extends React.Component {
             }
         })
         .then((result) => {
-            console.log("AXIOS CALL", result)
             result.games.map((game) => {    
                 listOfFixtures.push(game.homeTeamName + " @ " + game.awayTeamName)
             })

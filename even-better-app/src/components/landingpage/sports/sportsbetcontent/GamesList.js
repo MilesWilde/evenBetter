@@ -62,10 +62,14 @@ class GamesList extends React.Component {
                     this.state.fixtures.map((fixture) => {
                         return <ListItem    primaryText={fixture}
                                             leftAvatar={
-                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"/>
+                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
+                                                size={50}
+                                                />
                                             }
                                             rightAvatar={
-                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"/>
+                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
+                                                size={50}
+                                                />
                                             }
                                              />
                     })

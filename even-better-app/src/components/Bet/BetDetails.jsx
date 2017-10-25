@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class BetDetails extends Component{
-  render() {
-    return(
-      <div>
-      </div>
-    )
-  }
+const BetDetails = (props) => {
+  return(
+    <div>
+    </div>
+  )
 }
+
 
 export default BetDetails

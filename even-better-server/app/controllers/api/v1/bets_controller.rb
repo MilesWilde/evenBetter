@@ -5,7 +5,7 @@ module Api::V1
     before_action :set_bet, only: [:show, :update, :destroy]
 
     def index
-        @bets = current_user.bets
+        @bets = Bet.all
         render json: @bets
     end
 
@@ -48,6 +48,16 @@ module Api::V1
     end
 
     def destroy
+    end
+
+    def get_invites
+      @invites = current_user.bet_invites
+      render json: @invites
+    end
+
+    def find_creator
+      @bet = Bet.find(params[:id])
+      render json: @bet[:creator_id]
     end
 
     private

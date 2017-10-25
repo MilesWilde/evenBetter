@@ -4,6 +4,11 @@ import React, { Component } from 'react'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
+// Grids
+import Container from 'muicss/lib/react/container'
+import Row from 'muicss/lib/react/row'
+import Col from 'muicss/lib/react/col'
+
 // Websockets
 import Cable from 'actioncable'
 
@@ -11,6 +16,10 @@ import Cable from 'actioncable'
 import ChatBar from './ChatBar'
 import ChatMessageArea from './ChatMessageArea'
 import BetDetails from './BetDetails'
+
+// Client side model
+import Resource from '../../models/resource'
+const BetStore = Resource('bets')
 
 class Bet extends Component {
   constructor(props) {
@@ -23,30 +32,37 @@ class Bet extends Component {
 
   componentWillMount() {
     this.createSocket();
+    BetStore.find(1) // replace with ID later
   }
 
   render() {
     return(
-      <MuiThemeProvider>
-        <div id='bet-container'>
-          <div id='bet-details-container'>
+      <Container fluid={true}>
+        <Row>
+          <Col xs='4'>
             <BetDetails />
-          </div>
-          <div id='bet-chat-container'>
-            <div id='bet-chat-log'>
-              <ChatMessageArea chatLogs={ this.state.chatLogs } />
-            </div>
-            <div id='bet-chat-bar'>
-              <ChatBar
-                currentChatMessage={ this.state.currentChatMessage }
-                updateCurrentChatMessage={ this.updateCurrentChatMessage }
-                handleChatInputKeyPress={ this.handleChatInputKeyPress }
-                handleSendEvent={ this.handleSendEvent }
-              />
-            </div>
-          </div>
-        </div>
-      </MuiThemeProvider>
+          </Col>
+          <Col xs='8'>
+            <Container fluid={true}>
+              <Row>
+                <Col xs='12'>
+                  <ChatMessageArea chatLogs={ this.state.chatLogs } />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs='12'>
+                  <ChatBar
+                    currentChatMessage={ this.state.currentChatMessage }
+                    updateCurrentChatMessage={ this.updateCurrentChatMessage }
+                    handleChatInputKeyPress={ this.handleChatInputKeyPress }
+                    handleSendEvent={ this.handleSendEvent }
+                  />
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+//splashpage
 import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'

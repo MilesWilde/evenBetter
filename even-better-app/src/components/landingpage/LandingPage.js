@@ -21,7 +21,7 @@ class LandingPage extends Component {
           <div className=" users-columns container">
             <div className = "left-column">
               <div className="invite-column"><InviteColumn /></div>
-              <div className="points-column"><InviteColumn /></div>
+              <div className="points-column"><PointsColumn /></div>
             </div>
             <div className="bets-column"><BetsColumn /></div>
           </div>

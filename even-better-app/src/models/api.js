@@ -6,7 +6,7 @@ You should add here all basic information about your server, including basic app
 */
 
 const API_HOST = process.env.API_HOST || 'http://localhost:3001'
-const API_NAMESPACE = process.env.API_NAMESPACE || '/api/v1/bets'
+const API_NAMESPACE = process.env.API_NAMESPACE || '/api/v1'
 const BASEURL = `${API_HOST}${API_NAMESPACE}`
 
 /*
@@ -35,14 +35,24 @@ function post(endpoint, data) {
   return server.post(endpoint, data)
 }
 
+function put(endpoint, data) {
+  return server.put(endpoint, data)
+}
+
 function patch(endpoint, data) {
   return server.patch(endpoint, data)
 }
 
-const betApi = {
-  get: get,
-  post: post,
-  patch: patch
+function del(endpoint) { // delete is a reserved keyword
+  return server.delete(endpoint)
 }
 
-export default betApi
+const api = {
+  get: get,
+  post: post,
+  put: put,
+  patch: patch,
+  delete: del
+}
+
+export default api

@@ -17,17 +17,9 @@ import ChatBar from './ChatBar'
 import ChatMessageArea from './ChatMessageArea'
 import BetDetails from './BetDetails'
 
-const betDetailsStyle = {
-
-}
-
-const chatMessageAreaStyle = {
-  minHeigh: '80%;'
-}
-
-const chatBarStyle = {
-
-}
+// Client side model
+import Resource from '../../models/resource'
+const BetStore = Resource('bets')
 
 class Bet extends Component {
   constructor(props) {
@@ -40,6 +32,7 @@ class Bet extends Component {
 
   componentWillMount() {
     this.createSocket();
+    BetStore.find(1) // replace with ID later
   }
 
   render() {

@@ -63,10 +63,9 @@ class UserRegistration extends Component {
     };
     axios.post('/signup', user)
     .then(response => {
-      this.props.history.push("/landing");
+      this.props.history.push("/auth/login");
     })
     .catch(error => {
-      debugger
       this.setState({
         ...this.state,
         usernameExists: error.response.data.message.includes('Username'),

@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import InviteColumn from './InviteColumn'
 import BetsColumn from './BetsColumn'
 import PopupBets from './PopupBets'
+import PointsColumn from './PointsColumn'
 
 
 class LandingPage extends Component {
@@ -13,6 +14,7 @@ class LandingPage extends Component {
     return (
       <div>
         <MuiThemeProvider>
+          <h1>{window.localStorage.first_name} {window.localStorage.last_name} points: {window.localStorage.user_points}</h1>
           <div className=" create-bet-buttons container">
             <PopupBets />
           </div>

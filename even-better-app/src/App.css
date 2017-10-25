@@ -34,3 +34,11 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
+a {
+  text-decoration: none;
+}
+
+.topDiv {
+  height: 64px;
+}

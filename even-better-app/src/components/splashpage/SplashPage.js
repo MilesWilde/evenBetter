@@ -8,15 +8,19 @@ import FlatButton from 'material-ui/FlatButton';
 import $ from 'jquery'; 
 //Smooth scolling to section of the page
 
-$(document).on('click', 'a', function(event){
-    event.preventDefault(); //To prevent any other link attachement apart from being scrolled to
-
-    $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 1200);
-});
 
 class SplashPage extends Component {
+
+  componentWillMount() {
+    $(this).on('click', 'a', function(event){
+        event.preventDefault(); //To prevent any other link attachement apart from being scrolled to
+
+        $('html, body').animate({
+            scrollTop: $( $.attr(this, 'href') ).offset().top
+        }, 1200);
+    });
+  }
+
   render() {
     return (
       <MuiThemeProvider>

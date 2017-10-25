@@ -8,6 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import DateandSport from './sportsbetcontent/DateandSport';
 import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
+import GamesList from './sportsbetcontent/GamesList';
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -39,6 +40,12 @@ class SportsStepper extends React.Component {
         gameDate: userData.gameDate
       }
     }
+    if (stepIndex === 1) {
+      tempStateHold[1] = {
+        homeTeam: userData.homeTeam,
+        awayTeam: userData.awayTeam
+      }
+    }
 
     console.log("TempstateHold", tempStateHold)
     this.setState({
@@ -63,7 +70,11 @@ class SportsStepper extends React.Component {
                             handleNext={this.handleNext}
                             />
       case 1:
-        return 'Select from a list of games here';
+        return <GamesList   data={this.state.data[1]}
+                            stepIndex={this.state.stepIndex}
+                            handlePrev={this.handlePrev}
+                            handleNext={this.handleNext}
+                            />
       case 2:
         return <BetPoolandOutcome />
       default:

@@ -1,5 +1,4 @@
 import React from 'react';
-import DatePickerPopup from '../DatePickerPopup'
 import SportsDropdown from './SportsDropdown';
 
 class DateandSport extends React.Component {

@@ -66,6 +66,7 @@ class UserRegistration extends Component {
       this.props.history.push("/auth/login");
     })
     .catch(error => {
+      debugger;
       this.setState({
         ...this.state,
         usernameExists: error.response.data.message.includes('Username'),

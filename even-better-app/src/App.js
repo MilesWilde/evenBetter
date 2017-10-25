@@ -8,8 +8,8 @@ import Main from './Main'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
-import SplashPage from './components/splashpage/SplashPage'
 import FlatButton from 'material-ui/FlatButton';
+import Cable from 'actioncable';
 
 injectTapEventPlugin();
 
@@ -20,9 +20,9 @@ injectTapEventPlugin();
 class App extends Component {
   render() {
     return (
- 
+
       <MuiThemeProvider >
-        <AppBar
+        {/* <AppBar
           style={{position:'fixed'}}
           title='EvenBetter'
           iconClassNameRight='muidocs-icon-navigation-expand-more'
@@ -32,13 +32,13 @@ class App extends Component {
               <FlatButton label="Register" />
             </div>
           }
-        />
-        
-        <SplashPage />
+        /> */}
+
         <Main />
       </MuiThemeProvider>
     );
   }
+
 }
 
 export default App

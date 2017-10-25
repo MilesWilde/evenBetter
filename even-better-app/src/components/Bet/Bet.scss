@@ -1,0 +1,14 @@
+#bet-container {
+  display: flex;
+
+  #bet-chat-container {
+    #bet-chat-log {
+      flex-basis: 90%;
+    }
+
+    #bet-chat-bar {
+      flex-basis: 10%;
+    }
+  }
+
+}

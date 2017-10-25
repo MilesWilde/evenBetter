@@ -86,7 +86,7 @@ class SportsStepper extends React.Component {
                             handleNext={this.handleNext}
                             />
       case 1:
-        return <GamesList   data={this.state.data[1]}
+        return <GamesList   data={this.state.data[0]}
                             stepIndex={this.state.stepIndex}
                             handlePrev={this.handlePrev}
                             handleNext={this.handleNext}

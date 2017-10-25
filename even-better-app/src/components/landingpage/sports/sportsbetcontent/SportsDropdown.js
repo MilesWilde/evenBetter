@@ -43,6 +43,12 @@ export default class SportsDropdown extends Component {
       gameDate: this.state.gameDate
     });
 
+    //Getting a list of games for a given sport and date
+    this.props._getGameList({
+      sport: sport,
+      gameDate: this.state.gameDate
+    })
+
   }
 
   render() {

@@ -4,6 +4,9 @@ import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
+import Resource from '../../../../models/resource'
+const GameStore = Resource('games')
+
 class GamesList extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +17,10 @@ class GamesList extends React.Component {
         }
     }
 
+
     handleMoveNext = () => { 
+        console.log("INSIDE THE GAMES-LIST")
+        console.log(this.props.data)
         this.props.handleNext({
             homeTeam: this.state.homeTeam,
             awayTeam: this.state.awayTeam

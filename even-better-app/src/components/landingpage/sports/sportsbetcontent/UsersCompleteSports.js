@@ -28,6 +28,7 @@ export default class UsersCompleteSports extends Component {
   };
 
   handleNewRequest = (searchText) => {
+    console.log("Name in usercompletesports:", searchText)
     this.setState({
       searchText: searchText,
     });

@@ -15,17 +15,17 @@ class BetPoolandOutcome extends React.Component {
         }
     }
 
-    _handleUsersFieldChange = (e) => {
-        console.log("NAME VALUE IS", e)
+    _handleUsersFieldChange = (names) => {
+        console.log("PARTICIPANT VALUE IS", e)
         this.setState({
-            names: e
+            names: names
         });
       }
 
     render() {
         return(
             <div>
-                <UsersCompleteSports />
+                <UsersCompleteSports    _handleUsersFieldChange={this._handleUsersFieldChange} />
             <br />
             <h4> Define the possibilities </h4>
                 <ResultPicker />

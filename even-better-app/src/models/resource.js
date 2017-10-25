@@ -13,9 +13,9 @@ const Resource = (endpoint) => {
 
   // We're extracting result.data and returning it on success to avoid
   // result.data.data in our components
-  function findAll() {
+  function findAll(options) {
     return new Promise((resolve, reject) => {
-      api.get(`/${endpoint}`)
+      api.get(`/${endpoint}`, options)
       .then((result) => resolve(result.data))
       .catch((errors) => reject(errors))
     })

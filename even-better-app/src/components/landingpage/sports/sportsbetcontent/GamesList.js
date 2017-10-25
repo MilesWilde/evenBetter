@@ -17,10 +17,23 @@ class GamesList extends React.Component {
         }
     }
 
+    componentWillMount() {
+        console.log("this.props.data", this.props.data)
+        GameStore.findAll({
+            params: {
+                sport: this.props.data.sport,
+                gameDate: this.props.data.gameDate
+            }
+        })
+        .then((result) => console.log("AXIOS CALL", result))
+        .catch((errors) => console.log("AXIOS CALL", errors))
+      }
+
+    //'data' contains the Sport type and the Game date
+    // .then((result) => this.setState({clients: result.data}))
+    // .catch((errors) => this.setState({errors: errors}))
 
     handleMoveNext = () => { 
-        console.log("INSIDE THE GAMES-LIST")
-        console.log(this.props.data)
         this.props.handleNext({
             homeTeam: this.state.homeTeam,
             awayTeam: this.state.awayTeam

@@ -3,6 +3,12 @@ require 'open-uri'
 require 'json'
 
 module Api::V1
+  class String
+    def initial
+      self[0,1]
+    end
+  end
+
   class GamesController < ApplicationController
     def index
 
@@ -70,8 +76,17 @@ module Api::V1
         sendToReactAppJson = sendToReactApp.to_json
         return sendToReactAppJson
       end
+      
 
-      @scores = statScraper("NBA", "20171022")
+      # params contains the sporttype and gameDate
+      puts params.inspect
+      puts params["sport"]
+      puts params["gameDate"]
+      puts params["gameDate"].class.name
+
+      dateForApi = params["gameDate"][0,10].gsub! '-',''
+
+      @scores = statScraper(params["sport"], dateForApi)
       render json: @scores
     end
   end

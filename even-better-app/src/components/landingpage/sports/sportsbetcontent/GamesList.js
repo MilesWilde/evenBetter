@@ -14,7 +14,7 @@ class GamesList extends React.Component {
         this.state = {
             homeTeam: 'Cavs',
             awayTeam: 'Warriors',
-            fixtures: ''
+            fixtures: []
 
         }
     }
@@ -33,13 +33,11 @@ class GamesList extends React.Component {
             result.games.map((game) => {    
                 listOfFixtures.push(game.homeTeamName + " @ " + game.awayTeamName)
             })
+            this.setState({
+                fixtures: listOfFixtures
+            })
         })
         .catch((errors) => console.log("AXIOS CALL", errors))
-
-
-        this.setState({
-            fixtures: listOfFixtures
-        })
     }
 
     //'data' contains the Sport type and the Game date
@@ -59,13 +57,11 @@ class GamesList extends React.Component {
         return (
             <div>
                 <List>
-                this.state.fixtures.map((fixture) => {
-                    <ListItem primaryText={fixture} />
-                })
-                <ListItem primaryText="Raptors @ Spurs" />
-                <ListItem primaryText="Astros @ Yankees" />
-                <ListItem primaryText="Toronto FC @ Seattle Sounders" />
-                <ListItem primaryText="Suns @ Lakers" />
+                    {
+                    this.state.fixtures.map((fixture) => {
+                        return <ListItem primaryText={fixture} />
+                    })
+                    }
                 </List>
 
                 <FlatButton

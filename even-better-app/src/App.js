@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './App.css'
 
@@ -25,6 +26,7 @@ injectTapEventPlugin();
 
 class App extends Component {
   render() {
+<<<<<<< HEAD
     return (
 
       <MuiThemeProvider >
@@ -51,6 +53,48 @@ class App extends Component {
         </main>
       </MuiThemeProvider>
     );
+=======
+    if(window.localStorage.auth_token)
+      return (
+        <MuiThemeProvider >
+          <div className="topDiv">
+            <AppBar
+              style={{position:'fixed'}}
+              title={<Link to="/landing">EvenBetter</Link>}
+              iconClassNameRight='muidocs-icon-navigation-expand-more'
+              iconElementRight={
+                <div>
+                  <Link to="/landing"><FlatButton label="Home" /></Link>
+                  <Link to="/"><FlatButton label="About" /></Link>
+                </div>
+              }
+            />
+          </div>
+          <Main />
+        </MuiThemeProvider>
+      );
+    else {
+      return (
+        <MuiThemeProvider >
+          <div className="topDiv">
+            <AppBar
+              style={{position:'fixed'}}
+              title={<Link to="/">EvenBetter</Link>}
+              iconClassNameRight='muidocs-icon-navigation-expand-more'
+              iconElementRight={
+                <div>
+                  <Link to="/auth/login"><FlatButton label="Sign In" /></Link>
+                  <Link to="/signup"><FlatButton label="Register" /></Link>
+                  <Link to="/"><FlatButton label="About" /></Link>
+                </div>
+              }
+            />
+          </div>
+          <Main />
+        </MuiThemeProvider>
+      );
+    }
+>>>>>>> 0281f6af09948c3b46208f4e23369356f0661ff0
   }
 
 }

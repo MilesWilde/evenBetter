@@ -27,7 +27,7 @@ export default class SportsDropdown extends Component {
           <MenuItem value={2} primaryText="NFL - Football" />
           <MenuItem value={3} primaryText="MLB - Baseball" />
           <MenuItem value={4} primaryText="EPL - English Soccer" />
-          <MenuItem value={4} primaryText="MLS - American Soccer" />
+          <MenuItem value={5} primaryText="MLS - American Soccer" />
         </SelectField>
       </div>
     );

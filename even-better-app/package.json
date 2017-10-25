@@ -8,8 +8,12 @@
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
     "material-ui": "^0.19.4",
+<<<<<<< HEAD
     "muicss": "^0.9.27",
     "node-sass": "^4.5.3",
+=======
+    "material-ui-chip-input": "^0.18.2",
+>>>>>>> 0281f6af09948c3b46208f4e23369356f0661ff0
     "react": "^16.0.0",
     "react-bootstrap-table": "^4.1.0",
     "react-dom": "^16.0.0",

@@ -19,14 +19,60 @@ import PossibleBets from './personalbetcontent/PossibleBets'
  */
 class PersonalStepper extends React.Component {
 
-  state = {
-    finished: false,
-    stepIndex: 0,
-  };
+  constructor(props) {
+    super(props);
 
-  handleNext = () => {
-    const {stepIndex} = this.state;
+    this.state = {
+      finished: false,
+      stepIndex: 0,
+      data: [
+        {
+          name: '',
+          description: ''
+        },
+        {
+          names: '',
+          mediator: '',
+          betDeadlineDate: null,
+          betDeadlineTime:null,
+          decisionDeadlineDate: null,
+          decisionDeadlineTime:null        
+        },
+        {
+          possibilities:[]
+        }
+      ]
+    }
+  }
+
+  handleNext = (userData) => {
+    const {stepIndex, data} = this.state;
+    const tempStateHold = data;
+
+    if (stepIndex === 0) {
+      tempStateHold[0] = {
+        name: userData.name,
+        description: userData.description
+      }
+    }
+    if (stepIndex === 1) {
+      tempStateHold[1] = {
+        names: userData.names,
+        mediator: userData.mediator,
+        betDeadlineDate: userData.betDeadlineDate,
+        betDeadlineTime: userData.betDeadlineTime,
+        decisionDeadlineDate: userData.decisionDeadlineDate,
+        decisionDeadlineTime: userData.decisionDeadlineTime,
+      }
+    }
+    if (stepIndex === 2) {
+      tempStateHold[2] = {
+        possibilities: userData.possibilities
+      }
+    }
+    console.log("TempstateHold", tempStateHold)
     this.setState({
+      data: tempStateHold,
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
@@ -42,11 +88,26 @@ class PersonalStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <NameDesc />
+      return <NameDesc        name={this.state.data[0].name} 
+                              description={this.state.data[0].description} 
+                              handlePrev={this.handlePrev} 
+                              handleNext={this.handleNext} 
+                              data={this.state.data[0]} 
+                              stepIndex={stepIndex}
+                              />
       case 1:
-        return <BettingPool />
+        return <BettingPool   handleNext={this.handleNext}
+                              handlePrev={this.handlePrev}
+                              data={this.state.data[1]} 
+                              stepIndex={stepIndex} 
+                              />
       case 2:
-        return <PossibleBets />
+        return <PossibleBets  handleNext={this.handleNext}
+                              handlePrev={this.handlePrev}
+                              data={this.state.data[1]} 
+                              stepIndex={stepIndex}
+                              possibilities={this.state.data[2].possibilities}
+                              />
       default:
         return 'Come on, make a Personal Bet!!';
     }
@@ -77,19 +138,6 @@ class PersonalStepper extends React.Component {
           ) : (
             <div>
               <p>{this.getStepContent(stepIndex)}</p>
-              <div style={{marginTop: 12}}>
-                <FlatButton
-                  label="Back"
-                  disabled={stepIndex === 0}
-                  onClick={this.handlePrev}
-                  style={{marginRight: 12}}
-                />
-                <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  primary={true}
-                  onClick={this.handleNext}
-                />
-              </div>
             </div>
           )}
         </div>

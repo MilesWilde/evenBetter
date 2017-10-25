@@ -8,6 +8,7 @@
     "axios": "^0.16.2",
     "jquery": "^3.2.1",
     "material-ui": "^0.19.4",
+    "muicss": "^0.9.27",
     "node-sass": "^4.5.3",
     "react": "^16.0.0",
     "react-bootstrap-table": "^4.1.0",

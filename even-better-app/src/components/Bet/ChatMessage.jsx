@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class ChatMessage extends Component{
+const ChatMessage = (props) => {
 
-  render() {
-    return(
-      <div>
-        <span>{ this.props.message.created }: </span>
-        <span>{ this.props.message.content }</span>
-      </div>
-    )
-  }
+  return(
+    <div>
+      <span>{ props.message.created }: </span>
+      <span>{ props.message.content }</span>
+    </div>
+  )
+
 }
 
 export default ChatMessage

@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ChatMessage from './ChatMessage'
 
-class ChatMessageArea extends Component{
+const ChatMessageArea = (props) => {
 
-  render() {
-    return(
-      this.props.chatLogs.map( (message) => {
-        return <ChatMessage key={message.id} message={message}/>
-      })
-    )
-  }
+  return(
+    props.chatLogs.map( (message) => {
+      return <ChatMessage key={message.id} message={message}/>
+    })
+  )
+
 }
 
 export default ChatMessageArea

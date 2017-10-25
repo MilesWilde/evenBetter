@@ -32,6 +32,7 @@ class SportsStepper extends React.Component {
       },
       {
         names: '',
+        value: null,
         possibilities: ''
       }
     ]
@@ -57,6 +58,7 @@ class SportsStepper extends React.Component {
     if (stepIndex === 2) {
       tempStateHold[2] = {
         names: userData.names,
+        value: userData.value,
         possibilities: userData.possibilities
       }
     }
@@ -125,19 +127,6 @@ class SportsStepper extends React.Component {
           ) : (
             <div>
               <p>{this.getStepContent(stepIndex)}</p>
-              <div style={{marginTop: 12}}>
-                <FlatButton
-                  label="Back"
-                  disabled={stepIndex === 0}
-                  onClick={this.handlePrev}
-                  style={{marginRight: 12}}
-                />
-                <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  primary={true}
-                  onClick={this.handleNext}
-                />
-              </div>
             </div>
           )}
         </div>

@@ -1,25 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // Material UI
 import { TextField, FloatingActionButton } from 'material-ui'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
-class ChatBar extends Component{
+const ChatBar = (props) => {
 
-  render() {
-    return(
-      <div>
-        <TextField
-          value={ this.props.currentChatMessage }
-          onChange={ (e) => this.props.updateCurrentChatMessage(e) }
-          onKeyPress={ (e) => this.props.handleChatInputKeyPress(e) }
-        />
-        <FloatingActionButton onClick={ (e) => this.props.handleSendEvent(e) }>
-          <ContentAdd />
-        </FloatingActionButton>
-      </div>
-    )
-  }
+  return(
+    <div>
+      <TextField
+        value={ props.currentChatMessage }
+        onChange={ (e) => props.updateCurrentChatMessage(e) }
+        onKeyPress={ (e) => props.handleChatInputKeyPress(e) }
+      />
+      <FloatingActionButton onClick={ (e) => props.handleSendEvent(e) }>
+        <ContentAdd />
+      </FloatingActionButton>
+    </div>
+  )
 }
 
 export default ChatBar

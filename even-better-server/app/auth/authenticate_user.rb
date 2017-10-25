@@ -18,10 +18,6 @@ class AuthenticateUser
     user = User.find_by(email: email)
     return user if user && user.authenticate(password)
     # raise Authentication error if credentials are invalid
-    if !user
-      raise(ExceptionHandler::AuthenticationError, TokenMessage.invalid_email)
-    else
-      raise(ExceptionHandler::AuthenticationError, TokenMessage.invalid_password)
-    end
+    raise(ExceptionHandler::AuthenticationError, TokenMessage.invalid_credentials)
   end
 end

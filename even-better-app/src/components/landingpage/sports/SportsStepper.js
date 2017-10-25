@@ -76,7 +76,11 @@ class SportsStepper extends React.Component {
                             handleNext={this.handleNext}
                             />
       case 2:
-        return <BetPoolandOutcome />
+        return <BetPoolandOutcome data={this.state.data[2]}
+                                  stepIndex={this.state.stepIndex}
+                                  handlePrev={this.handlePrev}
+                                  handleNext={this.handleNext}
+                                  />
       default:
         return 'Come on, make a Sports Bet!!';
     }

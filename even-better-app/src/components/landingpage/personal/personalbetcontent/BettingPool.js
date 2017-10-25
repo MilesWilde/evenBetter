@@ -22,7 +22,7 @@ class BettingPool extends React.Component  {
             decisionDeadlineTime: this.props.data.decisionDeadlineTime,
             errors: []
         }
-      }
+    }
 
     _handleUsersFieldChange = (e) => {
         console.log("NAME VALUE IS", e)

@@ -12,8 +12,10 @@ class GamesList extends React.Component {
         super(props);
 
         this.state = {
-            homeTeam: '',
-            awayTeam: ''
+            homeTeam: 'Cavs',
+            awayTeam: 'Warriors',
+            fixture: ''
+
         }
     }
 
@@ -27,9 +29,14 @@ class GamesList extends React.Component {
         })
         .then((result) => console.log("AXIOS CALL", result))
         .catch((errors) => console.log("AXIOS CALL", errors))
-      }
+
+        this.setState({
+            fixture: this.state.homeTeam + " @ " + this.state.awayTeam
+        })
+    }
 
     //'data' contains the Sport type and the Game date
+    //'result contains the data from the MSNBC API
     // .then((result) => this.setState({clients: result.data}))
     // .catch((errors) => this.setState({errors: errors}))
 
@@ -45,7 +52,7 @@ class GamesList extends React.Component {
         return (
             <div>
                 <List>
-                <ListItem primaryText="Cavs @ Warriors" />
+                <ListItem primaryText={this.state.fixture} />
                 <ListItem primaryText="Raptors @ Spurs" />
                 <ListItem primaryText="Astros @ Yankees" />
                 <ListItem primaryText="Toronto FC @ Seattle Sounders" />

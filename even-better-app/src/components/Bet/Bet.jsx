@@ -4,16 +4,22 @@ import React, { Component } from 'react'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
+// Grids
+import Container from 'muicss/lib/react/container'
+import Row from 'muicss/lib/react/row'
+import Col from 'muicss/lib/react/col'
+
 // Websockets
 import Cable from 'actioncable'
 
 // Child components
 import ChatBar from './ChatBar'
 import ChatMessageArea from './ChatMessageArea'
+import BetDetails from './BetDetails'
 
-const divStyle = {
-  minHeight: '100px'
-}
+// Client side model
+import Resource from '../../models/resource'
+const BetStore = Resource('bets')
 
 class Bet extends Component {
   constructor(props) {
@@ -26,20 +32,37 @@ class Bet extends Component {
 
   componentWillMount() {
     this.createSocket();
+    BetStore.find(1) // replace with ID later
   }
 
   render() {
     return(
-      <MuiThemeProvider>
-
-        <ChatMessageArea chatLogs={ this.state.chatLogs } />
-        <ChatBar
-          currentChatMessage={ this.state.currentChatMessage }
-          updateCurrentChatMessage={ this.updateCurrentChatMessage }
-          handleChatInputKeyPress={ this.handleChatInputKeyPress }
-          handleSendEvent={ this.handleSendEvent }
-        />
-      </MuiThemeProvider>
+      <Container fluid={true}>
+        <Row>
+          <Col xs='4'>
+            <BetDetails />
+          </Col>
+          <Col xs='8'>
+            <Container fluid={true}>
+              <Row>
+                <Col xs='12'>
+                  <ChatMessageArea chatLogs={ this.state.chatLogs } />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs='12'>
+                  <ChatBar
+                    currentChatMessage={ this.state.currentChatMessage }
+                    updateCurrentChatMessage={ this.updateCurrentChatMessage }
+                    handleChatInputKeyPress={ this.handleChatInputKeyPress }
+                    handleSendEvent={ this.handleSendEvent }
+                  />
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 
@@ -70,10 +93,12 @@ class Bet extends Component {
 
   handleSendEvent = (event) => {
     event.preventDefault();
-    this.chats.create(this.state.currentChatMessage);
-    this.setState({
-      currentChatMessage: ''
-    });
+    if (this.state.currentChatMessage){
+      this.chats.create(this.state.currentChatMessage);
+      this.setState({
+        currentChatMessage: ''
+      });
+    }
   }
 
   handleChatInputKeyPress = (event) => {

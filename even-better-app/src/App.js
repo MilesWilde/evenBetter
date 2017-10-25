@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './App.css'
+
+import { Switch, Route } from 'react-router-dom'
 import UsersContainer from './components/UsersContainer'
-import Main from './Main'
+import SplashPage from './components/splashpage/SplashPage'
+import LandingPage from './components/landingpage/LandingPage'
+import UserRegistration from './components/UserRegistration/UserRegistration'
+import Bet from './components/Bet/Bet'
+import Login from './components/Login/Login'
 
 // Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -33,8 +40,16 @@ class App extends Component {
             </div>
           }
         />
-
-        <Main />
+        <div style={{ paddingTop: 64 }}></div>
+        <main>
+          <Switch>
+            <Route exact path='/' component={SplashPage} />
+            <Route path='/landing' component={LandingPage}/>
+            <Route path='/signup' component={UserRegistration}/>
+            <Route path='/bets' component={Bet}/>
+            <Route path='/auth/login' component={Login}/>
+          </Switch>
+        </main>
       </MuiThemeProvider>
     );
   }

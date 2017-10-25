@@ -47,7 +47,7 @@ export default class PopupBets extends React.Component {
                              onClick={this.handleOpen}
                              backgroundColor = "#ead3e7"  />
         <Dialog
-          title="Dialog With Actions"
+          title="Pick a Tab and place your bet!"
           actions={actions}
           autoScrollBodyContent = {true}
           modal={false}

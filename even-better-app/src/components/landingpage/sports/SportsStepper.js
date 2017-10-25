@@ -7,6 +7,7 @@ import {
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import DateandSport from './sportsbetcontent/DateandSport';
+import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -43,7 +44,7 @@ class SportsStepper extends React.Component {
       case 1:
         return 'Select from a list of games here';
       case 2:
-        return 'Select the outcome of the game here';
+        return <BetPoolandOutcome />
       default:
         return 'Come on, make a Sports Bet!!';
     }
@@ -63,7 +64,7 @@ class SportsStepper extends React.Component {
             <StepLabel>Pick a game</StepLabel>
           </Step>
           <Step>
-            <StepLabel>Pick an outcome</StepLabel>
+            <StepLabel>Betting Pool and Outcome</StepLabel>
           </Step>
         </Stepper>
         <div style={contentStyle}>

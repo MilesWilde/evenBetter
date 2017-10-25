@@ -1,5 +1,6 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -59,7 +60,14 @@ class GamesList extends React.Component {
                 <List>
                     {
                     this.state.fixtures.map((fixture) => {
-                        return <ListItem primaryText={fixture} />
+                        return <ListItem    primaryText={fixture}
+                                            leftAvatar={
+                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"/>
+                                            }
+                                            rightAvatar={
+                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"/>
+                                            }
+                                             />
                     })
                     }
                 </List>

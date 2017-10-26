@@ -9,6 +9,11 @@ class DateandSport extends React.Component {
     sportsHandlePrev: this.props.handlePrev
   };
 
+  _getGameList = (dataAboutSport) =>{
+    console.log("Sportsdata inside state is: ", dataAboutSport.sport, dataAboutSport.gameDate)
+    
+  }
+
   render() {
     return (
     <div>
@@ -17,6 +22,7 @@ class DateandSport extends React.Component {
                       stepIndex={this.state.sportsStepIndex}
                       handleNext={this.state.sportsHandleNext}
                       handlePrev={this.state.sportsHandlePrev}
+                      _getGameList={this._getGameList}
                       />
       <br />
     </div>

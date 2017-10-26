@@ -50,6 +50,16 @@ module Api::V1
     def destroy
     end
 
+    def get_invites
+      @invites = current_user.bet_invites
+      render json: @invites
+    end
+
+    def find_creator
+      @bet = Bet.find(params[:id])
+      render json: @bet[:creator_id]
+    end
+
     private
 
     def bet_params

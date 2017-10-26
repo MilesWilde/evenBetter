@@ -27,13 +27,13 @@ class SportsStepper extends React.Component {
         gameDate: ''
       },
       {
-        homeTeam: '',
-        awayTeam: ''
+        homeTeam: 'Cavs',
+        awayTeam: 'Warriors'
       },
       {
         names: '',
         value: null,
-        possibilities: ''
+        chosenWinner: ''
       }
     ]
   };
@@ -59,7 +59,7 @@ class SportsStepper extends React.Component {
       tempStateHold[2] = {
         names: userData.names,
         value: userData.value,
-        possibilities: userData.possibilities
+        chosenWinner: userData.chosenWinner
       }
     }
 
@@ -96,6 +96,8 @@ class SportsStepper extends React.Component {
                                   stepIndex={this.state.stepIndex}
                                   handlePrev={this.handlePrev}
                                   handleNext={this.handleNext}
+                                  homeTeam={this.state.data[1].homeTeam}
+                                  awayTeam={this.state.data[1].awayTeam}
                                   />
       default:
         return 'Come on, make a Sports Bet!!';
@@ -122,7 +124,7 @@ class SportsStepper extends React.Component {
         <div style={contentStyle}>
           {finished ? (
             <p>
-              You're all set! Confirm by hittin the PLACE BET! button
+              Your bet has been placed! Good luck!
             </p>
           ) : (
             <div>

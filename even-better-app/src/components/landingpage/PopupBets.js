@@ -34,13 +34,7 @@ export default class PopupBets extends React.Component {
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
-      />,
-      <FlatButton
-        label="Place Bet!"
-        primary={true}
-        keyboardFocused={true}
-        onClick={this.handleClose}
-      />,
+      />
     ];
 
     return (

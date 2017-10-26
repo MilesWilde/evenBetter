@@ -16,7 +16,7 @@ class BetPoolandOutcome extends React.Component {
         this.state = {
             names: this.props.data.names,
             value: 1,
-            possibilities: '',
+            chosenWinner: '',
             errors: []
         }
     }
@@ -38,24 +38,24 @@ class BetPoolandOutcome extends React.Component {
         if (error.length === 0) {
           console.log("State value is: ", this.state.value)
         
-          let sendPossibilities = ''
+          let sendchosenWinner = ''
           if(this.state.value === 1) {
-              sendPossibilities = 'Team A wins'
+              sendchosenWinner = this.props.homeTeam
           }
           if(this.state.value === 2) {
-            sendPossibilities = 'Tie Game'
+            sendchosenWinner = 'Tie Game'
           }
           if(this.state.value === 3) {
-            sendPossibilities = 'Team B wins'
+            sendchosenWinner = this.props.awayTeam
           }
 
-          console.log("Possibility: ", this.state.possibilities)
+          console.log("Possibility: ", this.state.chosenWinner)
           this.props.handleNext({
             names: this.state.names,
             value: this.state.value,
-            possibilities: sendPossibilities
+            chosenWinner: sendchosenWinner
           })
-          this.setState({possibilities: sendPossibilities})
+          this.setState({chosenWinner: sendchosenWinner})
 
         } else {
           this.setState({error: error})
@@ -69,13 +69,15 @@ class BetPoolandOutcome extends React.Component {
                 <UsersCompleteSports    _handleUsersFieldChange={this._handleUsersFieldChange}
                                         error = {this.state.error}/>
             <br />
-            <h4> Define the possibilities </h4>
+            <h4> Pick a winner </h4>
             <div>
+                {
                 <DropDownMenu value={this.state.value} onChange={this.handleChange}>
-                <MenuItem value={1} primaryText="Team A beats Team B" />
-                <MenuItem value={2} primaryText="Tie Game" />
-                <MenuItem value={3} primaryText="Team B beats Team A" />
+                    <MenuItem value={1} primaryText= {this.props.homeTeam}/>
+                    <MenuItem value={2} primaryText="Tie Game" />
+                    <MenuItem value={3} primaryText={this.props.awayTeam}/>
                 </DropDownMenu>
+                }
                 <br />
             </div>
                 <FlatButton
@@ -85,7 +87,7 @@ class BetPoolandOutcome extends React.Component {
                     style={{marginRight: 12}}
                 />
                 <RaisedButton
-                    label={this.props.stepIndex === 2 ? 'Finish' : 'Next'}
+                    label={this.props.stepIndex === 2 ? 'Place bet' : 'Next'}
                     primary={true}
                     onClick={this.handleMoveNext}
                 />

@@ -42,3 +42,10 @@ a {
 .topDiv {
   height: 64px;
 }
+
+a:hover {
+  text-decoration: none;
+  color : #000;
+  border: 0px; 
+  -moz-outline-style: none;
+} 

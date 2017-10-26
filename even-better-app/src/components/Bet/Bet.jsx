@@ -25,14 +25,32 @@ class Bet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentChatMessage: '',
-      chatLogs: []
+      chat: {
+        currentChatMessage: '',
+        chatLogs: []
+      },
+      betDetails: {
+        title: '',
+        description: '',
+        pool: 0,
+        betting_deadline: Date.now,
+        outcome_deadline: Date.now,
+        outcome_id: null,
+        possibilities: [],
+        users: []
+      }
     };
   }
 
   componentWillMount() {
     this.createSocket();
     BetStore.find(1) // replace with ID later
+    .then( (bet) => {
+      this.setState({ betDetails: bet })
+    })
+    .catch( (err) => {
+      console.log(err)
+    })
   }
 
   render() {
@@ -40,19 +58,28 @@ class Bet extends Component {
       <Container fluid={true}>
         <Row>
           <Col xs='4'>
-            <BetDetails />
+            <BetDetails
+              title={ this.state.betDetails.title }
+              description={ this.state.betDetails.description }
+              pool={ this.state.betDetails.pool}
+              bettingDeadline={ this.state.betDetails.betting_deadline }
+              outcomeDeadline={ this.state.betDetails.outcome_deadline }
+              outcomeId={ this.state.betDetails.outcome_id }
+              possibilities={ this.state.betDetails.possibilities }
+              users={ this.state.betDetails.users }
+            />
           </Col>
           <Col xs='8'>
             <Container fluid={true}>
               <Row>
                 <Col xs='12'>
-                  <ChatMessageArea chatLogs={ this.state.chatLogs } />
+                  <ChatMessageArea chatLogs={ this.state.chat.chatLogs } />
                 </Col>
               </Row>
               <Row>
                 <Col xs='12'>
                   <ChatBar
-                    currentChatMessage={ this.state.currentChatMessage }
+                    currentChatMessage={ this.state.chat.currentChatMessage }
                     updateCurrentChatMessage={ this.updateCurrentChatMessage }
                     handleChatInputKeyPress={ this.handleChatInputKeyPress }
                     handleSendEvent={ this.handleSendEvent }
@@ -68,7 +95,10 @@ class Bet extends Component {
 
   updateCurrentChatMessage = (event) => {
     this.setState({
-      currentChatMessage: event.target.value
+      chat: {
+        ...this.state.chat,
+        currentChatMessage: event.target.value
+      }
     });
   }
 
@@ -79,9 +109,12 @@ class Bet extends Component {
     }, {
       connected: () => {},
       received: (data) => {
-        let chatLogs = this.state.chatLogs;
+        let chatLogs = this.state.chat.chatLogs;
         chatLogs.push(data);
-        this.setState({ chatLogs: chatLogs });
+        this.setState({ chat: {
+        ...this.state.chat,
+          chatLogs: chatLogs
+        }});
       },
       create: function(chatContent) {
         this.perform('create', {
@@ -93,10 +126,13 @@ class Bet extends Component {
 
   handleSendEvent = (event) => {
     event.preventDefault();
-    if (this.state.currentChatMessage){
-      this.chats.create(this.state.currentChatMessage);
+    if (this.state.chat.currentChatMessage){
+      this.chats.create(this.state.chat.currentChatMessage);
       this.setState({
-        currentChatMessage: ''
+        chat: {
+          ...this.state.chat,
+          currentChatMessage: ''
+        }
       });
     }
   }

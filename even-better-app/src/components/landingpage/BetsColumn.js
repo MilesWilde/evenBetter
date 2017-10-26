@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 
 export default class BetsColumn extends Component {
-  state = {
-
-  };
 
   render() {
     return (
@@ -17,7 +14,7 @@ export default class BetsColumn extends Component {
             <th>Result</th>
           </tr>
         </thead>
-        <tbody>     
+        <tbody>
           <tr class="success">
             <td>SportBet</td>
             <td>Cavs beat the warriors</td>

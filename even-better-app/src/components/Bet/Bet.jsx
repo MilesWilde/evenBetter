@@ -66,7 +66,7 @@ class Bet extends Component {
               outcomeDeadline={ this.state.betDetails.outcome_deadline }
               outcomeId={ this.state.betDetails.outcome_id }
               possibilities={ this.state.betDetails.possibilities }
-              users={ this.state.betDetails.uses }
+              users={ this.state.betDetails.users }
             />
           </Col>
           <Col xs='8'>

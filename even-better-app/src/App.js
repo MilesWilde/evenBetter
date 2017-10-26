@@ -34,7 +34,7 @@ class App extends Component {
       return (
         <MuiThemeProvider >
           <AppBar
-            style={{position:'fixed'}}
+            style={{position:'fixed', backgroundColor: '#263238'}}
             title={<Link to='/landing'>EvenBetter</Link>}
             iconClassNameRight='muidocs-icon-navigation-expand-more'
             iconElementRight={
@@ -56,7 +56,7 @@ class App extends Component {
           </main>
         </MuiThemeProvider>
       )
-    }    
+    }
     else {
       return (
         <MuiThemeProvider >
@@ -84,7 +84,7 @@ class App extends Component {
           </main>
         </MuiThemeProvider>
       )
-    }     
+    }
   }
 }
 

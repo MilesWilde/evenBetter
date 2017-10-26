@@ -21,6 +21,28 @@ import BetDetails from './BetDetails'
 import Resource from '../../models/resource'
 const BetStore = Resource('bets')
 
+const styles = {
+  wrapper: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    alignContent: 'stretch',
+    alignItems: 'stretch',
+    overflow: 'hidden',
+    color: '#FFF'
+  },
+  chatBox: {
+    flex: '1 1 0',
+    width: '30px',
+    minWidth: '320px',
+  },
+  betBox: {
+    flex: '1 1 0',
+    width: '30px',
+    minWidth: '320px',
+    backgroundColor: '#455A64',
+  }
+}
+
 class Bet extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +65,7 @@ class Bet extends Component {
   }
 
   componentWillMount() {
-    this.createSocket();
+    this.createSocket()
     BetStore.find(1) // replace with ID later
     .then( (bet) => {
       this.setState({ betDetails: bet })
@@ -55,41 +77,29 @@ class Bet extends Component {
 
   render() {
     return(
-      <Container fluid={true}>
-        <Row>
-          <Col xs='4'>
-            <BetDetails
-              title={ this.state.betDetails.title }
-              description={ this.state.betDetails.description }
-              pool={ this.state.betDetails.pool}
-              bettingDeadline={ this.state.betDetails.betting_deadline }
-              outcomeDeadline={ this.state.betDetails.outcome_deadline }
-              outcomeId={ this.state.betDetails.outcome_id }
-              possibilities={ this.state.betDetails.possibilities }
-              users={ this.state.betDetails.users }
-            />
-          </Col>
-          <Col xs='8'>
-            <Container fluid={true}>
-              <Row>
-                <Col xs='12'>
-                  <ChatMessageArea chatLogs={ this.state.chat.chatLogs } />
-                </Col>
-              </Row>
-              <Row>
-                <Col xs='12'>
-                  <ChatBar
-                    currentChatMessage={ this.state.chat.currentChatMessage }
-                    updateCurrentChatMessage={ this.updateCurrentChatMessage }
-                    handleChatInputKeyPress={ this.handleChatInputKeyPress }
-                    handleSendEvent={ this.handleSendEvent }
-                  />
-                </Col>
-              </Row>
-            </Container>
-          </Col>
-        </Row>
-      </Container>
+      <div style={ styles.wrapper }>
+        <div style={ styles.betBox }>
+          <BetDetails
+            title={ this.state.betDetails.title }
+            description={ this.state.betDetails.description }
+            pool={ this.state.betDetails.pool}
+            bettingDeadline={ this.state.betDetails.betting_deadline }
+            outcomeDeadline={ this.state.betDetails.outcome_deadline }
+            outcomeId={ this.state.betDetails.outcome_id }
+            possibilities={ this.state.betDetails.possibilities }
+            users={ this.state.betDetails.users }
+          />
+        </div>
+        <div style={ styles.chatBox }>
+          <ChatMessageArea chatLogs={ this.state.chat.chatLogs } />
+          <ChatBar
+            currentChatMessage={ this.state.chat.currentChatMessage }
+            updateCurrentChatMessage={ this.updateCurrentChatMessage }
+            handleChatInputKeyPress={ this.handleChatInputKeyPress }
+            handleSendEvent={ this.handleSendEvent }
+          />
+        </div>
+      </div>
     )
   }
 

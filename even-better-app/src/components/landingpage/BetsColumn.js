@@ -17,7 +17,7 @@ export default class BetsColumn extends Component {
     .then((result) => {
         console.log("AXIOS CALL", result)
         result.map((bet) => {    
-            listofBets.push(bet.title)
+            listofBets.push(bet)
         })
         this.setState({
             bets: listofBets
@@ -37,6 +37,7 @@ export default class BetsColumn extends Component {
               <th>Type</th>
               <th>Bet Name</th>
               <th>Result</th>
+              <th>Deadline</th>
             </tr>
           }
         </thead>
@@ -45,9 +46,10 @@ export default class BetsColumn extends Component {
           {
             this.state.bets.map((bet) => {
               return (<tr class="success">
-                <td>SportBet</td>
-                <td>{bet}</td>
+                <td>Sport Bet</td>
+                <td>{bet.title}</td>
                 <td>WIN</td>
+                <td>{bet["betting_deadline"]}</td>
               </tr>);
             })
           }     

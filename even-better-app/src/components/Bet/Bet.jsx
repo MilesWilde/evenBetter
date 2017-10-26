@@ -21,24 +21,26 @@ import BetDetails from './BetDetails'
 import Resource from '../../models/resource'
 const BetStore = Resource('bets')
 
-const flexContainer = {
-  display: 'flex',
-  flexFlow: 'row wrap',
-  alignContent: 'stretch',
-  alignItems: 'stretch',
-  overflow: 'hidden'
-}
-
-const flexBox = {
-  flex: '1 1 0',
-  width: '30px',
-  border: '2px solid black',
-  minWidth: '320px'
-}
-
-const betDetailsStyle = {
-  ...flexBox,
-  minWidth: '320px'
+const styles = {
+  wrapper: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    alignContent: 'stretch',
+    alignItems: 'stretch',
+    overflow: 'hidden',
+    color: '#FFF'
+  },
+  chatBox: {
+    flex: '1 1 0',
+    width: '30px',
+    minWidth: '320px',
+  },
+  betBox: {
+    flex: '1 1 0',
+    width: '30px',
+    minWidth: '320px',
+    backgroundColor: '#455A64',
+  }
 }
 
 class Bet extends Component {
@@ -75,8 +77,8 @@ class Bet extends Component {
 
   render() {
     return(
-      <div style={ flexContainer }>
-        <div style={ betDetailsStyle }>
+      <div style={ styles.wrapper }>
+        <div style={ styles.betBox }>
           <BetDetails
             title={ this.state.betDetails.title }
             description={ this.state.betDetails.description }
@@ -88,7 +90,7 @@ class Bet extends Component {
             users={ this.state.betDetails.users }
           />
         </div>
-        <div style={ flexBox }>
+        <div style={ styles.chatBox }>
           <ChatMessageArea chatLogs={ this.state.chat.chatLogs } />
           <ChatBar
             currentChatMessage={ this.state.chat.currentChatMessage }

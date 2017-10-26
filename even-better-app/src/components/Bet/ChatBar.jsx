@@ -4,10 +4,19 @@ import React from 'react'
 import { TextField, FloatingActionButton } from 'material-ui'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
+const styles = {
+  wrapper: {
+    display: 'inline-block',
+    width: '100%',
+    color: '#FFF',
+    backgroundColor: '#E0E0E0'
+  }
+}
+
 const ChatBar = (props) => {
 
   return(
-    <div style={{ display: 'inline-block', width: '100%', backgroundColor: 'white' }}>
+    <div style={ styles.wrapper }>
       <FloatingActionButton style={{ float: 'right' }} onClick={ (e) => props.handleSendEvent(e) }>
         <ContentAdd />
       </FloatingActionButton>

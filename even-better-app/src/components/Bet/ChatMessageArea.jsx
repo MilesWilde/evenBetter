@@ -6,7 +6,10 @@ const chatMessageAreaStyle = {
   display: 'flex',
   flexFlow: 'column nowrap',
   justifyContent: 'flex-end',
-  height: '87vh'
+  height: '87vh',
+  color: '#000',
+  backgroundColor: '#E0E0E0',
+  padding: '10px'
 }
 
 class ChatMessageArea extends Component {

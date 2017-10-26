@@ -7,6 +7,9 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
+import Resource from '../../../../models/resource'
+const UserCompleteStore = Resource('users')
+
 
 class BetPoolandOutcome extends React.Component {
     
@@ -17,9 +20,27 @@ class BetPoolandOutcome extends React.Component {
             names: this.props.data.names,
             value: 1,
             chosenWinner: '',
-            errors: []
+            errors: [],
+            usersList: []
         }
     }
+    componentWillMount(){
+        
+        var listofUsers = [];
+        UserCompleteStore.findAll()
+        .then((result) => {
+            result.map((user) => {    
+                listofUsers.push(user.username)
+                console.log(user.username)
+            })
+            this.setState({
+                usersList: listofUsers
+            })
+        })
+        .catch((errors) => console.log("AXIOS CALL", errors))
+    }
+
+
     handleChange = (event, index, value) => this.setState({value});
 
     _handleUsersFieldChange = (names) => {
@@ -67,7 +88,8 @@ class BetPoolandOutcome extends React.Component {
         return(
             <div>
                 <UsersCompleteSports    _handleUsersFieldChange={this._handleUsersFieldChange}
-                                        error = {this.state.error}/>
+                                        error = {this.state.error}
+                                        usersList = {this.state.usersList}/>
             <br />
             <h4> Pick a winner </h4>
             <div>

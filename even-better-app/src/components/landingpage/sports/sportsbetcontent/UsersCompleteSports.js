@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 
-import Resource from '../../../../models/resource'
-const UserCompleteStore = Resource('users')
-
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
  */
@@ -21,23 +18,8 @@ const colors = [
 export default class UsersCompleteSports extends Component {
   state = {
     searchText: '',
-    usersList: ''
+    usersList: this.props.usersList
   };
-
-  componentWillMount() {
-    var listofUsers = []
-    UserCompleteStore.findAll()
-    .then((result) => {
-        result.games.map((user) => {    
-            listofUsers.push(user.username)
-            console.log(user.username)
-        })
-        this.setState({
-            usersList: listofUsers
-        })
-    })
-    .catch((errors) => console.log("AXIOS CALL", errors))
-  }
 
   handleUpdateInput = (searchText) => {
     this.setState({
@@ -62,7 +44,7 @@ export default class UsersCompleteSports extends Component {
           searchText={this.state.searchText}
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}
-          dataSource={this.state.usersList}
+          dataSource={this.props.usersList}
           filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
           openOnFocus={true}
           errorText = {this.props.error} 

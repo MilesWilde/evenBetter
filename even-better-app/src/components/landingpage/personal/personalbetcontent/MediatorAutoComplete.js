@@ -38,6 +38,7 @@ export default class MediatorAutoComplete extends Component {
       <div>
         <AutoComplete
           hintText="Pick a mediator"
+          listStyle={{ maxHeight: 200, overflow: 'auto' }}
           searchText={this.state.searchText}
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}

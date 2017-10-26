@@ -41,6 +41,7 @@ export default class UsersCompleteSports extends Component {
       <div>
         <AutoComplete
           hintText="Pick users to bet"
+          listStyle={{ maxHeight: 200, overflow: 'auto' }}
           searchText={this.state.searchText}
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}

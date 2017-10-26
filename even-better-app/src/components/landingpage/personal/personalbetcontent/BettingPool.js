@@ -43,17 +43,17 @@ class BettingPool extends React.Component  {
         .catch((errors) => console.log("PERSONAL AXIOS CALL", errors))
     }
 
-    _handleUsersFieldChange = (e) => {
-        console.log("NAME VALUE IS", e)
+    _handleUsersFieldChange = (val) => {
+        console.log("NAME VALUE IS", val)
         this.setState({
-            names: e
+            names: val
         });
       }
     
-    _handleMediatorFieldChange = (e) => {
-        console.log("MEDIATOR VALUE IS", e)
+    _handleMediatorFieldChange = (val) => {
+        console.log("MEDIATOR VALUE IS", val)
         this.setState({
-            mediator: e
+            mediator: val
         });
       }
 

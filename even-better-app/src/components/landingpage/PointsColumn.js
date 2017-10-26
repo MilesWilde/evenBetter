@@ -8,9 +8,9 @@ const style = {
   display: 'inline-block',
   margin: '16px 32px 16px 0',
 };
-
 var pointsFunction = require('./ranklogic')
-console.log(pointsFunction)
+
+
 
 const PointsColumn = () => (
   <div class = "invite-column">

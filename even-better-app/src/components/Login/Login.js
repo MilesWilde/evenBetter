@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import TextField from 'material-ui/TextField'
+var pointsFunction = require('../landingpage/ranklogic')
 
 class Login extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Login extends Component {
       window.localStorage.user_bets = response.data.user_bets;
       window.localStorage.first_name = response.data.first_name;
       window.localStorage.last_name = response.data.last_name;
+      window.localStorage.points_percent = Math.round(100 * pointsFunction.rankDetermine(window.localStorage.user_points).percentageComplete);
       this.props.history.push("/landing");
     })
     .catch(error => {

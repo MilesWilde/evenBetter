@@ -59,7 +59,8 @@ class Bet extends Component {
         outcome_deadline: Date.now,
         outcome_id: null,
         possibilities: [],
-        users: []
+        users: [],
+        mediator_id: null
       }
     };
   }
@@ -86,6 +87,7 @@ class Bet extends Component {
             bettingDeadline={ this.state.betDetails.betting_deadline }
             outcomeDeadline={ this.state.betDetails.outcome_deadline }
             outcomeId={ this.state.betDetails.outcome_id }
+            mediatorId={ this.state.betDetails.mediator_id }
             possibilities={ this.state.betDetails.possibilities }
             users={ this.state.betDetails.users }
           />

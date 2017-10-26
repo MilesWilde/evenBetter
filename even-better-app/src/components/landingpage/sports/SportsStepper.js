@@ -27,8 +27,8 @@ class SportsStepper extends React.Component {
         gameDate: ''
       },
       {
-        homeTeam: 'Cavs',
-        awayTeam: 'Warriors'
+        homeTeam: '',
+        awayTeam: ''
       },
       {
         names: '',

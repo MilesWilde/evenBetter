@@ -22,7 +22,7 @@ class PossibleBets extends React.Component {
       wrapper: {
         display: 'flex',
         flexWrap: 'wrap'
-      },
+      }
     };
   }
 

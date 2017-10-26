@@ -8,6 +8,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Resource from '../../../../models/resource'
 const GameStore = Resource('games')
 
+const style = {'text-align': 'center'};
 class GamesList extends React.Component {
     constructor(props) {
         super(props);
@@ -54,7 +55,7 @@ class GamesList extends React.Component {
 
     _handleGameClick = (fixture,event) => {
 
-        event.target.style.backgroundColor = "red";
+        event.target.style.backgroundColor = "#91a6c9";
         console.log("Handle Click Fixture: ", fixture)
         let words = fixture.split("@ ")
 
@@ -73,6 +74,7 @@ class GamesList extends React.Component {
                     return <ListItem    
                                 primaryText={fixture}
                                 onClick = {(event) => this._handleGameClick(fixture,event)}
+                                style = {style}
                                 leftAvatar = {
                                     <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
                                     size={50}

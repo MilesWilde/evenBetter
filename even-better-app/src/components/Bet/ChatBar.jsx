@@ -12,6 +12,7 @@ const ChatBar = (props) => {
         value={ props.currentChatMessage }
         onChange={ (e) => props.updateCurrentChatMessage(e) }
         onKeyPress={ (e) => props.handleChatInputKeyPress(e) }
+        style={{ minWidth: '80%'}}
       />
       <FloatingActionButton onClick={ (e) => props.handleSendEvent(e) }>
         <ContentAdd />

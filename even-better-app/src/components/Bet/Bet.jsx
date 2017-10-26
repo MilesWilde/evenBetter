@@ -21,6 +21,10 @@ import BetDetails from './BetDetails'
 import Resource from '../../models/resource'
 const BetStore = Resource('bets')
 
+const chatMessageAreaStyle = {
+  height: '100%'
+}
+
 class Bet extends Component {
   constructor(props) {
     super(props);
@@ -72,7 +76,7 @@ class Bet extends Component {
           <Col xs='8'>
             <Container fluid={true}>
               <Row>
-                <Col xs='12'>
+                <Col xs='12' style={ chatMessageAreaStyle }>
                   <ChatMessageArea chatLogs={ this.state.chat.chatLogs } />
                 </Col>
               </Row>

@@ -41,7 +41,12 @@ module Api::V1
       elsif !@bet.possibilities.exists?(params[:outcome_id])
         json_response({ message: 'Validation failed: Cannot select a possibility from another bet' }, :forbidden)
       else
-        @bet.outcome = Possibility.find(params[:outcome_id])
+        if params.has_key?[:outcome_id]
+          @bet.outcome = Possibility.find(params[:outcome_id])
+        end
+        if params.has_key?[:has_accepted]
+          @bet.has_accepted = params[:has_accepted]
+        end
         @bet.save!
         json_response(@bet)
       end
@@ -56,8 +61,9 @@ module Api::V1
     end
 
     def find_creator
-      @bet = Bet.find(params[:id])
-      render json: @bet[:creator_id]
+      @bet = Bet.find(params[:bet_id])
+      @user = User.find(@bet[:creator_id])
+      render json: @user
     end
 
     private

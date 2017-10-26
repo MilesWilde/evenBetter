@@ -20,19 +20,7 @@ var config = {
 
 
 // Finds the creator of a particular bet by ID
-function findBetCreator(betID) {
-  debugger
-  axios.get(`/api/v1/bets/${betID}`, config)
-  .then(response => {
-    debugger
-    return response
-  })
-  .catch(error => {
-    debugger
-    return error
-  })
-  // render error page
-}
+
 
 
 // api call in componentdidmnt - sets state
@@ -50,8 +38,10 @@ class InviteColumn extends Component {
   componentDidMount() {
     axios.get(`/api/v1/bets/invites.json`, config)
     .then(response => {
+      //debugger
       console.log(response)
       this.setState( { invites: response.data } )
+      console.log(this.state)
       return null
     })
     .catch(error => {
@@ -69,9 +59,14 @@ class InviteColumn extends Component {
           return (<Invite
           betID={invite.id}
           betTitle={invite.title}
-          fromUser={findBetCreator(invite.id)}
           />)
         })}
+        {/*
+        {this.state.invites.length > 0 &&
+          <Invite betID={this.state.invites[0].id}
+            betTitle={this.state.invites[0].title}
+          />}
+          */}
       </Menu>
     </Paper>
   </div>

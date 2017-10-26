@@ -7,16 +7,18 @@ import ContentAdd from 'material-ui/svg-icons/content/add'
 const ChatBar = (props) => {
 
   return(
-    <div>
+    <div style={{ display: 'inline-block', width: '100%', backgroundColor: 'white' }}>
+      <FloatingActionButton style={{ float: 'right' }} onClick={ (e) => props.handleSendEvent(e) }>
+        <ContentAdd />
+      </FloatingActionButton>
+      <div style={{ padding: '0 10px', overflow: 'hidden'}}>
       <TextField
         value={ props.currentChatMessage }
         onChange={ (e) => props.updateCurrentChatMessage(e) }
         onKeyPress={ (e) => props.handleChatInputKeyPress(e) }
-        style={{ minWidth: '80%'}}
+        style={{ float: 'left', width: '100%'}}
       />
-      <FloatingActionButton onClick={ (e) => props.handleSendEvent(e) }>
-        <ContentAdd />
-      </FloatingActionButton>
+      </div>
     </div>
   )
 }

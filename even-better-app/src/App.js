@@ -56,7 +56,7 @@ class App extends Component {
           </main>
         </MuiThemeProvider>
       )
-    }    
+    }
     else {
       return (
         <MuiThemeProvider >
@@ -84,7 +84,7 @@ class App extends Component {
           </main>
         </MuiThemeProvider>
       )
-    }     
+    }
   }
 }
 

@@ -24,7 +24,6 @@ const BetStore = Resource('bets')
 const flexContainer = {
   display: 'flex',
   flexFlow: 'row wrap',
-  height: '100%',
   alignContent: 'stretch',
   alignItems: 'stretch',
   overflow: 'hidden'
@@ -64,7 +63,7 @@ class Bet extends Component {
   }
 
   componentWillMount() {
-    this.createSocket();
+    this.createSocket()
     BetStore.find(1) // replace with ID later
     .then( (bet) => {
       this.setState({ betDetails: bet })

@@ -1,11 +1,11 @@
 import React from 'react'
 
 const flexBox = {
+  display: 'flex',
   flex: '0 0 0',
-  width: '30px',
   border: '2px solid black',
-  minWidth: '320px',
-  height: '50px'
+  width: '100%',
+  minHeight: '50px'
 }
 
 const ChatMessage = (props) => {

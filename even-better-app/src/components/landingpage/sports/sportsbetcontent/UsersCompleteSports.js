@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 
 import Resource from '../../../../models/resource'
-const UserStore = Resource('users')
+const UserCompleteStore = Resource('users')
 
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
@@ -26,7 +26,7 @@ export default class UsersCompleteSports extends Component {
 
   componentWillMount() {
     var listofUsers = []
-    UserStore.findAll()
+    UserCompleteStore.findAll()
     .then((result) => {
         result.games.map((user) => {    
             listofUsers.push(user.username)

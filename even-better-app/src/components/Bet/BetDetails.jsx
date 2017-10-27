@@ -40,8 +40,8 @@ const BetDetails = (props) => {
         return <Chip style={ styles.chip } labelColor='#000'>{ user.username }</Chip>
       })}
       </div>
-      if mediatorId {
-        <h3>Mediator: <Chip style={ styles.chip }>{ props.users.find( (user) => { user.id === props.mediatorId }).username }</Chip></h3>
+      { props.mediator &&
+      [<h3 style={ styles.header }>Mediator</h3>,<Chip style={ styles.chip }>{ props.mediator.username }</Chip>]
       }
       <h3>Betting Deadline: { props.bettingDeadline }</h3>
       <h3>Outcome Deadline: { props.outcomeDeadline }</h3>

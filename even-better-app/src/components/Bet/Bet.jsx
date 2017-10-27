@@ -67,7 +67,7 @@ class Bet extends Component {
 
   componentWillMount() {
     this.createSocket()
-    BetStore.find(1) // replace with ID later
+    BetStore.find(this.props.match.params.id)
     .then( (bet) => {
       this.setState({ betDetails: bet })
     })
@@ -87,7 +87,7 @@ class Bet extends Component {
             bettingDeadline={ this.state.betDetails.betting_deadline }
             outcomeDeadline={ this.state.betDetails.outcome_deadline }
             outcomeId={ this.state.betDetails.outcome_id }
-            mediatorId={ this.state.betDetails.mediator_id }
+            mediator={ this.state.betDetails.mediator }
             possibilities={ this.state.betDetails.possibilities }
             users={ this.state.betDetails.users }
           />

@@ -43,7 +43,7 @@ module Api::V1
       else
         @bet.outcome = Possibility.find(params[:outcome_id])
         @bet.save!
-        json_response(@bet)
+        render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
       end
     end
 

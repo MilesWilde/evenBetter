@@ -3,11 +3,7 @@ import React, { Component } from 'react'
 // Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
-// Grids
-import Container from 'muicss/lib/react/container'
-import Row from 'muicss/lib/react/row'
-import Col from 'muicss/lib/react/col'
+import { Dialog, FlatButton } from 'material-ui'
 
 // Websockets
 import Cable from 'actioncable'
@@ -16,6 +12,8 @@ import Cable from 'actioncable'
 import ChatBar from './ChatBar'
 import ChatMessageArea from './ChatMessageArea'
 import BetDetails from './BetDetails'
+import CompleteBetConfirmation from './CompleteBetConfirmation'
+
 
 // Client side model
 import Resource from '../../models/resource'
@@ -52,6 +50,7 @@ class Bet extends Component {
         chatLogs: []
       },
       betDetails: {
+        id: null,
         title: '',
         description: '',
         pool: 0,
@@ -61,7 +60,9 @@ class Bet extends Component {
         possibilities: [],
         users: [],
         mediator_id: null
-      }
+      },
+      showConfirmation: false,
+      currentlySelectedPossibility: null
     };
   }
 
@@ -99,10 +100,24 @@ class Bet extends Component {
   }
 
   render() {
+    const confirmationActions = [
+      <FlatButton
+        label="Cancel"
+        primary={false}
+        onClick={this.handlePossibilitySelectionConfirmationClose}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleSubmitPossibility}
+      />,
+    ];
     return(
       <div style={ styles.wrapper }>
         <div style={ styles.betBox }>
           <BetDetails
+            id={ this.state.betDetails.id }
             title={ this.state.betDetails.title }
             description={ this.state.betDetails.description }
             pool={ this.state.betDetails.pool}
@@ -113,6 +128,7 @@ class Bet extends Component {
             mediatorId={ this.state.betDetails.mediator_id }
             possibilities={ this.state.betDetails.possibilities }
             users={ this.state.betDetails.users }
+            handlePossibilitySelectionConfirmationOpen={ this.handlePossibilitySelectionConfirmationOpen }
           />
         </div>
         <div style={ styles.chatBox }>
@@ -124,6 +140,17 @@ class Bet extends Component {
             handleSendEvent={ this.handleSendEvent }
           />
         </div>
+        <Dialog
+          title="Are you sure?"
+          actions={confirmationActions}
+          modal={false}
+          open={this.state.showConfirmation}
+          onRequestClose={this.handlePossibilitySelectionConfirmationClose}
+        >
+          Selecting Submit will set "{this.state.currentlySelectedPossibility && this.state.betDetails.possibilities.find( (possibility) => {
+            return possibility.id == this.state.currentlySelectedPossibility
+          }).description }" as the winning outcome.
+        </Dialog>
       </div>
     )
   }
@@ -180,6 +207,29 @@ class Bet extends Component {
     }
   }
 
+  handlePossibilitySelectionConfirmationOpen = (e) => {
+    this.setState({showConfirmation: true, currentlySelectedPossibility: e.currentTarget.dataset.id});
+  };
+
+  handlePossibilitySelectionConfirmationClose = () => {
+    this.setState({showConfirmation: false, currentlySelectedPossibility: null});
+  };
+
+  handleSubmitPossibility = () => {
+    console.log(this.state.currentlySelectedPossibility)
+    BetStore.update(this.state.betDetails.id, { outcome_id: this.state.currentlySelectedPossibility })
+    .then( (bet) => {
+      console.log('SUCCESS!')
+      this.setState({ betDetails: bet })
+      return
+    })
+    .then( () => {
+      this.handlePossibilitySelectionConfirmationClose()
+    })
+    .catch( (err) => {
+      console.log(err.response.data.message)
+    })
+  }
 }
 
 export default Bet;

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Switch, Link, Redirect } from 'react-router-dom'
 import Chip from 'material-ui/Chip'
 import Moment from 'moment'
 
@@ -29,7 +30,9 @@ const styles = {
   }
 }
 
+
 const BetDetails = (props) => {
+
   return(
     <div style={{ padding: '0 10px' }}>
       <h1>{ props.title }</h1>
@@ -38,7 +41,7 @@ const BetDetails = (props) => {
       <h3 style={ styles.header }>Possibilities</h3>
       <div style={ styles.wrapper }>
       { props.possibilities.map( (possibility) => {
-        return <Chip style={ styles.chip } labelColor='#000'>{ possibility.description }</Chip>
+        return <Chip key={ possibility.id } data-id={ possibility.id } style={ styles.chip } onClick={ props.handlePossibilitySelectionConfirmationOpen }labelColor='#000'>{ possibility.description }</Chip>
       })}
       </div>
       <h3 style={ styles.header }>Participants</h3>

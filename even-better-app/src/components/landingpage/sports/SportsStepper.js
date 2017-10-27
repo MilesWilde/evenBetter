@@ -9,6 +9,10 @@ import FlatButton from 'material-ui/FlatButton';
 import DateandSport from './sportsbetcontent/DateandSport';
 import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
 import GamesList from './sportsbetcontent/GamesList';
+import axios from 'axios';
+
+import Resource from '../../../models/resource'
+const BetStore = Resource('bets')
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -37,6 +41,49 @@ class SportsStepper extends React.Component {
       }
     ]
   };
+
+  makeAxiosCall = () => {
+    // let data = {
+    //   title: `${this.state.data[1].homeTeam} vs. ${this.state.data[1].awayTeam}` ,
+    //   pool: ((this.state.data[2].names.length)+1)*100,
+    //   users: [1, 2],
+    //   creator_id: window.localStorage.user_id,
+    //   created_at: "2017-10-25 22:41:29.403225",
+    //   updated_at: "2017-10-25 22:41:29.403225",
+    //   outcome_id: null,
+    //   possibilities: ["I win", "You Win", "Noone Wins"]
+    // }
+
+    // BetStore.create(data);
+    const zerver = axios.create({
+      baseURL: 'http://localhost:3001',
+      timeout: 10000,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + window.localStorage.auth_token,
+      }
+    })
+    let userIDArray = []
+    this.state.data[2].names.forEach((name)=>{
+      userIDArray.push(name.userId)
+    });
+
+    userIDArray.push(window.localStorage.user_id)
+
+    zerver.post('/api/v1/bets', {
+      title: `${this.state.data[1].homeTeam} vs. ${this.state.data[1].awayTeam}` ,
+      pool: ((this.state.data[2].names.length)+1)*100,
+      users: userIDArray,
+      creator_id: window.localStorage.user_id,
+      created_at: "2017-10-25 22:41:29.403225",
+      updated_at: "2017-10-25 22:41:29.403225",
+      outcome_id: null,
+      possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
+    });
+  }
+
+
+
 
   handleNext = (userData) => {
     const {stepIndex, data} = this.state;
@@ -98,6 +145,7 @@ class SportsStepper extends React.Component {
                                   homeTeam={this.state.data[1].homeTeam}
                                   awayTeam={this.state.data[1].awayTeam}
                                   sportsArray={this.state.data}
+                                  makeAxiosCall = {this.makeAxiosCall}
                                   />
       default:
         return 'Come on, make a Sports Bet!!';

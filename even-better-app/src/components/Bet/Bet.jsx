@@ -140,7 +140,8 @@ class Bet extends Component {
     let cable = Cable.createConsumer('ws://localhost:3001/cable');
     this.chats = cable.subscriptions.create({
       channel: 'ChatChannel',
-      room: this.props.match.params.id
+      room: this.props.match.params.id,
+      Authorization: 'Bearer ' + window.localStorage.auth_token
     }, {
       connected: () => {},
       received: (data) => {

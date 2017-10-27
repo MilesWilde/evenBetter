@@ -8,7 +8,7 @@ class ChatChannel < ApplicationCable::Channel
   def create(data)
     Message.create!(
       content: data.fetch('content'),
-      user: User.first,
+      user: current_user,
       bet: Bet.find(params[:room])
     )
   end

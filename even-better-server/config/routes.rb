@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :games, only: [:index, :show]
       get 'bets/invites', to: 'bets#get_invites'
+      get 'bets/acceptances', to: 'bets#get_acceptances'
       get 'bets/:bet_id/creator', to: 'bets#find_creator'
       resources :bets, except: [:destroy] do
         resources :messages, only: [:index]

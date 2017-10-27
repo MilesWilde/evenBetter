@@ -66,6 +66,11 @@ module Api::V1
       render json: @invites
     end
 
+    def get_acceptances
+      @acceptances = current_user.bet_acceptances
+      render json: @acceptances
+    end
+
     def find_creator
       @bet = Bet.find(params[:id])
       render json: @bet[:creator_id]

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import Resource from '../../models/resource'
-const BetListStore = Resource(`users/${window.localStorage.user_id}/bets/`)
+const BetListStore = Resource(`/api/v1/bets/acceptances`)
 
 export default class BetsColumn extends Component {
   constructor(props) {
@@ -52,7 +52,7 @@ export default class BetsColumn extends Component {
                 <td>{bet["betting_deadline"]}</td>
               </tr>);
             })
-          }     
+          }
         </tbody>
       </table>
     </div>

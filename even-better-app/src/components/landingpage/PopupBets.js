@@ -13,12 +13,14 @@ import './css/LandingPage.css';
  * You can also close this dialog by clicking outside the dialog, or with the 'Esc' key.
  */
 export default class PopupBets extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {
     open: false
+    }
   }
-}
+
 
   handleOpen = () => {
     this.setState({open: true});
@@ -34,13 +36,7 @@ export default class PopupBets extends React.Component {
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
-      />,
-      <FlatButton
-        label="Place Bet!"
-        primary={true}
-        keyboardFocused={true}
-        onClick={this.handleClose}
-      />,
+      />
     ];
 
     return (

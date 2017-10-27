@@ -34,15 +34,15 @@ module Api::V1
     end
 
     def update
+      @bet = Bet.find(params[:id])
       if @bet.mediator != current_user
+        #Use not acceptable (406) instead of 403
         json_response({ message: 'Validation failed: Only the mediator can set the outcome' }, :forbidden)
       elsif @bet.outcome_id
         json_response({ message: 'Validation failed: An outcome has already been set' }, :forbidden)
       elsif !@bet.possibilities.exists?(params[:outcome_id])
         json_response({ message: 'Validation failed: Cannot select a possibility from another bet' }, :forbidden)
       else
-
-        @bet.outcome = Possibility.find(params[:outcome_id])
         @bet.save!
         json_response(@bet)
 
@@ -72,8 +72,9 @@ module Api::V1
     end
 
     def find_creator
-      @bet = Bet.find(params[:id])
-      render json: @bet[:creator_id]
+      @bet = Bet.find(params[:bet_id])
+      @user = User.find(@bet[:creator_id])
+      render json: @user
     end
 
     private

@@ -38,23 +38,12 @@ function findBetCreator(betID) {
 class InviteColumn extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      invites: []
-    }
   }
 
   componentDidMount() {
-    axios.get(`/api/v1/bets/invites.json`, config)
-    .then(response => {
-      console.log(response)
-      this.setState( { invites: response.data } )
-      return null
-    })
-    .catch(error => {
-      console.log(error)
-    })
+    this.props.loadInvites()
   }
+
 
   render () {
     return (
@@ -62,13 +51,20 @@ class InviteColumn extends Component {
     <h3> Invite Column </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320} maxHeight={250}>
-        {this.state.invites.map((invite) => {
+        {this.props.getMainState().invites.map((invite) => {
           return (<Invite
           betID={invite.id}
           betTitle={invite.title}
-          fromUser={findBetCreator(invite.id)}
+          loadInvites={this.props.loadInvites}
+          loadBets={this.props.loadBets}
           />)
         })}
+        {/*
+        {this.state.invites.length > 0 &&
+          <Invite betID={this.state.invites[0].id}
+            betTitle={this.state.invites[0].title}
+          />}
+          */}
       </Menu>
     </Paper>
   </div>

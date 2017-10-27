@@ -19,15 +19,14 @@ var pointsFunction = require('./ranklogic')
 class PointsColumn extends Component {
   constructor(props) {
     super(props);
-  }    
+  }
 
   render() {
     return (
       <MuiThemeProvider>
         <div className = "invite-column">
-          <h3> Stats </h3>
           <Paper style={style}>
-            <Menu desktop={true} width={320}>
+            <Menu desktop={true}>
               <MenuItem
                 primaryText={`Your points: ${this.props.user.points}`}
               />
@@ -56,7 +55,7 @@ class PointsColumn extends Component {
         </div>
       </MuiThemeProvider>
     )
-  } 
+  }
 }
 
 export default PointsColumn;

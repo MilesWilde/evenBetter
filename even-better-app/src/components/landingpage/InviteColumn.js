@@ -48,7 +48,7 @@ class InviteColumn extends Component {
   render () {
     return (
         <div className = "invite-column">
-    <h3> Invite Column </h3>
+    <h3> Invites </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320} maxHeight={250}>
         {this.props.getMainState().invites.map((invite) => {

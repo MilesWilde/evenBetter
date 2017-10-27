@@ -59,16 +59,39 @@ class Bet extends Component {
         outcome_deadline: Date.now,
         outcome_id: null,
         possibilities: [],
-        users: []
+        users: [],
+        mediator_id: null
       }
     };
   }
 
   componentWillMount() {
     this.createSocket()
-    BetStore.find(1) // replace with ID later
+
+    BetStore.find(this.props.match.params.id)
     .then( (bet) => {
       this.setState({ betDetails: bet })
+    })
+    .catch( (err) => {
+      console.log(err)
+    })
+
+    const MessageStore = Resource(`bets/${ this.props.match.params.id }/messages/`)
+
+    MessageStore.findAll()
+    .then( (chatLogs) => {
+      for (let message of chatLogs) {
+        message.user = message.user.username
+      }
+      return chatLogs
+    })
+    .then( (chatLogs) => {
+      this.setState({
+        chat: {
+          ...this.state.chat,
+          chatLogs: chatLogs
+        }
+      })
     })
     .catch( (err) => {
       console.log(err)
@@ -86,6 +109,7 @@ class Bet extends Component {
             bettingDeadline={ this.state.betDetails.betting_deadline }
             outcomeDeadline={ this.state.betDetails.outcome_deadline }
             outcomeId={ this.state.betDetails.outcome_id }
+            mediator={ this.state.betDetails.mediator }
             possibilities={ this.state.betDetails.possibilities }
             users={ this.state.betDetails.users }
           />

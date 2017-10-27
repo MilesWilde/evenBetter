@@ -31,7 +31,7 @@ class PersonalStepper extends React.Component {
           description: ''
         },
         {
-          names: '',
+          names: [],
           mediator: '',
           betDeadlineDate: null,
           betDeadlineTime:null,

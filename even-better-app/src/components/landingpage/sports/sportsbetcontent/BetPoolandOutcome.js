@@ -42,11 +42,9 @@ class BetPoolandOutcome extends React.Component {
 
     handleChange = (event, index, value) => this.setState({value});
 
-    _handleUsersFieldChange = (name) => {
-        let nameArray = this.state.names
-        nameArray.push(name)
+    _handleUsersFieldChange = (names) => {
         this.setState({
-            names: nameArray
+            names: names
         });
     }
 

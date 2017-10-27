@@ -26,7 +26,7 @@ export default class UsersCompleteSports extends Component {
     this.state = {
       searchText: '',
       usersList: this.props.usersList,
-      chipValue: []
+      chipValue: [] //Contains an array of objects with id and username in each object
     };
   
     this.styles = {
@@ -76,8 +76,8 @@ export default class UsersCompleteSports extends Component {
     // const obtainedUsername = this.state.chipValue
     // obtainedUsername.push(searchText)
 
-    this.props._handleUsersFieldChange(searchText)
     this.chipCallback(searchText)
+    this.props._handleUsersFieldChange(this.state.chipValue)
     this.setState({
       searchText: searchText
     });

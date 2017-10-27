@@ -37,8 +37,11 @@ export default class UsersCompleteSports extends Component {
     };
   }
 
-  handleChange(newData) {
-    this.setState({chipValue: newData})
+  handleChange(event,newData) {
+    // const holder = this.state.chipValue
+    // holder.push(newData)
+    // this.setState({chipValue: holder})
+    // console.log("Holder is: ", holder)
   }
 
   handleUpdateInput = (searchText) => {
@@ -50,21 +53,27 @@ export default class UsersCompleteSports extends Component {
 
   handleNewRequest = (searchText) => {
     console.log("Name in usercompletesports:", searchText)
+    const holder = this.state.chipValue
+    holder.push(searchText)
     this.setState({
       searchText: searchText,
+      chipValue: holder
     });
+
+    console.log("chipValue: ", this.state.chipValue)
   };
 
 
   render() {
     return (
       <div>
-        <ChipInput
-          floatingLabelText={"Select users here!"}
-          onChange={(chips) => this.handleChange(chips)}
-          errorText = {this.state.error}
-        /> <br /><br />
-
+        {
+          this.state.chipValue.map((chip) => {
+          return <Chip style={this.styles.chip}>
+            {chip}
+          </Chip>
+          })
+        }
         <AutoComplete
           hintText="Pick users to bet"
           listStyle={{ maxHeight: 200, overflow: 'auto' }}

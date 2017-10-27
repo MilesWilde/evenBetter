@@ -39,7 +39,6 @@ class SportsStepper extends React.Component {
   };
 
   handleNext = (userData) => {
-    console.log('Im inside handlenext Sports')
     const {stepIndex, data} = this.state;
     const tempStateHold = data;
 

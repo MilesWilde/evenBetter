@@ -44,7 +44,6 @@ class BetPoolandOutcome extends React.Component {
     handleChange = (event, index, value) => this.setState({value});
 
     _handleUsersFieldChange = (names) => {
-        console.log("PARTICIPANT VALUE IS", names)
         this.setState({
             names: names
         });

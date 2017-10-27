@@ -38,10 +38,11 @@ export default class MediatorAutoComplete extends Component {
       <div>
         <AutoComplete
           hintText="Pick a mediator"
+          listStyle={{ maxHeight: 200, overflow: 'auto' }}
           searchText={this.state.searchText}
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}
-          dataSource={colors}
+          dataSource={this.props.usersList}
           filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
           openOnFocus={true}
           errorText = {this.props.error} 

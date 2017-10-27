@@ -8,13 +8,14 @@ import FlatButton from 'material-ui/FlatButton';
 import Resource from '../../../../models/resource'
 const GameStore = Resource('games')
 
+const style = {'text-align': 'center'};
 class GamesList extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            homeTeam: 'Cavs',
-            awayTeam: 'Warriors',
+            homeTeam: '',
+            awayTeam: '',
             fixtures: []
 
         }
@@ -51,26 +52,40 @@ class GamesList extends React.Component {
             awayTeam: this.state.awayTeam
         });
     }
-    //Might need to use the dangerouslySetInnerHTML here to set the Team names and logos
+
+    _handleGameClick = (fixture,event) => {
+
+        event.target.style.backgroundColor = "#91a6c9";
+        console.log("Handle Click Fixture: ", fixture)
+        let words = fixture.split("@ ")
+
+        this.setState({
+            homeTeam: words[1],
+            awayTeam: words[0]
+        })       
+    }
 
     render() {
         return (
             <div>
-                <List>
+                <List >
                     {
                     this.state.fixtures.map((fixture) => {
-                        return <ListItem    primaryText={fixture}
-                                            leftAvatar={
-                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
-                                                size={50}
-                                                />
-                                            }
-                                            rightAvatar={
-                                                <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
-                                                size={50}
-                                                />
-                                            }
-                                             />
+                    return <ListItem    
+                                primaryText={fixture}
+                                onClick = {(event) => this._handleGameClick(fixture,event)}
+                                style = {style}
+                                leftAvatar = {
+                                    <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
+                                    size={50}
+                                    />
+                                }
+                                rightAvatar = {
+                                    <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
+                                    size={50}
+                                />
+                                }
+                            />
                     })
                     }
                 </List>

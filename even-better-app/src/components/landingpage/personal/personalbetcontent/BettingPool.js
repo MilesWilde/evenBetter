@@ -7,6 +7,9 @@ import MediatorAutoComplete from './MediatorAutoComplete'
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
+import Resource from '../../../../models/resource'
+const UserCompleteStore = Resource('users')
+
 
 class BettingPool extends React.Component  {
 
@@ -20,21 +23,38 @@ class BettingPool extends React.Component  {
             betDeadlineTime:this.props.data.betDeadlineTime,
             decisionDeadlineDate: this.props.data.decisionDeadlineDate,
             decisionDeadlineTime: this.props.data.decisionDeadlineTime,
-            errors: []
+            errors: [],
+            usersList:[]
         }
     }
 
-    _handleUsersFieldChange = (e) => {
-        console.log("NAME VALUE IS", e)
+    componentWillMount(){
+        
+        var listofUsers = [];
+        UserCompleteStore.findAll()
+        .then((result) => {
+            result.map((user) => {    
+                listofUsers.push(user.username)
+            })
+            this.setState({
+                usersList: listofUsers
+            })
+        })
+        .catch((errors) => console.log("PERSONAL AXIOS CALL", errors))
+    }
+
+    _handleUsersFieldChange = (val) => {
+        let nameArray = this.state.names
+        nameArray.push(val)
         this.setState({
-            names: e
+            names: nameArray
         });
       }
     
-    _handleMediatorFieldChange = (e) => {
-        console.log("MEDIATOR VALUE IS", e)
+    _handleMediatorFieldChange = (val) => {
+        console.log("MEDIATOR VALUE IS", val)
         this.setState({
-            mediator: e
+            mediator: val
         });
       }
 
@@ -95,8 +115,15 @@ class BettingPool extends React.Component  {
     render() {
         return (
             <div>
-                <UsersAutoComplete names = {this.state.names} _handleUsersFieldChange = {this._handleUsersFieldChange} error = {this.state.errors[0]}/>
-                <MediatorAutoComplete mediator = {this.state.mediator} _handleMediatorFieldChange = {this._handleMediatorFieldChange} error = {this.state.errors[1]}/>
+                <UsersAutoComplete  usersList = {this.state.usersList} 
+                                    names = {this.state.names} 
+                                    _handleUsersFieldChange = {this._handleUsersFieldChange} 
+                                    error = {this.state.errors[0]}/>
+
+                <MediatorAutoComplete   usersList = {this.state.usersList} 
+                                        mediator = {this.state.mediator} 
+                                        _handleMediatorFieldChange = {this._handleMediatorFieldChange} 
+                                        error = {this.state.errors[1]}/>
             <br />
             <DatePickerPopup 
                 dateProp={this.state}

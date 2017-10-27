@@ -30,7 +30,7 @@ module Api::V1
     end
 
     def show
-      render json: @bet.to_json({ include: [:possibilities, :users] })
+      render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
     end
 
     def update

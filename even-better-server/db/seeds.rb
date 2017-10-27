@@ -13,7 +13,7 @@ end
 
 puts '--- CREATING BETS WITH 2 POSSIBILITIES AND 2 USERS EACH ---'
 30.times do
-  bet = FactoryGirl.create(:bet, { creator: User.random, mediator: User.random })
+  bet = FactoryGirl.create(:bet, { creator: User.random })
   2.times do
     FactoryGirl.create(:possibility, { bet: bet })
   end
@@ -40,6 +40,20 @@ end
 puts '--- CREATING ADDITIONAL POSSIBILITIES FOR RANDOM BETS ---'
 20.times do
   FactoryGirl.create(:possibility, { bet: Bet.random })
+end
+
+puts '--- SETTING A MEDIATOR FOR RANDOM BETS ---'
+10.times do
+  bet = Bet.random
+  bet.mediator = bet.users.random
+  bet.save!
+end
+
+puts '--- CREATING THE POOLS ---'
+bets = Bet.all
+bets.each do |bet|
+  bet.pool = bet.users.count * 100
+  bet.save!
 end
 
 puts '--- CREATING MESSAGES ---'

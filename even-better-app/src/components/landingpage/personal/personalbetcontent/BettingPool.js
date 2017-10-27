@@ -49,10 +49,9 @@ class BettingPool extends React.Component  {
         });
       }
     
-    _handleMediatorFieldChange = (val) => {
-        console.log("MEDIATOR VALUE IS", val)
+    _handleMediatorFieldChange = (names) => {
         this.setState({
-            mediator: val
+            mediator: names
         });
       }
 

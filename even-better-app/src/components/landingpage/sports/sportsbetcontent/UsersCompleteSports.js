@@ -72,9 +72,6 @@ export default class UsersCompleteSports extends Component {
   };
 
   handleNewRequest = (searchText) => {
-    // console.log("Name in usercompletesports:", searchText)
-    // const obtainedUsername = this.state.chipValue
-    // obtainedUsername.push(searchText)
 
     this.chipCallback(searchText)
     this.props._handleUsersFieldChange(this.state.chipValue)

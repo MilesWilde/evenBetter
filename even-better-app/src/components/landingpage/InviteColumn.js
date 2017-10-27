@@ -47,9 +47,8 @@ class InviteColumn extends Component {
   loadInvites = () => {
     axios.get(`/api/v1/bets/invites.json`, config)
     .then(response => {
-      console.log(response)
+      console.log("Reloading Invites" + response.data)
       this.setState( { invites: response.data } )
-      console.log(this.state)
       return null
     })
     .catch(error => {
@@ -71,7 +70,7 @@ class InviteColumn extends Component {
           return (<Invite
           betID={invite.id}
           betTitle={invite.title}
-          action={this.loadInvites}
+          loadInvites={this.loadInvites}
           />)
         })}
         {/*

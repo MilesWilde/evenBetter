@@ -5,6 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import ListItem from 'material-ui/List';
+import InvitePossibility from './InvitePossibility'
 
 var config = {
   headers: {
@@ -14,11 +15,14 @@ var config = {
 
 // Will need betID prop
 class InviteDialog extends Component {
-  state = {
-    open: false,
-    possibilities: [],
-    selected: null
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false,
+      possibilities: [],
+      selected: {}
+    };
+  }
 
   handleOpen = () => {
     this.setState({open: true});
@@ -26,7 +30,13 @@ class InviteDialog extends Component {
   };
 
   handleClose = () => {
-    this.setState({open: false});
+    // Closes Invite dialog and refreshes Invites List
+    this.setState({
+      ...this.state,
+      open: false,
+      selected: {}
+    });
+    this.props.loadInvites()
   };
 
 
@@ -43,9 +53,55 @@ class InviteDialog extends Component {
     } )
   }
 
-  setFocus = (e) => {
-    debugger
-    e.target.setAtribute = ("focusState", "focused");
+  selectOption = (option) => {
+    console.log("Option")
+    console.log(option)
+    this.setState({
+      ...this.state,
+      selected: option
+    })
+  }
+
+  handleAccept = (e) => {
+    // Update bet_user - has_accepted to true
+    var data = {
+      has_accepted: true,
+      possibility_id: this.state.selected.id
+    }
+    axios.patch(`/api/v1/bets_users/${this.props.betID}`, data, config)
+    .then(response => {
+      console.log("Response: ")
+      console.log(response.data)
+      this.handleClose()
+    })
+    .catch(error => {
+      console.log("Error: " + error)
+    })
+
+  }
+
+  handleDecline = (e) => {
+    // Update bet_user - has_accepted to false
+    var data = { has_accepted: false }
+    axios.patch(`/api/v1/bets_users/${this.props.betID}`, data, config)
+    .then(response => {
+      console.log("Response: " + response)
+      this.handleClose()
+    })
+    .catch(error => {
+      debugger
+      console.log("Error: " + error)
+    })
+  }
+
+  // Utility function to check for empty object
+  isEmpty = (obj) => {
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return JSON.stringify(obj) === JSON.stringify({});
   }
 
  render() {
@@ -53,13 +109,13 @@ class InviteDialog extends Component {
       <FlatButton
         label="Decline"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleDecline}
       />,
       <FlatButton
         label="Accept"
         primary={true}
-        keyboardFocused={true}
-        onClick={this.handleClose}
+        onClick={this.handleAccept}
+        disabled={this.isEmpty(this.state.selected) ? true : false}
       />,
     ];
 
@@ -75,7 +131,8 @@ class InviteDialog extends Component {
           >
           {this.state.possibilities.map((option) => {
             return (
-             <MenuItem onClick={this.setFocus}>{option.description}</MenuItem>
+             <InvitePossibility
+             action={this.selectOption} option={option}/>
             )
           })}
           </Dialog>

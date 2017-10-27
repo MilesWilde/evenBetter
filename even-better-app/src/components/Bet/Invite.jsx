@@ -45,20 +45,7 @@ class Invite extends Component {
   // render error page
   }
 
-  onAccept = (e) => {
-    // Update bet_user - has_accepted to true
-    var data = { has_accepted: true }
-    axios.patch(`/api/v1/bets_users/${this.props.betID}`, data, config)
-    .then(response => {
-      console.log("Response: " + response)
-      this.props.action()
-    })
-    .catch(error => {
-      console.log("Error: " + error)
-    })
 
-
-  }
 
   openInviteDialog = (e) => {
     // Open Dialog Box
@@ -73,7 +60,11 @@ class Invite extends Component {
     return (
       <div>
       <MenuItem>
-      <InviteDialog primaryText={"Invite from " + this.state.fromUser} betID={this.props.betID}/>
+      <InviteDialog
+        primaryText={"Invite from " + this.state.fromUser}
+        betID={this.props.betID}
+        loadInvites={this.props.loadInvites}
+      />
       </MenuItem>
       <Divider/>
       </div>

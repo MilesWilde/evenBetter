@@ -9,8 +9,8 @@ import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import Leaderboard from './components/Leaderboard/Leaderboard'
-import Bets from './components/Bet/Bets'
 
+import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
 
 // Material UI
@@ -36,67 +36,38 @@ class App extends Component {
     window.scrollTo(0, 0)
   }
   render() {
-    if (window.localStorage.auth_token){
-      return (
-        <MuiThemeProvider >
-          <AppBar
-            style={{position:'fixed', backgroundColor: '#263238'}}
-            title={<Link to='/landing'>EvenBetter</Link>}
-            iconClassNameRight='muidocs-icon-navigation-expand-more'
-            iconElementRight={
-              <div>
-                <Link to='/landing'><FlatButton label="Home" /></Link>
-                <Link to='/'><FlatButton label="About" /></Link>
-                <Link to='/leaderboard'><FlatButton label="Leaderboard" /></Link>
-                <Link to='/'><FlatButton onClick={this.logOut.bind(this)} label="Sign out" /></Link>
-
-              </div>
-            }
-          />
-          <div style={{ paddingTop: 64 }}></div>
-          <main>
-            <Switch>
-              <Route exact path='/' component={SplashPage} />
-              <Route path='/landing' component={LandingPage}/>
-              <Route path='/signup' component={UserRegistration}/>
-              <Route path='/bets' component={Bets}/>
-              <Route path='/auth/login' component={Login}/>
-              <Route path='/leaderboard' component={Leaderboard} />
-            </Switch>
-          </main>
-        </MuiThemeProvider>
-      )
-    }
-    else {
-      return (
-        <MuiThemeProvider >
-          <AppBar
-            style={{position:'fixed', backgroundColor: '#263238'}}
-            title={<Link to='/'>EvenBetter</Link>}
-            iconClassNameRight='muidocs-icon-navigation-expand-more'
-            iconElementRight={
-              <div>
-                <Link to='/auth/login'><FlatButton label="Sign In" /></Link>
-                <Link to='/signup'><FlatButton label="Register" /></Link>
-                <Link to='/'><FlatButton label="About" /></Link>
-              </div>
-            }
-          />
-          <div style={{ paddingTop: 64 }}></div>
-          <main>
-            <Switch>
-              <Route exact path='/' component={SplashPage} />
-              <Route path='/landing' component={SplashPage}/>
-              <Route path='/signup' component={UserRegistration}/>
-              <Route path='/bets' component={Bets}/>
-              <Route path='/auth/login' component={Login}/>
-              <Route path='/leaderboard' component={Leaderboard} />
-            </Switch>
-          </main>
-        </MuiThemeProvider>
-      )
-    }
+    return (
+      <MuiThemeProvider >
+        <AppBar
+          style={{position:'fixed', backgroundColor: '#263238'}}
+          title={<Link to='/landing'>EvenBetter</Link>}
+          iconClassNameRight='muidocs-icon-navigation-expand-more'
+          iconElementRight={
+            window.localStorage.auth_token ?
+            <div>
+              <Link to='/landing'><FlatButton label="Home" /></Link>
+              <Link to='/'><FlatButton label="About" /></Link>
+            </div>
+            :
+            <div>
+              <Link to='/auth/login'><FlatButton label="Sign In" /></Link>
+              <Link to='/signup'><FlatButton label="Register" /></Link>
+              <Link to='/'><FlatButton label="About" /></Link>
+            </div>
+          }
+        />
+        <div style={{ paddingTop: 64 }}></div>
+        <main>
+          <Switch>
+            <Route exact path='/' component={SplashPage} />
+            <Route path='/landing' component={LandingPage}/>
+            <Route path='/signup' component={UserRegistration}/>
+            <Route path='/bets/:id' component={ Bet } />
+            <Route path='/auth/login' component={Login}/>
+          </Switch>
+        </main>
+      </MuiThemeProvider>
+    )
   }
 }
-
 export default App

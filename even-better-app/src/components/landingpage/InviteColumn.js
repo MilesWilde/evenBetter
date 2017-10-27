@@ -52,7 +52,7 @@ class InviteColumn extends Component {
       return null
     })
     .catch(error => {
-      console.log(error)
+      console.log("Error in invites", error)
     })
   }
 

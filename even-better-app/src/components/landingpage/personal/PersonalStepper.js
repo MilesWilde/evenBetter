@@ -31,7 +31,7 @@ class PersonalStepper extends React.Component {
           description: ''
         },
         {
-          names: '',
+          names: [],
           mediator: '',
           betDeadlineDate: null,
           betDeadlineTime:null,
@@ -133,7 +133,7 @@ class PersonalStepper extends React.Component {
         <div style={contentStyle}>
           {finished ? (
             <p>
-              You're all set! Confirm by hitting the PLACE BET! button
+              Your bet has been placed! Good luck!
             </p>
           ) : (
             <div>

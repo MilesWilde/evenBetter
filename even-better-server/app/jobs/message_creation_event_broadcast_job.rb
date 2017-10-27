@@ -5,7 +5,7 @@ class MessageCreationEventBroadcastJob < ApplicationJob
     ActionCable
     .server
     .broadcast(
-      'chat_channel',
+      "chat_#{chat_message.bet_id}",
       id: chat_message.id,
       created_at: chat_message.created_at,
       content: chat_message.content,

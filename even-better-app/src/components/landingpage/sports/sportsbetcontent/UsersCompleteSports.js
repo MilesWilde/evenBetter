@@ -61,12 +61,9 @@ export default class UsersCompleteSports extends Component {
     
     var index = chipData.indexOf(data)
     chipData.splice(index,1)
-    // chipData.map((chip) => {
-      //   if(chip == data) {
-        //   }
-        // });
-        this.setState({chipValue: chipData});
-        console.log("ChipData: ", chipData)
+
+    this.setState({chipValue: chipData});
+    console.log("ChipData: ", chipData)
   };
 
 

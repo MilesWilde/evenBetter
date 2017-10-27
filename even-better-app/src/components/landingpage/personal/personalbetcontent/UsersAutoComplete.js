@@ -1,14 +1,30 @@
 import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
+import Chip from 'material-ui/Chip';
+import ChipInput from 'material-ui-chip-input'
 
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
  */
 
 export default class UsersAutoComplete extends Component {
-  state = {
-    searchText: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      chipValue:[]
+    };
+
+    this.styles = {
+      chip: {
+        margin: 4,
+      },
+      wrapper: {
+        display: 'flex',
+        flexWrap: 'wrap'
+      }
+    };
+  }
 
   handleUpdateInput = (searchText) => {
     this.setState({
@@ -18,15 +34,39 @@ export default class UsersAutoComplete extends Component {
   };
 
   handleNewRequest = (searchText) => {
+    console.log("Name in usercompletepersonal:", searchText)
+    const holder = this.state.chipValue
+    holder.push(searchText)
     this.setState({
       searchText: searchText,
+      chipValue: holder
     });
+
+    console.log("Personal chipValue: ", this.state.chipValue)
+  };
+
+  handleRequestDelete = (data) => {
+    let chipData = this.state.chipValue;
+    
+    var index = chipData.indexOf(data)
+    chipData.splice(index,1)
+
+    this.setState({chipValue: chipData});
+    console.log("ChipData: ", chipData)
   };
 
 
   render() {
     return (
       <div>
+        {
+          this.state.chipValue.map((chip) => {
+          return <Chip  style={this.styles.chip}
+                        onRequestDelete={() => this.handleRequestDelete(chip)}>
+            {chip}
+          </Chip>
+          })
+        }
         <AutoComplete
           hintText="Pick users to bet"
           listStyle={{ maxHeight: 200, overflow: 'auto' }}

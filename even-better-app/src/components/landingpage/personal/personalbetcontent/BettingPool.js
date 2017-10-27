@@ -114,8 +114,15 @@ class BettingPool extends React.Component  {
     render() {
         return (
             <div>
-                <UsersAutoComplete usersList = {this.state.usersList} names = {this.state.names} _handleUsersFieldChange = {this._handleUsersFieldChange} error = {this.state.errors[0]}/>
-                <MediatorAutoComplete usersList = {this.state.usersList} mediator = {this.state.mediator} _handleMediatorFieldChange = {this._handleMediatorFieldChange} error = {this.state.errors[1]}/>
+                <UsersAutoComplete  usersList = {this.state.usersList} 
+                                    names = {this.state.names} 
+                                    _handleUsersFieldChange = {this._handleUsersFieldChange} 
+                                    error = {this.state.errors[0]}/>
+
+                <MediatorAutoComplete   usersList = {this.state.usersList} 
+                                        mediator = {this.state.mediator} 
+                                        _handleMediatorFieldChange = {this._handleMediatorFieldChange} 
+                                        error = {this.state.errors[1]}/>
             <br />
             <DatePickerPopup 
                 dateProp={this.state}

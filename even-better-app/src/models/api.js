@@ -17,7 +17,7 @@ const server = axios.create({
   baseURL: BASEURL,
   timeout: 10000,
   headers: {
-    'Content-Type': 'application/vnd.api+json',
+    'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + window.localStorage.auth_token,
   }
 })
@@ -28,6 +28,14 @@ const server = axios.create({
 */
 
 function get(endpoint, options) {
+  // let server = axios.create({
+  //   baseURL: BASEURL,
+  //   timeout: 10000,
+  //   headers: {
+  //     'Content-Type': 'application/vnd.api+json',
+  //     'Authorization': 'Bearer ' + window.localStorage.auth_token,
+  //   }
+  // });
   return server.get(endpoint, options)
 }
 

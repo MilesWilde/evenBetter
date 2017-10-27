@@ -16,35 +16,35 @@ function rankDetermine (points){
     return {
       rank: 'Unlucky', 
       pointsToNext: pointTier[0]-points, 
-      percentageComplete: points/pointTier[0], 
+      percentageComplete: Math.round(100 * (points/pointTier[0])), 
       nextLevel: pointTier[0]}
   }
   else if (points < pointTier[1]){
     return {
       rank: 'Even Better', 
       pointsToNext: pointTier[1]-points, 
-      percentageComplete: (points - pointTier[0])/(pointTier[1] - pointTier[0]), 
+      percentageComplete: Math.round((100 * (points - pointTier[0])/(pointTier[1] - pointTier[0]))), 
       nextLevel: pointTier[1]}
   }
   else if (points < pointTier[2]){
     return {
       rank: 'Lucky Better', 
       pointsToNext: pointTier[2]-points, 
-      percentageComplete: (points - pointTier[1])/(pointTier[2] - pointTier[1]), 
+      percentageComplete: Math.round((100 * (points - pointTier[1])/(pointTier[2] - pointTier[1]))), 
       nextLevel: pointTier[2]}
   }
   else if (points < pointTier[3]){
     return {
       rank: 'Even Luckier Better', 
       pointsToNext: pointTier[3]-points, 
-      percentageComplete: (points - pointTier[2])/(pointTier[3] - pointTier[2]), 
+      percentageComplete: Math.round((100 * (points - pointTier[2])/(pointTier[3] - pointTier[2]))), 
       nextLevel: pointTier[3]}
   }
   else if (points < pointTier[4]){
     return {
       rank: 'Luckiest Better', 
       pointsToNext: pointTier[4]-points, 
-      percentageComplete: (points - pointTier[3])/(pointTier[4] - pointTier[3]), 
+      percentageComplete: Math.round((100 * (points - pointTier[3])/(pointTier[4] - pointTier[3]))), 
       nextLevel: pointTier[4]}
   }
   else {

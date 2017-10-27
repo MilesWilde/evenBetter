@@ -1,35 +1,28 @@
 import React, {Component} from 'react';
 
 import Resource from '../../models/resource'
-const BetListStore = Resource('bets')
+import axios from 'axios'
+
+var config = {
+  headers: {
+    "Authorization": "Bearer " + window.localStorage.auth_token,
+  }
+}
 
 export default class BetsColumn extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-        bets: []
-    };
   }
 
   componentWillMount() {
-    var listofBets= []
-    BetListStore.findAll()
-    .then((result) => {
-        console.log("AXIOS CALL", result)
-        result.map((bet) => {    
-            listofBets.push(bet)
-        })
-        this.setState({
-            bets: listofBets
-        })
-    })
-    .catch((errors) => console.log("AXIOS CALL", errors))
-}
+    this.props.loadBets();
+  }
 
   render() {
+    console.log('rendered');
     return (
       <div>
-      <h3 className="text-center"> List of Bets </h3>
+      <h3 className="text-center"> Active Bets </h3>
       <table class="table">
         <thead>
           {
@@ -44,7 +37,7 @@ export default class BetsColumn extends Component {
 
         <tbody>
           {
-            this.state.bets.map((bet) => {
+            this.props.getMainState().bets.map((bet) => {
               return (<tr class="success">
                 <td>Sport Bet</td>
                 <td>{bet.title}</td>
@@ -52,7 +45,7 @@ export default class BetsColumn extends Component {
                 <td>{bet["betting_deadline"]}</td>
               </tr>);
             })
-          }     
+          }
         </tbody>
       </table>
     </div>

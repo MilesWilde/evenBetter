@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026203426) do
+ActiveRecord::Schema.define(version: 20171027194813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20171026203426) do
   create_table "bets", force: :cascade do |t|
     t.string "title"
     t.integer "pool"
-    t.date "betting_deadline"
-    t.date "outcome_deadline"
+    t.datetime "betting_deadline"
+    t.datetime "outcome_deadline"
     t.string "description"
     t.bigint "mediator_id"
     t.bigint "creator_id"

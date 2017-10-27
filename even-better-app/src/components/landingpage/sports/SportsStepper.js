@@ -8,6 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import DateandSport from './sportsbetcontent/DateandSport';
 import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
+import GamesList from './sportsbetcontent/GamesList';
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -20,11 +21,51 @@ class SportsStepper extends React.Component {
   state = {
     finished: false,
     stepIndex: 0,
+    data: [
+      {
+        sport: '',
+        gameDate: ''
+      },
+      {
+        homeTeam: '',
+        awayTeam: ''
+      },
+      {
+        names: '',
+        value: null,
+        possibilities: ''
+      }
+    ]
   };
 
-  handleNext = () => {
-    const {stepIndex} = this.state;
+  handleNext = (userData) => {
+    console.log('Im inside handlenext Sports')
+    const {stepIndex, data} = this.state;
+    const tempStateHold = data;
+
+    if (stepIndex === 0) {
+      tempStateHold[0] = {
+        sport: userData.sport,
+        gameDate: userData.gameDate
+      }
+    }
+    if (stepIndex === 1) {
+      tempStateHold[1] = {
+        homeTeam: userData.homeTeam,
+        awayTeam: userData.awayTeam
+      }
+    }
+    if (stepIndex === 2) {
+      tempStateHold[2] = {
+        names: userData.names,
+        value: userData.value,
+        possibilities: userData.possibilities
+      }
+    }
+
+    console.log("TempstateHold", tempStateHold)
     this.setState({
+      data: tempStateHold,
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
@@ -40,11 +81,22 @@ class SportsStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <DateandSport />
+      return <DateandSport  data={this.state.data[0]}
+                            stepIndex={this.state.stepIndex}
+                            handleNext={this.handleNext}
+                            />
       case 1:
-        return 'Select from a list of games here';
+        return <GamesList   data={this.state.data[0]}
+                            stepIndex={this.state.stepIndex}
+                            handlePrev={this.handlePrev}
+                            handleNext={this.handleNext}
+                            />
       case 2:
-        return <BetPoolandOutcome />
+        return <BetPoolandOutcome data={this.state.data[2]}
+                                  stepIndex={this.state.stepIndex}
+                                  handlePrev={this.handlePrev}
+                                  handleNext={this.handleNext}
+                                  />
       default:
         return 'Come on, make a Sports Bet!!';
     }
@@ -75,19 +127,6 @@ class SportsStepper extends React.Component {
           ) : (
             <div>
               <p>{this.getStepContent(stepIndex)}</p>
-              <div style={{marginTop: 12}}>
-                <FlatButton
-                  label="Back"
-                  disabled={stepIndex === 0}
-                  onClick={this.handlePrev}
-                  style={{marginRight: 12}}
-                />
-                <RaisedButton
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  primary={true}
-                  onClick={this.handleNext}
-                />
-              </div>
             </div>
           )}
         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../../App.css'
-import '../../Splash.css'
+import './Splash.css'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'

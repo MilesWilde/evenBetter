@@ -13,9 +13,14 @@ import './css/LandingPage.css';
  * You can also close this dialog by clicking outside the dialog, or with the 'Esc' key.
  */
 export default class PopupBets extends React.Component {
-  state = {
+
+  constructor(props) {
+    super(props)
+    this.state = {
     open: false
-  };
+    }
+  }
+
 
   handleOpen = () => {
     this.setState({open: true});

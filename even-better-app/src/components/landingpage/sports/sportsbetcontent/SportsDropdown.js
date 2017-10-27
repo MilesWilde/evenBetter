@@ -1,18 +1,55 @@
 import React, {Component} from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import DatePicker from 'material-ui/DatePicker';
 
-/**
- * `SelectField` is implemented as a controlled component,
- * with the current selection set through the `value` property.
- * The `SelectField` can be disabled with the `disabled` property.
- */
+
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+
 export default class SportsDropdown extends Component {
   state = {
     value: 1,
+    sport: '',
+    gameDate: ''
   };
 
   handleChange = (event, index, value) => this.setState({value});
+
+  _handleGameDate = (e, gameDate) => {
+    this.setState({gameDate: gameDate})
+  }
+
+  handleMoveNext = () => {
+    let sport=''
+    if(this.state.value === 1) {
+      sport = 'NBA'
+    }
+    if(this.state.value === 2) {
+      sport = 'NFL'
+    }
+    if(this.state.value === 3) {
+      sport = 'MLB'
+    }
+    if(this.state.value === 4) {
+      sport = 'EPL'
+    }
+    if(this.state.value === 5) {
+      sport = 'MLS'
+    }
+      
+    this.props.handleNext({
+      sport: sport,
+      gameDate: this.state.gameDate
+    });
+
+    //Getting a list of games for a given sport and date
+    this.props._getGameList({
+      sport: sport,
+      gameDate: this.state.gameDate
+    })
+
+  }
 
   render() {
     return (
@@ -29,6 +66,23 @@ export default class SportsDropdown extends Component {
           <MenuItem value={4} primaryText="EPL - English Soccer" />
           <MenuItem value={5} primaryText="MLS - American Soccer" />
         </SelectField>
+        <DatePicker   hintText="Date for game"
+                      mode="landscape"
+                      autoOk = {true}
+                      onChange = {this._handleGameDate} />
+
+
+        <FlatButton
+                  label="Back"
+                  disabled={this.props.stepIndex === 0}
+                  onClick={this.props.handlePrev}
+                  style={{marginRight: 12}}
+        />
+        <RaisedButton
+          label={this.props.stepIndex === 2 ? 'Finish' : 'Next'}
+          primary={true}
+          onClick={this.handleMoveNext}
+        />
       </div>
     );
   }

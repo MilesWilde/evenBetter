@@ -27,8 +27,8 @@ const server = axios.create({
 * PUBLIC METHODS
 */
 
-function get(endpoint) {
-  return server.get(endpoint)
+function get(endpoint, options) {
+  return server.get(endpoint, options)
 }
 
 function post(endpoint, data) {

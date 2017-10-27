@@ -1,14 +1,35 @@
 import React from 'react';
-import DatePickerPopup from '../DatePickerPopup'
 import SportsDropdown from './SportsDropdown';
 
-const DateandSport = () => (
+class DateandSport extends React.Component {
+  state = {
+    sportsData: this.props.data,
+    sportsStepIndex: this.props.stepIndex,
+    sportsHandleNext: this.props.handleNext,
+    sportsHandlePrev: this.props.handlePrev
+  };
+
+  _getGameList = (dataAboutSport) =>{
+    console.log("Sportsdata inside state is: ", dataAboutSport.sport, dataAboutSport.gameDate)
+    
+  }
+
+  render() {
+    return (
     <div>
-      <SportsDropdown />
+
+      <SportsDropdown data={this.state.sportsData}
+                      stepIndex={this.state.sportsStepIndex}
+                      handleNext={this.state.sportsHandleNext}
+                      handlePrev={this.state.sportsHandlePrev}
+                      _getGameList={this._getGameList}
+                      />
       <br />
-      <DatePickerPopup />
     </div>
-  );
+    );
+  }
+}
+
   
   export default DateandSport;
   

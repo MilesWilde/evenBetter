@@ -20,7 +20,16 @@ var config = {
 
 
 // Finds the creator of a particular bet by ID
-
+function findBetCreator(betID) {
+  axios.get(`/api/v1/bets/${betID}`, config)
+  .then(response => {
+    return response
+  })
+  .catch(error => {
+    return error
+  })
+  // render error page
+}
 
 
 // api call in componentdidmnt - sets state

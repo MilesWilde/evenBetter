@@ -13,7 +13,7 @@ var pointsFunction = require('./ranklogic')
 
 
 const PointsColumn = () => (
-  <div class = "invite-column">
+  <div className = "invite-column">
     <h3> Stats </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320}>

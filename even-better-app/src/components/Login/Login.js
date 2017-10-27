@@ -42,9 +42,6 @@ class Login extends Component {
       window.localStorage.user_id = response.data.user_id;
       window.localStorage.user_points = response.data.user_points;
       window.localStorage.user_bets = response.data.user_bets;
-      window.localStorage.first_name = response.data.first_name;
-      window.localStorage.last_name = response.data.last_name;
-      window.localStorage.points_percent = Math.round(100 * pointsFunction.rankDetermine(window.localStorage.user_points).percentageComplete);
       this.props.history.push("/landing");
     })
     .catch(error => {

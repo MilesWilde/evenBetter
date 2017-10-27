@@ -52,13 +52,13 @@ class InviteColumn extends Component {
       return null
     })
     .catch(error => {
-      debugger
+      console.log(error)
     })
   }
 
   render () {
     return (
-        <div class = "invite-column">
+        <div className = "invite-column">
     <h3> Invite Column </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320} maxHeight={250}>

@@ -41,9 +41,20 @@ module Api::V1
       elsif !@bet.possibilities.exists?(params[:outcome_id])
         json_response({ message: 'Validation failed: Cannot select a possibility from another bet' }, :forbidden)
       else
+
         @bet.outcome = Possibility.find(params[:outcome_id])
         @bet.save!
         json_response(@bet)
+
+        bet_user_count = BetUser.where(bet_id: bet_id).count
+        pool = Bet.where(bet_id: bet_id).pool
+        winnings = pool / bet_user_count
+
+        BetUser.where(possibility_id: outcome).each do |winner|
+          winner.user.points += winnings
+          winner.save!
+        end
+
       end
     end
 

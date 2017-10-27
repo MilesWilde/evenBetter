@@ -17,6 +17,11 @@
 
 }
 
+#stats {
+  height: 500px;
+  padding-left: 50px;
+}
+
 .points-column h3 {
     color: red;
 }

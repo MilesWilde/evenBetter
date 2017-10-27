@@ -9,6 +9,7 @@ import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import Bet from './components/Bet/Bet'
+import Leaderboard from './components/Leaderboard/Leaderboard'
 import Login from './components/Login/Login'
 
 // Material UI
@@ -25,6 +26,10 @@ injectTapEventPlugin();
 
 
 class App extends Component {
+  logOut(event){
+    window.localStorage.clear()
+    event.stopPropagation()
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0)
@@ -41,6 +46,9 @@ class App extends Component {
               <div>
                 <Link to='/landing'><FlatButton label="Home" /></Link>
                 <Link to='/'><FlatButton label="About" /></Link>
+                <Link to='/leaderboard'><FlatButton label="Leaderboard" /></Link>
+                <Link to='/'><FlatButton onClick={this.logOut.bind(this)} label="Sign out" /></Link>
+
               </div>
             }
           />
@@ -52,6 +60,7 @@ class App extends Component {
               <Route path='/signup' component={UserRegistration}/>
               <Route path='/bets' component={Bet}/>
               <Route path='/auth/login' component={Login}/>
+              <Route path='/leaderboard' component={Leaderboard} />
             </Switch>
           </main>
         </MuiThemeProvider>
@@ -76,10 +85,11 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path='/' component={SplashPage} />
-              <Route path='/landing' component={LandingPage}/>
+              <Route path='/landing' component={SplashPage}/>
               <Route path='/signup' component={UserRegistration}/>
               <Route path='/bets' component={Bet}/>
               <Route path='/auth/login' component={Login}/>
+              <Route path='/leaderboard' component={Leaderboard} />
             </Switch>
           </main>
         </MuiThemeProvider>

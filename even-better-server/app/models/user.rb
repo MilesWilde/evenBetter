@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :bet_users
   has_many :invites, -> { where has_accepted: nil }, class_name: 'BetUser'
   has_many :bet_invites, through: :invites, class_name: 'Bet', source: :bet
+  has_many :acceptances, -> { where has_accepted: true }, class_name: 'BetUser'
+  has_many :bet_acceptances, through: :acceptances, class_name: 'Bet', source: :bet
   has_many :possibilities, through: :bet_users
 
   validates_presence_of :first_name, :last_name, :email, :username, :password_digest

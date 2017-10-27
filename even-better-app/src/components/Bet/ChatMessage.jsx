@@ -12,6 +12,10 @@ const styles = {
   wrapper: {
     padding: '10px'
   },
+  wrapperMe: {
+    padding: '10px',
+    textAlign: 'right'
+  },
   user: {
     fontWeight: 'bold'
   },
@@ -25,13 +29,22 @@ const styles = {
 
 const ChatMessage = (props) => {
 
-  return(
-    <div style={ styles.wrapper }>
-      <span style={ styles.user }>{ props.message.user } </span>
-      <span>{ props.message.content }</span>
-      <div style={ styles.timestamp }>{ Moment(props.message.created_at).local().format('MMM-DD h:mm A') } </div>
-    </div>
-  )
+  if (window.localStorage.user_id == props.message.user_id) {
+    return(
+      <div style={ styles.wrapperMe }>
+        <span>{ props.message.content }</span>
+        <div style={ styles.timestamp }>{ Moment(props.message.created_at).local().format('MMM-DD h:mm A') } </div>
+      </div>
+    )
+  } else {
+    return(
+      <div style={ styles.wrapper }>
+        <span style={ styles.user }>{ props.message.user }: </span>
+        <span>{ props.message.content }</span>
+        <div style={ styles.timestamp }>{ Moment(props.message.created_at).local().format('MMM-DD h:mm A') } </div>
+      </div>
+    )
+  }
 
 }
 

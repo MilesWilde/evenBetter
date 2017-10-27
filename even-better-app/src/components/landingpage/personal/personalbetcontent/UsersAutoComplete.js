@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 import Chip from 'material-ui/Chip';
 import ChipInput from 'material-ui-chip-input'
+import Resource from '../../../../models/resource'
+const UserCompleteStore = Resource('users')
+
 
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
@@ -26,6 +29,27 @@ export default class UsersAutoComplete extends Component {
     };
   }
 
+  chipCallback = (searchText) => {
+    const sendUsersToState = this.state.chipValue
+    let temp = {}
+    UserCompleteStore.findAll()
+      .then(response => {
+        response.forEach((user)=> {
+
+          if(user.username == searchText) {
+            temp = {
+              userId: user.id,
+              username: user.username
+            }
+
+            sendUsersToState.push(temp)
+          }
+          this.setState({chipValue: sendUsersToState})
+        })
+        console.log("state of chipValue: ", this.state.chipValue)
+    })
+  }
+
   handleUpdateInput = (searchText) => {
     this.setState({
       searchText: searchText,
@@ -33,26 +57,24 @@ export default class UsersAutoComplete extends Component {
   };
   
   handleNewRequest = (searchText) => {
-    console.log("Name in usercompletepersonal:", searchText)
-    const holder = this.state.chipValue
-    holder.push(searchText)
-    this.props._handleUsersFieldChange(searchText)
-    this.setState({
-      searchText: searchText,
-      chipValue: holder
-    });
 
-    console.log("Personal chipValue: ", this.state.chipValue)
+    this.chipCallback(searchText)
+    this.props._handleUsersFieldChange(this.state.chipValue)
+    this.setState({
+      searchText: searchText
+    });
+ 
   };
 
   handleRequestDelete = (data) => {
     let chipData = this.state.chipValue;
-    
-    var index = chipData.indexOf(data)
-    chipData.splice(index,1)
-
+    chipData.map((chip) => {
+      if(chip.username == data.username) {
+        var index = chipData.indexOf(data)
+        chipData.splice(index,1)
+      }
+    })
     this.setState({chipValue: chipData});
-    console.log("ChipData: ", chipData)
   };
 
 
@@ -61,9 +83,11 @@ export default class UsersAutoComplete extends Component {
       <div>
         {
           this.state.chipValue.map((chip) => {
+          let chipUsername = chip.username
+          
           return <Chip  style={this.styles.chip}
                         onRequestDelete={() => this.handleRequestDelete(chip)}>
-            {chip}
+            {chipUsername}
           </Chip>
           })
         }

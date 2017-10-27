@@ -43,11 +43,9 @@ class BettingPool extends React.Component  {
         .catch((errors) => console.log("PERSONAL AXIOS CALL", errors))
     }
 
-    _handleUsersFieldChange = (val) => {
-        let nameArray = this.state.names
-        nameArray.push(val)
+    _handleUsersFieldChange = (names) => {
         this.setState({
-            names: nameArray
+            names: names
         });
       }
     

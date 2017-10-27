@@ -37,13 +37,6 @@ export default class UsersCompleteSports extends Component {
     };
   }
 
-  handleChange(event,newData) {
-    // const holder = this.state.chipValue
-    // holder.push(newData)
-    // this.setState({chipValue: holder})
-    // console.log("Holder is: ", holder)
-  }
-
   handleUpdateInput = (searchText) => {
     this.setState({
       searchText: searchText,
@@ -63,13 +56,27 @@ export default class UsersCompleteSports extends Component {
     console.log("chipValue: ", this.state.chipValue)
   };
 
+  handleRequestDelete = (data) => {
+    let chipData = this.state.chipValue;
+    
+    var index = chipData.indexOf(data)
+    chipData.splice(index,1)
+    // chipData.map((chip) => {
+      //   if(chip == data) {
+        //   }
+        // });
+        this.setState({chipValue: chipData});
+        console.log("ChipData: ", chipData)
+  };
+
 
   render() {
     return (
       <div>
         {
           this.state.chipValue.map((chip) => {
-          return <Chip style={this.styles.chip}>
+          return <Chip  style={this.styles.chip}
+                        onRequestDelete={() => this.handleRequestDelete(chip)}>
             {chip}
           </Chip>
           })

@@ -41,13 +41,15 @@ export default class UsersCompleteSports extends Component {
     this.setState({
       searchText: searchText,
     });
-    this.props._handleUsersFieldChange(searchText)
+    
   };
 
   handleNewRequest = (searchText) => {
     console.log("Name in usercompletesports:", searchText)
     const holder = this.state.chipValue
     holder.push(searchText)
+
+    this.props._handleUsersFieldChange(searchText)
     this.setState({
       searchText: searchText,
       chipValue: holder

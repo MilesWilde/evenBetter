@@ -44,7 +44,6 @@ class BettingPool extends React.Component  {
     }
 
     _handleUsersFieldChange = (val) => {
-        console.log("NAME VALUE IS", val)
         let nameArray = this.state.names
         nameArray.push(val)
         this.setState({

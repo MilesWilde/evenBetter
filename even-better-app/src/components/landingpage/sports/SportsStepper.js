@@ -31,7 +31,7 @@ class SportsStepper extends React.Component {
         awayTeam: ''
       },
       {
-        names: '',
+        names: [],
         value: null,
         chosenWinner: ''
       }

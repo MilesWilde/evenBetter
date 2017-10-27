@@ -97,6 +97,7 @@ class SportsStepper extends React.Component {
                                   handleNext={this.handleNext}
                                   homeTeam={this.state.data[1].homeTeam}
                                   awayTeam={this.state.data[1].awayTeam}
+                                  sportsArray={this.state.data}
                                   />
       default:
         return 'Come on, make a Sports Bet!!';

@@ -31,7 +31,6 @@ class BetPoolandOutcome extends React.Component {
         .then((result) => {
             result.map((user) => {    
                 listofUsers.push(user.username)
-                console.log(user.username)
             })
             this.setState({
                 usersList: listofUsers
@@ -82,6 +81,8 @@ class BetPoolandOutcome extends React.Component {
         } else {
           this.setState({error: error})
         }
+
+        console.log("State for all sport: ", this.props.sportsArray)
     }
 
 

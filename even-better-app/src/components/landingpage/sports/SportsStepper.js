@@ -61,6 +61,8 @@ class SportsStepper extends React.Component {
       pool: ((this.state.data[2].names.length)+1)*100,
       users: userIDArray,
       creator_id: window.localStorage.user_id,
+      betting_deadline: this.state.data[0].gameDate.toString(),
+      outcome_deadline: this.state.data[0].gameDate.toString(),
       created_at: "2017-10-25 22:41:29.403225",
       updated_at: "2017-10-25 22:41:29.403225",
       outcome_id: null,

@@ -44,16 +44,17 @@ module Api::V1
         json_response({ message: 'Validation failed: Cannot select a possibility from another bet' }, :forbidden)
       else
         @bet.save!
-        json_response(@bet)
+        render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
 
-        bet_user_count = BetUser.where(bet_id: bet_id).count
-        pool = Bet.where(bet_id: bet_id).pool
-        winnings = pool / bet_user_count
+        # ---THIS IS UNTESTED ---
+        # bet_user_count = BetUser.where(bet_id: bet_id).count
+        # pool = Bet.where(bet_id: bet_id).pool
+        # winnings = pool / bet_user_count
 
-        BetUser.where(possibility_id: outcome).each do |winner|
-          winner.user.points += winnings
-          winner.save!
-        end
+        # BetUser.where(possibility_id: outcome).each do |winner|
+        #   winner.user.points += winnings
+        #   winner.save!
+        # end
 
       end
     end

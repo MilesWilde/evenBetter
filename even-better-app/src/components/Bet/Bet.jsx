@@ -110,6 +110,7 @@ class Bet extends Component {
             outcomeDeadline={ this.state.betDetails.outcome_deadline }
             outcomeId={ this.state.betDetails.outcome_id }
             mediator={ this.state.betDetails.mediator }
+            mediatorId={ this.state.betDetails.mediator_id }
             possibilities={ this.state.betDetails.possibilities }
             users={ this.state.betDetails.users }
           />

@@ -44,7 +44,9 @@ const BetDetails = (props) => {
       <h3 style={ styles.header }>Participants</h3>
       <div style={ styles.wrapper }>
       { props.users.map( (user) => {
-        return <Chip style={ styles.chip } labelColor='#000'>{ user.username }</Chip>
+        if (user.id !== props.mediatorId) {
+          return <Chip style={ styles.chip } labelColor='#000'>{ user.username }</Chip>
+        }
       })}
       </div>
       { props.mediator &&

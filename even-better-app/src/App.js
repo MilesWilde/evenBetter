@@ -8,6 +8,8 @@ import UsersContainer from './components/UsersContainer'
 import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
+import Leaderboard from './components/Leaderboard/Leaderboard'
+
 import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
 
@@ -25,6 +27,10 @@ injectTapEventPlugin();
 
 
 class App extends Component {
+  logOut(event){
+    window.localStorage.clear()
+    event.stopPropagation()
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0)

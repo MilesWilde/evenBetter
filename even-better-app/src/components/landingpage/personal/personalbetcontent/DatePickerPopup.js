@@ -43,7 +43,6 @@ class DatePickerPopup extends React.Component {
     var now = new Date();
     var nextWeek = new Date(now);
     nextWeek.setDate(nextWeek.getDate() + 7);
-    console.log(nextWeek)
     return nextWeek
   }
 

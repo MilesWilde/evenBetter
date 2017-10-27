@@ -9,8 +9,6 @@ RSpec.describe Bet, type: :model do
     it { should have_many(:possibilities) }
     it { should belong_to(:mediator) }
     it { should validate_presence_of(:title) }
-    it { should validate_presence_of(:betting_deadline) }
-    it { should validate_presence_of(:outcome_deadline) }
     it { should validate_presence_of(:creator) }
 
     it 'should create a Bet object' do

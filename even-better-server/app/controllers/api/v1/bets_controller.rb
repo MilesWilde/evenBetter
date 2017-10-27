@@ -10,6 +10,7 @@ module Api::V1
     end
 
     def create
+      # binding.pry
       @user_ids = params[:users] || []
       @possibilities = params[:possibilities] || []
       @user_ids.push(current_user.id)
@@ -81,7 +82,7 @@ module Api::V1
     private
 
     def bet_params
-      params.permit(:title, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities)
+      params.permit(:title, :pool, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities)
     end
 
     def set_bet

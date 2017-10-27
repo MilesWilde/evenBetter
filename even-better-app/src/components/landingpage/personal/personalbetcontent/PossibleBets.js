@@ -40,6 +40,10 @@ class PossibleBets extends React.Component {
       this.props.handleNext({
         possibilities: this.state.value
       })
+
+      //Making the axios call to persist to db
+      this.props.makeAxiosCall()
+      
     } else {
       this.setState({error: error})
     }

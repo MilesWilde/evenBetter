@@ -31,7 +31,6 @@ class BetPoolandOutcome extends React.Component {
         .then((result) => {
             result.map((user) => {    
                 listofUsers.push(user.username)
-                console.log(user.username)
             })
             this.setState({
                 usersList: listofUsers
@@ -43,11 +42,9 @@ class BetPoolandOutcome extends React.Component {
 
     handleChange = (event, index, value) => this.setState({value});
 
-    _handleUsersFieldChange = (name) => {
-        let nameArray = this.state.names
-        nameArray.push(name)
+    _handleUsersFieldChange = (names) => {
         this.setState({
-            names: nameArray
+            names: names
         });
     }
 
@@ -78,10 +75,14 @@ class BetPoolandOutcome extends React.Component {
             chosenWinner: sendchosenWinner
           })
           this.setState({chosenWinner: sendchosenWinner})
+          //Making the axios call to persist to db
+          this.props.makeAxiosCall()
 
         } else {
           this.setState({error: error})
         }
+
+        console.log("State for all sport: ", this.props.sportsArray)
     }
 
 

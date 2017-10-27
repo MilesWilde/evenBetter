@@ -8,7 +8,7 @@ import UsersContainer from './components/UsersContainer'
 import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
-import Bets from './components/Bet/Bets'
+import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
 
 // Material UI
@@ -50,7 +50,7 @@ class App extends Component {
               <Route exact path='/' component={SplashPage} />
               <Route path='/landing' component={LandingPage}/>
               <Route path='/signup' component={UserRegistration}/>
-              <Route path='/bets' component={Bets}/>
+              <Route path='/bets/:id' component={ Bet } />
               <Route path='/auth/login' component={Login}/>
             </Switch>
           </main>
@@ -78,7 +78,7 @@ class App extends Component {
               <Route exact path='/' component={SplashPage} />
               <Route path='/landing' component={LandingPage}/>
               <Route path='/signup' component={UserRegistration}/>
-              <Route path='/bets' component={Bets}/>
+              <Route path='/bets/:id' component={ Bet } />
               <Route path='/auth/login' component={Login}/>
             </Switch>
           </main>

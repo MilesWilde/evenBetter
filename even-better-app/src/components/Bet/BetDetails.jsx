@@ -5,8 +5,7 @@ import Moment from 'moment'
 
 const styles = {
   chip: {
-    margin: 4,
-    backgroundColor: '#80DEEA'
+    margin: 4
   },
   wrapper: {
     display: 'flex',
@@ -41,7 +40,13 @@ const BetDetails = (props) => {
       <h3 style={ styles.header }>Possibilities</h3>
       <div style={ styles.wrapper }>
       { props.possibilities.map( (possibility) => {
-        return <Chip key={ possibility.id } data-id={ possibility.id } style={ styles.chip } onClick={ props.handlePossibilitySelectionConfirmationOpen }labelColor='#000'>{ possibility.description }</Chip>
+        let backgroundColor = '#80DEEA'
+        if (props.outcomeId && props.outcomeId === possibility.id) {
+          backgroundColor = '#00C853'
+        } else if (props.outcomeId) {
+          backgroundColor = '#FF5252'
+        }
+        return <Chip key={ possibility.id } data-id={ possibility.id } style={ styles.chip } onClick={ props.outcomeId ? undefined : props.handlePossibilitySelectionConfirmationOpen } backgroundColor={ backgroundColor } labelColor='#000'>{ possibility.description }</Chip>
       })}
       </div>
       <h3 style={ styles.header }>Participants</h3>

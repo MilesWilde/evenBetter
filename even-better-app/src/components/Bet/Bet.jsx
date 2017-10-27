@@ -128,7 +128,10 @@ class Bet extends Component {
             mediatorId={ this.state.betDetails.mediator_id }
             possibilities={ this.state.betDetails.possibilities }
             users={ this.state.betDetails.users }
-            handlePossibilitySelectionConfirmationOpen={ this.handlePossibilitySelectionConfirmationOpen }
+            handlePossibilitySelectionConfirmationOpen={
+              !this.state.betDetails.outcome_id && this.state.betDetails.mediator_id == window.localStorage.user_id ?
+              this.handlePossibilitySelectionConfirmationOpen : undefined
+              }
           />
         </div>
         <div style={ styles.chatBox }>
@@ -216,11 +219,14 @@ class Bet extends Component {
   };
 
   handleSubmitPossibility = () => {
-    console.log(this.state.currentlySelectedPossibility)
     BetStore.update(this.state.betDetails.id, { outcome_id: this.state.currentlySelectedPossibility })
-    .then( (bet) => {
-      console.log('SUCCESS!')
-      this.setState({ betDetails: bet })
+    .then( (res) => {
+      this.setState({
+        currentlySelectedPossibility: null,
+        betDetails: {
+          ...res.data
+        }
+      })
       return
     })
     .then( () => {

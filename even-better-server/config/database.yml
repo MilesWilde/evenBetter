@@ -5,6 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
+  port: 5433
   adapter: postgresql
   encoding: unicode
   pool: 5

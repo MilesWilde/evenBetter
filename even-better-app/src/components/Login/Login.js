@@ -40,8 +40,8 @@ class Login extends Component {
     .then(response => {
       window.localStorage.auth_token = response.data.auth_token;
       window.localStorage.user_id = response.data.user_id;
-      window.localStorage.user_points = response.data.user_points;
       window.localStorage.user_bets = response.data.user_bets;
+      window.location.reload()
       this.props.history.push("/landing");
     })
     .catch(error => {

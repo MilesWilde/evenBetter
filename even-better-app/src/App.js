@@ -8,8 +8,9 @@ import UsersContainer from './components/UsersContainer'
 import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
-import Bet from './components/Bet/Bet'
 import Leaderboard from './components/Leaderboard/Leaderboard'
+import Bets from './components/Bet/Bets'
+
 import Login from './components/Login/Login'
 
 // Material UI
@@ -39,7 +40,7 @@ class App extends Component {
       return (
         <MuiThemeProvider >
           <AppBar
-            style={{position:'fixed'}}
+            style={{position:'fixed', backgroundColor: '#263238'}}
             title={<Link to='/landing'>EvenBetter</Link>}
             iconClassNameRight='muidocs-icon-navigation-expand-more'
             iconElementRight={
@@ -58,19 +59,19 @@ class App extends Component {
               <Route exact path='/' component={SplashPage} />
               <Route path='/landing' component={LandingPage}/>
               <Route path='/signup' component={UserRegistration}/>
-              <Route path='/bets' component={Bet}/>
+              <Route path='/bets' component={Bets}/>
               <Route path='/auth/login' component={Login}/>
               <Route path='/leaderboard' component={Leaderboard} />
             </Switch>
           </main>
         </MuiThemeProvider>
       )
-    }    
+    }
     else {
       return (
         <MuiThemeProvider >
           <AppBar
-            style={{position:'fixed'}}
+            style={{position:'fixed', backgroundColor: '#263238'}}
             title={<Link to='/'>EvenBetter</Link>}
             iconClassNameRight='muidocs-icon-navigation-expand-more'
             iconElementRight={
@@ -87,14 +88,14 @@ class App extends Component {
               <Route exact path='/' component={SplashPage} />
               <Route path='/landing' component={SplashPage}/>
               <Route path='/signup' component={UserRegistration}/>
-              <Route path='/bets' component={Bet}/>
+              <Route path='/bets' component={Bets}/>
               <Route path='/auth/login' component={Login}/>
               <Route path='/leaderboard' component={Leaderboard} />
             </Switch>
           </main>
         </MuiThemeProvider>
       )
-    }     
+    }
   }
 }
 

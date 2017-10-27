@@ -12,10 +12,6 @@ import {
 } from 'material-ui/Table';
 
 var pointsFunction = require('../landingpage/ranklogic')
-// get user array
-// loop through all users
-// sort the array by their points
-// list top 10 people
 
 const styles = {
   tableRowColumn: {

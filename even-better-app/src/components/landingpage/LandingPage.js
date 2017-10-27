@@ -42,7 +42,10 @@ class LandingPage extends Component {
             <div id = "stats">
               <h1>{this.state.user.first_name} {this.state.user.last_name} total points: {this.state.user.points}</h1>
               <h1>Next level: {pointsFunction.rankDetermine(this.state.user.points).nextLevel} points!</h1>
-              <ChangingProgressbar percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]} />
+              <ChangingProgressbar 
+                user={this.state.user} 
+                percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
+              />
             </div>
           </div>
           <div className=" create-bet-buttons container">
@@ -51,9 +54,9 @@ class LandingPage extends Component {
           <div className=" users-columns container">
             <div className = "left-column">
               <div className="invite-column"><InviteColumn /></div>
-              <div className="points-column"><PointsColumn /></div>
+              <div className="points-column"><PointsColumn user={this.state.user} /></div>
             </div>
-            <div className="bets-column"><BetsColumn /></div>
+            <div className="bets-column"><BetsColumn user={this.state.user} /></div>
           </div>
         </MuiThemeProvider>
       </div>

@@ -34,7 +34,9 @@ module Api::V1
     end
 
     def update
+      @bet = Bet.find(params[:id])
       if @bet.mediator != current_user
+        #Use not acceptable (406) instead of 403
         json_response({ message: 'Validation failed: Only the mediator can set the outcome' }, :forbidden)
       elsif @bet.outcome_id
         json_response({ message: 'Validation failed: An outcome has already been set' }, :forbidden)
@@ -45,7 +47,10 @@ module Api::V1
           @bet.outcome = Possibility.find(params[:outcome_id])
         end
         if params.has_key?[:has_accepted]
+          #binding.pry
           @bet.has_accepted = params[:has_accepted]
+        else
+          #binding.pry
         end
         @bet.save!
         json_response(@bet)

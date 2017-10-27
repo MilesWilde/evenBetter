@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get 'bets/:bet_id/creator', to: 'bets#find_creator'
       resources :bets, except: [:destroy] do
         resources :messages, only: [:index]
+        resources :possibilities, only: [:index]
       end
+      patch 'bets_users/:bet_id', to: 'bets_users#update'
       resources :users, except: [:create, :destroy]
     end
   end

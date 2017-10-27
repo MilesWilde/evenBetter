@@ -14,7 +14,7 @@ import './css/LandingPage.css';
  */
 export default class PopupBets extends React.Component {
   state = {
-    open: false,
+    open: false
   };
 
   handleOpen = () => {
@@ -43,7 +43,7 @@ export default class PopupBets extends React.Component {
     return (
       <div>
         <br/><RaisedButton   label="PLACE A BET"
-                             fullWidth= {true} 
+                             fullWidth= {true}
                              onClick={this.handleOpen}
                              backgroundColor = "#ead3e7"  />
         <Dialog

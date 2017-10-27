@@ -2,13 +2,16 @@ import React, {Component} from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import Divider from 'material-ui/Divider';
-import axios from 'axios'
+import axios from 'axios';
+import InviteDialog from './InviteDialog'
 
 var config = {
   headers: {
     "Authorization": "Bearer " + window.localStorage.auth_token,
   }
 }
+
+// Needs 2 props: betID, betTitle, betUserID
 
 class Invite extends Component {
 
@@ -22,7 +25,7 @@ class Invite extends Component {
   }
 
   componentDidMount() {
-    this.findBetCreator(this.state.betID)
+    this.findBetCreator(this.props.betID)
       .then( username => {
         this.setState({fromUser: username})
       })
@@ -44,24 +47,34 @@ class Invite extends Component {
 
   onAccept = (e) => {
     // Update bet_user - has_accepted to true
+    var data = { has_accepted: true }
+    axios.patch(`/api/v1/bets_users/${this.props.betID}`, data, config)
+    .then(response => {
+      console.log("Response: " + response)
+      this.props.action()
+    })
+    .catch(error => {
+      console.log("Error: " + error)
+    })
 
 
-    // Remove from parent state
   }
+
+  openInviteDialog = (e) => {
+    // Open Dialog Box
+    debugger
+    return (
+      <InviteDialog />
+      )
+  }
+
 
   render() {
     return (
       <div>
-      <MenuItem
-        primaryText={"Invite from " + this.state.fromUser}
-        rightIcon={<ArrowDropRight />}
-        style={{whiteSpace: 'normal'}}
-        desktop="true"
-        menuItems={[
-          <MenuItem primaryText="Accept" />,
-          <MenuItem primaryText="Decline" />,
-        ]}
-      />
+      <MenuItem>
+      <InviteDialog primaryText={"Invite from " + this.state.fromUser} betID={this.props.betID}/>
+      </MenuItem>
       <Divider/>
       </div>
     )

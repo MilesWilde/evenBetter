@@ -67,9 +67,35 @@ class Bet extends Component {
 
   componentWillMount() {
     this.createSocket()
+
     BetStore.find(this.props.match.params.id)
     .then( (bet) => {
       this.setState({ betDetails: bet })
+    })
+    .catch( (err) => {
+      console.log(err)
+    })
+
+    const MessageStore = Resource(`bets/${ this.props.match.params.id }/messages/`)
+
+    MessageStore.findAll()
+    .then( (chatLogs) => {
+      // chatLogs = chatLogs.map( (message) => {
+      //   message.username = message.user.username
+      // })
+
+      for (let message of chatLogs) {
+        message.user = message.user.username
+      }
+      return chatLogs
+    })
+    .then( (chatLogs) => {
+      this.setState({
+        chat: {
+          ...this.state.chat,
+          chatLogs: chatLogs
+        }
+      })
     })
     .catch( (err) => {
       console.log(err)

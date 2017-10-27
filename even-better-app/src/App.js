@@ -32,6 +32,12 @@ class App extends Component {
     event.stopPropagation()
   }
 
+  signOut(e){
+    window.localStorage.clear()
+    e.stopPropagation
+  }
+
+
   componentDidMount() {
     window.scrollTo(0, 0)
   }
@@ -47,6 +53,7 @@ class App extends Component {
             <div>
               <Link to='/landing'><FlatButton label="Home" /></Link>
               <Link to='/'><FlatButton label="About" /></Link>
+              <Link to = '/'><FlatButton onClick = { this.signOut.bind(this) } label="Sign Out" /></Link>
             </div>
             :
             <div>

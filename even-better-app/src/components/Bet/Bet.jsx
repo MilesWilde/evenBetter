@@ -80,10 +80,6 @@ class Bet extends Component {
 
     MessageStore.findAll()
     .then( (chatLogs) => {
-      // chatLogs = chatLogs.map( (message) => {
-      //   message.username = message.user.username
-      // })
-
       for (let message of chatLogs) {
         message.user = message.user.username
       }

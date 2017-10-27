@@ -24,7 +24,7 @@ class ChangingProgressbar extends React.Component {
     return <CircularProgressbar
       {...this.props} 
       percentage={this.props.percentages[this.state.currentPercentageIndex]}
-      textForPercentage={(percentage) => `${pointsFunction.rankDetermine(window.localStorage.user_points).pointsToNext} to go!`}
+      textForPercentage={(percentage) => `${pointsFunction.rankDetermine(this.props.user.points).pointsToNext} to go!`}
        />;
   }
 }

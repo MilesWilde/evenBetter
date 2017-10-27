@@ -8,11 +8,29 @@ import PopupBets from './PopupBets'
 import PointsColumn from './PointsColumn'
 import ChangingProgressbar from './ChangingProgressbar'
 import CircularProgressbar from 'react-circular-progressbar';
+import Resource from '../../models/resource'
+
 var pointsFunction = require('../landingpage/ranklogic')
+
+const UserStore = Resource('users')
 
 
 class LandingPage extends Component {
-
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      user: {}
+    }
+  }
+  componentWillMount() {
+    UserStore.find(window.localStorage.user_id)
+      .then((response) => {
+        this.setState({
+          user: response
+        })
+      })
+  }
   componentDidMount() {
     window.scrollTo(0, 0)
   }
@@ -20,18 +38,25 @@ class LandingPage extends Component {
     return (
       <div>
         <MuiThemeProvider>
-          <h1>{window.localStorage.first_name} {window.localStorage.last_name} total points: {window.localStorage.user_points}</h1>
-          <h1>Next level: {pointsFunction.rankDetermine(window.localStorage.user_points).nextLevel} points!</h1>
-          <ChangingProgressbar percentages ={[0,window.localStorage.points_percent]} />
+          <div>
+            <div id = "stats">
+              <h1>{this.state.user.first_name} {this.state.user.last_name} total points: {this.state.user.points}</h1>
+              <h1>Next level: {pointsFunction.rankDetermine(this.state.user.points).nextLevel} points!</h1>
+              <ChangingProgressbar 
+                user={this.state.user} 
+                percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
+              />
+            </div>
+          </div>
           <div className=" create-bet-buttons container">
             <PopupBets />
           </div>
           <div className=" users-columns container">
             <div className = "left-column">
               <div className="invite-column"><InviteColumn /></div>
-              <div className="points-column"><PointsColumn /></div>
+              <div className="points-column"><PointsColumn user={this.state.user} /></div>
             </div>
-            <div className="bets-column"><BetsColumn /></div>
+            <div className="bets-column"><BetsColumn user={this.state.user} /></div>
           </div>
         </MuiThemeProvider>
       </div>

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
 import Resource from '../../models/resource'
-const BetListStore = Resource('bets')
+const BetListStore = Resource(`users/${window.localStorage.user_id}/bets/`)
 
 export default class BetsColumn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        bets: []
+        user_bets: []
     };
   }
 
@@ -16,11 +16,11 @@ export default class BetsColumn extends Component {
     BetListStore.findAll()
     .then((result) => {
         console.log("AXIOS CALL", result)
-        result.map((bet) => {    
+        result.map((bet) => {
             listofBets.push(bet)
         })
         this.setState({
-            bets: listofBets
+            user_bets: listofBets
         })
     })
     .catch((errors) => console.log("AXIOS CALL", errors))
@@ -44,7 +44,7 @@ export default class BetsColumn extends Component {
 
         <tbody>
           {
-            this.state.bets.map((bet) => {
+            this.state.user_bets.map((bet) => {
               return (<tr class="success">
                 <td>Sport Bet</td>
                 <td>{bet.title}</td>

@@ -58,7 +58,7 @@ class InviteColumn extends Component {
 
   render () {
     return (
-        <div class = "invite-column">
+        <div className = "invite-column">
     <h3> Invite Column </h3>
     <Paper style={style}>
       <Menu desktop={true} width={320} maxHeight={250}>

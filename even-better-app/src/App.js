@@ -16,7 +16,9 @@ import Login from './components/Login/Login'
 
 // Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import Cable from 'actioncable';
@@ -74,7 +76,7 @@ class App extends Component {
   }
   render() {
     return (
-      <MuiThemeProvider >
+      <MuiThemeProvider>
         <AppBar
           style={{position:'fixed', backgroundColor: '#263238'}}
           title={<Link to='/landing'>EvenBetter</Link>}
@@ -82,7 +84,7 @@ class App extends Component {
           iconElementRight={
             this.state.currentUser ?
             <div>
-              <Link to='/landing'><FlatButton label="Home" /></Link>
+              <Link to='/home'><FlatButton label="Home" /></Link>
               <Link to='/'><FlatButton label="About" /></Link>
             </div>
             :
@@ -101,7 +103,7 @@ class App extends Component {
             <Route path='/login'
               render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}
             />
-            <PrivateRoute path='/landing' currentUser={ this.state.currentUser } component={LandingPage}/>
+            <PrivateRoute path='/home' currentUser={ this.state.currentUser } component={LandingPage}/>
             <PrivateRoute path='/bets/:id' currentUser={ this.state.currentUser } component={ Bet } />
             <Route component={ NotFound } />
           </Switch>

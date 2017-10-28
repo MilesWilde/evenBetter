@@ -37,7 +37,8 @@ class LandingPage extends Component {
       user: {},
       invites: [],
       bets: [],
-      refreshCount: 0
+      // createdBets contains a list of ID's for bets created by current user
+      createdBets: []
     }
   }
 

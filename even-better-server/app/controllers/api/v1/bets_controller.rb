@@ -64,7 +64,8 @@ module Api::V1
     end
 
     def get_invites
-      @invites = current_user.bet_invites
+      @created_bets = Bet.where(creator_id: current_user.id).select(:id)
+      @invites = current_user.bet_invites.where.not(id: @created_bets)
       render json: @invites
     end
 

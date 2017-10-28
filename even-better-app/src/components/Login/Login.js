@@ -41,10 +41,18 @@ class Login extends Component {
       window.localStorage.auth_token = response.data.auth_token;
       window.localStorage.user_id = response.data.user_id;
       window.localStorage.user_bets = response.data.user_bets;
+      return(response.data.user_id)
+    })
+    .then( (userId) => {
+      this.props.handleLoginSuccess(userId)
+      return
+    })
+    .then( () => {
       window.location.reload()
       this.props.history.push("/landing");
     })
     .catch(error => {
+      console.log(error)
       this.setState({
         ...this.state,
         emailInvalid: error.response.data.message.includes('email'),

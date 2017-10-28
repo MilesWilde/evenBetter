@@ -61,7 +61,7 @@ export default class UsersAutoComplete extends Component {
     this.chipCallback(searchText)
     this.props._handleUsersFieldChange(this.state.chipValue)
     this.setState({
-      searchText: searchText
+      searchText: ''
     });
  
   };

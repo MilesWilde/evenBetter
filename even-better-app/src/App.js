@@ -55,6 +55,13 @@ class App extends Component {
     event.stopPropagation()
   }
 
+  handleLoginSuccess = (userId) => {
+    this.setState({
+      ...this.state,
+      currentUser: userId
+    })
+  }
+
   componentWillMount() {
     this.setState({
       ...this.state,
@@ -73,7 +80,7 @@ class App extends Component {
           title={<Link to='/landing'>EvenBetter</Link>}
           iconClassNameRight='muidocs-icon-navigation-expand-more'
           iconElementRight={
-            window.localStorage.auth_token ?
+            this.state.currentUser ?
             <div>
               <Link to='/landing'><FlatButton label="Home" /></Link>
               <Link to='/'><FlatButton label="About" /></Link>
@@ -91,7 +98,9 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={SplashPage} />
             <Route path='/signup' component={UserRegistration}/>
-            <Route path='/login' component={Login}/>
+            <Route path='/login'
+              render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}
+            />
             <PrivateRoute path='/landing' currentUser={ this.state.currentUser } component={LandingPage}/>
             <PrivateRoute path='/bets/:id' currentUser={ this.state.currentUser } component={ Bet } />
             <Route component={ NotFound } />

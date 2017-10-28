@@ -23,6 +23,7 @@ class GamesList extends React.Component {
 
     componentWillMount() {
         var listOfFixtures = []
+        var teamLogos = []
         console.log("this.props.data", this.props.data)
         GameStore.findAll({
             params: {
@@ -75,7 +76,7 @@ class GamesList extends React.Component {
                                 primaryText={fixture}
                                 onClick = {(event) => this._handleGameClick(fixture,event)}
                                 style = {style}
-                                leftAvatar = {
+                                /* leftAvatar = {
                                     <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
                                     size={50}
                                     />
@@ -83,8 +84,8 @@ class GamesList extends React.Component {
                                 rightAvatar = {
                                     <Avatar src= "https://static-hosted.stats.com/nba/logos/nba_50x33/Minnesota_Timberwolves.png"
                                     size={50}
-                                />
-                                }
+                                    /> */
+                                /* } */
                             />
                     })
                     }

@@ -93,11 +93,15 @@ class LandingPage extends Component {
     return (
       <Container fluid={true}>
         <MuiThemeProvider>
-              <Col md="4" style={{backgroundColor: '#263238'}}>
-                <div id = "stats">
-                  <h1><strong>Hello, {this.state.user.username}!</strong></h1>
+              <Col md="4" id="stats-column">
+                <div>
+                  <h1>Hello, <strong>{this.state.user.username}!</strong></h1>
                   <PointsColumn user={this.state.user}/>
                 </div>
+                <ChangingProgressbar
+                      user={this.state.user}
+                      percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
+                    />
               </Col>
             <Col md="8">
               <Row>
@@ -110,13 +114,6 @@ class LandingPage extends Component {
                       getMainState={this.getMainState}
                       loadInvites={this.loadInvites}
                       loadBets={this.loadBets}/>
-                  </div>
-                    <ChangingProgressbar
-                      user={this.state.user}
-                      percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
-                    />
-                  <div className=" create-bet-buttons container">
-
                   </div>
                 </Col>
                 <Col md="6">

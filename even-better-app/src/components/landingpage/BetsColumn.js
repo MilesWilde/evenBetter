@@ -22,7 +22,7 @@ export default class BetsColumn extends Component {
     console.log('rendered');
     return (
       <div>
-      <h3 className="text-center"> Active Bets </h3>
+      <h3 className="text-center title"><strong>Active Bets</strong></h3>
       <table class="table">
         <thead>
           {

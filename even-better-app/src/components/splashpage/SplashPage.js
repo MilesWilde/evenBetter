@@ -47,7 +47,7 @@ class SplashPage extends Component {
             </div>
           </div> 
           <div className="right-pane">
-            <p>Compete</p>
+            <p>Chat</p>
             <div className="text-div">
               When you sign up you are given 1000 points. Every day you 
               can collect 100 points! Under your

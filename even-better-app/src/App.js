@@ -27,9 +27,24 @@ injectTapEventPlugin();
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoggedIn: false
+    }
+  }
+
   logOut(event){
     window.localStorage.clear()
+    this.setState({ ...this.state, isLoggedIn: false })
     event.stopPropagation()
+  }
+
+  componentWillMount() {
+    this.setState({
+      ...this.state,
+      isLoggedIn: window.localStorage.auth_token ? true : false
+    })
   }
 
   componentDidMount() {
@@ -50,7 +65,7 @@ class App extends Component {
             </div>
             :
             <div>
-              <Link to='/auth/login'><FlatButton label="Sign In" /></Link>
+              <Link to='/login'><FlatButton label="Sign In" /></Link>
               <Link to='/signup'><FlatButton label="Register" /></Link>
               <Link to='/'><FlatButton label="About" /></Link>
             </div>
@@ -63,7 +78,7 @@ class App extends Component {
             <Route path='/landing' component={LandingPage}/>
             <Route path='/signup' component={UserRegistration}/>
             <Route path='/bets/:id' component={ Bet } />
-            <Route path='/auth/login' component={Login}/>
+            <Route path='/login' component={Login}/>
           </Switch>
         </main>
       </MuiThemeProvider>

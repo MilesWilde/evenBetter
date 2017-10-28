@@ -89,44 +89,44 @@ class LandingPage extends Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
-
   render() {
     return (
       <Container fluid={true}>
         <MuiThemeProvider>
-          <Row>
-            <div>
-
-            </div>
-            <Col md="4">
-              <div id = "stats">
-                <h2>Hello, {this.state.user.username}!</h2>
-                <PointsColumn user={this.state.user}/>
-                <ChangingProgressbar
-                  user={this.state.user}
-                  percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
-                />
-              </div>
-
-            </Col>
-            <Col md="4">
-              <div className="invite-column">
-                <InviteColumn
-                  getMainState={this.getMainState}
-                  loadInvites={this.loadInvites}
-                  loadBets={this.loadBets}/>
-              </div>
-              <div className=" create-bet-buttons container">
+              <Col md="4" style={{backgroundColor: '#263238'}}>
+                <div id = "stats">
+                  <h1><strong>Hello, {this.state.user.username}!</strong></h1>
+                  <PointsColumn user={this.state.user}/>
+                </div>
+              </Col>
+            <Col md="8">
+              <Row>
                 <PopupBets />
-              </div>
+              </Row>
+              <Row>
+                <Col md="6">
+                  <div className="invite-column">
+                    <InviteColumn
+                      getMainState={this.getMainState}
+                      loadInvites={this.loadInvites}
+                      loadBets={this.loadBets}/>
+                  </div>
+                    <ChangingProgressbar
+                      user={this.state.user}
+                      percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
+                    />
+                  <div className=" create-bet-buttons container">
+
+                  </div>
+                </Col>
+                <Col md="6">
+                  <BetsColumn
+                  user={this.state.user}
+                  getMainState={this.getMainState}
+                  loadBets={this.loadBets}/>
+                </Col>
+              </Row>
             </Col>
-            <Col md="4">
-              <BetsColumn
-              user={this.state.user}
-              getMainState={this.getMainState}
-              loadBets={this.loadBets}/>
-            </Col>
-          </Row>
         </MuiThemeProvider>
       </Container>
     )

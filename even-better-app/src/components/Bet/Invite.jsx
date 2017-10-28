@@ -36,11 +36,9 @@ class Invite extends Component {
  findBetCreator = (betID) => {
     return axios.get(`/api/v1/bets/${betID}/creator`, config)
     .then(response => {
-      debugger
       return response.data.username
     })
     .catch(error => {
-      debugger
       return error
     })
   // return name
@@ -51,7 +49,6 @@ class Invite extends Component {
 
   openInviteDialog = (e) => {
     // Open Dialog Box
-    debugger
     return (
       <InviteDialog />
       )

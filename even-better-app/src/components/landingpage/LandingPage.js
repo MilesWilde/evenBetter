@@ -79,7 +79,7 @@ class LandingPage extends Component {
   }
 
   componentWillMount() {
-    UserStore.find(window.localStorage.user_id)
+    UserStore.find(this.props.currentUser)
       .then((response) => {
         this.setState({
           user: response

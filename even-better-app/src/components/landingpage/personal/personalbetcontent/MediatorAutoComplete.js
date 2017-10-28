@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
+import Resource from '../../../../models/resource'
+const UserCompleteStore = Resource('users')
+
 
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
@@ -18,19 +21,41 @@ const colors = [
 export default class MediatorAutoComplete extends Component {
   state = {
     searchText: '',
+    mediator: {}
   };
+
+  mediatorCallback = (searchText) => {
+    let temp = {}
+    UserCompleteStore.findAll()
+      .then(response => {
+        response.forEach((user)=> {
+
+          if(user.username == searchText) {
+            temp = {
+              userId: user.id,
+              username: user.username
+            }
+            this.setState({mediator: temp})
+          }
+          this.props._handleMediatorFieldChange(temp)
+        })
+    })
+  }
 
   handleUpdateInput = (searchText) => {
     this.setState({
       searchText: searchText,
     });
-    this.props._handleMediatorFieldChange(searchText)
+    
   };
 
   handleNewRequest = (searchText) => {
-    this.setState({
-      searchText: searchText,
-    });
+    
+    this.mediatorCallback(searchText)
+    
+    // this.setState({
+    //   searchText: searchText,
+    // });
   };
 
   render() {

@@ -11,6 +11,12 @@ import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
 import GamesList from './sportsbetcontent/GamesList';
 import axios from 'axios';
 
+var config = {
+  headers: {
+    "Authorization": "Bearer " + window.localStorage.auth_token,
+  }
+}
+
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
  * Avoid using long step names in horizontal steppers.
@@ -36,7 +42,9 @@ class SportsStepper extends React.Component {
         value: null,
         chosenWinner: ''
       }
-    ]
+    ],
+    betId: null,
+    creatorPossId: null
   };
 
   makeAxiosCall = () => {
@@ -67,8 +75,42 @@ class SportsStepper extends React.Component {
       updated_at: "2017-10-25 22:41:29.403225",
       outcome_id: null,
       possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
-    });
-  }
+    }).then(res => {console.log("Response: ", res)
+                    let betId = res.data.possibilities[0].bet_id
+                    console.log("Bet id is: ", betId)
+                    let creatorPossId = null
+                    res.data.possibilities.forEach((poss) => {
+                      console.log(this.state.data[2].chosenWinner)
+                      console.log(poss.description)
+                      if(this.state.data[2].chosenWinner == poss.description) {
+                        creatorPossId = poss.id
+                      }
+                    })
+                    console.log("Creators chosen ID IS: ", creatorPossId)
+                    this.setState({ betId: betId,
+                                    creatorPossId: creatorPossId})    
+                    }
+      ).then(res => {
+        var data = {
+          has_accepted: true,
+          possibility_id: this.state.creatorPossId
+        }
+        axios.patch(`/api/v1/bets_users/${this.state.betId}`, data, config)
+        .then(response => {
+          console.log("Response from patch: ")
+          console.log(response.data)
+        })
+        .catch(error => {
+          console.log("Error: " + error)
+        })
+      });
+
+        
+        
+      
+
+
+    } //End of makeAxiosCall()
 
 
 

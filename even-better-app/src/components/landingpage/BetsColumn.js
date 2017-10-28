@@ -44,7 +44,7 @@ export default class BetsColumn extends Component {
                     <td><a href= {`/bets/${bet.id}`}>Sport Bet</a></td>
                     <td><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
                     <td><a href= {`/bets/${bet.id}`}>WIN</a></td>
-                    <td><a href= {`/bets/${bet.id}`}>{bet["betting_deadline"]}</a></td>
+                    <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td>
                   </tr>
               );
             })

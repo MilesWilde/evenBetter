@@ -11,7 +11,8 @@ class Login extends Component {
       password: '',
       emailInvalid: false,
       passwordInvalid: false,
-      errorMessage: ''
+      errorMessage: '',
+      redirectUrl: '/home'
     }
   }
 
@@ -19,7 +20,13 @@ class Login extends Component {
     // Checks if user is already authenticated
     // If so, user is redirected to Landing page
     if (window.localStorage.auth_token) {
-      this.props.history.push("/landing");
+      this.props.history.push(this.state.redirectUrl);
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.location.state) {
+      this.setState({ ...this.state, redirectUrl: this.props.location.state.from.pathname})
     }
   }
 
@@ -48,8 +55,8 @@ class Login extends Component {
       return
     })
     .then( () => {
+      this.props.history.push(this.state.redirectUrl);
       window.location.reload()
-      this.props.history.push("/landing");
     })
     .catch(error => {
       console.log(error)

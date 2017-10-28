@@ -45,7 +45,6 @@ class InviteDialog extends Component {
     axios.get(`/api/v1/bets/${this.props.betID}/possibilities.json`, config)
     .then(response => {
       // Show bet options
-      debugger
       this.setState( { possibilities: response.data })
       // Let user pick one
     })
@@ -90,7 +89,6 @@ class InviteDialog extends Component {
       this.handleClose()
     })
     .catch(error => {
-      debugger
       console.log("Error: " + error)
     })
   }

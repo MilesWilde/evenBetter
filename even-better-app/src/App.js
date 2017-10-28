@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './App.css'
 
 import { Switch, Route, Redirect } from 'react-router-dom'
+import NotFound from './components/NotFound'
 import UsersContainer from './components/UsersContainer'
 import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
@@ -93,6 +94,7 @@ class App extends Component {
             <Route path='/login' component={Login}/>
             <PrivateRoute path='/landing' currentUser={ this.state.currentUser } component={LandingPage}/>
             <PrivateRoute path='/bets/:id' currentUser={ this.state.currentUser } component={ Bet } />
+            <Route component={ NotFound } />
           </Switch>
         </main>
       </MuiThemeProvider>

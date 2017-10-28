@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import './App.css'
 
-import { Switch, Route, Redirect } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import NotFound from './components/NotFound'
 import UsersContainer from './components/UsersContainer'
@@ -21,9 +21,6 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar'
-import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar'
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import Cable from 'actioncable';
 
 injectTapEventPlugin();
@@ -90,24 +87,6 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <NavBar currentUser={ this.state.currentUser }/>
-        {/* <AppBar
-          style={{position:'fixed', backgroundColor: '#263238'}}
-          title={<Link to='/home'>EvenBetter</Link>}
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-          iconElementRight={
-            this.state.currentUser ?
-            <div>
-              <Link to='/home'><FlatButton label="Home" /></Link>
-              <Link to='/'><FlatButton label="About" /></Link>
-            </div>
-            :
-            <div>
-              <Link to='/login'><FlatButton label="Sign In" /></Link>
-              <Link to='/signup'><FlatButton label="Register" /></Link>
-              <Link to='/'><FlatButton label="About" /></Link>
-            </div>
-          }
-        /> */}
         <div style={{ paddingTop: 64 }}></div>
         <main>
           <Switch>

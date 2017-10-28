@@ -8,7 +8,7 @@ class Bet < ApplicationRecord
   belongs_to :mediator, class_name: 'User'
   belongs_to :outcome, class_name: 'Possibility'
 
-  validates_presence_of :title, :betting_deadline, :outcome_deadline, :creator
+  validates_presence_of :title, :creator
   validate :must_have_at_least_2_possibilities
 
   private

@@ -1,0 +1,14 @@
+.table {
+    background-color: #A8D2F1;
+    font-weight: bolder;
+}
+
+.table-body {
+    font-weight: bold;
+}
+
+.table a {
+    color:black;
+    text-decoration: none;
+    font-weight: normal;
+}

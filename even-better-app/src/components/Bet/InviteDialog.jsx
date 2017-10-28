@@ -42,7 +42,7 @@ class InviteDialog extends Component {
 
 
   setBetOptions = () => {
-    axios.get(`/api/v1/bets/${this.props.betID}/possibilities.json`, config)
+    axios.get(`/api/v1/bets/${this.props.bet.id}/possibilities.json`, config)
     .then(response => {
       // Show bet options
       this.setState( { possibilities: response.data })
@@ -68,7 +68,7 @@ class InviteDialog extends Component {
       has_accepted: true,
       possibility_id: this.state.selected.id
     }
-    axios.patch(`/api/v1/bets_users/${this.props.betID}`, data, config)
+    axios.patch(`/api/v1/bets_users/${this.props.bet.id}`, data, config)
     .then(response => {
       console.log("Response: ")
       console.log(response.data)
@@ -83,7 +83,7 @@ class InviteDialog extends Component {
   handleDecline = (e) => {
     // Update bet_user - has_accepted to false
     var data = { has_accepted: false }
-    axios.patch(`/api/v1/bets_users/${this.props.betID}`, data, config)
+    axios.patch(`/api/v1/bets_users/${this.props.bet.id}`, data, config)
     .then(response => {
       console.log("Response: " + response)
       this.handleClose()
@@ -121,7 +121,7 @@ class InviteDialog extends Component {
     return (
         <MenuItem primaryText={this.props.primaryText} onClick={this.handleOpen}>
           <Dialog
-            title="Please Pick a Possibility and Accept, or Decline the Bet Invitation"
+            title={this.props.bet.title}
             autoScrollBodyContent = {true}
             modal={false}
             open={this.state.open}

@@ -20,14 +20,13 @@ class Invite extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      betID: this.props.betID,
       accepted: null,
       fromUser: ''
     }
   }
 
   componentDidMount() {
-    this.findBetCreator(this.props.betID)
+    this.findBetCreator(this.props.bet.id)
       .then( username => {
         this.setState({fromUser: username})
       })
@@ -61,7 +60,7 @@ class Invite extends Component {
       <MenuItem>
       <InviteDialog
         primaryText={"Invite from " + this.state.fromUser}
-        betID={this.props.betID}
+        bet={this.props.bet}
         loadInvites={this.props.loadInvites}
         loadBets={this.props.loadBets}
       />

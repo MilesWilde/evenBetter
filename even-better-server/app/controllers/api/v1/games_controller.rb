@@ -38,12 +38,14 @@ module Api::V1
           homeTeamVar = doc.at_xpath('//home-team')
           awayTeamVar = doc.at_xpath('//visiting-team')
           gameVariables = doc.at_xpath('//gamestate')
+          tickerVariables = doc.at_xpath('//ticker-entry')
 
           # All Game Details
           deliverToClient = {
               gameType: gameType,
               gameDate: gameDate,
               gameTime: gameVariables.attr('gametime'),
+              gameCode: tickerVariables.attr('gamecode'),
 
               homeTeamName: homeTeamVar.attr('display_name'),
               homeNickName: homeTeamVar.attr('nickname'),
@@ -78,7 +80,7 @@ module Api::V1
         sendToReactAppJson = sendToReactApp.to_json
         return sendToReactAppJson
       end
-      
+
 
       # params contains the sporttype and gameDate
       puts params.inspect

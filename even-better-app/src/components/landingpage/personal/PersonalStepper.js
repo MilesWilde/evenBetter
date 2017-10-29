@@ -11,6 +11,7 @@ import NameDesc from './personalbetcontent/NameDesc';
 import BettingPool from './personalbetcontent/BettingPool'
 import PossibleBets from './personalbetcontent/PossibleBets'
 import axios from 'axios';
+import moment from 'moment';
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -37,7 +38,7 @@ class PersonalStepper extends React.Component {
           betDeadlineDate: null,
           betDeadlineTime:null,
           decisionDeadlineDate: null,
-          decisionDeadlineTime:null        
+          decisionDeadlineTime:null
         },
         {
           possibilities:[]
@@ -47,7 +48,7 @@ class PersonalStepper extends React.Component {
   }
 
   makeAxiosCall = () => {
-    
+
         const zerver = axios.create({
           baseURL: 'http://localhost:3001',
           timeout: 10000,
@@ -61,9 +62,9 @@ class PersonalStepper extends React.Component {
         this.state.data[1].names.forEach((name)=>{
           userIDArray.push(name.userId)
         });
-    
+
         userIDArray.push(window.localStorage.user_id)
-    
+
         zerver.post('/api/v1/bets', {
           title: this.state.data[0].name ,
           description: this.state.data[0].description ,
@@ -73,8 +74,6 @@ class PersonalStepper extends React.Component {
           betting_deadline: this.state.data[1].betDeadlineDate,
           outcome_deadline: this.state.data[1].decisionDeadlineDate,
           creator_id: window.localStorage.user_id,
-          created_at: "2017-10-25 22:41:29.403225",
-          updated_at: "2017-10-25 22:41:29.403225",
           outcome_id: null,
           possibilities: this.state.data[2].possibilities
         });
@@ -109,7 +108,7 @@ class PersonalStepper extends React.Component {
         possibilities: userData.possibilities
       }
     }
-    console.log("TempstateHold", tempStateHold)
+    console.log("State at Personal Stepper: ", tempStateHold)
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,
@@ -127,24 +126,24 @@ class PersonalStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <NameDesc        name={this.state.data[0].name} 
-                              description={this.state.data[0].description} 
-                              handlePrev={this.handlePrev} 
-                              handleNext={this.handleNext} 
-                              data={this.state.data[0]} 
+      return <NameDesc        name={this.state.data[0].name}
+                              description={this.state.data[0].description}
+                              handlePrev={this.handlePrev}
+                              handleNext={this.handleNext}
+                              data={this.state.data[0]}
                               stepIndex={stepIndex}
                               />
       case 1:
         return <BettingPool   handleNext={this.handleNext}
                               handlePrev={this.handlePrev}
-                              data={this.state.data[1]} 
-                              stepIndex={stepIndex} 
+                              data={this.state.data[1]}
+                              stepIndex={stepIndex}
 
                               />
       case 2:
         return <PossibleBets  handleNext={this.handleNext}
                               handlePrev={this.handlePrev}
-                              data={this.state.data[1]} 
+                              data={this.state.data[1]}
                               stepIndex={stepIndex}
                               possibilities={this.state.data[2].possibilities}
                               makeAxiosCall = {this.makeAxiosCall}

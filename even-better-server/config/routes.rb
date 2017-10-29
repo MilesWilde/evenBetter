@@ -17,9 +17,11 @@ Rails.application.routes.draw do
       resources :bets, except: [:destroy] do
         resources :messages, only: [:index]
         resources :possibilities, only: [:index]
+        resources :bets_users, only: [:index], to: 'bets#user_possibilities'
       end
 
       resources :users, except: [:create, :destroy]
+      get 'bets_users', to: 'bets_users#index'
       patch 'bets_users/:bet_id', to: 'bets_users#update'
       resources :users, except: [:create, :destroy]
     end

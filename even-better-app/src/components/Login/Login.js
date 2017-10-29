@@ -43,7 +43,7 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password,
     };
-    axios.post('/auth/login', user)
+    axios.post('/login', user)
     .then(response => {
       window.localStorage.auth_token = response.data.auth_token;
       window.localStorage.user_id = response.data.user_id;

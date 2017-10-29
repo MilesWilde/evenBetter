@@ -8,6 +8,9 @@ const styles = {
   bar: {
     backgroundColor: '#263238',
     position: 'fixed'
+  },
+  button: {
+    marginTop: '5px'
   }
 }
 
@@ -16,17 +19,19 @@ const NavBar = (props) => {
     <AppBar
       title={<Link to='/home'>Even Better</Link>}
       style={ styles.bar }
+      onLeftIconButtonTouchTap={ props.handleNavMenuOpen }
+      showMenuIconButton={ false }
       iconElementRight={
         props.currentUser ?
         <div>
-          <FlatButton label="Home" primary={true} containerElement={<Link to='/home'/>} />
-          <FlatButton label="About" primary={true} containerElement={<Link to='/'/>} />
+          <FlatButton label="Home" style={ styles.button } primary={true} containerElement={<Link to='/home'/>} />
+          <FlatButton label="About" style={ styles.button } primary={true} containerElement={<Link to='/'/>} />
         </div>
       :
         <div>
-          <FlatButton label="Login" primary={true} containerElement={<Link to='/login'/>} />
-          <FlatButton label="Sign Up" primary={true} containerElement={<Link to='/signup'/>} />
-          <FlatButton label="About" primary={true} containerElement={<Link to='/'/>} />
+          <FlatButton label="Login" style={ styles.button } primary={true} containerElement={<Link to='/login'/>} />
+          <FlatButton label="Sign Up" style={ styles.button } primary={true} containerElement={<Link to='/signup'/>} />
+          <FlatButton label="About" style={ styles.button } primary={true} containerElement={<Link to='/'/>} />
         </div>
       }
     />

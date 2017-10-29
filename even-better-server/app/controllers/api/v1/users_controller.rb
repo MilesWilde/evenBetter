@@ -11,11 +11,6 @@ module Api::V1
       @user = User.find(params[:id])
       render json: @user
     end
-
-    def bets
-        @bets = User.find(params[:user_id]).bets
-        render json: @bets
-    end
   end
 
 

@@ -3,6 +3,7 @@ class Bet < ApplicationRecord
 
   belongs_to :creator, class_name: 'User'
   has_and_belongs_to_many :users
+  has_many :bet_users
   has_many :messages
   has_many :possibilities
   belongs_to :mediator, class_name: 'User'

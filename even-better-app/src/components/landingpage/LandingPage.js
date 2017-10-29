@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import InviteColumn from './InviteColumn'
 import BetsColumn from './BetsColumn'
+import MediationRequestsColumn from '../MediationRequests/MediationRequestsColumn'
 import PopupBets from './PopupBets'
 import PointsColumn from './PointsColumn'
 import ChangingProgressbar from './ChangingProgressbar'
@@ -37,7 +38,8 @@ class LandingPage extends Component {
       user: {},
       invites: [],
       bets: [],
-      refreshCount: 0
+      betsUsers: [],
+      mediationRequests: []
     }
   }
 
@@ -62,6 +64,21 @@ class LandingPage extends Component {
     })
   }
 
+  loadMediationRequests = () => {
+    axios.get(`/api/v1/bets/mediation-requests.json`, config)
+    .then(response => {
+      console.log("Reloading Mediation Requests" + response.data)
+      this.setState({
+        ...this.state,
+        mediationRequests: response.data
+      })
+      return null
+    })
+    .catch(error => {
+      console.log("Error in Mediation Requests", error)
+    })
+  }
+
   // Helper function that allows Active Bets to be loaded/reloaded
   loadBets = () => {
     axios.get(`/api/v1/bets/acceptances.json`, config)
@@ -71,10 +88,26 @@ class LandingPage extends Component {
         ...this.state,
         bets: response.data
       })
+      this.loadBetsUsers()
       return null
     })
     .catch(error => {
       console.log("Error in Acceptances", error)
+    })
+  }
+
+  loadBetsUsers = () => {
+    axios.get(`/api/v1/bets_users.json`, config)
+    .then(response => {
+      console.log("Reloading BetsUsers" + response.data)
+      this.setState({
+        ...this.state,
+        betsUsers: response.data
+      })
+      return null
+    })
+    .catch(error => {
+      console.log("Error in BetsUsers", error)
     })
   }
 
@@ -113,6 +146,12 @@ class LandingPage extends Component {
                     <InviteColumn
                       getMainState={this.getMainState}
                       loadInvites={this.loadInvites}
+                      loadBets={this.loadBets}/>
+                  </div>
+                  <div className="med-req-column">
+                    <MediationRequestsColumn
+                      getMainState={this.getMainState}
+                      loadMediationRequests={this.loadMediationRequests}
                       loadBets={this.loadBets}/>
                   </div>
                 </Col>

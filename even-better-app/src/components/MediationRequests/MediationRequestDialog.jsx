@@ -5,7 +5,8 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import ListItem from 'material-ui/List';
-import InvitePossibility from './InvitePossibility'
+import MediationRequestPossibility from './MediationRequestPossibility'
+import moment from 'moment'
 
 var config = {
   headers: {
@@ -13,14 +14,15 @@ var config = {
   }
 }
 
-// Will need betID prop
-class InviteDialog extends Component {
+// Gets bet prop
+class MediationRequestDialog extends Component {
   constructor(props) {
     super(props)
     this.state = {
       open: false,
       possibilities: [],
-      selected: {}
+      selected: {},
+      // currentTime: Date().getTime()
     };
   }
 
@@ -30,13 +32,13 @@ class InviteDialog extends Component {
   };
 
   handleClose = () => {
-    // Closes Invite dialog and refreshes Invites List
+    // Closes MediationRequest dialog and refreshes MediationRequests List
     this.setState({
       ...this.state,
       open: false,
       selected: {}
     });
-    this.props.loadInvites()
+    this.props.loadMediationRequests()
     this.props.loadBets()
   };
 
@@ -114,7 +116,7 @@ class InviteDialog extends Component {
         label="Accept"
         primary={true}
         onClick={this.handleAccept}
-        disabled={this.isEmpty(this.state.selected) ? true : false}
+
       />,
     ];
 
@@ -130,7 +132,7 @@ class InviteDialog extends Component {
           >
           {this.state.possibilities.map((option) => {
             return (
-             <InvitePossibility
+             <MediationRequestPossibility
              action={this.selectOption} option={option}/>
             )
           })}
@@ -140,4 +142,4 @@ class InviteDialog extends Component {
   }
 }
 
-export default InviteDialog
+export default MediationRequestDialog

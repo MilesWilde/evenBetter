@@ -5,7 +5,7 @@ module Api::V1
     before_action :set_bet, only: [:show, :update, :destroy]
 
     def index
-        @bets = Bet.all
+        @bets = current_user.bets
         render json: @bets
     end
 
@@ -24,6 +24,7 @@ module Api::V1
         @bet.save!
         # Add users to the bet
         @users.map{ |user| @bet.users << user }
+        @bet.users << User.find(params[:mediator_id]) if params[:mediator_id]
         render json: @bet.to_json({ include: [:possibilities, :users] }), status: :created
       else
         json_response({ message: "Validation failed: Users must have at least 2 users"}, :unprocessable_entity)
@@ -31,7 +32,20 @@ module Api::V1
     end
 
     def show
-      render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
+      render json: @bet.to_json({
+        include:
+          [
+            :possibilities,
+            :users,
+            :creator,
+            :mediator
+          ]
+      })
+    end
+
+    def user_possibilities
+      @possibilities = Bet.find(params[:bet_id]).bet_users
+      render json: @possibilities, only: [:user_id, :possibility_id, :has_accepted]
     end
 
     def update
@@ -64,9 +78,16 @@ module Api::V1
     end
 
     def get_invites
-      @created_bets = Bet.where(creator_id: current_user.id).select(:id)
-      @invites = current_user.bet_invites.where.not(id: @created_bets)
+      @created_bet_ids = current_user.created_bets.select(:id)
+      @mediated_bet_ids = current_user.mediated_bets.select(:id)
+      @invites = current_user.bet_invites.where.not(id: @created_bet_ids).where.not(id: @mediated_bet_ids)
       render json: @invites
+    end
+
+    def get_med_reqs
+      @mediated_bet_ids = current_user.mediated_bets.select(:id)
+      @mediation_requests = current_user.bet_invites.where(id: @mediated_bet_ids)
+      render json: @mediation_requests
     end
 
     def get_acceptances

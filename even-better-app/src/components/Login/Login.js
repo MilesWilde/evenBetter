@@ -72,7 +72,7 @@ class Login extends Component {
   render () {
     return (
       <div>
-        <h1>Log in you piece of garbage!</h1>
+        <h1><strong>Hello! Please Sign in Below</strong></h1>
         <form onSubmit={this.handleSubmit}>
           <TextField
             name="email"

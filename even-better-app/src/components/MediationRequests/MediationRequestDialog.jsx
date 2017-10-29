@@ -22,7 +22,7 @@ class MediationRequestDialog extends Component {
       open: false,
       possibilities: [],
       selected: {},
-      currentTime: Date().getTime()
+      // currentTime: Date().getTime()
     };
   }
 
@@ -116,11 +116,7 @@ class MediationRequestDialog extends Component {
         label="Accept"
         primary={true}
         onClick={this.handleAccept}
-        disabled={
-          this.isEmpty(this.state.selected) ||
-          // Make sure postgres timestamp is converted
-          this.state.currentTime < this.props.bet.betting_deadline.getTime() ?
-          true : false}
+
       />,
     ];
 

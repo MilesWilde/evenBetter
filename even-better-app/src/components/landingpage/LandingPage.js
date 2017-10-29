@@ -66,10 +66,11 @@ class LandingPage extends Component {
   loadMediationRequests = () => {
     axios.get(`/api/v1/bets/mediation-requests.json`, config)
     .then(response => {
+      debugger
       console.log("Reloading Mediation Requests" + response.data)
       this.setState({
         ...this.state,
-        invites: response.data
+        mediationRequests: response.data
       })
       return null
     })

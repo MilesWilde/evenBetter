@@ -18,9 +18,7 @@ Rails.application.routes.draw do
         resources :possibilities, only: [:index]
       end
 
-      resources :users, except: [:create, :destroy] do
-        get '/bets', to: 'users#bets#index'
-      end
+      resources :users, except: [:create, :destroy]
       patch 'bets_users/:bet_id', to: 'bets_users#update'
       resources :users, except: [:create, :destroy]
     end

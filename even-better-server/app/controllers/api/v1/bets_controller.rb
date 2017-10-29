@@ -43,6 +43,11 @@ module Api::V1
       })
     end
 
+    def user_possibilities
+      @possibilities = Bet.find(params[:bet_id]).bet_users
+      render json: @possibilities, only: [:user_id, :possibility_id, :has_accepted]
+    end
+
     def update
       @bet = Bet.find(params[:id])
       if @bet.mediator != current_user

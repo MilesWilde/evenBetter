@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'underscore'
 
 // Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -67,11 +68,33 @@ class Bet extends Component {
   }
 
   componentWillMount() {
+    const BetUsersStore = Resource(`bets/${this.props.match.params.id}/bets_users`)
     this.createSocket()
 
-    BetStore.find(this.props.match.params.id)
-    .then( (bet) => {
-      this.setState({ betDetails: bet })
+    Promise.all([
+      BetStore.find(this.props.match.params.id)
+      .then( (bet) => {
+        return bet
+      })
+      .catch( (err) => {
+        console.log(err)
+      }),
+
+      BetUsersStore.findAll()
+      .then( (betUsers) => {
+        return betUsers
+      })
+      .catch( (err) => {
+        console.log(err)
+      })
+    ])
+    .then( (details) => {
+      // combine the user details returned from the bet and the user details from the bets_users table
+      let mappedUsers = _.map(details[0].users, (user) => {
+        return _.extend(user, _.omit(_.findWhere(details[1], {user_id: user.id}), 'user_id'));
+      });
+      details[0].users = mappedUsers
+      this.setState({ betDetails: details[0] })
     })
     .catch( (err) => {
       console.log(err)

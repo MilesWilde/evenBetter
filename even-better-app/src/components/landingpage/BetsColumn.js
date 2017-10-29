@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import Resource from '../../models/resource'
 import axios from 'axios'
+import './css/BetsColumn.css';
 
 var config = {
   headers: {
@@ -22,7 +23,7 @@ export default class BetsColumn extends Component {
     console.log('rendered');
     return (
       <div>
-      <h3 className="text-center"> Active Bets </h3>
+      <h3 className="text-center title"><strong>Active Bets</strong></h3>
       <table class="table">
         <thead>
           {
@@ -34,16 +35,18 @@ export default class BetsColumn extends Component {
             </tr>
           }
         </thead>
+        <tbody class="table-body">
 
-        <tbody>
           {
             this.props.getMainState().bets.map((bet) => {
-              return (<tr class="success">
-                <td>Sport Bet</td>
-                <td>{bet.title}</td>
-                <td>WIN</td>
-                <td>{bet["betting_deadline"]}</td>
-              </tr>);
+              return (
+                  <tr class="table-body">
+                    <td><a href= {`/bets/${bet.id}`}>Sport Bet</a></td>
+                    <td><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
+                    <td><a href= {`/bets/${bet.id}`}>WIN</a></td>
+                    <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td>
+                  </tr>
+              );
             })
           }
         </tbody>

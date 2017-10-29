@@ -1,7 +1,19 @@
+.title {
+  color: #455A64;
+  text-align: left;
+}
+
+.bet-button {
+}
+
 .users-columns {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+}
+
+.stats-list {
+  color: #455A64;
 }
 
 .left-column {
@@ -10,16 +22,13 @@
 }
 
 .invite-column h3 {
-    color:green;
+    color: #455A64;
+    height: 100%;
 }
 
-.points-column {
-
-}
-
-#stats {
-  height: 500px;
-  padding-left: 50px;
+#stats-column {
+  height: 100%;
+  color: #455A64;
 }
 
 .points-column h3 {
@@ -45,6 +54,7 @@
    * If you're not using "display: flex", you can remove this style.
    */
   width: 75%;
+  padding-top: 50px;
 }
 
 .CircularProgressbar .CircularProgressbar-path {

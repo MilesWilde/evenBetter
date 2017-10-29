@@ -3,7 +3,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import Divider from 'material-ui/Divider';
 import axios from 'axios';
-import InviteDialog from './InviteDialog'
+import MediationRequestDialog from './MediationRequestDialog'
 
 
 
@@ -15,7 +15,7 @@ var config = {
 
 // Needs 2 props: betID, betTitle, betUserID
 
-class Invite extends Component {
+class MediationRequest extends Component {
 
   constructor(props) {
     super(props);
@@ -46,10 +46,10 @@ class Invite extends Component {
 
 
 
-  openInviteDialog = (e) => {
+  openMediationRequestDialog = (e) => {
     // Open Dialog Box
     return (
-      <InviteDialog />
+      <MediationRequestDialog />
       )
   }
 
@@ -58,10 +58,10 @@ class Invite extends Component {
     return (
       <div>
       <MenuItem>
-      <InviteDialog
-        primaryText={"Invite from " + this.state.fromUser}
+      <MediationRequestDialog
+        primaryText={"MediationRequest from " + this.state.fromUser}
         bet={this.props.bet}
-        loadInvites={this.props.loadInvites}
+        loadMediationRequests={this.props.loadMediationRequests}
         loadBets={this.props.loadBets}
       />
       </MenuItem>
@@ -71,4 +71,4 @@ class Invite extends Component {
   }
 }
 
-export default Invite;
+export default MediationRequest;

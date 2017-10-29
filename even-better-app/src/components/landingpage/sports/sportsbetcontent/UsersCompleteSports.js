@@ -6,20 +6,6 @@ import ChipInput from 'material-ui-chip-input'
 import Resource from '../../../../models/resource'
 const UserCompleteStore = Resource('users')
 
-/**
- * The input is used to create the `dataSource`, so the input always matches three entries.
- */
-const colors = [
-  'One',
-  'Two',
-  'Three',
-  'Four',
-  'Five',
-  'Six',
-  'Seven',
-  'Eight',
-];
-
 export default class UsersCompleteSports extends Component {
   constructor(props) {
     super(props);
@@ -57,7 +43,6 @@ export default class UsersCompleteSports extends Component {
           }
           this.setState({chipValue: sendUsersToState})
         })
-        console.log("state of chipValue: ", this.state.chipValue)
     })
   }
 
@@ -76,7 +61,7 @@ export default class UsersCompleteSports extends Component {
     this.chipCallback(searchText)
     this.props._handleUsersFieldChange(this.state.chipValue)
     this.setState({
-      searchText: searchText
+      searchText: ''
     });
  
   };

@@ -40,7 +40,7 @@ const BetDetails = (props) => {
       <h3 style={ styles.header }>Possibilities</h3>
       <div style={ styles.wrapper }>
       { props.possibilities.map( (possibility) => {
-        let backgroundColor = '#80DEEA'
+        let backgroundColor = '#0097A7'
         if (props.outcomeId && props.outcomeId === possibility.id) {
           backgroundColor = '#00C853'
         } else if (props.outcomeId) {

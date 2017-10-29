@@ -12,15 +12,14 @@ Rails.application.routes.draw do
       resources :games, only: [:index, :show]
       get 'bets/invites', to: 'bets#get_invites'
       get 'bets/acceptances', to: 'bets#get_acceptances'
+      get 'bets/mediation-requests', to: 'bets#get_med_reqs'
       get 'bets/:bet_id/creator', to: 'bets#find_creator'
       resources :bets, except: [:destroy] do
         resources :messages, only: [:index]
         resources :possibilities, only: [:index]
       end
 
-      resources :users, except: [:create, :destroy] do
-        get '/bets', to: 'users#bets#index'
-      end
+      resources :users, except: [:create, :destroy]
       patch 'bets_users/:bet_id', to: 'bets_users#update'
       resources :users, except: [:create, :destroy]
     end

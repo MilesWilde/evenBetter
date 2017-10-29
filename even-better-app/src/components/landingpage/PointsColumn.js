@@ -25,33 +25,27 @@ class PointsColumn extends Component {
     return (
       <MuiThemeProvider>
         <div className = "invite-column">
-          <Paper style={style}>
-            <Menu desktop={true}>
+        <strong>
               <MenuItem
                 primaryText={`Your points: ${this.props.user.points}`}
               />
-              <Divider />
 
               <MenuItem
                 primaryText={`Your point rank: ${pointsFunction.rankDetermine(this.props.user.points).rank}`}
               />
-              <Divider />
 
               <MenuItem
                 primaryText={`Points to next rank: ${pointsFunction.rankDetermine(this.props.user.points).pointsToNext}`}
               />
-              <Divider />
 
               <MenuItem
                 primaryText={`Your betting rank: ${pointsFunction.betRankDetermine(window.localStorage.user_bets).rank}`}
               />
-              <Divider />
 
               <MenuItem
                 primaryText={`Bets to next rank: ${pointsFunction.betRankDetermine(window.localStorage.user_bets).betsToNext}`}
               />
-            </Menu>
-          </Paper>
+        </strong>
         </div>
       </MuiThemeProvider>
     )

@@ -11,7 +11,8 @@ class Login extends Component {
       password: '',
       emailInvalid: false,
       passwordInvalid: false,
-      errorMessage: ''
+      errorMessage: '',
+      redirectUrl: '/home'
     }
   }
 
@@ -19,7 +20,13 @@ class Login extends Component {
     // Checks if user is already authenticated
     // If so, user is redirected to Landing page
     if (window.localStorage.auth_token) {
-      this.props.history.push("/landing");
+      this.props.history.push(this.state.redirectUrl);
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.location.state) {
+      this.setState({ ...this.state, redirectUrl: this.props.location.state.from.pathname})
     }
   }
 
@@ -41,10 +48,18 @@ class Login extends Component {
       window.localStorage.auth_token = response.data.auth_token;
       window.localStorage.user_id = response.data.user_id;
       window.localStorage.user_bets = response.data.user_bets;
+      return(response.data.user_id)
+    })
+    .then( (userId) => {
+      this.props.handleLoginSuccess(userId)
+      return
+    })
+    .then( () => {
+      this.props.history.push(this.state.redirectUrl);
       window.location.reload()
-      this.props.history.push("/landing");
     })
     .catch(error => {
+      console.log(error)
       this.setState({
         ...this.state,
         emailInvalid: error.response.data.message.includes('email'),
@@ -57,10 +72,26 @@ class Login extends Component {
   render () {
     return (
       <div>
-        <h1>Log in you piece of garbage!</h1>
+        <h1><strong>Hello! Please Sign in Below</strong></h1>
         <form onSubmit={this.handleSubmit}>
-          <TextField name="email" type="email" hintText="Email" errorText={this.state.emailInvalid ? this.state.errorMessage : ""} value={this.state.email} onChange={this.handleInputChange}/> <br />
-          <TextField name="password" type="password" hintText="Password" errorText={this.state.passwordInvalid ? this.state.errorMessage : ""} value={this.state.password} onChange={this.handleInputChange}/> <br />
+          <TextField
+            name="email"
+            type="email"
+            hintText="Email"
+            errorText={this.state.emailInvalid ? this.state.errorMessage : ""}
+            value={this.state.email}
+            onChange={this.handleInputChange}
+          />
+          <br />
+          <TextField
+            name="password"
+            type="password"
+            hintText="Password"
+            errorText={this.state.passwordInvalid ? this.state.errorMessage : ""}
+            value={this.state.password}
+            onChange={this.handleInputChange}
+          />
+          <br />
           <input type="submit" value="Submit" />
         </form>
       </div>

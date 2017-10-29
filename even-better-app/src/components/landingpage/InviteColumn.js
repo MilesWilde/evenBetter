@@ -3,7 +3,6 @@ import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
-import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import Invite from '../Bet/Invite'
 import axios from 'axios'
 
@@ -19,19 +18,6 @@ var config = {
 }
 
 
-// Finds the creator of a particular bet by ID
-function findBetCreator(betID) {
-  axios.get(`/api/v1/bets/${betID}`, config)
-  .then(response => {
-    return response
-  })
-  .catch(error => {
-    return error
-  })
-  // render error page
-}
-
-
 // api call in componentdidmnt - sets state
 // render function reads state
 
@@ -44,31 +30,43 @@ class InviteColumn extends Component {
     this.props.loadInvites()
   }
 
+  renderInvites = () => {
+      this.props.getMainState().invites.map((invite) => {
+        console.log(invite)
+      return (<Invite
+      bet={invite}
+      betTitle={invite.title}
+      loadInvites={this.props.loadInvites}
+      loadBets={this.props.loadBets}
+      />)
+    })
+  }
+
 
   render () {
-    return (
+    let content = {};
+      if (!this.props.getMainState().invites[0]) {
+        content = <h3 className="title"><strong>You have no Invites at the moment.</strong></h3>;
+      } else {
+        content =
         <div className = "invite-column">
-    <h3> Invites </h3>
-    <Paper style={style}>
-      <Menu desktop={true} width={320} maxHeight={250}>
-        {this.props.getMainState().invites.map((invite) => {
-          return (<Invite
-          betID={invite.id}
-          betTitle={invite.title}
-          loadInvites={this.props.loadInvites}
-          loadBets={this.props.loadBets}
-          />)
-        })}
-        {/*
-        {this.state.invites.length > 0 &&
-          <Invite betID={this.state.invites[0].id}
-            betTitle={this.state.invites[0].title}
-          />}
-          */}
-      </Menu>
-    </Paper>
-  </div>
-  )
+          <h3 className="title"><strong>Invites</strong></h3>
+          <Paper style={style}>
+            <Menu desktop={true} width={320} maxHeight={250}>
+              {this.props.getMainState().invites.map((invite) => {
+                  console.log(invite)
+                  return (<Invite
+                  bet={invite}
+                  betTitle={invite.title}
+                  loadInvites={this.props.loadInvites}
+                  loadBets={this.props.loadBets}
+              />)})
+              }
+            </Menu>
+          </Paper>
+        </div>;
+      }
+    return content;
   }
 }
 

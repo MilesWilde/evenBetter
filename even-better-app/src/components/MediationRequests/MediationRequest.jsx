@@ -59,7 +59,7 @@ class MediationRequest extends Component {
       <div>
       <MenuItem>
       <MediationRequestDialog
-        primaryText={"MediationRequest from " + this.state.fromUser}
+        primaryText={"Mediation Request from " + this.state.fromUser}
         bet={this.props.bet}
         loadMediationRequests={this.props.loadMediationRequests}
         loadBets={this.props.loadBets}

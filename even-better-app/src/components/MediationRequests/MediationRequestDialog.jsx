@@ -95,6 +95,18 @@ class MediationRequestDialog extends Component {
     })
   }
 
+  // Helper function to convert deadline string to timestamp
+  betTimestamp(dateAndTime) {
+    // Split timestamp into [ Y, M, D, h, m, s ]
+    var dat = dateAndTime.replace('T',' ').replace('Z','')
+    var t = dat.split(/[- :]/);
+
+    // Apply each element to the Date function
+    var date = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
+
+    return date.getTime()
+  }
+
   // Utility function to check for empty object
   isEmpty = (obj) => {
     for(var prop in obj) {
@@ -108,22 +120,22 @@ class MediationRequestDialog extends Component {
  render() {
     const actions = [
       <FlatButton
-        label="Decline"
+        label="Decline Request"
         primary={true}
         onClick={this.handleDecline}
       />,
       <FlatButton
-        label="Accept"
+        label="Select Outcome"
         primary={true}
         onClick={this.handleAccept}
-
+        disabled={ Date.now() > this.betTimestamp(this.props.bet.betting_deadline) ? false : true}
       />,
     ];
 
     return (
         <MenuItem primaryText={this.props.primaryText} onClick={this.handleOpen}>
           <Dialog
-            title={this.props.bet.title}
+            title={'Mediation Request: ' + this.props.bet.title}
             autoScrollBodyContent = {true}
             modal={false}
             open={this.state.open}

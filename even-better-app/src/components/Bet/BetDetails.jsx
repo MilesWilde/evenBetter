@@ -57,12 +57,18 @@ const BetDetails = (props) => {
       <div style={ styles.wrapper }>
       { props.users.map( (user) => {
         if (user.id !== props.mediatorId) {
+          let backgroundColor = undefined
+          if (props.outcomeId && props.outcomeId === user.possibility_id) {
+            backgroundColor = '#00C853'
+          } else if (props.outcomeId) {
+            backgroundColor = '#FF5252'
+          }
           let possibilityIndex = null
           const userPossibility = props.possibilities.find( (possibility, index) => {
             possibilityIndex = index
             return possibility.id === user.possibility_id
           })
-          return <Chip style={ styles.chip } key={user.id} labelColor='#000'><Avatar>{ userPossibility ? possibilityIndex + 1 : '-' }</Avatar>{ user.username }</Chip>
+          return <Chip style={ styles.chip } key={user.id} labelColor='#000' backgroundColor={ backgroundColor }><Avatar>{ userPossibility ? possibilityIndex + 1 : '-' }</Avatar>{ user.username }</Chip>
         }
       })}
       </div>

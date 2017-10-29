@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :games, only: [:index, :show]
       get 'bets/invites', to: 'bets#get_invites'
       get 'bets/acceptances', to: 'bets#get_acceptances'
+      get 'bets/mediation-requests', to: 'bets#get_med_reqs'
       get 'bets/:bet_id/creator', to: 'bets#find_creator'
       resources :bets, except: [:destroy] do
         resources :messages, only: [:index]

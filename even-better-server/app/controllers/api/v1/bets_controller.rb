@@ -64,9 +64,16 @@ module Api::V1
     end
 
     def get_invites
-      @created_bets = Bet.where(creator_id: current_user.id).select(:id)
-      @invites = current_user.bet_invites.where.not(id: @created_bets)
+      @created_bets = current_user.created_bets.select(:id)
+      @mediated_bet_ids = current_user.mediated_bets.select(:id)
+      @invites = current_user.bet_invites.where.not(id: @created_bets).where.not(id: @mediated_bets)
       render json: @invites
+    end
+
+    def get_med_reqs
+      @mediated_bet_ids = current_user.mediated_bets.select(:id)
+      @mediation_requests = current_user.bet_invites.where(id: @mediated_bets)
+      render json: @mediation_requests
     end
 
     def get_acceptances

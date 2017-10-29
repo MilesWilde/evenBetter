@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import InviteColumn from './InviteColumn'
 import BetsColumn from './BetsColumn'
+import MediationRequestsColumn from '../MediationRequests/MediationRequestsColumn'
 import PopupBets from './PopupBets'
 import PointsColumn from './PointsColumn'
 import ChangingProgressbar from './ChangingProgressbar'
@@ -37,7 +38,7 @@ class LandingPage extends Component {
       user: {},
       invites: [],
       bets: [],
-      refreshCount: 0
+      mediationRequests: []
     }
   }
 
@@ -59,6 +60,21 @@ class LandingPage extends Component {
     })
     .catch(error => {
       console.log("Error in invites", error)
+    })
+  }
+
+  loadMediationRequests = () => {
+    axios.get(`/api/v1/bets/mediation-requests.json`, config)
+    .then(response => {
+      console.log("Reloading Mediation Requests" + response.data)
+      this.setState({
+        ...this.state,
+        invites: response.data
+      })
+      return null
+    })
+    .catch(error => {
+      console.log("Error in Mediation Requests", error)
     })
   }
 
@@ -113,6 +129,12 @@ class LandingPage extends Component {
                     <InviteColumn
                       getMainState={this.getMainState}
                       loadInvites={this.loadInvites}
+                      loadBets={this.loadBets}/>
+                  </div>
+                  <div className="med-req-column">
+                    <MediationRequestsColumn
+                      getMainState={this.getMainState}
+                      loadMediationRequests={this.loadMediationRequests}
                       loadBets={this.loadBets}/>
                   </div>
                 </Col>

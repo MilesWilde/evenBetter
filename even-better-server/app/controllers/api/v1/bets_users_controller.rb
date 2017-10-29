@@ -10,4 +10,8 @@ class Api::V1::BetsUsersController < ApplicationController
     #binding.pry
   end
 
+  def index
+    @bets_users=BetUser.where(user_id: current_user[:id])
+    render json: @bets_users
+  end
 end

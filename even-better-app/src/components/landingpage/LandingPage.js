@@ -38,6 +38,7 @@ class LandingPage extends Component {
       user: {},
       invites: [],
       bets: [],
+      betsUsers: [],
       mediationRequests: []
     }
   }
@@ -66,7 +67,6 @@ class LandingPage extends Component {
   loadMediationRequests = () => {
     axios.get(`/api/v1/bets/mediation-requests.json`, config)
     .then(response => {
-      debugger
       console.log("Reloading Mediation Requests" + response.data)
       this.setState({
         ...this.state,
@@ -88,10 +88,26 @@ class LandingPage extends Component {
         ...this.state,
         bets: response.data
       })
+      this.loadBetsUsers()
       return null
     })
     .catch(error => {
       console.log("Error in Acceptances", error)
+    })
+  }
+
+  loadBetsUsers = () => {
+    axios.get(`/api/v1/bets_users.json`, config)
+    .then(response => {
+      console.log("Reloading BetsUsers" + response.data)
+      this.setState({
+        ...this.state,
+        betsUsers: response.data
+      })
+      return null
+    })
+    .catch(error => {
+      console.log("Error in BetsUsers", error)
     })
   }
 

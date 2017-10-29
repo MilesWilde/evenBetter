@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar'
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
+import SvgIcon from 'material-ui/SvgIcon';
+import ContentPaste from 'material-ui/svg-icons/content/content-paste';
 
 const styles = {
   bar: {
@@ -10,17 +12,26 @@ const styles = {
     position: 'fixed'
   },
   button: {
-    marginTop: '5px'
+    marginTop: '5px',
+    color: '#80DEEA'
+  },
+  title: {
+    color: '#FFF',
+    fontWeight: 'bold'
+  },
+  icon: {
+    color: '#FFF',
+    marginTop: '11px'
   }
 }
 
 const NavBar = (props) => {
   return(
     <AppBar
-      title={<Link to='/home'>Even Better</Link>}
+      title={<Link style={ styles.title } to='/home'>EVEN•BETTER</Link>}
       style={ styles.bar }
-      onLeftIconButtonTouchTap={ props.handleNavMenuOpen }
-      showMenuIconButton={ false }
+      /* showMenuIconButton={ false } */
+      iconElementLeft={ <ContentPaste style={ styles.icon } /> }
       iconElementRight={
         props.currentUser ?
         <div>

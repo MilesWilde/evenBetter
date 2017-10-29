@@ -5,7 +5,6 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import './App.css'
 
 import NavBar from './components/NavBar'
-import NavMenu from './components/NavMenu'
 import NotFound from './components/NotFound'
 import UsersContainer from './components/UsersContainer'
 import SplashPage from './components/splashpage/SplashPage'
@@ -62,18 +61,6 @@ class App extends Component {
     }
   }
 
-  handleNavMenuOpen = () => {
-    this.setState({ ...this.state, navMenuOpen: true })
-  }
-
-  handleNavMenuClose = () => {
-    this.setState({ ...this.state, navMenuOpen: false })
-  }
-
-  handleNavMenuRequestChange = (open) => {
-    this.setState({ ...this.state, navMenuOpen: open })
-  }
-
   logOut(event){
     window.localStorage.clear()
     this.setState({ ...this.state, currentUser: null })
@@ -101,12 +88,6 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <NavBar currentUser={ this.state.currentUser } handleNavMenuOpen={ this.handleNavMenuOpen } />
-        <NavMenu
-          open={ this.state.navMenuOpen }
-          currentUser={ this.state.currentUser }
-          handleRequestChange={ this.handleNavMenuRequestChange}
-          handleNavMenuClose={ this.handleNavMenuClose }
-        />
         <div style={{ paddingTop: 64 }}></div>
         <main>
           <Switch>

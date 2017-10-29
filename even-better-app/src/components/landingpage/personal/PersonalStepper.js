@@ -73,8 +73,6 @@ class PersonalStepper extends React.Component {
           betting_deadline: this.state.data[1].betDeadlineDate,
           outcome_deadline: this.state.data[1].decisionDeadlineDate,
           creator_id: window.localStorage.user_id,
-          created_at: "2017-10-25 22:41:29.403225",
-          updated_at: "2017-10-25 22:41:29.403225",
           outcome_id: null,
           possibilities: this.state.data[2].possibilities
         });
@@ -109,7 +107,7 @@ class PersonalStepper extends React.Component {
         possibilities: userData.possibilities
       }
     }
-    console.log("TempstateHold", tempStateHold)
+    console.log("State at Personal Stepper: ", tempStateHold)
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,

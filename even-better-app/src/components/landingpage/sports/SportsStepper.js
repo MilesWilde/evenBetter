@@ -71,22 +71,16 @@ class SportsStepper extends React.Component {
       creator_id: window.localStorage.user_id,
       betting_deadline: this.state.data[0].gameDate.toString(),
       outcome_deadline: this.state.data[0].gameDate.toString(),
-      created_at: "2017-10-25 22:41:29.403225",
-      updated_at: "2017-10-25 22:41:29.403225",
       outcome_id: null,
       possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
-    }).then(res => {console.log("Response: ", res)
+    }).then(res => {
                     let betId = res.data.possibilities[0].bet_id
-                    console.log("Bet id is: ", betId)
                     let creatorPossId = null
                     res.data.possibilities.forEach((poss) => {
-                      console.log(this.state.data[2].chosenWinner)
-                      console.log(poss.description)
                       if(this.state.data[2].chosenWinner == poss.description) {
                         creatorPossId = poss.id
                       }
                     })
-                    console.log("Creators chosen ID IS: ", creatorPossId)
                     this.setState({ betId: betId,
                                     creatorPossId: creatorPossId})    
                     }
@@ -97,7 +91,7 @@ class SportsStepper extends React.Component {
         }
         axios.patch(`/api/v1/bets_users/${this.state.betId}`, data, config)
         .then(response => {
-          console.log("Response from patch: ")
+          console.log("Response from sports patch: ")
           console.log(response.data)
         })
         .catch(error => {
@@ -139,7 +133,7 @@ class SportsStepper extends React.Component {
       }
     }
 
-    console.log("TempstateHold", tempStateHold)
+    console.log("State of Sports Stepper: ", tempStateHold)
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,

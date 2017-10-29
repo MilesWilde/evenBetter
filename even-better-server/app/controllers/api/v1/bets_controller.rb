@@ -24,6 +24,7 @@ module Api::V1
         @bet.save!
         # Add users to the bet
         @users.map{ |user| @bet.users << user }
+        @bet.users << User.find(params[:mediator_id]) if params[:mediator_id]
         render json: @bet.to_json({ include: [:possibilities, :users] }), status: :created
       else
         json_response({ message: "Validation failed: Users must have at least 2 users"}, :unprocessable_entity)
@@ -31,7 +32,15 @@ module Api::V1
     end
 
     def show
-      render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
+      render json: @bet.to_json({
+        include:
+          [
+            :possibilities,
+            :users,
+            :creator,
+            :mediator
+          ]
+      })
     end
 
     def update

@@ -30,6 +30,7 @@ var config = {
 }
 
 
+
 class LandingPage extends Component {
   constructor(props) {
     super(props);
@@ -66,7 +67,6 @@ class LandingPage extends Component {
   loadMediationRequests = () => {
     axios.get(`/api/v1/bets/mediation-requests.json`, config)
     .then(response => {
-      debugger
       console.log("Reloading Mediation Requests" + response.data)
       this.setState({
         ...this.state,
@@ -81,7 +81,7 @@ class LandingPage extends Component {
 
   // Helper function that allows Active Bets to be loaded/reloaded
   loadBets = () => {
-    axios.get(`/api/v1/bets/acceptances.json`, config)
+    axios.get(`/api/v1/bets`, config)
     .then(response => {
       console.log("Reloading Acceptances" + response.data)
       this.setState({

@@ -64,10 +64,12 @@ module Api::V1
           # Deciding Winner and Loser
           if deliverToClient[:homeScore].to_i > deliverToClient[:awayScore].to_i
               deliverToClient[:gameWinner] = deliverToClient[:homeTeamName] + " " + deliverToClient[:homeNickName]
-          elsif deliverToClient[:homeScore].to_i === deliverToClient[:awayScore].to_i
-              deliverToClient[:gameWinner] = "Tie game"
-          else
+          elsif deliverToClient[:homeScore] === ''
+              deliverToClient[:gameWinner] = nil
+          elsif deliverToClient[:homeScore].to_i < deliverToClient[:awayScore].to_i
               deliverToClient[:gameWinner] = deliverToClient[:awayTeamName] + " " + deliverToClient[:awayNickName]
+          else 
+              deliverToClient[:gameWinner] = "Tie game"
           end
 
           #JSON VERSION

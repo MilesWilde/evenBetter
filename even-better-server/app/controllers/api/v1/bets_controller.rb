@@ -32,6 +32,16 @@ module Api::V1
     end
 
     def show
+      # when a user goes to his landing page
+      # checks all bets if they have a possibility_id
+      # if they don't have a possibility_id,
+      # it should check the api/v1/games against the gamecode of that bet
+      # if the gamecode's gameWinner is !null
+      # then set the possibility_id to be equal to the possibility_id in possibilities
+      # then go through betuser table looking for people who selected that possibility
+      # increment their points by the pool of that bet divided by the count of the betuser table
+      # with people who have has_accepted = t
+
       render json: @bet.to_json({
         include:
           [
@@ -41,6 +51,9 @@ module Api::V1
             :mediator
           ]
       })
+      current_user_bets_array = BetUser.where(user_id: current_user.id)
+      no_possibility_array = Bet.where(outcome_id: nil)
+      binding.pry
     end
 
     def update

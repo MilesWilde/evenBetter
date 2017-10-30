@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171030150019) do
     t.bigint "outcome_id"
     t.date "game_date"
     t.string "game_type"
-    t.bigint "game_code"
+    t.integer "game_code"
     t.index ["creator_id"], name: "index_bets_on_creator_id"
     t.index ["mediator_id"], name: "index_bets_on_mediator_id"
     t.index ["outcome_id"], name: "index_bets_on_outcome_id"

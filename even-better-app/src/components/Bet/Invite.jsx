@@ -40,7 +40,6 @@ class Invite extends Component {
   // render error page
   }
 
-
   openInviteDialog = (e) => {
     // Open Dialog Box
     return (
@@ -53,7 +52,7 @@ class Invite extends Component {
     return (
       <div>
       <InviteDialog
-        primaryText={this.state.fromUser}
+        primaryText={"Invite from " + this.state.fromUser}
         bet={this.props.bet}
         loadInvites={this.props.loadInvites}
         loadBets={this.props.loadBets}

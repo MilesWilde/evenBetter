@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import './css/LandingPage.css';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
 import InviteColumn from './InviteColumn'
 import BetsColumn from './BetsColumn'
 import MediationRequestsColumn from '../MediationRequests/MediationRequestsColumn'
@@ -125,14 +123,21 @@ class LandingPage extends Component {
   }
   render() {
     return (
-      <Container fluid={true}>
-        <MuiThemeProvider>
-              <Col md="4" id="stats-column">
+      <Container
+      class="landing-container"
+      fluid={true}
+      style={{padding: 0}}>
+
+              <Col
+                md="4"
+                style={{backgroundColor: '#455A64'}}
+                id="stats-column">
                 <div>
-                  <h1>Hello, <strong>{this.state.user.username}!</strong></h1>
+                  <h1 style={{color: '#80DEEA', paddingLeft: 15}}>Hello, <strong>{this.state.user.username}!</strong></h1>
                   <PointsColumn user={this.state.user}/>
                 </div>
                 <ChangingProgressbar
+                      style={{textAlign: 'center'}}
                       user={this.state.user}
                       percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
                     />
@@ -140,6 +145,7 @@ class LandingPage extends Component {
             <Col md="8">
               <Row>
                 <PopupBets
+                style={{paddingLeft: '10px'}}
                 loadBets={this.loadBets}
                 />
               </Row>
@@ -166,7 +172,7 @@ class LandingPage extends Component {
                 </Col>
               </Row>
             </Col>
-        </MuiThemeProvider>
+
       </Container>
     )
   }

@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import TextField from 'material-ui/TextField'
+import Container from 'muicss/lib/react/container'
+import Col from 'muicss/lib/react/col'
+import RaisedButton from 'material-ui/RaisedButton';
+import './login.css'
 var pointsFunction = require('../landingpage/ranklogic')
 
 class Login extends Component {
@@ -71,30 +75,50 @@ class Login extends Component {
 
   render () {
     return (
-      <div>
-        <h1><strong>Hello! Please Sign in Below</strong></h1>
-        <form onSubmit={this.handleSubmit}>
-          <TextField
-            name="email"
-            type="email"
-            hintText="Email"
-            errorText={this.state.emailInvalid ? this.state.errorMessage : ""}
-            value={this.state.email}
-            onChange={this.handleInputChange}
-          />
-          <br />
-          <TextField
-            name="password"
-            type="password"
-            hintText="Password"
-            errorText={this.state.passwordInvalid ? this.state.errorMessage : ""}
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
+      <Container
+      className="login-container"
+      fluid={true}
+      style={{backgroundColor: '#E0E0E0'}}
+      >
+        <Col md="4"
+        className="side-column"
+        />
+        <Col md="4"
+        >
+          <div>
+            <h1 style={{color: "#455A64"}}><strong>Hello! Please Sign in Below</strong></h1>
+            <form onSubmit={this.handleSubmit}>
+              <TextField
+                name="email"
+                type="email"
+                hintText="Email"
+                errorText={this.state.emailInvalid ? this.state.errorMessage : ""}
+                value={this.state.email}
+                onChange={this.handleInputChange}
+              />
+              <br />
+              <TextField
+                name="password"
+                type="password"
+                hintText="Password"
+                errorText={this.state.passwordInvalid ? this.state.errorMessage : ""}
+                value={this.state.password}
+                onChange={this.handleInputChange}
+              />
+              <br />
+                <RaisedButton
+                  type="Submit"
+                  label="Submit"
+                  fullWidth= {true}
+                  onClick={this.handleSubmit}
+                  primary="true" />
+            </form>
+          </div>
+        </Col>
+        <Col
+        className="side-column"
+        md="4" />
+      </Container>
     )
   }
 }

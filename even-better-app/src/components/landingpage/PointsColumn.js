@@ -27,22 +27,27 @@ class PointsColumn extends Component {
         <div className = "invite-column">
         <strong>
               <MenuItem
+                style={{color: '#FFF'}}
                 primaryText={`Your points: ${this.props.user.points}`}
               />
 
               <MenuItem
+                style={{color: '#FFF'}}
                 primaryText={`Your point rank: ${pointsFunction.rankDetermine(this.props.user.points).rank}`}
               />
 
               <MenuItem
+                style={{color: '#FFF'}}
                 primaryText={`Points to next rank: ${pointsFunction.rankDetermine(this.props.user.points).pointsToNext}`}
               />
 
               <MenuItem
+                style={{color: '#FFF'}}
                 primaryText={`Your betting rank: ${pointsFunction.betRankDetermine(window.localStorage.user_bets).rank}`}
               />
 
               <MenuItem
+                style={{color: '#FFF'}}
                 primaryText={`Bets to next rank: ${pointsFunction.betRankDetermine(window.localStorage.user_bets).betsToNext}`}
               />
         </strong>

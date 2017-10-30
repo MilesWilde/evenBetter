@@ -240,7 +240,8 @@ class Bet extends Component {
       this.setState({
         currentlySelectedPossibility: null,
         betDetails: {
-          ...res.data
+          ...this.state.betDetails,
+          outcome_id: res.data.outcome_id
         }
       })
       return

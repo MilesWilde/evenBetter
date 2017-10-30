@@ -4,9 +4,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
-import ListItem from 'material-ui/List';
-import MediationRequestPossibility from './MediationRequestPossibility'
-import moment from 'moment'
+
 
 var config = {
   headers: {
@@ -28,7 +26,6 @@ class MediationRequestDialog extends Component {
 
   handleOpen = () => {
     this.setState({open: true});
-    this.setBetOptions()
   };
 
   handleClose = () => {
@@ -42,33 +39,10 @@ class MediationRequestDialog extends Component {
     this.props.loadBets()
   };
 
-
-  setBetOptions = () => {
-    axios.get(`/api/v1/bets/${this.props.bet.id}/possibilities.json`, config)
-    .then(response => {
-      // Show bet options
-      this.setState( { possibilities: response.data })
-      // Let user pick one
-    })
-    .catch(error => {
-      console.log(error)
-    } )
-  }
-
-  selectOption = (option) => {
-    console.log("Option")
-    console.log(option)
-    this.setState({
-      ...this.state,
-      selected: option
-    })
-  }
-
   handleAccept = (e) => {
     // Update bet_user - has_accepted to true
     var data = {
-      has_accepted: true,
-      possibility_id: this.state.selected.id
+      has_accepted: true
     }
     axios.patch(`/api/v1/bets_users/${this.props.bet.id}`, data, config)
     .then(response => {
@@ -95,40 +69,18 @@ class MediationRequestDialog extends Component {
     })
   }
 
-  // Helper function to convert deadline string to timestamp
-  betTimestamp(dateAndTime) {
-    // Split timestamp into [ Y, M, D, h, m, s ]
-    var dat = dateAndTime.replace('T',' ').replace('Z','')
-    var t = dat.split(/[- :]/);
-
-    // Apply each element to the Date function
-    var date = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
-
-    return date.getTime()
-  }
-
-  // Utility function to check for empty object
-  isEmpty = (obj) => {
-    for(var prop in obj) {
-        if(obj.hasOwnProperty(prop))
-            return false;
-    }
-
-    return JSON.stringify(obj) === JSON.stringify({});
-  }
 
  render() {
     const actions = [
       <FlatButton
-        label="Decline Request"
+        label="Decline"
         primary={true}
         onClick={this.handleDecline}
       />,
       <FlatButton
-        label="Select Outcome"
+        label="Accept"
         primary={true}
         onClick={this.handleAccept}
-        disabled={ Date.now() > this.betTimestamp(this.props.bet.betting_deadline) ? false : true}
       />,
     ];
 
@@ -142,12 +94,6 @@ class MediationRequestDialog extends Component {
             onRequestClose={this.handleClose}
             actions={actions}
           >
-          {this.state.possibilities.map((option) => {
-            return (
-             <MediationRequestPossibility
-             action={this.selectOption} option={option}/>
-            )
-          })}
           </Dialog>
         </ MenuItem>
     );

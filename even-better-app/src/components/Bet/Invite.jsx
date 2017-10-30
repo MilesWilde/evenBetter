@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import MenuItem from 'material-ui/MenuItem';
-import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import Divider from 'material-ui/Divider';
 import axios from 'axios';
 import InviteDialog from './InviteDialog'
-
-
 
 var config = {
   headers: {
@@ -44,8 +40,6 @@ class Invite extends Component {
   // render error page
   }
 
-
-
   openInviteDialog = (e) => {
     // Open Dialog Box
     return (
@@ -57,14 +51,12 @@ class Invite extends Component {
   render() {
     return (
       <div>
-      <MenuItem>
       <InviteDialog
         primaryText={"Invite from " + this.state.fromUser}
         bet={this.props.bet}
         loadInvites={this.props.loadInvites}
         loadBets={this.props.loadBets}
       />
-      </MenuItem>
       <Divider/>
       </div>
     )

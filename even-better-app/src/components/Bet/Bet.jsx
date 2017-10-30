@@ -21,20 +21,16 @@ const styles = {
   wrapper: {
     display: 'flex',
     flexFlow: 'row wrap',
-    alignContent: 'stretch',
-    alignItems: 'stretch',
-    overflow: 'hidden',
-    color: '#FFF'
+    color: '#FFF',
+    backgroundColor: '#E0E0E0'
   },
   chatBox: {
     flex: '1 1 0',
-    width: '30px',
-    minWidth: '320px',
+    minWidth: '310px',
   },
   betBox: {
     flex: '1 1 0',
-    width: '30px',
-    minWidth: '320px',
+    minWidth: '310px',
     backgroundColor: '#455A64',
   }
 }

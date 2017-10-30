@@ -23,7 +23,7 @@ class ChatMessageArea extends Component {
       <div style={ chatMessageAreaStyle }>
         <div style={{ overflowY: 'auto' }}>
         {this.props.chatLogs.map( (message) => {
-          return <ChatMessage key={message.id} message={message}/>
+          return <ChatMessage key={message.id} currentUser={ this.props.currentUser } message={message}/>
         })}
         <div ref={ (el) => this.messagesEnd = el }></div>
         </div>

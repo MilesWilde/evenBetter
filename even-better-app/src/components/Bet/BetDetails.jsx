@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route, Switch, Link, Redirect } from 'react-router-dom'
 import Chip from 'material-ui/Chip'
 import Avatar from 'material-ui/Avatar'
 import Moment from 'moment'
@@ -47,10 +46,19 @@ const BetDetails = (props) => {
         } else if (props.outcomeId) {
           backgroundColor = '#FF5252'
         }
-        return <Chip key={ possibility.id } data-id={ possibility.id } style={ styles.chip } onClick={ props.outcomeId ? undefined : props.handlePossibilitySelectionConfirmationOpen } backgroundColor={ backgroundColor } labelColor='#000'>
-          <Avatar>{ index + 1 }</Avatar>
-          { possibility.description }
-        </Chip>
+        return (
+          <Chip
+            key={ possibility.id }
+            data-id={ possibility.id }
+            style={ styles.chip }
+            onClick={ props.outcomeId ? undefined : props.handlePossibilitySelectionConfirmationOpen }
+            backgroundColor={ backgroundColor }
+            labelColor='#000'
+          >
+            <Avatar>{ index + 1 }</Avatar>
+            { possibility.description }
+          </Chip>
+        )
       })}
       </div>
       <h3 style={ styles.header }>Participants</h3>
@@ -69,6 +77,8 @@ const BetDetails = (props) => {
             return possibility.id === user.possibility_id
           })
           return <Chip style={ styles.chip } key={user.id} labelColor='#000' backgroundColor={ backgroundColor }><Avatar>{ userPossibility ? possibilityIndex + 1 : '-' }</Avatar>{ user.username }</Chip>
+        } else {
+          return null
         }
       })}
       </div>

@@ -52,25 +52,28 @@ module Api::V1
       # increment their points by the pool of that bet divided by the count of the betuser table
 
       finished_games = []
-      # find current user's bets
+      # find current user's bets where it's a sport bet that gamedate occurs today or earlier
+      # unfinished_game_array = Bet.where(outcome_id: nil).where(user_id: current_user.id).where(game_code: !nil).where("game_date <= ?", Date.today)
       # check api/v1/games for gamecodes of unfinished_game_array
-      # unfinished_game_array = Bet.where(outcome_id: nil).where(user_id: current_user.id).where(gamecode: !nil)
       # # something like:
-      # # loop through all games without possibility chosen
+      # # loop through all games without outcome chosen
       # unfinished_game_array.each do |unfinished_game|
-      # # loop through every game on api
-      #   api/v1/games.each do |sport_game|
-      # # if game on api gamecode is the game without possibility, and the api game winner has been chosen
-      #     if sport_game.gamecode == unfinished_game.gamecode && sport_game.gameWinner !== nil
-      # # look at all possibilities with a bet_id equal to the game without a possibility
+      # # loop through each game on api occurring of that type and on that day 
+      # (e.g.) unfinished_game.date = 2017-10-31, unfinished_game.type = "NBA"
+      #   api/v1/games(unfinished_game.game_type, unfinished_game.game_date).each do |sport_game|
+      # # if game on api gamecode is the game without outcome, and the api game winner has been chosen
+      #     if sport_game.gamecode === unfinished_game.gamecode && sport_game.gameWinner !== nil
+      # # look at all possibilities with a bet_id equal to the game without an outcome
       #       Possibility.where(bet_id: unfinished_game.bet_id).each do |possibility|
       # # and find if the possibility name is the name of the winning team
-      #         if possibility.name == winning_team
+      #         if possibility.name === winning_team
       # # then set the game without a possibility's possibility id to the correct winning team's possibility id
       #           unfinished_game.possibility_id = possibility.id
       #           possibility.save
-      #           BetUser.where(possibility_id: possibility.id).each do |winner|
-      #             winner.points += pool/count
+      #           BetUser.where(possibility_id: possibility.id).each do |betuser_winner|
+      #             winner = User.find(betuser_winner.user_id)
+      #             winner.points += unfinished_game.pool/BetUser.where(bet_id: unfinished_game.id).count
+      #             winner.save
       #           end
       #         end
       #       end

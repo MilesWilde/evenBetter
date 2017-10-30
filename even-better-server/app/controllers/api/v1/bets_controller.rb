@@ -32,15 +32,6 @@ module Api::V1
     end
 
     def show
-      # when a user goes to his landing page
-      # checks all bets if they have a possibility_id
-      # if they don't have a possibility_id,
-      # it should check the api/v1/games against the gamecode of that bet
-      # if the gamecode's gameWinner is !null
-      # then set the possibility_id to be equal to the possibility_id in possibilities
-      # then go through betuser table looking for people who selected that possibility
-      # increment their points by the pool of that bet divided by the count of the betuser table
-      # with people who have has_accepted = t
 
       render json: @bet.to_json({
         include:
@@ -51,9 +42,41 @@ module Api::V1
             :mediator
           ]
       })
-      current_user_bets_array = BetUser.where(user_id: current_user.id)
-      no_possibility_array = Bet.where(outcome_id: nil)
-      binding.pry
+      # when a user goes to his landing page
+      # checks all bets if they have a possibility_id
+      # if they don't have a possibility_id,
+      # it should check the api/v1/games against the gamecode of that bet
+      # if the gamecode's gameWinner is !null
+      # then set the possibility_id to be equal to the possibility_id in possibilities
+      # then go through betuser table looking for people who selected that possibility
+      # increment their points by the pool of that bet divided by the count of the betuser table
+
+      finished_games = []
+      # find current user's bets
+      # unfinished_game_array = Bet.where(outcome_id: nil).where(user_id: current_user.id).where(gamecode: !nil)
+      # # check api/v1/games for gamecodes of unfinished_game_array
+      # # something like:
+      # # loop through all games without possibility chosen
+      # unfinished_game_array.each do |unfinished_game|
+      # # loop through every game on api
+      #   api/v1/games.each do |sport_game|
+      # # if game on api gamecode is the game without possibility, and the api game winner has been chosen
+      #     if sport_game.gamecode == unfinished_game.gamecode && sport_game.gameWinner !== nil
+      # # look at all possibilities with a bet_id equal to the game without a possibility
+      #       Possibility.where(bet_id: unfinished_game.bet_id).each do |possibility|
+      # # and find if the possibility name is the name of the winning team
+      #         if possibility.name == winning_team
+      # # then set the game without a possibility's possibility id to the correct winning team's possibility id
+      #           unfinished_game.possibility_id = possibility.id
+      #           possibility.save
+      #           BetUser.where(possibility_id: possibility.id).each do |winner|
+      #             winner.points += pool/count
+      #           end
+      #         end
+      #       end
+      #     end
+      #   end
+      # end
     end
 
     def user_possibilities

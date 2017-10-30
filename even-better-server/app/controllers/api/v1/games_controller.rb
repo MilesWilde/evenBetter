@@ -1,7 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-require 'json'
-
 module Api::V1
   class String
     def initial

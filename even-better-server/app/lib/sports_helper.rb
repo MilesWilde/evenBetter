@@ -1,3 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
+require 'json'
+
 module SportsHelper
   def self.stat_scraper(gameVersion, gameDate)
     urlGameVersion = gameVersion

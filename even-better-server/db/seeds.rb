@@ -210,6 +210,120 @@ link_joey.possibility = the_boys
 link_joey.has_accepted = true
 link_joey.save!
 
+audi = User.create!({
+  first_name: 'Audi',
+  last_name: 'Sada',
+  email: 'audisho.sada@gmail.com',
+  username: 'OD',
+  points: 900,
+  password: '11111111',
+  password_confirmation: '11111111'
+})
+
+rahul = User.create!({
+  first_name: 'Rahul',
+  last_name: 'Ramesh',
+  email: 'rahul.ramesh888@gmail.com',
+  username: 'rahul',
+  points: 900,
+  password: '11111111',
+  password_confirmation: '11111111'
+})
+
+puts '--- CREATING NBA BET FOR TOMORROW ---'
+
+tomorrow = Date.today + 1.day
+tomorrow = tomorrow.to_s[0, 10].gsub! '-',''
+game = JSON(SportsHelper::stat_scraper('NBA', tomorrow))['games'][0]
+
+
+nba_bet = Bet.new({
+  title: "#{game['homeTeamName']} #{game['homeNickName']} vs. #{game['awayTeamName']} #{game['awayNickName']}",
+  pool: 200,
+  betting_deadline: Time.now + 1.day,
+  outcome_deadline: Time.now + 2.day,
+  creator: audi,
+  game_date: game['gameDate'],
+  game_type: game['gameType'],
+  game_code: game['gameCode']
+})
+
+nba_bet.users << [audi, rahul]
+
+home_team = nba_bet.possibilities.build({
+  description: game['homeTeamName']
+})
+
+away_team = nba_bet.possibilities.build({
+  description: game['awayTeamName']
+})
+
+nba_bet.save!
+
+link_audi = audi.bet_users.first
+link_audi.possibility = home_team
+link_audi.save!
+
+link_rahul = rahul.bet_users.first
+link_rahul.possibility = away_team
+link_rahul.save!
+
+puts '--- CREATING EPL BET FROM YESTERDAY ---'
+
+yesterday = Date.today - 1.day
+yesterday = yesterday.to_s[0, 10].gsub! '-',''
+game = JSON(SportsHelper::stat_scraper('EPL', yesterday))['games'][0]
+
+puts '--- CREATING BET ---'
+epl_bet = Bet.new({
+  title: "#{game['homeTeamName']} #{game['homeNickName']} vs. #{game['awayTeamName']} #{game['awayNickName']}",
+  pool: 200,
+  betting_deadline: Time.now - 2.day,
+  outcome_deadline: Time.now - 1.day,
+  creator: audi,
+  game_date: game['gameDate'],
+  game_type: game['gameType']
+  # game_code: game['gameCode']
+})
+
+puts '--- ADDING USERS ---'
+epl_bet.users << [audi, rahul]
+
+puts '--- ADDING POSSIBILITIES ---'
+home_team = epl_bet.possibilities.build({
+  description: game['homeTeamName']
+})
+
+away_team = epl_bet.possibilities.build({
+  description: game['awayTeamName']
+})
+
+tie_game = epl_bet.possibilities.build({
+  description: 'Tie'
+})
+
+if game['homeScore'].to_i > game['awayScore'].to_i
+  game_winner = home_team
+elsif game['homeScore'].to_i < game['awayScore'].to_i
+  game_winner = away_team
+else
+  game_winner = tie_game
+end
+
+epl_bet.outcome = game_winner
+
+puts '--- SAVING BET ---'
+epl_bet.save!
+
+puts '--- SETTING POSSIBILITIES ---'
+link_audi = audi.bet_users.last
+link_audi.possibility = home_team
+link_audi.save!
+
+link_rahul = rahul.bet_users.last
+link_rahul.possibility = away_team
+link_rahul.save!
+
 # puts '--- CREATING USERS ---'
 # 30.times do
 #   FactoryGirl.create(:user)

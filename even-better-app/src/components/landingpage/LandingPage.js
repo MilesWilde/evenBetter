@@ -138,7 +138,9 @@ class LandingPage extends Component {
               </Col>
             <Col md="8">
               <Row>
-                <PopupBets />
+                <PopupBets
+                loadBets={this.loadBets}
+                />
               </Row>
               <Row>
                 <Col md="6">

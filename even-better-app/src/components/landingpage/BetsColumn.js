@@ -22,16 +22,16 @@ export default class BetsColumn extends Component {
 
 
   // Helper function to convert deadline string to timestamp
-  betTimestamp(dateAndTime) {
-    // Split timestamp into [ Y, M, D, h, m, s ]
-    var dat = dateAndTime.replace('T',' ').replace('Z','')
-    var t = dat.split(/[- :]/);
+  // betTimestamp(dateAndTime) {
+  //   // Split timestamp into [ Y, M, D, h, m, s ]
+  //   var dat = dateAndTime.replace('T',' ').replace('Z','')
+  //   var t = dat.split(/[- :]/);
 
-    // Apply each element to the Date function
-    var date = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
+  //   // Apply each element to the Date function
+  //   var date = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
 
-    return date.getTime()
-  }
+  //   return date.getTime()
+  // }
 
   // Checks if outcome exists, and if user picked the winning outcome
 
@@ -84,6 +84,10 @@ export default class BetsColumn extends Component {
                     </a></td>
                     <td><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
                     <td><a href= {`/bets/${bet.id}`}>
+<<<<<<< HEAD
+=======
+                      {/* { Date.now() < this.betTimestamp(bet.outcome_deadline) ? "PENDING" : this.betStatus(bet) } */}
+>>>>>>> master
                     </a></td>
                     <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td>
                   </tr>

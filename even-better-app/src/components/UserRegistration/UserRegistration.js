@@ -63,7 +63,7 @@ class UserRegistration extends Component {
     };
     axios.post('/signup', user)
     .then(response => {
-      this.props.history.push("/auth/login");
+      this.props.history.push("/login");
     })
     .catch(error => {
       this.setState({

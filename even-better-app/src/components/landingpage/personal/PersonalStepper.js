@@ -10,6 +10,7 @@ import FlatButton from 'material-ui/FlatButton';
 import NameDesc from './personalbetcontent/NameDesc';
 import BettingPool from './personalbetcontent/BettingPool'
 import PossibleBets from './personalbetcontent/PossibleBets'
+import ChoosePossibility from './personalbetcontent/ChoosePossibility'
 import axios from 'axios';
 import moment from 'moment';
 
@@ -43,7 +44,8 @@ class PersonalStepper extends React.Component {
         {
           possibilities:[]
         }
-      ]
+      ],
+      sendPossibility:[]
     }
   }
 
@@ -65,7 +67,7 @@ class PersonalStepper extends React.Component {
 
         userIDArray.push(window.localStorage.user_id)
 
-        zerver.post('/api/v1/bets', {
+        return zerver.post('/api/v1/bets', {
           title: this.state.data[0].name ,
           description: this.state.data[0].description ,
           pool: ((this.state.data[1].names.length)+1)*100,
@@ -76,6 +78,10 @@ class PersonalStepper extends React.Component {
           creator_id: window.localStorage.user_id,
           outcome_id: null,
           possibilities: this.state.data[2].possibilities
+        })
+        .then(response => {
+        console.log("Response from post axios call", response)
+          this.setState({sendPossibility: response.data.possibilities})
         });
       }
 
@@ -112,7 +118,7 @@ class PersonalStepper extends React.Component {
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2,
+      finished: stepIndex >= 3,
     });
   };
 
@@ -148,6 +154,18 @@ class PersonalStepper extends React.Component {
                               possibilities={this.state.data[2].possibilities}
                               makeAxiosCall = {this.makeAxiosCall}
                               />
+      case 3:
+      if(this.state.sendPossibility.length > 0) {
+      return <ChoosePossibility   handleNext={this.handleNext}
+                                  handlePrev={this.handlePrev}
+                                  data={this.state.data[2]}
+                                  stepIndex={stepIndex}
+                                  possibilities={this.state.data[2].possibilities}
+                                  makeAxiosCall = {this.makeAxiosCall}
+                                  sendPossibility = {this.state.sendPossibility}
+                                  wait={3000}
+                             />
+      }
       default:
         return 'Come on, make a Personal Bet!!';
     }
@@ -168,6 +186,9 @@ class PersonalStepper extends React.Component {
           </Step>
           <Step>
             <StepLabel>Define the possibilities</StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>Pick a choice</StepLabel>
           </Step>
         </Stepper>
         <div style={contentStyle}>

@@ -84,10 +84,7 @@ export default class BetsColumn extends Component {
                     </a></td>
                     <td><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
                     <td><a href= {`/bets/${bet.id}`}>
-<<<<<<< HEAD
-=======
                       {/* { Date.now() < this.betTimestamp(bet.outcome_deadline) ? "PENDING" : this.betStatus(bet) } */}
->>>>>>> master
                     </a></td>
                     <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td>
                   </tr>

@@ -53,8 +53,8 @@ module Api::V1
 
       finished_games = []
       # find current user's bets
+      # check api/v1/games for gamecodes of unfinished_game_array
       # unfinished_game_array = Bet.where(outcome_id: nil).where(user_id: current_user.id).where(gamecode: !nil)
-      # # check api/v1/games for gamecodes of unfinished_game_array
       # # something like:
       # # loop through all games without possibility chosen
       # unfinished_game_array.each do |unfinished_game|
@@ -141,7 +141,7 @@ module Api::V1
     private
 
     def bet_params
-      params.permit(:title, :pool, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities)
+      params.permit(:title, :pool, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities, :game_type, :game_date, :game_code)
     end
 
     def set_bet

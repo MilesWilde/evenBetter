@@ -11,6 +11,7 @@ import UserRegistration from './components/UserRegistration/UserRegistration'
 
 import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
+import Leaderboard from './components/Leaderboard/Leaderboard'
 
 // Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin'

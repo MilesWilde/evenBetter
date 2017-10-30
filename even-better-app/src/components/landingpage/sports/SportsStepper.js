@@ -72,6 +72,8 @@ class SportsStepper extends React.Component {
       betting_deadline: this.state.data[0].gameDate.toString(),
       outcome_deadline: this.state.data[0].gameDate.toString(),
       outcome_id: null,
+      game_date: this.state.data[0].gameDate.toString(),
+      game_type: this.state.data[0].sport.toString(),
       possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
     }).then(res => {
                     let betId = res.data.possibilities[0].bet_id

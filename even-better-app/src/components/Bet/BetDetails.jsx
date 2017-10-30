@@ -89,8 +89,8 @@ const BetDetails = (props) => {
       { props.mediator &&
       [<h3 style={ styles.header }>Mediator</h3>,<Chip style={ styles.chip }>{ props.mediator.username }</Chip>]
       }
-      <p style={ styles.p }>User acceptance cutoff { new Date(Date.now()).toISOString < props.bettingDeadline ? 'is' : 'was' } <span style={ styles.dates }>{ Moment(props.bettingDeadline).local().calendar() }</span></p>
-      <p style={ styles.p }>This bet { new Date(Date.now()).toISOString < props.bettingDeadline ? 'ends' : 'ended' } <span style={ styles.dates }>{ Moment(props.outcomeDeadline).local().calendar() }</span></p>
+      <p style={ styles.p }>User acceptance cutoff { new Date(Date.now()) < new Date(props.bettingDeadline) ? 'is' : 'was' } <span style={ styles.dates }>{ Moment(props.bettingDeadline).local().calendar() }</span></p>
+      <p style={ styles.p }>This bet { new Date(Date.now()) < new Date(props.bettingDeadline) ? 'ends' : 'ended' } <span style={ styles.dates }>{ Moment(props.outcomeDeadline).local().calendar() }</span></p>
     </div>
   )
 }

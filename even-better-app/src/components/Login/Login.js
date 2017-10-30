@@ -52,10 +52,11 @@ class Login extends Component {
       window.localStorage.auth_token = response.data.auth_token;
       window.localStorage.user_id = response.data.user_id;
       window.localStorage.user_bets = response.data.user_bets;
-      return(response.data.user_id)
+      window.localStorage.username = response.data.username;
+      return(response.data)
     })
-    .then( (userId) => {
-      this.props.handleLoginSuccess(userId)
+    .then( (userData) => {
+      this.props.handleLoginSuccess(userData.user_id, userData.username)
       return
     })
     .then( () => {

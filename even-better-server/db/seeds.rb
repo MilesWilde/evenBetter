@@ -274,7 +274,6 @@ yesterday = Date.today - 1.day
 yesterday = yesterday.to_s[0, 10].gsub! '-',''
 game = JSON(SportsHelper::stat_scraper('EPL', yesterday))['games'][0]
 
-puts '--- CREATING BET ---'
 epl_bet = Bet.new({
   title: "#{game['homeTeamName']} #{game['homeNickName']} vs. #{game['awayTeamName']} #{game['awayNickName']}",
   pool: 200,
@@ -282,14 +281,12 @@ epl_bet = Bet.new({
   outcome_deadline: Time.now - 1.day,
   creator: audi,
   game_date: game['gameDate'],
-  game_type: game['gameType']
-  # game_code: game['gameCode']
+  game_type: game['gameType'],
+  game_code: game['gameCode']
 })
 
-puts '--- ADDING USERS ---'
 epl_bet.users << [audi, rahul]
 
-puts '--- ADDING POSSIBILITIES ---'
 home_team = epl_bet.possibilities.build({
   description: game['homeTeamName']
 })
@@ -312,10 +309,8 @@ end
 
 epl_bet.outcome = game_winner
 
-puts '--- SAVING BET ---'
 epl_bet.save!
 
-puts '--- SETTING POSSIBILITIES ---'
 link_audi = audi.bet_users.last
 link_audi.possibility = home_team
 link_audi.save!

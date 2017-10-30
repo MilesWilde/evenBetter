@@ -126,21 +126,23 @@ class LandingPage extends Component {
       <Container
       class="landing-container"
       fluid={true}
-      style={{padding: 0}}>
-
+      style={{padding: 0, backgroundColor: '#E0E0E0'}}
+      >
               <Col
                 md="4"
                 style={{backgroundColor: '#455A64'}}
                 id="stats-column">
-                <div>
+              <div style={{ minHeight: 'calc(100vh - 64px)'}}>
+                {/* <div> */}
                   <h1 style={{color: '#80DEEA', paddingLeft: 15}}>Hello, <strong>{this.state.user.username}!</strong></h1>
                   <PointsColumn user={this.state.user}/>
-                </div>
+                {/* </div> */}
                 <ChangingProgressbar
                       style={{textAlign: 'center'}}
                       user={this.state.user}
                       percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
                     />
+              </div>
               </Col>
             <Col md="8">
               <Row>

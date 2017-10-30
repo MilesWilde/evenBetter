@@ -45,7 +45,8 @@ export default class PopupBets extends React.Component {
         <br/><RaisedButton
              className="bet-button"
              label="PLACE A BET"
-             fullWidth= {true}
+             fullWidth= {false}
+             style={{ width: 'calc(100% - 20px)' }}
              onClick={this.handleOpen}
               primary="true" />
         <Dialog

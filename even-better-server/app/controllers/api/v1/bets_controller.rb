@@ -153,7 +153,7 @@ module Api::V1
                 BetUser.where(possibility_id: possibility.id).each do |betuser_winner|
                   winner = User.find(betuser_winner.user_id)
                   winner.points += unfinished_game.pool/BetUser.where(bet_id: unfinished_game.id).count
-                  winner.save!
+                  winner.save!(validate: false)
                 end
               end
             end

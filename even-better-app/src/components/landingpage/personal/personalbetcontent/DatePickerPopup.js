@@ -61,6 +61,8 @@ class DatePickerPopup extends React.Component {
  />
         <DatePicker hintText="Decison Deadline (Mediator)"
                     autoOk = {true}
+                    onChange = {this._handleDecisionDeadlineDate}
+
  />
         <TimePicker hintText="Decision deadline time"
                     autoOk = {true}

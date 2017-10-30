@@ -3,6 +3,11 @@
   text-align: left;
 }
 
+.pop-up-bets > div:second-child {
+  border-radius: 10px 10px 5px 5px !important;
+  background-color: blue !important;
+}
+
 .bet-button {
   margin-left: 10px;
 }

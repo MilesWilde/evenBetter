@@ -27,7 +27,12 @@ var config = {
   }
 }
 
-
+const styles = {
+  dialog: {
+    background: 'blue',
+    color: 'pink'
+  }
+}
 
 class LandingPage extends Component {
   constructor(props) {
@@ -145,7 +150,8 @@ class LandingPage extends Component {
             <Col md="8">
               <Row>
                 <PopupBets
-                style={{paddingLeft: '10px'}}
+                className="pop-up-bets"
+                style={styles.dialog}
                 loadBets={this.loadBets}
                 />
               </Row>

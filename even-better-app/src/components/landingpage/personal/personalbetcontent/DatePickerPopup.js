@@ -32,7 +32,7 @@ class DatePickerPopup extends React.Component {
     this.setState({decisionDeadlineDateTime: decisionDeadlineDateTime})
     {this.props._handleChangeDecisionDateTime(decisionDeadlineDateTime)}
   }
-  
+
   // _nextWeekDate = () => {
   //   var now = new Date();
   //   var nextWeek = new Date(now);
@@ -40,12 +40,12 @@ class DatePickerPopup extends React.Component {
   //   return nextWeek
   // }
 
-  
+
   render () {
     return(
       <div>
-        
-        <DateTimePicker 
+
+        <DateTimePicker
                     DatePicker={DatePickerDialog}
                     TimePicker={TimePickerDialog}
                     hintText = "Enter bet deadline date and time"
@@ -53,7 +53,7 @@ class DatePickerPopup extends React.Component {
                     onChange = {this._handleBetDeadlineDateTime}
         />
 
-        <DateTimePicker 
+        <DateTimePicker
                     DatePicker={DatePickerDialog}
                     TimePicker={TimePickerDialog}
                     hintText = "Enter decision deadline date and time"

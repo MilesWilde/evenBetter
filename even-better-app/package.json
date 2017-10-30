@@ -11,6 +11,7 @@
     "link-react": "^3.0.0",
     "material-ui": "^0.19.4",
     "material-ui-chip-input": "^0.18.2",
+    "material-ui-datetimepicker": "^1.0.2",
     "moment": "^2.19.1",
     "muicss": "^0.9.27",
     "react": "^16.0.0",

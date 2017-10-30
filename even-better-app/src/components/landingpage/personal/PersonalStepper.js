@@ -67,14 +67,20 @@ class PersonalStepper extends React.Component {
 
         userIDArray.push(window.localStorage.user_id)
 
+
+        var dateTimeBetting = moment(this.state.data[1].betDeadlineDate + ' ' + this.state.data[1].betDeadlineTime, 'DD/MM/YYYY HH:mm');
+        console.log("DateTimeBetting: ", dateTimeBetting)
+        var dateTimeOutcome = moment(this.state.data[1].decisionDeadlineDate + ' ' + this.state.data[1].decisionDeadlineTime, 'DD/MM/YYYY HH:mm');
+        console.log("DateTimeOutcome: ", dateTimeOutcome)
+
         return zerver.post('/api/v1/bets', {
-          title: this.state.data[0].name ,
+          title: this.state.data[0].name,
           description: this.state.data[0].description ,
           pool: ((this.state.data[1].names.length)+1)*100,
           users: userIDArray,
           mediator_id: this.state.data[1].mediator.userId,
-          betting_deadline: this.state.data[1].betDeadlineDate,
-          outcome_deadline: this.state.data[1].decisionDeadlineDate,
+          betting_deadline: dateTimeBetting,
+          outcome_deadline: dateTimeOutcome,
           creator_id: window.localStorage.user_id,
           outcome_id: null,
           possibilities: this.state.data[2].possibilities

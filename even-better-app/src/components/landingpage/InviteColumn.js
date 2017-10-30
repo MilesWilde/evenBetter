@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import Divider from 'material-ui/Divider';
 import Invite from '../Bet/Invite'
-import axios from 'axios'
 
 const style = {
   display: 'inline-block',

@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
-import ListItem from 'material-ui/List';
 import InvitePossibility from './InvitePossibility'
 
 var config = {
@@ -119,7 +117,8 @@ class InviteDialog extends Component {
     ];
 
     return (
-        <MenuItem primaryText={this.props.primaryText} onClick={this.handleOpen}>
+        <MenuItem onClick={this.handleOpen}>
+        <div style={{width: "inherit"}}><strong>Invite</strong> from {this.props.primaryText}</div>
           <Dialog
             title={"Bet Invite: " + this.props.bet.title}
             autoScrollBodyContent = {true}

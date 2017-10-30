@@ -41,10 +41,12 @@ const BetDetails = (props) => {
       <div style={ styles.wrapper }>
       { props.possibilities.map( (possibility, index) => {
         let backgroundColor = '#0097A7'
+        // default background red (lose) when outcome deadlind reached
+        new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : null
         if (props.outcomeId && props.outcomeId === possibility.id) {
-          backgroundColor = '#00C853'
+          backgroundColor = '#00C853' // green for the winning outcome
         } else if (props.outcomeId) {
-          backgroundColor = '#FF5252'
+          backgroundColor = '#FF5252' // red for the losing outcome(s)
         }
         return (
           <Chip
@@ -66,10 +68,12 @@ const BetDetails = (props) => {
       { props.users.map( (user) => {
         if (user.id !== props.mediatorId) {
           let backgroundColor = undefined
+          // default background red (lose) when outcome deadlind reached
+          new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : null
           if (props.outcomeId && props.outcomeId === user.possibility_id) {
-            backgroundColor = '#00C853'
+            backgroundColor = '#00C853' // green for the winner(s)
           } else if (props.outcomeId) {
-            backgroundColor = '#FF5252'
+            backgroundColor = '#FF5252' // red for the loser(s)
           }
           let possibilityIndex = null
           const userPossibility = props.possibilities.find( (possibility, index) => {

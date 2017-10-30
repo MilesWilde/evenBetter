@@ -46,14 +46,20 @@ module Api::V1
       # checks all bets if they have a possibility_id
       # if they don't have a possibility_id,
       # it should check the api/v1/games against the gamecode of that bet
-      # if the gamecode's gameWinner is !null
+      # if the gamecode's gameWinner is !nil
       # then set the possibility_id to be equal to the possibility_id in possibilities
       # then go through betuser table looking for people who selected that possibility
       # increment their points by the pool of that bet divided by the count of the betuser table
 
-      finished_games = []
-      # find current user's bets where it's a sport bet that gamedate occurs today or earlier
-      # unfinished_game_array = Bet.where(outcome_id: nil).where(user_id: current_user.id).where(game_code: !nil).where("game_date <= ?", Date.today)
+      # find current user's bets under BetUser
+      # unfinished_game_array = []
+      # BetUser.where(user_id: current_user.id).each do |user_bet|
+      # find current user's bets where they're sports bets whose gamedate occurs today or earlier
+      #   unfinished_game_array.push  Bet.where(outcome_id: nil)
+      #                                  .where(id: user_bet.bet_id)
+      #                                  .where(game_code: !nil)
+      #                                  .where("game_date <= ?", Date.today).first
+      # end
       # check api/v1/games for gamecodes of unfinished_game_array
       # # something like:
       # # loop through all games without outcome chosen

@@ -16,7 +16,8 @@ class GamesList extends React.Component {
         this.state = {
             homeTeam: '',
             awayTeam: '',
-            fixtures: []
+            fixtures: [],
+            gameCode: ''
 
         }
     }
@@ -24,6 +25,7 @@ class GamesList extends React.Component {
     componentWillMount() {
         var listOfFixtures = []
         var teamLogos = []
+        var gameCodes = []
         console.log("this.props.data", this.props.data)
         GameStore.findAll({
             params: {
@@ -33,10 +35,13 @@ class GamesList extends React.Component {
         })
         .then((result) => {
             result.games.map((game) => {    
-                listOfFixtures.push(game.homeTeamName + " @ " + game.awayTeamName)
+                listOfFixtures.push({  
+                                        fixture: game.homeTeamName + " @ " + game.awayTeamName,
+                                        gameCode: game.gameCode
+                                    })
             })
             this.setState({
-                fixtures: listOfFixtures
+                fixtures: listOfFixtures,
             })
         })
         .catch((errors) => console.log("AXIOS CALL", errors))
@@ -50,19 +55,23 @@ class GamesList extends React.Component {
     handleMoveNext = () => { 
         this.props.handleNext({
             homeTeam: this.state.homeTeam,
-            awayTeam: this.state.awayTeam
+            awayTeam: this.state.awayTeam,
+            gameCode: this.state.gameCode
         });
     }
 
     _handleGameClick = (fixture,event) => {
 
         event.target.style.backgroundColor = "#91a6c9";
-        console.log("Handle Click Fixture: ", fixture)
-        let words = fixture.split("@ ")
+        console.log("Handle Click Fixture: ", fixture.fixture)
+        console.log("Handle Click GameCode ", fixture.gameCode)
+
+        let words = fixture.fixture.split("@ ")
 
         this.setState({
             homeTeam: words[1],
-            awayTeam: words[0]
+            awayTeam: words[0],
+            gameCode: fixture.gameCode
         })       
     }
 
@@ -73,7 +82,7 @@ class GamesList extends React.Component {
                     {
                     this.state.fixtures.map((fixture) => {
                     return <ListItem    
-                                primaryText={fixture}
+                                primaryText={fixture.fixture}
                                 onClick = {(event) => this._handleGameClick(fixture,event)}
                                 style = {style}
                                 /* leftAvatar = {

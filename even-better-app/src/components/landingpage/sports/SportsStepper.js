@@ -35,7 +35,8 @@ class SportsStepper extends React.Component {
       },
       {
         homeTeam: '',
-        awayTeam: ''
+        awayTeam: '',
+        gameCode: ''
       },
       {
         names: [],
@@ -63,6 +64,7 @@ class SportsStepper extends React.Component {
     });
 
     userIDArray.push(window.localStorage.user_id)
+    console.log("Game code before post: ", this.state.data[1].gameCode)
 
     zerver.post('/api/v1/bets', {
       title: `${this.state.data[1].homeTeam} vs. ${this.state.data[1].awayTeam}` ,
@@ -74,6 +76,7 @@ class SportsStepper extends React.Component {
       outcome_id: null,
       game_date: this.state.data[0].gameDate.toString(),
       game_type: this.state.data[0].sport.toString(),
+      game_code: this.state.data[1].gameCode,
       possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
     }).then(res => {
                     let betId = res.data.possibilities[0].bet_id
@@ -124,7 +127,8 @@ class SportsStepper extends React.Component {
     if (stepIndex === 1) {
       tempStateHold[1] = {
         homeTeam: userData.homeTeam,
-        awayTeam: userData.awayTeam
+        awayTeam: userData.awayTeam,
+        gameCode: userData.gameCode
       }
     }
     if (stepIndex === 2) {

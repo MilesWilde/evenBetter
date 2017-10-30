@@ -58,6 +58,7 @@ module Api::V1
       elsif !@bet.possibilities.exists?(params[:outcome_id])
         json_response({ message: 'Validation failed: Cannot select a possibility from another bet' }, :forbidden)
       else
+        @bet.outcome_id = params[:outcome_id]
         @bet.save!
         render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
 

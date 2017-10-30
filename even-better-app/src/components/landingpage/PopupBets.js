@@ -28,6 +28,7 @@ export default class PopupBets extends React.Component {
 
   handleClose = () => {
     this.setState({open: false});
+    this.props.loadBets();
   };
 
   render() {

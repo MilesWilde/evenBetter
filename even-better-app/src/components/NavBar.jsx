@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar'
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
-import SvgIcon from 'material-ui/SvgIcon';
 import ContentPaste from 'material-ui/svg-icons/content/content-paste';
 import Leaderboard from './Leaderboard/Leaderboard'
 

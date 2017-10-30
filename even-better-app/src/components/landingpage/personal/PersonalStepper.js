@@ -36,10 +36,8 @@ class PersonalStepper extends React.Component {
         {
           names: [],
           mediator: {},
-          betDeadlineDate: null,
-          betDeadlineTime:null,
-          decisionDeadlineDate: null,
-          decisionDeadlineTime:null
+          betDeadlineDateTime: '',
+          decisionDeadlineDateTime: '',
         },
         {
           possibilities:[]
@@ -73,8 +71,8 @@ class PersonalStepper extends React.Component {
           pool: ((this.state.data[1].names.length)+1)*100,
           users: userIDArray,
           mediator_id: this.state.data[1].mediator.userId,
-          betting_deadline: this.state.data[1].betDeadlineDate,
-          outcome_deadline: this.state.data[1].decisionDeadlineDate,
+          betting_deadline: this.state.data[1].betDeadlineDateTime,
+          outcome_deadline: this.state.data[1].decisionDeadlineDateTime,
           creator_id: window.localStorage.user_id,
           outcome_id: null,
           possibilities: this.state.data[2].possibilities
@@ -103,10 +101,8 @@ class PersonalStepper extends React.Component {
       tempStateHold[1] = {
         names: userData.names,
         mediator: userData.mediator,
-        betDeadlineDate: userData.betDeadlineDate,
-        betDeadlineTime: userData.betDeadlineTime,
-        decisionDeadlineDate: userData.decisionDeadlineDate,
-        decisionDeadlineTime: userData.decisionDeadlineTime,
+        betDeadlineDateTime: userData.betDeadlineDateTime,
+        decisionDeadlineDateTime: userData.decisionDeadlineDateTime,
       }
     }
     if (stepIndex === 2) {

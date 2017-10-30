@@ -19,10 +19,8 @@ class BettingPool extends React.Component  {
         this.state = {
             names: this.props.data.names,
             mediator: this.props.data.mediator,
-            betDeadlineDate: this.props.data.betDeadlineDate,
-            betDeadlineTime:this.props.data.betDeadlineTime,
-            decisionDeadlineDate: this.props.data.decisionDeadlineDate,
-            decisionDeadlineTime: this.props.data.decisionDeadlineTime,
+            betDeadlineDateTime: this.props.data.betDeadlineDateTime,
+            decisionDeadlineDateTime: this.props.data.decisionDeadlineDateTime,            
             errors: [],
             usersList:[]
         }
@@ -55,32 +53,17 @@ class BettingPool extends React.Component  {
         });
       }
 
-
-    _handleChangeBetDeadline = (e) => {
-        console.log("Bet Deadline Date is: ", e)
-        this.setState({
-            betDeadlineDate: e
-        });
-    }
-
-    _handleChangeBetTime = (e) => {
+    _handleChangeBetDateTime = (e) => {
         console.log("Bet Deadline Time is: ", e)
         this.setState({
-            betDeadlineTime: e
+            betDeadlineDateTime: e
         });
     }
 
-    _handleChangeDecisionDeadline = (e) => {
-        console.log("Decision Deadline Date is: ", e)
-        this.setState({
-            decisionDeadlineDate: e
-        });
-    }
-
-    _handleChangeDecisionTime = (e) => {
+    _handleChangeDecisionDateTime = (e) => {
         console.log("Decision Deadline Time is: ", e)
         this.setState({
-            decisionDeadlineTime: e
+            decisionDeadlineDateTime: e
         });
     }
 
@@ -99,10 +82,8 @@ class BettingPool extends React.Component  {
               this.props.handleNext({
                 names: this.state.names,
                 mediator: this.state.mediator,
-                betDeadlineDate: this.state.betDeadlineDate,
-                betDeadlineTime: this.state.betDeadlineTime,
-                decisionDeadlineDate: this.state.decisionDeadlineDate,
-                decisionDeadlineTime: this.state.decisionDeadlineTime,
+                betDeadlineDateTime: this.state.betDeadlineDateTime,
+                decisionDeadlineDateTime: this.state.decisionDeadlineDateTime,
               });
             } else {
               this.setState({errors})
@@ -124,10 +105,8 @@ class BettingPool extends React.Component  {
             <br />
             <DatePickerPopup 
                 dateProp={this.state}
-                _handleChangeBetDeadline = {this._handleChangeBetDeadline}
-                _handleChangeBetTime = {this._handleChangeBetTime}
-                _handleChangeDecisionDeadline = {this._handleChangeDecisionDeadline}
-                _handleChangeDecisionTime = {this._handleChangeDecisionTime}
+                _handleChangeBetDateTime = {this._handleChangeBetDateTime}
+                _handleChangeDecisionDateTime = {this._handleChangeDecisionDateTime}
                 />
             <FlatButton
                 label="Back"

@@ -51,6 +51,7 @@ class App extends Component {
     this.state = {
       redirectToReferrer: false,
       currentUser: null,
+      currentUsername: null,
       navMenuOpen: false
     }
   }
@@ -61,17 +62,19 @@ class App extends Component {
     event.stopPropagation()
   }
 
-  handleLoginSuccess = (userId) => {
+  handleLoginSuccess = (userId, username) => {
     this.setState({
       ...this.state,
-      currentUser: userId
+      currentUser: userId,
+      currentUsername: username
     })
   }
 
   componentWillMount() {
     this.setState({
       ...this.state,
-      currentUser: Number(window.localStorage.user_id) || null
+      currentUser: Number(window.localStorage.user_id) || null,
+      currentUsername: window.localStorage.username || null
     })
   }
 
@@ -81,7 +84,12 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <NavBar currentUser={ this.state.currentUser } handleLogout = {this.logOut} handleNavMenuOpen={ this.handleNavMenuOpen } />
+        <NavBar
+          currentUser={ this.state.currentUser }
+          currentUsername={ this.state.currentUsername }
+          handleLogout = {this.logOut}
+          handleNavMenuOpen={ this.handleNavMenuOpen }
+        />
         <div style={{ paddingTop: 64 }}></div>
         <main>
           <Switch>

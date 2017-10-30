@@ -4480,6 +4480,18 @@ material-ui-chip-input@^0.18.2:
   dependencies:
     prop-types "^15.5.7"
 
+material-ui-datetimepicker@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/material-ui-datetimepicker/-/material-ui-datetimepicker-1.0.2.tgz#aa9b841eda5ebfc425ce3cd0d4bc990a870eeba7"
+  dependencies:
+    material-ui "^0.19.4"
+    moment "^2.0.0"
+    peer-deps-externals-webpack-plugin "^1.0.2"
+    prop-types "^15.6.0"
+    react "^16.0.0"
+    react-dom "^16.0.0"
+    webpack "^3.5.1"
+
 material-ui@^0.19.4:
   version "0.19.4"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.19.4.tgz#ca9cdca8aa8bb594dfac5db38ec9ff045a323587"
@@ -4643,7 +4655,7 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-moment@^2.19.1:
+moment@^2.0.0, moment@^2.19.1:
   version "2.19.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.1.tgz#56da1a2d1cbf01d38b7e1afc31c10bcfa1929167"
 
@@ -5137,6 +5149,10 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+peer-deps-externals-webpack-plugin@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/peer-deps-externals-webpack-plugin/-/peer-deps-externals-webpack-plugin-1.0.2.tgz#c2fad829d27874b1700bb2e8f90dbc2f4cada2d1"
 
 performance-now@^0.2.0:
   version "0.2.0"
@@ -7196,7 +7212,7 @@ webpack@3.5.1:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-webpack@^3.8.1:
+webpack@^3.5.1, webpack@^3.8.1:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.8.1.tgz#b16968a81100abe61608b0153c9159ef8bb2bd83"
   dependencies:

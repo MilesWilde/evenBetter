@@ -36,9 +36,8 @@ const NavBar = (props) => {
         <div>
           <FlatButton label="Home" style={ styles.button } primary={true} containerElement={<Link to='/home'/>} />
           <FlatButton label="About" style={ styles.button } primary={true} containerElement={<Link to='/'/>} />
-          <FlatButton onClick = { props.handleLogout } label="Sign Out" style = {styles.button} containerElement={<Link to = '/' />} />
           <FlatButton label="Leaderboard" style={ styles.button } primary={true} containerElement={<Link to='/leaderboard'/>} />
-
+          <FlatButton label={ `Sign Out (${props.currentUsername})`} style = {styles.button} primary={true} containerElement={<Link to = '/' />} onClick = { props.handleLogout } />
         </div>
       :
         <div>

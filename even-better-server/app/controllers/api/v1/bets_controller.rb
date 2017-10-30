@@ -141,7 +141,7 @@ module Api::V1
     private
 
     def bet_params
-      params.permit(:title, :pool, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities)
+      params.permit(:title, :pool, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities, :game_type, :game_date, :game_code)
     end
 
     def set_bet

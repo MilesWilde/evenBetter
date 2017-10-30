@@ -1,27 +1,21 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import './App.css'
 
 import NavBar from './components/NavBar'
 import NotFound from './components/NotFound'
-import UsersContainer from './components/UsersContainer'
 import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
-import Leaderboard from './components/Leaderboard/Leaderboard'
 
 import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
+import Leaderboard from './components/Leaderboard/Leaderboard'
 
 // Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppBar from 'material-ui/AppBar'
-import Cable from 'actioncable';
 
 injectTapEventPlugin();
 
@@ -77,7 +71,7 @@ class App extends Component {
   componentWillMount() {
     this.setState({
       ...this.state,
-      currentUser: window.localStorage.user_id || null
+      currentUser: Number(window.localStorage.user_id) || null
     })
   }
 
@@ -87,12 +81,13 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <NavBar currentUser={ this.state.currentUser } handleNavMenuOpen={ this.handleNavMenuOpen } />
+        <NavBar currentUser={ this.state.currentUser } handleLogout = {this.logOut} handleNavMenuOpen={ this.handleNavMenuOpen } />
         <div style={{ paddingTop: 64 }}></div>
         <main>
           <Switch>
             <Route exact path='/' component={SplashPage} />
             <Route path='/signup' component={UserRegistration}/>
+            <Route path='/leaderboard' component={Leaderboard}/>
             <Route path='/login'
               render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}
             />

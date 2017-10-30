@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import TextField from 'material-ui/TextField'
+import Container from 'muicss/lib/react/container'
+import Col from 'muicss/lib/react/col'
+import RaisedButton from 'material-ui/RaisedButton';
+import './UserRegistration.css'
 
 class UserRegistration extends Component {
   constructor(props) {
@@ -76,18 +80,37 @@ class UserRegistration extends Component {
 
   render () {
     return (
-      <div>
-        <h1>Register Now!</h1>
-        <form onSubmit={this.handleSubmit}>
-          <TextField name="username" hintText="Username" errorText={this.state.usernameExists ? this.state.usernameError : ""} value={this.state.username} onChange={this.handleInputChange}/> <br />
-          <TextField name="first_name" hintText="First Name" value={this.state.first_name} onChange={this.handleInputChange}/> <br />
-          <TextField name="last_name" hintText="Last Name" value={this.state.last_name} onChange={this.handleInputChange}/> <br />
-          <TextField name="email" type="email" hintText="Email" errorText={this.state.emailExists ? this.state.emailError : ""} value={this.state.email} onChange={this.handleInputChange}/> <br />
-          <TextField name="password" type="password" hintText="Password" value={this.state.password} onChange={this.handleInputChange}/> <br />
-          <TextField name="password_confirmation" type="password" hintText="Confirm Password" value={this.state.password_confirmation} onChange={this.handleInputChange}/> <br />
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
+      <Container
+      className="signup-container"
+      fluid={true}
+      style={{backgroundColor: '#E0E0E0'}}
+      >
+        <Col md="4"
+        className="side-column"
+        />
+        <Col md="4">
+          <div>
+            <h1 style={{color: "#455A64"}}><strong>Register Now!</strong></h1>
+            <form onSubmit={this.handleSubmit}>
+              <TextField name="username" hintText="Username" errorText={this.state.usernameExists ? this.state.usernameError : ""} value={this.state.username} onChange={this.handleInputChange}/> <br />
+              <TextField name="first_name" hintText="First Name" value={this.state.first_name} onChange={this.handleInputChange}/> <br />
+              <TextField name="last_name" hintText="Last Name" value={this.state.last_name} onChange={this.handleInputChange}/> <br />
+              <TextField name="email" type="email" hintText="Email" errorText={this.state.emailExists ? this.state.emailError : ""} value={this.state.email} onChange={this.handleInputChange}/> <br />
+              <TextField name="password" type="password" hintText="Password" value={this.state.password} onChange={this.handleInputChange}/> <br />
+              <TextField name="password_confirmation" type="password" hintText="Confirm Password" value={this.state.password_confirmation} onChange={this.handleInputChange}/> <br />
+              <RaisedButton
+                  type="Submit"
+                  label="Submit"
+                  fullWidth= {true}
+                  onClick={this.handleSubmit}
+                  primary="true" />
+            </form>
+          </div>
+        </ Col>
+        <Col md="4"
+        className="side-column"
+        />
+      </Container>
       )
   }
 }

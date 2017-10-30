@@ -136,7 +136,7 @@ class BettingPool extends React.Component  {
                 style={{marginRight: 12}}
                 />
             <RaisedButton
-                label={this.props.stepIndex === 2 ? 'Finish' : 'Next'}
+                label={this.props.stepIndex === 3 ? 'Finish' : 'Next'}
                 primary={true}
                 onClick={this.handleMoveNext}
             />

@@ -50,7 +50,7 @@ class Invite extends Component {
 
   render() {
     return (
-      <div>
+      <div backgroundColor="#E0E0E0">
       <InviteDialog
         primaryText={"Invite from " + this.state.fromUser}
         bet={this.props.bet}

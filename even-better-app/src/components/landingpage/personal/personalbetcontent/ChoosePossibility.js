@@ -51,19 +51,19 @@ class ChoosePossibility extends React.Component {
       this.props.handleNext()
 
       this.props.redirectToBet(this.state.chosen)
-     
+
     } else {
       this.setState({error: error})
     }
   }
 
     _handlePossibilityClick = (poss,event) => {
-        
+
         event.target.style.backgroundColor = "#91a6c9";
         console.log("Chosen possibility is: ", poss)
         this.setState({
             chosen: poss
-        })       
+        })
     }
 
   render () {
@@ -73,12 +73,11 @@ class ChoosePossibility extends React.Component {
             {
             this.state.possibilities.map((poss) => {
             console.log("Each Poss is: ", poss)
-            return <ListItem    
-                        primaryText={poss.description}
+            return <ListItem
                         onClick = {(event) => this._handlePossibilityClick(poss,event)}
                         style = {style}
-                        
-                    />
+
+                    >{poss.description}</ListItem>
             })
             }
         </List>

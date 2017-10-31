@@ -37,7 +37,9 @@ export default class SportsDropdown extends Component {
     if(this.state.value === 5) {
       sport = 'MLS'
     }
-      
+    
+    console.log("Setting the state for temphold here: ", this.state.gameDate)
+    
     this.props.handleNext({
       sport: sport,
       gameDate: this.state.gameDate
@@ -48,6 +50,8 @@ export default class SportsDropdown extends Component {
       sport: sport,
       gameDate: this.state.gameDate
     })
+
+    console.log("State in sports dropdown: ", this.state.gameDate)
 
   }
 

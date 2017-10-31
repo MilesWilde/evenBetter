@@ -47,7 +47,7 @@ class MediationRequestColumn extends Component {
   render () {
     let content = {};
       if (!this.props.getMainState().mediationRequests[0]) {
-        content = <h3 className="title"><strong>You have no Mediation Requests at the moment.</strong></h3>;
+        content = <h3 className="title"><strong>You have no mediation requests at the moment.</strong></h3>;
       } else {
         content =
         <div className = "mediationRequest-column">

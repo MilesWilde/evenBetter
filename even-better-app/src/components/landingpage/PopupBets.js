@@ -56,6 +56,9 @@ export default class PopupBets extends React.Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
+          bodyStyle={{ backgroundColor: '#E0E0E0'}}
+          titleStyle={{ backgroundColor: '#E0E0E0'}}
+          actionsContainerStyle={{ backgroundColor: '#E0E0E0'}}
         >
           <TabsForBets />
 

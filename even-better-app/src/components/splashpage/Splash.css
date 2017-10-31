@@ -1,34 +1,83 @@
-#left-pane {
+* {
+
+  box-sizing: border-box;
+  /* "https://www.playnbrag.com/blog/wp-content/uploads/2017/01/sports-betting-marketing-strategies.jpg" */
+}
+
+body {
+
+}
+
+.content:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  
+  display: block;
+  background-image: url("http://sports-kings.com/wp-content/uploads/2017/02/Screen-Shot-2017-02-21-at-8.30.37-AM.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.content {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+
+.top {
+  /* padding-top: 74px; */
+  position: relative;
+  /* height: 100px; */
+  width: 100%;
+}
+
+#top-nav{
+  float:right;
+}
+
+.top-image{
+  padding-top: 0px;
+  width:100%;
+  height:450px;
+}
+
+.left-pane {
   height: 600px;
   width: 33%;
   float: left;
   text-align: center;
   padding-top: 50px;
 }
-#middle-pane {
+.middle-pane {
   height: 600px;
   width: 34%;
   float: left;
   text-align: center;
   padding-top: 50px;
 }
-#right-pane {
+.right-pane {
   height: 600px;
   width: 33%;
   float: left;
   text-align: center;
   padding-top: 50px;
-}
-
-
-#top {
-  padding-top: 74px;
-  position: relative;
-  height: 600px;
-  width: 100%;
-}
-
-#top-nav {
 }
 
 .container {
@@ -37,27 +86,14 @@
   align-items: flex-end;
 }
 
-* {
-
-  box-sizing: border-box;
-
-}
-
 .text-div {
   position: relative;
   width: 90%;
 }
 
-#top-image{
-  padding-top: 0px;
-}
-
-#footer-bar{
+.footer-bar{
   padding: 15px 0 10px 0px;
   background-color: #2A3A3F;
   color: #fff;
 }
 
-#top-nav{
-  float:right;
-}

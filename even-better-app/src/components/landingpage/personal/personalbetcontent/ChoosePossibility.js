@@ -43,16 +43,15 @@ class ChoosePossibility extends React.Component {
   }
 
   handleMoveNext = () => {
-      console.log("state is: ", this.state)
     let error = ''
-
     if (error.length === 0) {
 
       //Making the axios call to persist to db
       this.makeAxiosPatch()
       this.props.handleNext()
 
-      
+      this.props.redirectToBet(this.state.chosen)
+     
     } else {
       this.setState({error: error})
     }
@@ -61,6 +60,7 @@ class ChoosePossibility extends React.Component {
     _handlePossibilityClick = (poss,event) => {
         
         event.target.style.backgroundColor = "#91a6c9";
+        console.log("Chosen possibility is: ", poss)
         this.setState({
             chosen: poss
         })       

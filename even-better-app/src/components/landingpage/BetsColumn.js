@@ -69,7 +69,7 @@ export default class BetsColumn extends Component {
               <th>Type</th>
               <th>Bet Name</th>
               <th>Result</th>
-              <th>Deadline</th>
+              {/* <th>Deadline</th> */}
             </tr>
           }
         </thead>
@@ -79,14 +79,14 @@ export default class BetsColumn extends Component {
             this.props.getMainState().bets.map((bet) => {
               return (
                   <tr class="table-body">
-                    <td><a href= {`/bets/${bet.id}`}>
+                    <td className="text-center"><a href= {`/bets/${bet.id}`}>
                       {bet.mediator_id ? "Personal" : "Sport"}
                     </a></td>
-                    <td><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
-                    <td><a href= {`/bets/${bet.id}`}>
+                    <td className="text-center"><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
+                    <td className="text-center"><a href= {`/bets/${bet.id}`}>
                       { Date.now() < this.betTimestamp(bet.outcome_deadline) && !bet.outcome_id ? "PENDING" : this.betStatus(bet) }
                     </a></td>
-                    <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td>
+                    {/* <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td> */}
                   </tr>
               );
             })

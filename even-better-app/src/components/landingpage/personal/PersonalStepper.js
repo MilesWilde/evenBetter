@@ -79,13 +79,13 @@ class PersonalStepper extends React.Component {
         return zerver.post('/api/v1/bets', {
           title: this.state.data[0].name ,
           description: this.state.data[0].description ,
-          pool: ((this.state.data[1].names.length)+1)*100,
+          // pool: ((this.state.data[1].names.length)+1)*100,
           users: userIDArray,
           mediator_id: this.state.data[1].mediator.userId,
           betting_deadline: this.state.data[1].betDeadlineDateTime,
           outcome_deadline: this.state.data[1].decisionDeadlineDateTime,
-          creator_id: window.localStorage.user_id,
-          outcome_id: null,
+          // creator_id: window.localStorage.user_id,
+          // outcome_id: null,
           possibilities: this.state.data[2].possibilities
         })
         .then(response => {

@@ -273,10 +273,12 @@ games.each do |game|
 
   link_audi = audi.bet_users.where({ bet_id: nba_bet.id }).first
   link_audi.possibility = home_team
+  link_audi.has_accepted = true
   link_audi.save!
 
   link_rahul = rahul.bet_users.where({ bet_id: nba_bet.id }).first
   link_rahul.possibility = away_team
+  link_rahul.has_accepted = true
   link_rahul.save!
 
 end
@@ -329,10 +331,12 @@ games.each do |game|
 
   link_audi = audi.bet_users.where({ bet_id: nhl_bet.id }).first
   link_audi.possibility = home_team
+  link_audi.has_accepted = true
   link_audi.save!
 
   link_arsalan = arsalan.bet_users.where({ bet_id: nhl_bet.id }).first
   link_arsalan.possibility = away_team
+  link_arsalan.has_accepted = true
   link_arsalan.save!
 
 end

@@ -1,35 +1,81 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import './App.css'
 
-import { Switch, Route } from 'react-router-dom'
-import UsersContainer from './components/UsersContainer'
+import NavBar from './components/NavBar'
+import NotFound from './components/NotFound'
 import SplashPage from './components/splashpage/SplashPage'
 import LandingPage from './components/landingpage/LandingPage'
 import UserRegistration from './components/UserRegistration/UserRegistration'
-import Leaderboard from './components/Leaderboard/Leaderboard'
 
 import Bet from './components/Bet/Bet'
 import Login from './components/Login/Login'
+import Leaderboard from './components/Leaderboard/Leaderboard'
 
 // Material UI
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
-import FlatButton from 'material-ui/FlatButton';
-import Cable from 'actioncable';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 injectTapEventPlugin();
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 
+const styles = {
+  headline: {
+    fontSize: 24,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 400
+  },
+};
+
+const PrivateRoute = ({ component: Component, currentUser, ...rest }) => (
+  <Route {...rest} render={props => (
+    currentUser ? (
+      <Component currentUser={ currentUser }{...props}/>
+    ) : (
+      <Redirect to={{
+        pathname: '/login',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      redirectToReferrer: false,
+      currentUser: null,
+      currentUsername: null,
+      navMenuOpen: false
+    }
+  }
+
   logOut(event){
     window.localStorage.clear()
+    this.setState({ ...this.state, currentUser: null })
     event.stopPropagation()
+  }
+
+  handleLoginSuccess = (userId, username) => {
+    this.setState({
+      ...this.state,
+      currentUser: userId,
+      currentUsername: username
+    })
+  }
+
+  componentWillMount() {
+    this.setState({
+      ...this.state,
+      currentUser: Number(window.localStorage.user_id) || null,
+      currentUsername: window.localStorage.username || null
+    })
   }
 
   componentDidMount() {
@@ -37,33 +83,25 @@ class App extends Component {
   }
   render() {
     return (
-      <MuiThemeProvider >
-        <AppBar
-          style={{position:'fixed', backgroundColor: '#263238'}}
-          title={<Link to='/landing'>EvenBetter</Link>}
-          iconClassNameRight='muidocs-icon-navigation-expand-more'
-          iconElementRight={
-            window.localStorage.auth_token ?
-            <div>
-              <Link to='/landing'><FlatButton label="Home" /></Link>
-              <Link to='/'><FlatButton label="About" /></Link>
-            </div>
-            :
-            <div>
-              <Link to='/auth/login'><FlatButton label="Sign In" /></Link>
-              <Link to='/signup'><FlatButton label="Register" /></Link>
-              <Link to='/'><FlatButton label="About" /></Link>
-            </div>
-          }
+      <MuiThemeProvider>
+        <NavBar
+          currentUser={ this.state.currentUser }
+          currentUsername={ this.state.currentUsername }
+          handleLogout = {this.logOut}
+          handleNavMenuOpen={ this.handleNavMenuOpen }
         />
         <div style={{ paddingTop: 64 }}></div>
         <main>
           <Switch>
             <Route exact path='/' component={SplashPage} />
-            <Route path='/landing' component={LandingPage}/>
             <Route path='/signup' component={UserRegistration}/>
-            <Route path='/bets/:id' component={ Bet } />
-            <Route path='/auth/login' component={Login}/>
+            <Route path='/leaderboard' component={Leaderboard}/>
+            <Route path='/login'
+              render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}
+            />
+            <PrivateRoute path='/home' currentUser={ this.state.currentUser } component={LandingPage}/>
+            <PrivateRoute path='/bets/:id' currentUser={ this.state.currentUser } component={ Bet } />
+            <Route component={ NotFound } />
           </Switch>
         </main>
       </MuiThemeProvider>

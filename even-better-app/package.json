@@ -11,6 +11,7 @@
     "link-react": "^3.0.0",
     "material-ui": "^0.19.4",
     "material-ui-chip-input": "^0.18.2",
+    "material-ui-datetimepicker": "^1.0.2",
     "moment": "^2.19.1",
     "muicss": "^0.9.27",
     "react": "^16.0.0",
@@ -20,7 +21,8 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-tap-event-plugin": "^3.0.2",
+    "underscore": "^1.8.3"
   },
   "scripts": {
     "start": "react-scripts start",

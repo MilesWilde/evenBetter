@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Resource from '../../models/resource'
 import './Leaderboard.css';
 import {
@@ -18,7 +17,8 @@ const styles = {
     fontSize: '18px'
   },
   tableHeaderColumn: {
-    fontSize: '24px'
+    fontSize: '24px',
+    color: '#000'
   }
 }
 const UserStore = Resource('users')
@@ -27,7 +27,7 @@ var topUsers = []
 class Leaderboard extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       leaderArray: []
     }
@@ -52,9 +52,9 @@ class Leaderboard extends Component {
       })
   }
   render() {
-    const leaderList = this.state.leaderArray.map((user) => {
+    const leaderList = this.state.leaderArray.map((user, index) => {
       return (
-        <TableRow>
+        <TableRow style={ index % 2 === 0 ? {backgroundColor: '#455A64', color: '#FFF'} : {backgroundColor: '#E0E0E0'} }>
           <TableRowColumn style = {styles.tableRowColumn}>{this.state.leaderArray.indexOf(user) + 1}</TableRowColumn>
           <TableRowColumn style = {styles.tableRowColumn}>{user.username}</TableRowColumn>
           <TableRowColumn style = {styles.tableRowColumn}>{user.points}   </TableRowColumn>
@@ -63,20 +63,22 @@ class Leaderboard extends Component {
       )
     }).slice(0,10)
     return (
-      <MuiThemeProvider>
-        <h1>Leaderboard</h1>  
+      <div style={{ backgroundColor: '#E0E0E0', height: 'calc(100vh - 64px)' }}>
+        <h1 style={{ margin: '0', padding: '10px', textAlign: 'center'}}>Leaderboard</h1>
         <Table>
-          <TableBody displayRowCheckbox = {false}>
-            <TableRow>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>rank</TableHeaderColumn>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>username</TableHeaderColumn>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>points</TableHeaderColumn>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>title</TableHeaderColumn>
+          <TableHeader displaySelectAll = {false}>
+            <TableRow style={{ backgroundColor: '#E0E0E0' }} striped={false}>
+                <TableHeaderColumn style = {styles.tableHeaderColumn}>RANK</TableHeaderColumn>
+                <TableHeaderColumn style = {styles.tableHeaderColumn}>USERNAME</TableHeaderColumn>
+                <TableHeaderColumn style = {styles.tableHeaderColumn}>POINTS</TableHeaderColumn>
+                <TableHeaderColumn style = {styles.tableHeaderColumn}>TITLE</TableHeaderColumn>
             </TableRow>
+            </TableHeader>
+          <TableBody displayRowCheckbox = {false} stripedRows={ false }>
             {leaderList}
           </TableBody>
         </Table>
-      </MuiThemeProvider>
+      </div>
     )
   }
 }

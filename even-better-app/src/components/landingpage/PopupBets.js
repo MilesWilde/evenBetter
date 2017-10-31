@@ -28,6 +28,7 @@ export default class PopupBets extends React.Component {
 
   handleClose = () => {
     this.setState({open: false});
+    this.props.loadBets();
   };
 
   render() {
@@ -41,10 +42,13 @@ export default class PopupBets extends React.Component {
 
     return (
       <div>
-        <br/><RaisedButton   label="PLACE A BET"
-                             fullWidth= {true}
-                             onClick={this.handleOpen}
-                             backgroundColor = "#ead3e7"  />
+        <br/><RaisedButton
+             className="bet-button"
+             label="PLACE A BET"
+             fullWidth= {false}
+             style={{ width: 'calc(100% - 20px)' }}
+             onClick={this.handleOpen}
+              primary="true" />
         <Dialog
           title="Pick a Tab and place your bet!"
           actions={actions}

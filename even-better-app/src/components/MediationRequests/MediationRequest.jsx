@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
+import MenuItem from 'material-ui/MenuItem';
+import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import Divider from 'material-ui/Divider';
 import axios from 'axios';
-import InviteDialog from './InviteDialog'
+import MediationRequestDialog from './MediationRequestDialog'
+
+
 
 var config = {
   headers: {
@@ -11,7 +15,7 @@ var config = {
 
 // Needs 2 props: betID, betTitle, betUserID
 
-class Invite extends Component {
+class MediationRequest extends Component {
 
   constructor(props) {
     super(props);
@@ -40,10 +44,12 @@ class Invite extends Component {
   // render error page
   }
 
-  openInviteDialog = (e) => {
+
+
+  openMediationRequestDialog = (e) => {
     // Open Dialog Box
     return (
-      <InviteDialog />
+      <MediationRequestDialog />
       )
   }
 
@@ -51,16 +57,18 @@ class Invite extends Component {
   render() {
     return (
       <div>
-      <InviteDialog
-        primaryText={"Invite from " + this.state.fromUser}
+      <MenuItem>
+      <MediationRequestDialog
+        primaryText={"Mediation Request from " + this.state.fromUser}
         bet={this.props.bet}
-        loadInvites={this.props.loadInvites}
+        loadMediationRequests={this.props.loadMediationRequests}
         loadBets={this.props.loadBets}
       />
+      </MenuItem>
       <Divider/>
       </div>
     )
   }
 }
 
-export default Invite;
+export default MediationRequest;

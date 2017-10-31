@@ -17,7 +17,7 @@ const ChatBar = (props) => {
 
   return(
     <div style={ styles.wrapper }>
-      <FloatingActionButton style={{ float: 'right' }} onClick={ (e) => props.handleSendEvent(e) }>
+      <FloatingActionButton style={{ float: 'right', backgroundColor: '#0097A7' }} onClick={ (e) => props.handleSendEvent(e) }>
         <ContentAdd />
       </FloatingActionButton>
       <div style={{ padding: '0 10px', overflow: 'hidden'}}>

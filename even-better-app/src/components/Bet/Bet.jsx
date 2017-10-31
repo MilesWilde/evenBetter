@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
+import _ from 'underscore'
 
 // Material UI
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Dialog, FlatButton } from 'material-ui'
 
 // Websockets
@@ -12,7 +11,6 @@ import Cable from 'actioncable'
 import ChatBar from './ChatBar'
 import ChatMessageArea from './ChatMessageArea'
 import BetDetails from './BetDetails'
-import CompleteBetConfirmation from './CompleteBetConfirmation'
 
 
 // Client side model
@@ -23,20 +21,16 @@ const styles = {
   wrapper: {
     display: 'flex',
     flexFlow: 'row wrap',
-    alignContent: 'stretch',
-    alignItems: 'stretch',
-    overflow: 'hidden',
-    color: '#FFF'
+    color: '#FFF',
+    backgroundColor: '#E0E0E0'
   },
   chatBox: {
     flex: '1 1 0',
-    width: '30px',
-    minWidth: '320px',
+    minWidth: '310px',
   },
   betBox: {
     flex: '1 1 0',
-    width: '30px',
-    minWidth: '320px',
+    minWidth: '310px',
     backgroundColor: '#455A64',
   }
 }
@@ -67,11 +61,33 @@ class Bet extends Component {
   }
 
   componentWillMount() {
+    const BetUsersStore = Resource(`bets/${this.props.match.params.id}/bets_users`)
     this.createSocket()
 
-    BetStore.find(this.props.match.params.id)
-    .then( (bet) => {
-      this.setState({ betDetails: bet })
+    Promise.all([
+      BetStore.find(this.props.match.params.id)
+      .then( (bet) => {
+        return bet
+      })
+      .catch( (err) => {
+        console.log(err)
+      }),
+
+      BetUsersStore.findAll()
+      .then( (betUsers) => {
+        return betUsers
+      })
+      .catch( (err) => {
+        console.log(err)
+      })
+    ])
+    .then( (details) => {
+      // combine the user details returned from the bet and the user details from the bets_users table
+      let mappedUsers = _.map(details[0].users, (user) => {
+        return _.extend(user, _.omit(_.findWhere(details[1], {user_id: user.id}), 'user_id'));
+      });
+      details[0].users = mappedUsers
+      this.setState({ betDetails: details[0] })
     })
     .catch( (err) => {
       console.log(err)
@@ -129,13 +145,13 @@ class Bet extends Component {
             possibilities={ this.state.betDetails.possibilities }
             users={ this.state.betDetails.users }
             handlePossibilitySelectionConfirmationOpen={
-              !this.state.betDetails.outcome_id && this.state.betDetails.mediator_id == window.localStorage.user_id ?
+              !this.state.betDetails.outcome_id && this.state.betDetails.mediator_id === this.props.currentUser ?
               this.handlePossibilitySelectionConfirmationOpen : undefined
-              }
+            }
           />
         </div>
         <div style={ styles.chatBox }>
-          <ChatMessageArea chatLogs={ this.state.chat.chatLogs } />
+          <ChatMessageArea chatLogs={ this.state.chat.chatLogs } currentUser={ this.props.currentUser } />
           <ChatBar
             currentChatMessage={ this.state.chat.currentChatMessage }
             updateCurrentChatMessage={ this.updateCurrentChatMessage }
@@ -151,7 +167,7 @@ class Bet extends Component {
           onRequestClose={this.handlePossibilitySelectionConfirmationClose}
         >
           Selecting Submit will set "{this.state.currentlySelectedPossibility && this.state.betDetails.possibilities.find( (possibility) => {
-            return possibility.id == this.state.currentlySelectedPossibility
+            return possibility.id === this.state.currentlySelectedPossibility
           }).description }" as the winning outcome.
         </Dialog>
       </div>
@@ -211,7 +227,7 @@ class Bet extends Component {
   }
 
   handlePossibilitySelectionConfirmationOpen = (e) => {
-    this.setState({showConfirmation: true, currentlySelectedPossibility: e.currentTarget.dataset.id});
+    this.setState({showConfirmation: true, currentlySelectedPossibility: Number(e.currentTarget.dataset.id)});
   };
 
   handlePossibilitySelectionConfirmationClose = () => {
@@ -224,7 +240,8 @@ class Bet extends Component {
       this.setState({
         currentlySelectedPossibility: null,
         betDetails: {
-          ...res.data
+          ...this.state.betDetails,
+          outcome_id: res.data.outcome_id
         }
       })
       return

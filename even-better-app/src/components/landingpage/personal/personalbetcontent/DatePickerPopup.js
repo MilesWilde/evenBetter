@@ -2,6 +2,10 @@ import React from 'react';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
 
+import DateTimePicker from 'material-ui-datetimepicker';
+import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
+import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
+
 /**
  * The Date Picker defaults to a portrait dialog. The `mode` property can be set to `landscape`.
  * You can also disable the Dialog passing `true` to the `disabled` property.
@@ -12,63 +16,50 @@ class DatePickerPopup extends React.Component {
     super(props);
 
     this.state = {
-      betDeadlineDate: this.props.dateProp.betDeadlineDate,
-      betDeadlineTime: this.props.dateProp.betDeadlineTime,
-      decisionDeadlineDate: this.props.dateProp.decisionDeadlineDate,
-      decisionDeadlineTime: this.props.dateProp.decisionDeadlineTime
+      betDeadlineDateTime: this.props.dateProp.betDeadlineDateTime,
+      decisionDeadlineDateTime: this.props.dateProp.decisionDeadlineDateTime
     }
   }
 
-  _handleBetDeadlineDate = (e, betDeadlineDate) => {
-    this.setState({betDeadlineDate: betDeadlineDate})
-    {this.props._handleChangeBetDeadline(betDeadlineDate)}
 
+
+  _handleBetDeadlineDateTime = (betDeadlineDateTime) => {
+    this.setState({betDeadlineDateTime: betDeadlineDateTime})
+    {this.props._handleChangeBetDateTime(betDeadlineDateTime)}
   }
 
-  _handleBetDeadlineTime = (e, betDeadlineTime) => {
-    this.setState({betDeadlineTime: betDeadlineTime})
-    {this.props._handleChangeBetTime(betDeadlineTime)}
+  _handleDecisionDeadlineDateTime = (decisionDeadlineDateTime) => {
+    this.setState({decisionDeadlineDateTime: decisionDeadlineDateTime})
+    {this.props._handleChangeDecisionDateTime(decisionDeadlineDateTime)}
   }
 
-  _handleDecisionDeadlineDate = (e, decisionDeadlineDate) => {
-    this.setState({decisionDeadlineDate: decisionDeadlineDate})
-    {this.props._handleChangeDecisionDeadline(decisionDeadlineDate)}
-  }
+  // _nextWeekDate = () => {
+  //   var now = new Date();
+  //   var nextWeek = new Date(now);
+  //   nextWeek.setDate(nextWeek.getDate() + 7);
+  //   return nextWeek
+  // }
 
-  _handleDecisionDeadlineTime = (e, decisionDeadlineTime) => {
-    this.setState({decisionDeadlineTime: decisionDeadlineTime})
-    {this.props._handleChangeDecisionTime(decisionDeadlineTime)}
-  }
-  _nextWeekDate = () => {
-    var now = new Date();
-    var nextWeek = new Date(now);
-    nextWeek.setDate(nextWeek.getDate() + 7);
-    return nextWeek
-  }
 
-  
   render () {
     return(
       <div>
-        <DatePicker hintText="Bet deadline date"
+
+        <DateTimePicker
+                    DatePicker={DatePickerDialog}
+                    TimePicker={TimePickerDialog}
+                    hintText = "Bet Deadline Date"
                     autoOk = {true}
-                    onChange = {this._handleBetDeadlineDate}
-                    defaultDate = {this._nextWeekDate()}
-                    />
-        <TimePicker
-                    hintText="Bet deadline time"
+                    onChange = {this._handleBetDeadlineDateTime}
+        />
+
+        <DateTimePicker
+                    DatePicker={DatePickerDialog}
+                    TimePicker={TimePickerDialog}
+                    hintText = "Decision Deadline Date"
                     autoOk = {true}
-                    onChange = {this._handleBetDeadlineTime}
- />
-        <DatePicker hintText="Decison Deadline (Mediator)"
-                    autoOk = {true}
-                    onChange = {this._handleDecisionDeadlineDate}
-                    defaultDate = {this._nextWeekDate()}
- />
-        <TimePicker hintText="Decision deadline time"
-                    autoOk = {true}
-                    onChange = {this._handleDecisionDeadlineTime}
- />
+                    onChange = {this._handleDecisionDeadlineDateTime}
+        />
       </div>
     );
 

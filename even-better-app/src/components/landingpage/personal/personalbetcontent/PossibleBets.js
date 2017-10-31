@@ -12,7 +12,7 @@ class PossibleBets extends React.Component {
     super(props);
     this.state = {
       value: [],
-      error:''
+      error:'',
     };
 
     this.styles = {
@@ -65,7 +65,7 @@ class PossibleBets extends React.Component {
           style={{marginRight: 12}}
         />
         <RaisedButton
-          label={this.props.stepIndex === 2 ? 'Finish' : 'Next'}
+          label={this.props.stepIndex === 3 ? 'Finish' : 'Next'}
           primary={true}
           onClick={this.handleMoveNext}
         />

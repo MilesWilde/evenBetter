@@ -11,6 +11,12 @@ import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
 import GamesList from './sportsbetcontent/GamesList';
 import axios from 'axios';
 
+var config = {
+  headers: {
+    "Authorization": "Bearer " + window.localStorage.auth_token,
+  }
+}
+
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
  * Avoid using long step names in horizontal steppers.
@@ -29,14 +35,17 @@ class SportsStepper extends React.Component {
       },
       {
         homeTeam: '',
-        awayTeam: ''
+        awayTeam: '',
+        gameCode: ''
       },
       {
         names: [],
         value: null,
         chosenWinner: ''
       }
-    ]
+    ],
+    betId: null,
+    creatorPossId: null
   };
 
   makeAxiosCall = () => {
@@ -55,20 +64,52 @@ class SportsStepper extends React.Component {
     });
 
     userIDArray.push(window.localStorage.user_id)
+    console.log("Game code before post: ", this.state.data[1].gameCode)
 
     zerver.post('/api/v1/bets', {
       title: `${this.state.data[1].homeTeam} vs. ${this.state.data[1].awayTeam}` ,
       pool: ((this.state.data[2].names.length)+1)*100,
       users: userIDArray,
       creator_id: window.localStorage.user_id,
-      betting_deadline: this.state.data[0].gameDate.toString(),
-      outcome_deadline: this.state.data[0].gameDate.toString(),
-      created_at: "2017-10-25 22:41:29.403225",
-      updated_at: "2017-10-25 22:41:29.403225",
+      betting_deadline: new Date(this.state.data[0].gameDate.setTime(this.state.data[0].gameDate.getTime() + 1 * 86400000 )).toString(),
+      outcome_deadline: new Date(this.state.data[0].gameDate.setTime(this.state.data[0].gameDate.getTime() + 1 * 86400000 )).toString(),
       outcome_id: null,
+      game_date: this.state.data[0].gameDate.toString(),
+      game_type: this.state.data[0].sport.toString(),
+      game_code: this.state.data[1].gameCode,
       possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
-    });
-  }
+    }).then(res => {
+                    let betId = res.data.possibilities[0].bet_id
+                    let creatorPossId = null
+                    res.data.possibilities.forEach((poss) => {
+                      if(this.state.data[2].chosenWinner == poss.description) {
+                        creatorPossId = poss.id
+                      }
+                    })
+                    this.setState({ betId: betId,
+                                    creatorPossId: creatorPossId})    
+                    }
+      ).then(res => {
+        var data = {
+          has_accepted: true,
+          possibility_id: this.state.creatorPossId
+        }
+        axios.patch(`/api/v1/bets_users/${this.state.betId}`, data, config)
+        .then(response => {
+          console.log("Response from sports patch: ")
+          console.log(response.data)
+        })
+        .catch(error => {
+          console.log("Error: " + error)
+        })
+      });
+
+        
+        
+      
+
+
+    } //End of makeAxiosCall()
 
 
 
@@ -86,7 +127,8 @@ class SportsStepper extends React.Component {
     if (stepIndex === 1) {
       tempStateHold[1] = {
         homeTeam: userData.homeTeam,
-        awayTeam: userData.awayTeam
+        awayTeam: userData.awayTeam,
+        gameCode: userData.gameCode
       }
     }
     if (stepIndex === 2) {
@@ -97,7 +139,7 @@ class SportsStepper extends React.Component {
       }
     }
 
-    console.log("TempstateHold", tempStateHold)
+    console.log("State of Sports Stepper: ", tempStateHold)
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,

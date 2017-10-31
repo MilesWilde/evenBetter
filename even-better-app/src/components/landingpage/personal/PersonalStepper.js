@@ -10,7 +10,9 @@ import FlatButton from 'material-ui/FlatButton';
 import NameDesc from './personalbetcontent/NameDesc';
 import BettingPool from './personalbetcontent/BettingPool'
 import PossibleBets from './personalbetcontent/PossibleBets'
+import ChoosePossibility from './personalbetcontent/ChoosePossibility'
 import axios from 'axios';
+import moment from 'moment';
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
@@ -34,20 +36,19 @@ class PersonalStepper extends React.Component {
         {
           names: [],
           mediator: {},
-          betDeadlineDate: null,
-          betDeadlineTime:null,
-          decisionDeadlineDate: null,
-          decisionDeadlineTime:null        
+          betDeadlineDateTime: '',
+          decisionDeadlineDateTime: '',
         },
         {
           possibilities:[]
         }
-      ]
+      ],
+      sendPossibility:[]
     }
   }
 
   makeAxiosCall = () => {
-    
+
         const zerver = axios.create({
           baseURL: 'http://localhost:3001',
           timeout: 10000,
@@ -61,22 +62,24 @@ class PersonalStepper extends React.Component {
         this.state.data[1].names.forEach((name)=>{
           userIDArray.push(name.userId)
         });
-    
+
         userIDArray.push(window.localStorage.user_id)
-    
-        zerver.post('/api/v1/bets', {
+
+        return zerver.post('/api/v1/bets', {
           title: this.state.data[0].name ,
           description: this.state.data[0].description ,
           pool: ((this.state.data[1].names.length)+1)*100,
           users: userIDArray,
           mediator_id: this.state.data[1].mediator.userId,
-          betting_deadline: this.state.data[1].betDeadlineDate,
-          outcome_deadline: this.state.data[1].decisionDeadlineDate,
+          betting_deadline: this.state.data[1].betDeadlineDateTime,
+          outcome_deadline: this.state.data[1].decisionDeadlineDateTime,
           creator_id: window.localStorage.user_id,
-          created_at: "2017-10-25 22:41:29.403225",
-          updated_at: "2017-10-25 22:41:29.403225",
           outcome_id: null,
           possibilities: this.state.data[2].possibilities
+        })
+        .then(response => {
+        console.log("Response from post axios call", response)
+          this.setState({sendPossibility: response.data.possibilities})
         });
       }
 
@@ -98,10 +101,8 @@ class PersonalStepper extends React.Component {
       tempStateHold[1] = {
         names: userData.names,
         mediator: userData.mediator,
-        betDeadlineDate: userData.betDeadlineDate,
-        betDeadlineTime: userData.betDeadlineTime,
-        decisionDeadlineDate: userData.decisionDeadlineDate,
-        decisionDeadlineTime: userData.decisionDeadlineTime,
+        betDeadlineDateTime: userData.betDeadlineDateTime,
+        decisionDeadlineDateTime: userData.decisionDeadlineDateTime,
       }
     }
     if (stepIndex === 2) {
@@ -109,11 +110,11 @@ class PersonalStepper extends React.Component {
         possibilities: userData.possibilities
       }
     }
-    console.log("TempstateHold", tempStateHold)
+    console.log("State at Personal Stepper: ", tempStateHold)
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2,
+      finished: stepIndex >= 3,
     });
   };
 
@@ -127,28 +128,40 @@ class PersonalStepper extends React.Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-      return <NameDesc        name={this.state.data[0].name} 
-                              description={this.state.data[0].description} 
-                              handlePrev={this.handlePrev} 
-                              handleNext={this.handleNext} 
-                              data={this.state.data[0]} 
+      return <NameDesc        name={this.state.data[0].name}
+                              description={this.state.data[0].description}
+                              handlePrev={this.handlePrev}
+                              handleNext={this.handleNext}
+                              data={this.state.data[0]}
                               stepIndex={stepIndex}
                               />
       case 1:
         return <BettingPool   handleNext={this.handleNext}
                               handlePrev={this.handlePrev}
-                              data={this.state.data[1]} 
-                              stepIndex={stepIndex} 
+                              data={this.state.data[1]}
+                              stepIndex={stepIndex}
 
                               />
       case 2:
         return <PossibleBets  handleNext={this.handleNext}
                               handlePrev={this.handlePrev}
-                              data={this.state.data[1]} 
+                              data={this.state.data[1]}
                               stepIndex={stepIndex}
                               possibilities={this.state.data[2].possibilities}
                               makeAxiosCall = {this.makeAxiosCall}
                               />
+      case 3:
+      if(this.state.sendPossibility.length > 0) {
+      return <ChoosePossibility   handleNext={this.handleNext}
+                                  handlePrev={this.handlePrev}
+                                  data={this.state.data[2]}
+                                  stepIndex={stepIndex}
+                                  possibilities={this.state.data[2].possibilities}
+                                  makeAxiosCall = {this.makeAxiosCall}
+                                  sendPossibility = {this.state.sendPossibility}
+                                  wait={3000}
+                             />
+      }
       default:
         return 'Come on, make a Personal Bet!!';
     }
@@ -169,6 +182,9 @@ class PersonalStepper extends React.Component {
           </Step>
           <Step>
             <StepLabel>Define the possibilities</StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>Pick a choice</StepLabel>
           </Step>
         </Stepper>
         <div style={contentStyle}>

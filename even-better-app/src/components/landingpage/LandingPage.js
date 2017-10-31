@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import './css/LandingPage.css';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
 import InviteColumn from './InviteColumn'
 import BetsColumn from './BetsColumn'
+import MediationRequestsColumn from '../MediationRequests/MediationRequestsColumn'
 import PopupBets from './PopupBets'
 import PointsColumn from './PointsColumn'
 import ChangingProgressbar from './ChangingProgressbar'
@@ -29,6 +28,7 @@ var config = {
 }
 
 
+
 class LandingPage extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +37,8 @@ class LandingPage extends Component {
       user: {},
       invites: [],
       bets: [],
-      refreshCount: 0
+      betsUsers: [],
+      mediationRequests: []
     }
   }
 
@@ -62,15 +63,31 @@ class LandingPage extends Component {
     })
   }
 
+  loadMediationRequests = () => {
+    axios.get(`/api/v1/bets/mediation-requests.json`, config)
+    .then(response => {
+      console.log("Reloading Mediation Requests" + response.data)
+      this.setState({
+        ...this.state,
+        mediationRequests: response.data
+      })
+      return null
+    })
+    .catch(error => {
+      console.log("Error in Mediation Requests", error)
+    })
+  }
+
   // Helper function that allows Active Bets to be loaded/reloaded
   loadBets = () => {
-    axios.get(`/api/v1/bets/acceptances.json`, config)
+    axios.get(`/api/v1/bets`, config)
     .then(response => {
       console.log("Reloading Acceptances" + response.data)
       this.setState({
         ...this.state,
         bets: response.data
       })
+      this.loadBetsUsers()
       return null
     })
     .catch(error => {
@@ -78,8 +95,23 @@ class LandingPage extends Component {
     })
   }
 
+  loadBetsUsers = () => {
+    axios.get(`/api/v1/bets_users.json`, config)
+    .then(response => {
+      console.log("Reloading BetsUsers" + response.data)
+      this.setState({
+        ...this.state,
+        betsUsers: response.data
+      })
+      return null
+    })
+    .catch(error => {
+      console.log("Error in BetsUsers", error)
+    })
+  }
+
   componentWillMount() {
-    UserStore.find(window.localStorage.user_id)
+    UserStore.find(this.props.currentUser)
       .then((response) => {
         this.setState({
           user: response
@@ -89,45 +121,60 @@ class LandingPage extends Component {
   componentDidMount() {
     window.scrollTo(0, 0)
   }
-
   render() {
     return (
-      <Container fluid={true}>
-        <MuiThemeProvider>
-          <Row>
-            <div>
-
-            </div>
-            <Col md="4">
-              <div id = "stats">
-                <h2>Hello, {this.state.user.username}!</h2>
-                <PointsColumn user={this.state.user}/>
+      <Container
+      class="landing-container"
+      fluid={true}
+      style={{padding: 0, backgroundColor: '#E0E0E0'}}
+      >
+              <Col
+                md="4"
+                style={{backgroundColor: '#455A64'}}
+                id="stats-column">
+              <div style={{ minHeight: 'calc(100vh - 64px)'}}>
+                {/* <div> */}
+                  <h1 style={{color: '#80DEEA', paddingLeft: 15}}>Hello, <strong>{this.state.user.username}!</strong></h1>
+                  <PointsColumn user={this.state.user}/>
+                {/* </div> */}
                 <ChangingProgressbar
-                  user={this.state.user}
-                  percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
+                      style={{textAlign: 'center'}}
+                      user={this.state.user}
+                      percentages ={[0,pointsFunction.rankDetermine(this.state.user.points).percentageComplete]}
+                    />
+              </div>
+              </Col>
+            <Col md="8">
+              <Row>
+                <PopupBets
+                style={{paddingLeft: '10px'}}
+                loadBets={this.loadBets}
                 />
-              </div>
-
-            </Col>
-            <Col md="4">
-              <div className="invite-column">
-                <InviteColumn
+              </Row>
+              <Row>
+                <Col md="6">
+                  <div className="invite-column">
+                    <InviteColumn
+                      getMainState={this.getMainState}
+                      loadInvites={this.loadInvites}
+                      loadBets={this.loadBets}/>
+                  </div>
+                  <div className="med-req-column">
+                    <MediationRequestsColumn
+                      getMainState={this.getMainState}
+                      loadMediationRequests={this.loadMediationRequests}
+                      loadBets={this.loadBets}/>
+                  </div>
+                </Col>
+                <Col md="6">
+                  <BetsColumn
+                  user={this.state.user}
                   getMainState={this.getMainState}
-                  loadInvites={this.loadInvites}
                   loadBets={this.loadBets}/>
-              </div>
-              <div className=" create-bet-buttons container">
-                <PopupBets />
-              </div>
+                </Col>
+              </Row>
             </Col>
-            <Col md="4">
-              <BetsColumn
-              user={this.state.user}
-              getMainState={this.getMainState}
-              loadBets={this.loadBets}/>
-            </Col>
-          </Row>
-        </MuiThemeProvider>
+
       </Container>
     )
   }

@@ -1,13 +1,6 @@
 import React from 'react'
 import Moment from 'moment'
 
-const flexBox = {
-  display: 'flex',
-  flex: '0 0 0',
-  width: '100%',
-  minHeight: '50px'
-}
-
 const styles = {
   wrapper: {
     padding: '10px'
@@ -29,7 +22,7 @@ const styles = {
 
 const ChatMessage = (props) => {
 
-  if (window.localStorage.user_id == props.message.user_id) {
+  if (props.currentUser === props.message.user_id) {
     return(
       <div style={ styles.wrapperMe }>
         <span>{ props.message.content }</span>

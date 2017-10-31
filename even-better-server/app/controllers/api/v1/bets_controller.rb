@@ -66,7 +66,7 @@ module Api::V1
               deliverToClient[:gameWinner] = nil
           elsif deliverToClient[:homeScore].to_i < deliverToClient[:awayScore].to_i
               deliverToClient[:gameWinner] = deliverToClient[:awayTeamName]
-          else 
+          else
               deliverToClient[:gameWinner] = "Tie game"
           end
 
@@ -101,7 +101,7 @@ module Api::V1
       # something like:
       # loop through all games without outcome chosen
       unfinished_game_array.each do |unfinished_game|
-      # loop through each game on api occurring of that type and on that day 
+      # loop through each game on api occurring of that type and on that day
       # (e.g.) unfinished_game.date = 2017-10-31, unfinished_game.type = "NBA"
         statScraper(unfinished_game.game_type, unfinished_game.game_date)[:games].each do |sport_game|
       # if game on api gamecode is the game without outcome, and the api game winner has been chosen
@@ -150,7 +150,7 @@ module Api::V1
     end
 
     def show
-      
+
       render json: @bet.to_json({
         include:
           [
@@ -231,7 +231,7 @@ module Api::V1
               deliverToClient[:gameWinner] = nil
           elsif deliverToClient[:homeScore].to_i < deliverToClient[:awayScore].to_i
               deliverToClient[:gameWinner] = deliverToClient[:awayTeamName]
-          else 
+          else
               deliverToClient[:gameWinner] = "Tie game"
           end
 
@@ -256,7 +256,7 @@ module Api::V1
       # something like:
       # loop through all games without outcome chosen
       unfinished_game_array.each do |unfinished_game|
-      # loop through each game on api occurring of that type and on that day 
+      # loop through each game on api occurring of that type and on that day
       # (e.g.) unfinished_game.date = 2017-10-31, unfinished_game.type = "NBA"
         statScraper(unfinished_game.game_type, unfinished_game.game_date)[:games].each do |sport_game|
       # if game on api gamecode is the game without outcome, and the api game winner has been chosen
@@ -297,14 +297,14 @@ module Api::V1
         render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
 
         # ---THIS IS UNTESTED ---
-        # bet_user_count = BetUser.where(bet_id: bet_id).count
-        # pool = Bet.where(bet_id: bet_id).pool
-        # winnings = pool / bet_user_count
+        bet_user_count = BetUser.where(bet_id: bet_id).count
+        pool = Bet.where(bet_id: bet_id).pool
+        winnings = pool / bet_user_count
 
-        # BetUser.where(possibility_id: outcome).each do |winner|
-        #   winner.user.points += winnings
-        #   winner.save!
-        # end
+        BetUser.where(possibility_id: outcome).each do |winner|
+           winner.user.points += winnings
+           winner.user.save!(validate: false)
+        end
 
       end
     end

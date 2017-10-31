@@ -54,7 +54,7 @@ class LandingPage extends Component {
       console.log("Reloading Invites" + response.data)
       this.setState({
         ...this.state,
-        invites: response.data
+        invites: response.data.reverse()
       })
       return null
     })
@@ -69,7 +69,7 @@ class LandingPage extends Component {
       console.log("Reloading Mediation Requests" + response.data)
       this.setState({
         ...this.state,
-        mediationRequests: response.data
+        mediationRequests: response.data.reverse()
       })
       return null
     })
@@ -85,7 +85,7 @@ class LandingPage extends Component {
       console.log("Reloading Acceptances" + response.data)
       this.setState({
         ...this.state,
-        bets: response.data
+        bets: response.data.reverse()
       })
       this.loadBetsUsers()
       return null

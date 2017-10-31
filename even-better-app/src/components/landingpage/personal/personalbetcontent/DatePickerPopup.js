@@ -50,12 +50,6 @@ class DatePickerPopup extends React.Component {
                     TimePicker={TimePickerDialog}
                     hintText = "Enter bet deadline date and time"
                     autoOk = {true}
-<<<<<<< HEAD
-                    onChange = {this._handleDecisionDeadlineDate}
-
- />
-        <TimePicker hintText="Decision deadline time"
-=======
                     onChange = {this._handleBetDeadlineDateTime}
         />
 
@@ -63,7 +57,6 @@ class DatePickerPopup extends React.Component {
                     DatePicker={DatePickerDialog}
                     TimePicker={TimePickerDialog}
                     hintText = "Enter decision deadline date and time"
->>>>>>> 5ac37b61a9b11c4ddec0bca5338a81ea2f12b554
                     autoOk = {true}
                     onChange = {this._handleDecisionDeadlineDateTime}
         />

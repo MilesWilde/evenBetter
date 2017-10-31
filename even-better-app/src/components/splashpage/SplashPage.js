@@ -46,7 +46,7 @@ class SplashPage extends Component {
           <div id="middle-pane">
             <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/3766-200.png" height="65" width="65" />
             <div className="text-div">
-              If you have made a personal bet between friends, a chatroom will be available for everyone to discuss.
+              If you have made a bet between friends, a chatroom will be available for everyone involved for discussion.
             </div>
           </div> 
           <div id="right-pane">

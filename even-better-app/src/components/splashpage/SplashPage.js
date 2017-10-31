@@ -27,38 +27,43 @@ class SplashPage extends Component {
         {/* <div className="top-nav">
           <a href="#information">Info</a>
         </div> */}
-        <div className="top">
+        {/* <div className="top">
           <img className="top-image" src ="https://www.playnbrag.com/blog/wp-content/uploads/2017/01/sports-betting-marketing-strategies.jpg" />
-        </div>
+        </div> */}
+        <body>
+          <div className="content">
 
-        <div id="information" className="container">
-          <div className="left-pane">
-            <p>Sports</p>
-            <div className="text-div">
+            <div id="information" className="container">
+              <div className="left-pane">
+                <p>Sports</p>
+                <div className="text-div">
 
-              EvenBetter offers two ways to bet: sports betting, or between your friends! Someone constantly late? 
-              Bet on them! Is an election coming up? You know what to do.
-            </div> 
-           </div>
-          <div className="middle-pane">
-            <p>Personal</p>
-            <div className="text-div">
-              If you have made a bet between friends, a chatroom will be available for everyone involved for discussion.
+                  EvenBetter offers two ways to bet: sports betting, or between your friends! Someone constantly late? 
+                  Bet on them! Is an election coming up? You know what to do.
+                </div> 
+              </div>
+              <div className="middle-pane">
+                <p>Personal</p>
+                <div className="text-div">
+                  If you have made a bet between friends, a chatroom will be available for everyone involved for discussion.
+                </div>
+              </div> 
+              <div className="right-pane">
+                <p>Chat</p>
+                <div className="text-div">
+                  When you sign up you are given 1000 points. Every day you 
+                  can collect 100 points! Under your
+                  profile there is a statistics page. View
+                  leaderboards with various statistics surrounding the top betters!
+                </div>
+              </div> 
             </div>
-          </div> 
-          <div className="right-pane">
-            <p>Chat</p>
-            <div className="text-div">
-              When you sign up you are given 1000 points. Every day you 
-              can collect 100 points! Under your
-              profile there is a statistics page. View
-              leaderboards with various statistics surrounding the top betters!
+            <div className="footer-bar">
+              Copyright Info
             </div>
-          </div> 
-        </div>
-        <div className="footer-bar">
-          Copyright Info
-        </div>
+
+          </div>
+        </body>
       </MuiThemeProvider>
     );
   }

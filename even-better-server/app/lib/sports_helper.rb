@@ -62,7 +62,7 @@ module SportsHelper
       elsif deliverToClient[:homeScore].to_i < deliverToClient[:awayScore].to_i
           deliverToClient[:gameWinner] = deliverToClient[:awayTeamName] + " " + deliverToClient[:awayNickName]
       else
-          deliverToClient[:gameWinner] = "Tie game"
+          deliverToClient[:gameWinner] = "Tie Game"
       end
 
       #JSON VERSION

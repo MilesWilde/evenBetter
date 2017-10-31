@@ -1,13 +1,12 @@
 require 'json'
-require 'date'
-require 'nokogiri'
-require 'open-uri'
 
 module Api::V1
   class BetsController < ApplicationController
     before_action :set_bet, only: [:show, :update, :destroy]
+    before_action :update_sports_bets, only: [:get_acceptances]
 
     def index
+<<<<<<< HEAD
       def statScraper(gameVersion, gameDate)
         urlGameVersion = gameVersion
         urlGameDate = DateTime.parse(gameDate.to_s).strftime("%Y%m%d")
@@ -125,6 +124,10 @@ module Api::V1
       end
       @bets = current_user.bets
       render json: @bets
+=======
+        @bets = current_user.bets
+        render json: @bets
+>>>>>>> dd3c15a3361c66ae5e07698829864ab6276df259
     end
 
     def create
@@ -150,7 +153,10 @@ module Api::V1
     end
 
     def show
+<<<<<<< HEAD
 
+=======
+>>>>>>> dd3c15a3361c66ae5e07698829864ab6276df259
       render json: @bet.to_json({
         include:
           [
@@ -160,19 +166,10 @@ module Api::V1
             :mediator
           ]
       })
-      # when a user goes to his landing page
-      # checks all bets if they have a possibility_id
-      # if they don't have a possibility_id,
-      # it should check the api/v1/games against the gamecode of that bet
-      # if the gamecode's gameWinner is !nil
-      # then set the possibility_id to be equal to the possibility_id in possibilities
-      # then go through betuser table looking for people who selected that possibility
-      # increment their points by the pool of that bet divided by the count of the betuser table
-
-      # find current user's bets under BetUser
     end
 
     def user_possibilities
+<<<<<<< HEAD
       def statScraper(gameVersion, gameDate)
         urlGameVersion = gameVersion
         urlGameDate = DateTime.parse(gameDate.to_s).strftime("%Y%m%d")
@@ -278,12 +275,13 @@ module Api::V1
           end
         end
       end
+=======
+>>>>>>> dd3c15a3361c66ae5e07698829864ab6276df259
       @possibilities = Bet.find(params[:bet_id]).bet_users
       render json: @possibilities, only: [:user_id, :possibility_id, :has_accepted]
     end
 
     def update
-      @bet = Bet.find(params[:id])
       if @bet.mediator != current_user
         #Use not acceptable (406) instead of 403
         json_response({ message: 'Validation failed: Only the mediator can set the outcome' }, :forbidden)
@@ -294,6 +292,7 @@ module Api::V1
       else
         @bet.outcome_id = params[:outcome_id]
         @bet.save!
+        distribute_points_among_winners(@bet, Possibility.find(params[:outcome_id]))
         render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
 
         # ---THIS IS UNTESTED ---
@@ -345,15 +344,48 @@ module Api::V1
     def set_bet
       @bet = Bet.find(params[:id])
     end
+
+    def update_sports_bets
+      # This should be changds to a background process later
+      bets_to_check = current_user.bets.where.not({ game_code: nil }).where({ game_date: (Date.today - 1.year)..Date.today, outcome_id: nil })
+
+      params_to_check = bets_to_check.select(:game_date, :game_type).distinct
+
+      params_to_check.each do |params|
+        game_list = JSON(SportsHelper::stat_scraper(params.game_type, params.game_date.to_s.tr('-', '')))['games']
+
+        game_list.each do |game|
+          if game['gameWinner']
+            bets_to_update = bets_to_check.where(game_code: game['gameCode'].to_i)
+
+            bets_to_update.each do |bet|
+              outcome = bet.possibilities.find_by description: game['gameWinner']
+              bet.outcome = outcome
+              bet.save!
+              distribute_points_among_winners(bet, outcome)
+            end
+          end
+        end
+      end
+    end
+
+    def distribute_points_among_winners(bet, outcome)
+      winners = bet.users.find(bet.bet_users.where(possibility: outcome).map{ |bet_user| bet_user.user_id })
+
+      if winners.length > 0 # if there is a winner
+        points_per_winner = bet.pool / winners.length
+        winners.each do |winner|
+          winner.points += points_per_winner
+          winner.save!(validate: false)
+        end
+      else # if no one won
+        participants = bet.users.find(bet.bet_users.where(has_accepted: true).map{ |bet_user| bet_user.user_id })
+        participants.each do |participant|
+          participant.points += 100
+          participant.save!(validate: false)
+        end
+      end
+    end
   end
 
 end
-
-# create bet JSON payload
-# {
-# 	"title": "Test Create",
-# 	"description": "testing a description",
-# 	"betting_deadline": "2017-10-23 15:46:07 -0400",
-# 	"outcome_deadline": "2017-10-24 15:46:07 -0400",
-# 	"users": [523, 524, 525]
-# }

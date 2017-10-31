@@ -68,16 +68,18 @@ class BetPoolandOutcome extends React.Component {
             sendchosenWinner = this.props.awayTeam
           }
 
-          console.log("Possibility: ", this.state.chosenWinner)
           this.setState({chosenWinner: sendchosenWinner})
-          this.props.handleNext({
-            names: this.state.names,
-            value: this.state.value,
-            chosenWinner: this.state.chosenWinner
-          })
-          //Making the axios call to persist to db
-          this.props.makeAxiosCall()
 
+        console.log("Possibility: ", sendchosenWinner)
+          this.props.handleNext({
+              names: this.state.names,
+              value: this.state.value,
+              chosenWinner: sendchosenWinner
+            })
+
+            //Making the axios call to persist to db
+        this.props.makeAxiosCall()
+            
         } else {
           this.setState({error: error})
         }

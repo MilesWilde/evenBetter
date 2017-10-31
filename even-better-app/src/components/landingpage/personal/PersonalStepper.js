@@ -222,8 +222,4 @@ class PersonalStepper extends React.Component {
   }
 }
 
-<<<<<<< HEAD
 export default withRouter(PersonalStepper);
-=======
-export default PersonalStepper;
->>>>>>> master

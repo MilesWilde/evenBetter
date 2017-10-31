@@ -34,9 +34,9 @@ class GamesList extends React.Component {
             }
         })
         .then((result) => {
-            result.games.map((game) => {    
-                listOfFixtures.push({  
-                                        fixture: game.homeTeamName + " @ " + game.awayTeamName,
+            result.games.map((game) => {
+                listOfFixtures.push({
+                                        fixture: `${game.homeTeamName} ${game.homeNickName} vs. ${game.awayTeamName} ${game.awayNickName}`,
                                         gameCode: game.gameCode
                                     })
             })
@@ -52,7 +52,7 @@ class GamesList extends React.Component {
     // .then((result) => this.setState({clients: result.data}))
     // .catch((errors) => this.setState({errors: errors}))
 
-    handleMoveNext = () => { 
+    handleMoveNext = () => {
         this.props.handleNext({
             homeTeam: this.state.homeTeam,
             awayTeam: this.state.awayTeam,
@@ -66,13 +66,13 @@ class GamesList extends React.Component {
         console.log("Handle Click Fixture: ", fixture.fixture)
         console.log("Handle Click GameCode ", fixture.gameCode)
 
-        let words = fixture.fixture.split("@ ")
+        let words = fixture.fixture.split(" vs. ")
 
         this.setState({
             homeTeam: words[1],
             awayTeam: words[0],
             gameCode: fixture.gameCode
-        })       
+        })
     }
 
     render() {
@@ -81,7 +81,7 @@ class GamesList extends React.Component {
                 <List >
                     {
                     this.state.fixtures.map((fixture) => {
-                    return <ListItem    
+                    return <ListItem
                                 primaryText={fixture.fixture}
                                 onClick = {(event) => this._handleGameClick(fixture,event)}
                                 style = {style}
@@ -111,7 +111,7 @@ class GamesList extends React.Component {
                     primary={true}
                     onClick={this.handleMoveNext}
                 />
-            </div>  
+            </div>
         );
     }
 }

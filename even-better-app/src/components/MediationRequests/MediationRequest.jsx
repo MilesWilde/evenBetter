@@ -65,7 +65,6 @@ class MediationRequest extends Component {
         loadBets={this.props.loadBets}
       />
       </MenuItem>
-      <Divider/>
       </div>
     )
   }

@@ -117,7 +117,9 @@ class InviteDialog extends Component {
     ];
 
     return (
-        <MenuItem primaryText={this.props.primaryText} onClick={this.handleOpen}>
+        <MenuItem
+        onClick={this.handleOpen}
+        ><div className="text-center">{this.props.primaryText}</div>
           <Dialog
             title={"Bet Invite: " + this.props.bet.title}
             autoScrollBodyContent = {true}

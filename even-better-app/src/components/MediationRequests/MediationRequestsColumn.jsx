@@ -9,6 +9,7 @@ import axios from 'axios'
 const style = {
   display: 'inline-block',
   margin: '16px 32px 16px 0',
+  backgroundColor: 'E0E0E0'
 };
 
 var config = {

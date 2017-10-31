@@ -103,6 +103,7 @@ class LandingPage extends Component {
         ...this.state,
         betsUsers: response.data
       })
+      debugger
       return null
     })
     .catch(error => {

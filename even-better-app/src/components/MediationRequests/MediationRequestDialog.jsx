@@ -85,7 +85,9 @@ class MediationRequestDialog extends Component {
     ];
 
     return (
-        <MenuItem primaryText={this.props.primaryText} onClick={this.handleOpen}>
+        <MenuItem
+        onClick={this.handleOpen}
+        ><div className="text-center">{this.props.primaryText}</div>
           <Dialog
             title={'Mediation Request: ' + this.props.bet.title}
             autoScrollBodyContent = {true}

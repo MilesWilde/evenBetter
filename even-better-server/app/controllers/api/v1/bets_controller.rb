@@ -1,130 +1,13 @@
 require 'json'
-require 'date'
-require 'nokogiri'
-require 'open-uri'
 
 module Api::V1
   class BetsController < ApplicationController
     before_action :set_bet, only: [:show, :update, :destroy]
+    before_action :update_sports_bets, only: [:get_acceptances]
 
     def index
-      def statScraper(gameVersion, gameDate)
-        urlGameVersion = gameVersion
-        urlGameDate = DateTime.parse(gameDate.to_s).strftime("%Y%m%d")
-        html = open("http://scores.nbcsports.msnbc.com/ticker/data/gamesMSNBC.js.asp?sport=#{urlGameVersion}&period=#{urlGameDate}").read
-        sendToReactApp = {
-          gameVersion: urlGameVersion,
-          gameDate: urlGameDate,
-          games: []
-        }
-
-        parsedVar = JSON.parse(html)
-        gameDate = parsedVar['period']
-        gameType = parsedVar['sport']
-        # puts gameDate
-
-        parsedVar['games'].each do |indivGame|
-            # puts indivGame
-
-          indivGame.gsub!('\"', '"')
-          doc = Nokogiri::XML(indivGame)
-        #   puts doc
-
-          #Parsing the escaped XML
-          homeTeamVar = doc.at_xpath('//home-team')
-          awayTeamVar = doc.at_xpath('//visiting-team')
-          gameVariables = doc.at_xpath('//gamestate')
-          tickerVariables = doc.at_xpath('//ticker-entry')
-
-          # All Game Details
-          deliverToClient = {
-              gameType: gameType,
-              gameDate: gameDate,
-              gameTime: gameVariables.attr('gametime'),
-              gameCode: tickerVariables.attr('gamecode'),
-
-              homeTeamName: homeTeamVar.attr('display_name'),
-              homeNickName: homeTeamVar.attr('nickname'),
-              homeTeamLogo: homeTeamVar.at_xpath('//team-logo').attr('link'),
-              homeTeamImage: homeTeamVar.at_xpath('//team-logo').attr('gz-image'),
-              homeScore: homeTeamVar.attr('score'),
-              homeAlias: homeTeamVar.attr('alias'),
-
-              awayTeamName:awayTeamVar.attr('display_name'),
-              awayNickName:awayTeamVar.attr('nickname'),
-              awayTeamLogo: awayTeamVar.at_xpath('//team-logo').attr('link'),
-              awayTeamImage: awayTeamVar.at_xpath('//team-logo').attr('gz-image'),
-              awayScore:awayTeamVar.attr('score'),
-              awayAlias:awayTeamVar.attr('alias')
-          }
-
-
-          # Deciding Winner and Loser
-          if deliverToClient[:homeScore].to_i > deliverToClient[:awayScore].to_i
-              deliverToClient[:gameWinner] = deliverToClient[:homeTeamName]
-          elsif deliverToClient[:homeScore] === ''
-              deliverToClient[:gameWinner] = nil
-          elsif deliverToClient[:homeScore].to_i < deliverToClient[:awayScore].to_i
-              deliverToClient[:gameWinner] = deliverToClient[:awayTeamName]
-          else 
-              deliverToClient[:gameWinner] = "Tie game"
-          end
-
-          #JSON VERSION
-          sendToReactApp[:games].push(deliverToClient)
-        end
-
-        return sendToReactApp
-        # binding.pry
-        # sendToReactAppJson = sendToReactApp.to_json
-        # return sendToReactAppJson
-      end
-      # when a user goes to his landing page
-      # checks all bets if they have a possibility_id
-      # if they don't have a possibility_id,
-      # it should check the api/v1/games against the gamecode of that bet
-      # if the gamecode's gameWinner is !nil
-      # then set the possibility_id to be equal to the possibility_id in possibilities
-      # then go through betuser table looking for people who selected that possibility
-      # increment their points by the pool of that bet divided by the count of the betuser table
-
-      # find current user's bets under BetUser
-      unfinished_game_array = []
-      BetUser.where(user_id: current_user.id).each do |user_bet|
-      # find current user's bets where they're sports bets whose gamedate occurs today or earlier
-        sport_bet = Bet.where(outcome_id: nil).where(id: user_bet.bet_id).where.not(game_code: nil).where("game_date <= ?", Date.today)[0]
-        if sport_bet
-          unfinished_game_array.push(sport_bet)
-        end
-      end
-      # check api/v1/games for gamecodes of unfinished_game_array
-      # something like:
-      # loop through all games without outcome chosen
-      unfinished_game_array.each do |unfinished_game|
-      # loop through each game on api occurring of that type and on that day 
-      # (e.g.) unfinished_game.date = 2017-10-31, unfinished_game.type = "NBA"
-        statScraper(unfinished_game.game_type, unfinished_game.game_date)[:games].each do |sport_game|
-      # if game on api gamecode is the game without outcome, and the api game winner has been chosen
-          if sport_game[:gameCode] === unfinished_game.game_code.to_s && !sport_game[:gameWinner].nil?
-      # look at all possibilities with a bet_id equal to the game without an outcome
-            Possibility.where(bet_id: unfinished_game.id).each do |possibility|
-      # and find if the possibility name is the name of the winning team
-              if possibility.description.strip === sport_game[:gameWinner].strip
-      # then set the game without a possibility's possibility id to the correct winning team's possibility id
-                unfinished_game.outcome_id = possibility.id
-                unfinished_game.save!
-                BetUser.where(possibility_id: possibility.id).each do |betuser_winner|
-                  winner = User.find(betuser_winner.user_id)
-                  winner.points += unfinished_game.pool/BetUser.where(bet_id: unfinished_game.id).count
-                  winner.save!(validate: false)
-                end
-              end
-            end
-          end
-        end
-      end
-      @bets = current_user.bets
-      render json: @bets
+        @bets = current_user.bets
+        render json: @bets
     end
 
     def create
@@ -150,7 +33,6 @@ module Api::V1
     end
 
     def show
-      
       render json: @bet.to_json({
         include:
           [
@@ -160,124 +42,9 @@ module Api::V1
             :mediator
           ]
       })
-      # when a user goes to his landing page
-      # checks all bets if they have a possibility_id
-      # if they don't have a possibility_id,
-      # it should check the api/v1/games against the gamecode of that bet
-      # if the gamecode's gameWinner is !nil
-      # then set the possibility_id to be equal to the possibility_id in possibilities
-      # then go through betuser table looking for people who selected that possibility
-      # increment their points by the pool of that bet divided by the count of the betuser table
-
-      # find current user's bets under BetUser
     end
 
     def user_possibilities
-      def statScraper(gameVersion, gameDate)
-        urlGameVersion = gameVersion
-        urlGameDate = DateTime.parse(gameDate.to_s).strftime("%Y%m%d")
-        html = open("http://scores.nbcsports.msnbc.com/ticker/data/gamesMSNBC.js.asp?sport=#{urlGameVersion}&period=#{urlGameDate}").read
-        sendToReactApp = {
-          gameVersion: urlGameVersion,
-          gameDate: urlGameDate,
-          games: []
-        }
-
-        parsedVar = JSON.parse(html)
-        gameDate = parsedVar['period']
-        gameType = parsedVar['sport']
-        # puts gameDate
-
-        parsedVar['games'].each do |indivGame|
-            # puts indivGame
-
-          indivGame.gsub!('\"', '"')
-          doc = Nokogiri::XML(indivGame)
-        #   puts doc
-
-          #Parsing the escaped XML
-          homeTeamVar = doc.at_xpath('//home-team')
-          awayTeamVar = doc.at_xpath('//visiting-team')
-          gameVariables = doc.at_xpath('//gamestate')
-          tickerVariables = doc.at_xpath('//ticker-entry')
-
-          # All Game Details
-          deliverToClient = {
-              gameType: gameType,
-              gameDate: gameDate,
-              gameTime: gameVariables.attr('gametime'),
-              gameCode: tickerVariables.attr('gamecode'),
-
-              homeTeamName: homeTeamVar.attr('display_name'),
-              homeNickName: homeTeamVar.attr('nickname'),
-              homeTeamLogo: homeTeamVar.at_xpath('//team-logo').attr('link'),
-              homeTeamImage: homeTeamVar.at_xpath('//team-logo').attr('gz-image'),
-              homeScore: homeTeamVar.attr('score'),
-              homeAlias: homeTeamVar.attr('alias'),
-
-              awayTeamName:awayTeamVar.attr('display_name'),
-              awayNickName:awayTeamVar.attr('nickname'),
-              awayTeamLogo: awayTeamVar.at_xpath('//team-logo').attr('link'),
-              awayTeamImage: awayTeamVar.at_xpath('//team-logo').attr('gz-image'),
-              awayScore:awayTeamVar.attr('score'),
-              awayAlias:awayTeamVar.attr('alias')
-          }
-
-
-          # Deciding Winner and Loser
-          if deliverToClient[:homeScore].to_i > deliverToClient[:awayScore].to_i
-              deliverToClient[:gameWinner] = deliverToClient[:homeTeamName]
-          elsif deliverToClient[:homeScore] === ''
-              deliverToClient[:gameWinner] = nil
-          elsif deliverToClient[:homeScore].to_i < deliverToClient[:awayScore].to_i
-              deliverToClient[:gameWinner] = deliverToClient[:awayTeamName]
-          else 
-              deliverToClient[:gameWinner] = "Tie game"
-          end
-
-          #JSON VERSION
-          sendToReactApp[:games].push(deliverToClient)
-        end
-
-        return sendToReactApp
-        # binding.pry
-        # sendToReactAppJson = sendToReactApp.to_json
-        # return sendToReactAppJson
-      end
-      unfinished_game_array = []
-      BetUser.where(user_id: current_user.id).each do |user_bet|
-      # find current user's bets where they're sports bets whose gamedate occurs today or earlier
-        sport_bet = Bet.where(outcome_id: nil).where(id: user_bet.bet_id).where.not(game_code: nil).where("game_date <= ?", Date.today)[0]
-        if sport_bet
-          unfinished_game_array.push(sport_bet)
-        end
-      end
-      # check api/v1/games for gamecodes of unfinished_game_array
-      # something like:
-      # loop through all games without outcome chosen
-      unfinished_game_array.each do |unfinished_game|
-      # loop through each game on api occurring of that type and on that day 
-      # (e.g.) unfinished_game.date = 2017-10-31, unfinished_game.type = "NBA"
-        statScraper(unfinished_game.game_type, unfinished_game.game_date)[:games].each do |sport_game|
-      # if game on api gamecode is the game without outcome, and the api game winner has been chosen
-          if sport_game[:gameCode] === unfinished_game.game_code.to_s && !sport_game[:gameWinner].nil?
-      # look at all possibilities with a bet_id equal to the game without an outcome
-            Possibility.where(bet_id: unfinished_game.id).each do |possibility|
-      # and find if the possibility name is the name of the winning team
-              if possibility.description.strip === sport_game[:gameWinner].strip
-      # then set the game without a possibility's possibility id to the correct winning team's possibility id
-                unfinished_game.outcome_id = possibility.id
-                unfinished_game.save!
-                BetUser.where(possibility_id: possibility.id).each do |betuser_winner|
-                  winner = User.find(betuser_winner.user_id)
-                  winner.points += unfinished_game.pool/BetUser.where(bet_id: unfinished_game.id).count
-                  winner.save!(validate: false)
-                end
-              end
-            end
-          end
-        end
-      end
       @possibilities = Bet.find(params[:bet_id]).bet_users
       render json: @possibilities, only: [:user_id, :possibility_id, :has_accepted]
     end
@@ -345,15 +112,48 @@ module Api::V1
     def set_bet
       @bet = Bet.find(params[:id])
     end
+
+    def update_sports_bets
+      # This should be changds to a background process later
+      bets_to_check = current_user.bets.where.not({ game_code: nil }).where({ game_date: (Date.today - 1.year)..Date.today, outcome_id: nil })
+
+      params_to_check = bets_to_check.select(:game_date, :game_type).distinct
+
+      params_to_check.each do |params|
+        game_list = JSON(SportsHelper::stat_scraper(params.game_type, params.game_date.to_s.tr('-', '')))['games']
+
+        game_list.each do |game|
+          if game['gameWinner']
+            bets_to_update = bets_to_check.where(game_code: game['gameCode'].to_i)
+
+            bets_to_update.each do |bet|
+              outcome = bet.possibilities.find_by description: game['gameWinner']
+              bet.outcome = outcome
+              bet.save!
+              distribute_points_among_winners(bet, outcome)
+            end
+          end
+        end
+      end
+    end
+
+    def distribute_points_among_winners(bet, outcome)
+      winners = bet.users.find(bet.bet_users.where(possibility: outcome).map{ |bet_user| bet_user.user_id })
+
+      if winners.length > 0 # if there is a winner
+        points_per_winner = bet.pool / winners.length
+        winners.each do |winner|
+          winner.points += points_per_winner
+          winner.save!(validate: false)
+        end
+      else # if no one won
+        participants = bet.users.find(bet.bet_users.where(has_accepted: true).map{ |bet_user| bet_user.user_id })
+        participants.each do |participant|
+          participant.points += 100
+          participant.save!(validate: false)
+        end
+      end
+    end
   end
 
 end
-
-# create bet JSON payload
-# {
-# 	"title": "Test Create",
-# 	"description": "testing a description",
-# 	"betting_deadline": "2017-10-23 15:46:07 -0400",
-# 	"outcome_deadline": "2017-10-24 15:46:07 -0400",
-# 	"users": [523, 524, 525]
-# }

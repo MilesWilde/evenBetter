@@ -32,6 +32,8 @@ export default class TabsForBets extends React.Component {
       <Tabs
         value={this.state.value}
         onChange={this.handleChange}
+        tabItemContainerStyle={{ backgroundColor: '#263238'}}
+        inkBarStyle={{ backgroundColor: '#FF5252' }}
       >
         <Tab label="SPORTS BET" value="a">
           <div>

@@ -80,7 +80,7 @@ class LandingPage extends Component {
 
   // Helper function that allows Active Bets to be loaded/reloaded
   loadBets = () => {
-    axios.get(`/api/v1/bets`, config)
+    axios.get(`/api/v1/bets/acceptances`, config)
     .then(response => {
       console.log("Reloading Acceptances" + response.data)
       this.setState({
@@ -103,6 +103,7 @@ class LandingPage extends Component {
         ...this.state,
         betsUsers: response.data
       })
+      debugger
       return null
     })
     .catch(error => {

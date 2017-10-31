@@ -9,6 +9,7 @@ import axios from 'axios'
 const style = {
   display: 'inline-block',
   margin: '16px 32px 16px 0',
+  backgroundColor: 'E0E0E0'
 };
 
 var config = {
@@ -46,13 +47,13 @@ class MediationRequestColumn extends Component {
   render () {
     let content = {};
       if (!this.props.getMainState().mediationRequests[0]) {
-        content = <h3 className="title"><strong>You have no Mediation Requests at the moment.</strong></h3>;
+        content = <h3 className="title"><strong>You have no mediation requests at the moment.</strong></h3>;
       } else {
         content =
         <div className = "mediationRequest-column">
-          <h3 className="title"><strong>Mediation Requests</strong></h3>
-          <Paper style={style}>
+          <Menu style={style}>
             <Menu desktop={true} width={320} maxHeight={250}>
+              <h3 className="title"><strong>Mediation Requests</strong></h3>
               {this.props.getMainState().mediationRequests.map((mediationRequest) => {
                   console.log(mediationRequest)
                   return (<MediationRequest
@@ -63,7 +64,7 @@ class MediationRequestColumn extends Component {
               />)})
               }
             </Menu>
-          </Paper>
+          </Menu>
         </div>;
       }
     return content;

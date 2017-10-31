@@ -14,11 +14,13 @@ var pointsFunction = require('../landingpage/ranklogic')
 
 const styles = {
   tableRowColumn: {
-    fontSize: '18px'
+    fontSize: '18px',
+    textAlign: 'left'
   },
   tableHeaderColumn: {
     fontSize: '24px',
-    color: '#000'
+    color: '#000',
+    textAlign: 'left'
   }
 }
 const UserStore = Resource('users')
@@ -54,7 +56,7 @@ class Leaderboard extends Component {
   render() {
     const leaderList = this.state.leaderArray.map((user, index) => {
       return (
-        <TableRow style={ index % 2 === 0 ? {backgroundColor: '#455A64', color: '#FFF'} : {backgroundColor: '#E0E0E0'} }>
+        <TableRow style={ index % 2 === 0 ? {backgroundColor: '#9E9E9E' } : {backgroundColor: '#E0E0E0'} }>
           <TableRowColumn style = {styles.tableRowColumn}>{this.state.leaderArray.indexOf(user) + 1}</TableRowColumn>
           <TableRowColumn style = {styles.tableRowColumn}>{user.username}</TableRowColumn>
           <TableRowColumn style = {styles.tableRowColumn}>{user.points}   </TableRowColumn>
@@ -65,15 +67,15 @@ class Leaderboard extends Component {
     return (
       <div style={{ backgroundColor: '#E0E0E0', height: 'calc(100vh - 64px)' }}>
         <h1 style={{ margin: '0', padding: '10px', textAlign: 'center'}}>Leaderboard</h1>
-        <Table>
-          <TableHeader displaySelectAll = {false}>
+        <Table selectable={ false }>
+          <TableHeader adjustForCheckbox={false} displaySelectAll = {false} enableSelectAll={ false }>
             <TableRow style={{ backgroundColor: '#E0E0E0' }} striped={false}>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>RANK</TableHeaderColumn>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>USERNAME</TableHeaderColumn>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>POINTS</TableHeaderColumn>
-                <TableHeaderColumn style = {styles.tableHeaderColumn}>TITLE</TableHeaderColumn>
+              <TableHeaderColumn style = {styles.tableHeaderColumn}>RANK</TableHeaderColumn>
+              <TableHeaderColumn style = {styles.tableHeaderColumn}>USERNAME</TableHeaderColumn>
+              <TableHeaderColumn style = {styles.tableHeaderColumn}>POINTS</TableHeaderColumn>
+              <TableHeaderColumn style = {styles.tableHeaderColumn}>TITLE</TableHeaderColumn>
             </TableRow>
-            </TableHeader>
+          </TableHeader>
           <TableBody displayRowCheckbox = {false} stripedRows={ false }>
             {leaderList}
           </TableBody>

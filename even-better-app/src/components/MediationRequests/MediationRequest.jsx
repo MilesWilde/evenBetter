@@ -57,15 +57,12 @@ class MediationRequest extends Component {
   render() {
     return (
       <div>
-      <MenuItem>
       <MediationRequestDialog
         primaryText={"Mediation Request from " + this.state.fromUser}
         bet={this.props.bet}
         loadMediationRequests={this.props.loadMediationRequests}
         loadBets={this.props.loadBets}
       />
-      </MenuItem>
-      <Divider/>
       </div>
     )
   }

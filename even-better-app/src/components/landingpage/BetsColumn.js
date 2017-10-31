@@ -45,6 +45,7 @@ export default class BetsColumn extends Component {
           user_picked = betUser.possibility_id
         }
       }
+      debugger
       if (bet.outcome_id === user_picked) {
         return "WIN"
       } else {
@@ -61,7 +62,7 @@ export default class BetsColumn extends Component {
     console.log('rendered');
     return (
       <div>
-      <h3 className="text-center title"><strong>Active Bets</strong></h3>
+      <h3 className="text-center bets-title title"><strong>Active Bets</strong></h3>
       <table class="table">
         <thead>
           {

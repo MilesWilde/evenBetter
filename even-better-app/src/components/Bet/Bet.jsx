@@ -165,6 +165,9 @@ class Bet extends Component {
           modal={false}
           open={this.state.showConfirmation}
           onRequestClose={this.handlePossibilitySelectionConfirmationClose}
+          bodyStyle={{ backgroundColor: '#E0E0E0'}}
+          titleStyle={{ backgroundColor: '#E0E0E0'}}
+          actionsContainerStyle={{ backgroundColor: '#E0E0E0'}}
         >
           Selecting Submit will set "{this.state.currentlySelectedPossibility && this.state.betDetails.possibilities.find( (possibility) => {
             return possibility.id === this.state.currentlySelectedPossibility

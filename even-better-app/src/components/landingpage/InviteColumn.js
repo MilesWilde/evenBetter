@@ -6,6 +6,7 @@ import Invite from '../Bet/Invite'
 const style = {
   display: 'inline-block',
   margin: '16px 32px 16px 0',
+  backgroundColor: 'E0E0E0'
 };
 
 var config = {
@@ -43,13 +44,14 @@ class InviteColumn extends Component {
   render () {
     let content = {};
       if (!this.props.getMainState().invites[0]) {
-        content = <h3 className="title"><strong>You have no Invites at the moment.</strong></h3>;
+        content = <h3 className="title"><strong>You have no invites at the moment.</strong></h3>;
       } else {
         content =
         <div className = "invite-column">
-          <h3 className="title"><strong>Invites</strong></h3>
-          <Paper style={style}>
+
+          <Menu >
             <Menu desktop={true} width={320} maxHeight={250}>
+              <h3 className="title"><strong>Invites</strong></h3>
               {this.props.getMainState().invites.map((invite) => {
                   console.log(invite)
                   return (<Invite
@@ -60,7 +62,7 @@ class InviteColumn extends Component {
               />)})
               }
             </Menu>
-          </Paper>
+          </Menu>
         </div>;
       }
     return content;

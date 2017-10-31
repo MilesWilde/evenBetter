@@ -12,10 +12,10 @@ const UserCompleteStore = Resource('users')
 
 
 class BetPoolandOutcome extends React.Component {
-    
+
     constructor(props) {
         super(props);
-    
+
         this.state = {
             names: this.props.data.names,
             value: 1,
@@ -25,11 +25,11 @@ class BetPoolandOutcome extends React.Component {
         }
     }
     componentWillMount(){
-        
+
         var listofUsers = [];
         UserCompleteStore.findAll()
         .then((result) => {
-            result.map((user) => {    
+            result.map((user) => {
                 listofUsers.push(user.username)
             })
             this.setState({
@@ -56,7 +56,7 @@ class BetPoolandOutcome extends React.Component {
 
         if (error.length === 0) {
           console.log("State value is: ", this.state.value)
-        
+
           let sendchosenWinner = ''
           if(this.state.value === 1) {
               sendchosenWinner = this.props.homeTeam
@@ -69,12 +69,12 @@ class BetPoolandOutcome extends React.Component {
           }
 
           console.log("Possibility: ", this.state.chosenWinner)
+          this.setState({chosenWinner: sendchosenWinner})
           this.props.handleNext({
             names: this.state.names,
             value: this.state.value,
-            chosenWinner: sendchosenWinner
+            chosenWinner: this.state.chosenWinner
           })
-          this.setState({chosenWinner: sendchosenWinner})
           //Making the axios call to persist to db
           this.props.makeAxiosCall()
 
@@ -82,7 +82,6 @@ class BetPoolandOutcome extends React.Component {
           this.setState({error: error})
         }
 
-        console.log("State for all sport: ", this.props.sportsArray)
     }
 
 
@@ -96,7 +95,7 @@ class BetPoolandOutcome extends React.Component {
             <h4> Pick a winner </h4>
             <div>
                 {
-                <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+                <DropDownMenu value={this.state.value} onChange={this.handleChange} style={{ borderBottom: 'solid 1px #C5C5C5'}}>
                     <MenuItem value={1} primaryText= {this.props.homeTeam}/>
                     <MenuItem value={2} primaryText="Tie Game" />
                     <MenuItem value={3} primaryText={this.props.awayTeam}/>

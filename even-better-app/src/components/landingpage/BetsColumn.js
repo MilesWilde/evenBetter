@@ -45,6 +45,7 @@ export default class BetsColumn extends Component {
           user_picked = betUser.possibility_id
         }
       }
+      debugger
       if (bet.outcome_id === user_picked) {
         return "WIN"
       } else {
@@ -61,7 +62,7 @@ export default class BetsColumn extends Component {
     console.log('rendered');
     return (
       <div>
-      <h3 className="text-center title"><strong>Active Bets</strong></h3>
+      <h3 className="text-center bets-title title"><strong>Active Bets</strong></h3>
       <table class="table">
         <thead>
           {
@@ -69,7 +70,7 @@ export default class BetsColumn extends Component {
               <th>Type</th>
               <th>Bet Name</th>
               <th>Result</th>
-              <th>Deadline</th>
+              {/* <th>Deadline</th> */}
             </tr>
           }
         </thead>
@@ -79,14 +80,14 @@ export default class BetsColumn extends Component {
             this.props.getMainState().bets.map((bet) => {
               return (
                   <tr class="table-body">
-                    <td><a href= {`/bets/${bet.id}`}>
+                    <td className="text-center"><a href= {`/bets/${bet.id}`}>
                       {bet.mediator_id ? "Personal" : "Sport"}
                     </a></td>
-                    <td><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
-                    <td><a href= {`/bets/${bet.id}`}>
+                    <td className="text-center"><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
+                    <td className="text-center"><a href= {`/bets/${bet.id}`}>
                       { Date.now() < this.betTimestamp(bet.outcome_deadline) && !bet.outcome_id ? "PENDING" : this.betStatus(bet) }
                     </a></td>
-                    <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td>
+                    {/* <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td> */}
                   </tr>
               );
             })

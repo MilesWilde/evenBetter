@@ -10,6 +10,7 @@ import DateandSport from './sportsbetcontent/DateandSport';
 import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
 import GamesList from './sportsbetcontent/GamesList';
 import axios from 'axios';
+var moment = require('moment');
 
 var config = {
   headers: {
@@ -64,19 +65,24 @@ class SportsStepper extends React.Component {
     });
 
     userIDArray.push(window.localStorage.user_id)
-    console.log("Game code before post: ", this.state.data[1].gameCode)
+
+    console.log("Game date before post: ", this.state.data[0].gameDate)
+    
+    const momentDate = moment(this.state.data[0].gameDate).add(1, 'days').format()
+
+
 
     zerver.post('/api/v1/bets', {
       title: `${this.state.data[1].homeTeam} vs. ${this.state.data[1].awayTeam}` ,
       pool: ((this.state.data[2].names.length)+1)*100,
       users: userIDArray,
-      creator_id: window.localStorage.user_id,
-      betting_deadline: new Date(this.state.data[0].gameDate.setTime(this.state.data[0].gameDate.getTime() + 1 * 86400000 )).toString(),
-      outcome_deadline: new Date(this.state.data[0].gameDate.setTime(this.state.data[0].gameDate.getTime() + 1 * 86400000 )).toString(),
-      outcome_id: null,
-      game_date: this.state.data[0].gameDate.toString(),
-      game_type: this.state.data[0].sport.toString(),
+      game_date: this.state.data[0].gameDate,
+      game_type: this.state.data[0].sport,
       game_code: this.state.data[1].gameCode,
+      creator_id: window.localStorage.user_id,
+      betting_deadline: momentDate,
+      outcome_deadline: momentDate,
+      outcome_id: null,
       possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
     }).then(res => {
                     let betId = res.data.possibilities[0].bet_id
@@ -139,12 +145,12 @@ class SportsStepper extends React.Component {
       }
     }
 
-    console.log("State of Sports Stepper: ", tempStateHold)
     this.setState({
       data: tempStateHold,
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2,
     });
+    console.log("State of Sports Stepper: ", tempStateHold)
   };
 
   handlePrev = () => {
@@ -174,7 +180,6 @@ class SportsStepper extends React.Component {
                                   handleNext={this.handleNext}
                                   homeTeam={this.state.data[1].homeTeam}
                                   awayTeam={this.state.data[1].awayTeam}
-                                  sportsArray={this.state.data}
                                   makeAxiosCall = {this.makeAxiosCall}
                                   />
       default:

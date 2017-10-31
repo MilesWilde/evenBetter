@@ -69,12 +69,12 @@ class BetPoolandOutcome extends React.Component {
           }
 
           console.log("Possibility: ", this.state.chosenWinner)
+          this.setState({chosenWinner: sendchosenWinner})
           this.props.handleNext({
             names: this.state.names,
             value: this.state.value,
-            chosenWinner: sendchosenWinner
+            chosenWinner: this.state.chosenWinner
           })
-          this.setState({chosenWinner: sendchosenWinner})
           //Making the axios call to persist to db
           this.props.makeAxiosCall()
 
@@ -82,7 +82,6 @@ class BetPoolandOutcome extends React.Component {
           this.setState({error: error})
         }
 
-        console.log("State for all sport: ", this.props.sportsArray)
     }
 
 

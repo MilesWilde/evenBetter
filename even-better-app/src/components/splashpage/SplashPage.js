@@ -24,44 +24,46 @@ class SplashPage extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div id="top">
-          <div id="top-nav">
-            <a href="#information">Info</a>
+        {/* <div className="top-nav">
+          <a href="#information">Info</a>
+        </div> */}
+        {/* <div className="top">
+          <img className="top-image" src ="https://www.playnbrag.com/blog/wp-content/uploads/2017/01/sports-betting-marketing-strategies.jpg" />
+        </div> */}
+        <body>
+          <div className="content">
+
+            <div id="information" className="container">
+              <div className="left-pane">
+                <p>Sports</p>
+                <div className="text-div">
+
+                  EvenBetter offers two ways to bet: sports betting, or between your friends! Someone constantly late? 
+                  Bet on them! Is an election coming up? You know what to do.
+                </div> 
+              </div>
+              <div className="middle-pane">
+                <p>Personal</p>
+                <div className="text-div">
+                  If you have made a bet between friends, a chatroom will be available for everyone involved for discussion.
+                </div>
+              </div> 
+              <div className="right-pane">
+                <p>Chat</p>
+                <div className="text-div">
+                  When you sign up you are given 1000 points. Every day you 
+                  can collect 100 points! Under your
+                  profile there is a statistics page. View
+                  leaderboards with various statistics surrounding the top betters!
+                </div>
+              </div> 
+            </div>
+            <div className="footer-bar">
+              Copyright Info
+            </div>
+
           </div>
-          <center>
-            <img id="top-image" src ="https://fthmb.tqn.com/tLrasJkIfuzOpe8lclrJY66lcMQ=/768x0/filters:no_upscale()/sports_betting_board_78396227-56a8f1955f9b58b7d0f69d65.jpg" />
-          </center>
-
-        </div>
-
-        <div id="information" className="container">
-          <div id="left-pane">
-            <img src ="https://betoclock.com/wp-content/uploads/2015/01/betting_3.jpg" height="65" width="85" />
-            <div className="text-div">
-
-              EvenBetter offers two ways to bet: sports betting, or between your friends! Someone constantly late? 
-              Bet on them! Is an election coming up? You know what to do.
-            </div> 
-           </div>
-          <div id="middle-pane">
-            <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/3766-200.png" height="65" width="65" />
-            <div className="text-div">
-              If you have made a bet between friends, a chatroom will be available for everyone involved for discussion.
-            </div>
-          </div> 
-          <div id="right-pane">
-            <img src="http://www.publicdomainpictures.net/pictures/130000/velka/clip-art-smiley-face.jpg" height="65" width="81" />
-            <div className="text-div">
-              When you sign up you are given 1000 points. Every day you 
-              can collect 100 points! Under your
-              profile there is a statistics page. View
-              leaderboards with various statistics surrounding the top betters!
-            </div>
-          </div> 
-        </div>
-        <div id="footer-bar">
-          Copyright Info
-        </div>
+        </body>
       </MuiThemeProvider>
     );
   }

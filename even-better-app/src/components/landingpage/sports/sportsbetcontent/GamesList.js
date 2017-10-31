@@ -63,8 +63,6 @@ class GamesList extends React.Component {
     _handleGameClick = (fixture,event) => {
 
         event.target.style.backgroundColor = "#91a6c9";
-        console.log("Handle Click Fixture: ", fixture.fixture)
-        console.log("Handle Click GameCode ", fixture.gameCode)
 
         let words = fixture.fixture.split(" vs. ")
 

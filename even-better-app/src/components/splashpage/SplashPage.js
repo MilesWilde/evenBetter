@@ -43,7 +43,7 @@ class SplashPage extends Component {
           <div className="middle-pane">
             <p>Personal</p>
             <div className="text-div">
-              If you have made a personal bet between friends, a chatroom will be available for everyone to discuss.
+              If you have made a bet between friends, a chatroom will be available for everyone involved for discussion.
             </div>
           </div> 
           <div className="right-pane">

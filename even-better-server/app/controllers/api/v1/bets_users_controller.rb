@@ -13,8 +13,10 @@ class Api::V1::BetsUsersController < ApplicationController
     @betUser[:has_accepted] = params[:has_accepted]
     if @bet.mediator_id != @user.id && @betUser[:has_accepted] === true
         @user.points -= 100
+        @bet.pool += 100
     end
     @user.save!(validate: false)
+    @bet.save!
     @betUser[:possibility_id] = params[:possibility_id]
     @betUser.save!
     # Returning json to make sure column has been updated

@@ -91,6 +91,7 @@ class SportsStepper extends React.Component {
                       if(this.state.data[2].chosenWinner == poss.description) {
                         creatorPossId = poss.id
                       }
+                      console.log("Possibility ID: ", creatorPossId)
                     })
                     this.setState({ betId: betId,
                                     creatorPossId: creatorPossId})    

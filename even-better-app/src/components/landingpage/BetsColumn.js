@@ -45,7 +45,6 @@ export default class BetsColumn extends Component {
           user_picked = betUser.possibility_id
         }
       }
-      debugger
       if (bet.outcome_id === user_picked) {
         return "WIN"
       } else {

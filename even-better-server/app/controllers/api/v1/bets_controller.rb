@@ -20,6 +20,7 @@ module Api::V1
       # can't add them and call save because it tries to create them in the users table
       if @users.length >= 2
         @bet = current_user.created_bets.new(bet_params)
+        @bet.pool = 0
         # add the possibilities
         @possibilities.map{ |possibility| @bet.possibilities.build(description: possibility) }
         @bet.save!
@@ -50,7 +51,6 @@ module Api::V1
     end
 
     def update
-      @bet = Bet.find(params[:id])
       if @bet.mediator != current_user
         #Use not acceptable (406) instead of 403
         json_response({ message: 'Validation failed: Only the mediator can set the outcome' }, :forbidden)
@@ -61,17 +61,18 @@ module Api::V1
       else
         @bet.outcome_id = params[:outcome_id]
         @bet.save!
+        distribute_points_among_winners(@bet, Possibility.find(params[:outcome_id]))
         render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
 
         # ---THIS IS UNTESTED ---
-        # bet_user_count = BetUser.where(bet_id: bet_id).count
-        # pool = Bet.where(bet_id: bet_id).pool
-        # winnings = pool / bet_user_count
+        bet_user_count = BetUser.where(bet_id: bet_id).count
+        pool = Bet.where(bet_id: bet_id).pool
+        winnings = pool / bet_user_count
 
-        # BetUser.where(possibility_id: outcome).each do |winner|
-        #   winner.user.points += winnings
-        #   winner.save!
-        # end
+        BetUser.where(possibility_id: outcome).each do |winner|
+           winner.user.points += winnings
+           winner.user.save!(validate: false)
+        end
 
       end
     end
@@ -106,7 +107,7 @@ module Api::V1
     private
 
     def bet_params
-      params.permit(:title, :pool, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities, :game_type, :game_date, :game_code)
+      params.permit(:title, :description, :betting_deadline, :outcome_deadline, :mediator_id, :users, :possibilities, :game_type, :game_date, :game_code)
     end
 
     def set_bet

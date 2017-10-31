@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import InvitePossibility from './InvitePossibility'
 
@@ -9,6 +10,11 @@ var config = {
   headers: {
     "Authorization": "Bearer " + window.localStorage.auth_token,
   }
+}
+
+const style = {
+  color: '#FFF',
+  backgroundColor: '#FFC0CB'
 }
 
 // Will need betID prop
@@ -117,9 +123,13 @@ class InviteDialog extends Component {
     ];
 
     return (
-        <MenuItem
+      <div>
+        <RaisedButton
+        primary={true}
+        fullWidth={true}
         onClick={this.handleOpen}
-        ><div className="text-center">{this.props.primaryText}</div>
+        style={style}
+        ><div className="text-center"><strong>{this.props.primaryText}</strong></div>
           <Dialog
             title={"Bet Invite: " + this.props.bet.title}
             autoScrollBodyContent = {true}
@@ -135,7 +145,10 @@ class InviteDialog extends Component {
             )
           })}
           </Dialog>
-        </ MenuItem>
+        </ RaisedButton>
+        <br />
+        <br />
+      </div>
     );
   }
 }

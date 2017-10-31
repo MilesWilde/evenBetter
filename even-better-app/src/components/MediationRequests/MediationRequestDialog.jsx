@@ -5,7 +5,6 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 
-
 var config = {
   headers: {
     "Authorization": "Bearer " + window.localStorage.auth_token,
@@ -85,9 +84,11 @@ class MediationRequestDialog extends Component {
     ];
 
     return (
-        <MenuItem
+        <RaisedButton
+        fullWidth={true}
         onClick={this.handleOpen}
-        ><div className="text-center">{this.props.primaryText}</div>
+        backgroundColor="#B0C4DE"
+        ><div className="text-center"><strong>{this.props.primaryText}</strong></div>
           <Dialog
             title={'Mediation Request: ' + this.props.bet.title}
             autoScrollBodyContent = {true}
@@ -97,7 +98,7 @@ class MediationRequestDialog extends Component {
             actions={actions}
           >
           </Dialog>
-        </ MenuItem>
+        </ RaisedButton>
     );
   }
 }

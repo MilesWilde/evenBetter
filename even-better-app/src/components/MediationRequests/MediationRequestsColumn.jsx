@@ -51,9 +51,9 @@ class MediationRequestColumn extends Component {
       } else {
         content =
         <div className = "mediationRequest-column">
-          <h3 className="title"><strong>Mediation Requests</strong></h3>
-          <Paper style={style}>
+          <Menu style={style}>
             <Menu desktop={true} width={320} maxHeight={250}>
+              <h3 className="title"><strong>Mediation Requests</strong></h3>
               {this.props.getMainState().mediationRequests.map((mediationRequest) => {
                   console.log(mediationRequest)
                   return (<MediationRequest
@@ -64,7 +64,7 @@ class MediationRequestColumn extends Component {
               />)})
               }
             </Menu>
-          </Paper>
+          </Menu>
         </div>;
       }
     return content;

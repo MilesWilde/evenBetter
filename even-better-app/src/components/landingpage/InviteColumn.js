@@ -48,9 +48,10 @@ class InviteColumn extends Component {
       } else {
         content =
         <div className = "invite-column">
-          <h3 className="title"><strong>Invites</strong></h3>
-          <Paper style={style}>
+
+          <Menu >
             <Menu desktop={true} width={320} maxHeight={250}>
+              <h3 className="title"><strong>Invites</strong></h3>
               {this.props.getMainState().invites.map((invite) => {
                   console.log(invite)
                   return (<Invite
@@ -61,7 +62,7 @@ class InviteColumn extends Component {
               />)})
               }
             </Menu>
-          </Paper>
+          </Menu>
         </div>;
       }
     return content;

@@ -44,7 +44,7 @@ class InviteColumn extends Component {
   render () {
     let content = {};
       if (!this.props.getMainState().invites[0]) {
-        content = <h3 className="title" style={{paddingTop: '25px'}}><strong>You have no invites at the moment.</strong></h3>;
+        content = <h3 className="title" style={{paddingTop: '25px'}}><strong>No Invites</strong></h3>;
       } else {
         content =
         <div className = "invite-column">

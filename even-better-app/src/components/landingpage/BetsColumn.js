@@ -50,11 +50,11 @@ export default class BetsColumn extends Component {
         }
       }
       if (bet.outcome_id === user_picked) {
-        return "W"
+        return "WON"
       } else if (bet.mediator_id === this.props.user.id) {
         return "REF'D"
       } else {
-        return "L"
+        return "LOST"
       }
     } else {
       return "NO CONTEST"
@@ -89,7 +89,7 @@ export default class BetsColumn extends Component {
                     </a></td>
                     <td className="text-center"><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
                     <td className="text-center"><a href= {`/bets/${bet.id}`}>
-                      {  }
+                      { this.betStatus(bet) }
                     </a></td>
                     {/* <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td> */}
                   </tr>

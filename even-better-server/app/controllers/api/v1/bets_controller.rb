@@ -50,7 +50,6 @@ module Api::V1
     end
 
     def update
-      @bet = Bet.find(params[:id])
       if @bet.mediator != current_user
         #Use not acceptable (406) instead of 403
         json_response({ message: 'Validation failed: Only the mediator can set the outcome' }, :forbidden)
@@ -61,6 +60,7 @@ module Api::V1
       else
         @bet.outcome_id = params[:outcome_id]
         @bet.save!
+        distribute_points_among_winners(@bet, Possibility.find(params[:outcome_id]))
         render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
 
         # ---THIS IS UNTESTED ---

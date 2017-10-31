@@ -240,7 +240,7 @@ arsalan = User.create!({
   password_confirmation: '11111111'
 })
 
-puts '--- CREATING NBA BET FOR TOMORROW ---'
+puts '--- CREATING NBA BETS FOR TOMORROW ---'
 
 tomorrow = Date.today + 1.day
 tomorrow = tomorrow.to_s[0, 10].gsub! '-',''
@@ -282,7 +282,7 @@ games.each do |game|
 end
 
 
-puts '--- CREATING EPL BET FROM YESTERDAY ---'
+puts '--- CREATING NHL BETS FROM YESTERDAY ---'
 
 yesterday = Date.today - 1.day
 yesterday = yesterday.to_s[0, 10].gsub! '-',''

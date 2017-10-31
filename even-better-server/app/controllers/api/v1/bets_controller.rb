@@ -3,7 +3,7 @@ require 'json'
 module Api::V1
   class BetsController < ApplicationController
     before_action :set_bet, only: [:show, :update, :destroy]
-    before_action :update_sports_bets, only: [:get_acceptances]
+    before_action :update_git sports_bets, only: [:get_acceptances]
 
     def index
         @bets = current_user.bets

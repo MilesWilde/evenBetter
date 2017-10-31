@@ -7,16 +7,6 @@ const UserCompleteStore = Resource('users')
 /**
  * The input is used to create the `dataSource`, so the input always matches three entries.
  */
-const colors = [
-  'Red',
-  'Orange',
-  'Yellow',
-  'Green',
-  'Blue',
-  'Purple',
-  'Black',
-  'White',
-];
 
 export default class MediatorAutoComplete extends Component {
   state = {

@@ -95,12 +95,12 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={SplashPage} />
             <Route path='/signup' component={UserRegistration}/>
-            <Route path='/leaderboard' component={Leaderboard}/>
             <Route path='/login'
               render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}
             />
             <PrivateRoute path='/home' currentUser={ this.state.currentUser } component={LandingPage}/>
             <PrivateRoute path='/bets/:id' currentUser={ this.state.currentUser } component={ Bet } />
+            <PrivateRoute path='/leaderboard' currentUser={ this.state.currentUser } component={Leaderboard}/>
             <Route component={ NotFound } />
           </Switch>
         </main>

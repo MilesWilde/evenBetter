@@ -41,7 +41,7 @@ export default class BetsColumn extends Component {
       } else if (bet.mediator_id === this.props.user.id) {
         return [ "REF'D", "inherit" ]
       } else {
-        return  [ "LOST", "#F08080" ]
+        return  [ "LOST", "#FF5252" ]
       }
     } else {
       return [ "NO CONTEST", "inherit" ]
@@ -53,7 +53,7 @@ export default class BetsColumn extends Component {
     console.log('rendered');
     return (
       <div>
-      <h3 className="text-center bets-title title"><strong>Active Bets</strong></h3>
+      <h3 className="text-center bets-title title"><strong>Bets</strong></h3>
       <table class="table">
         <thead>
           {

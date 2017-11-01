@@ -25,9 +25,9 @@ export default class BetsColumn extends Component {
   betStatus(bet) {
     if (Date.now() < this.betTimestamp(bet.outcome_deadline) && !bet.outcome_id) {
       if (bet.mediator_id === this.props.user.id) {
-        return "REF"
+        return ["REF", "inherit"]
       } else {
-        return "PENDING"
+        return ["PENDING", "inherit"]
       }
     } else if (bet.outcome_id) {
       var user_picked = 0;
@@ -37,14 +37,14 @@ export default class BetsColumn extends Component {
         }
       }
       if (bet.outcome_id === user_picked) {
-        return "WON"
+        return [ "WON", "#00FF7F" ]
       } else if (bet.mediator_id === this.props.user.id) {
-        return "REF'D"
+        return [ "REF'D", "inherit" ]
       } else {
-        return "LOST"
+        return  [ "LOST", "#F08080" ]
       }
     } else {
-      return "NO CONTEST"
+      return [ "NO CONTEST", "inherit" ]
     }
   }
 
@@ -70,13 +70,17 @@ export default class BetsColumn extends Component {
           {
             this.props.getMainState().bets.map((bet) => {
               return (
-                  <tr class="table-body">
+                  <tr 
+                  class="table-body" 
+                  id={bet.id}
+                  style={{backgroundColor: this.betStatus(bet)[1]}}
+                  >
                     <td className="text-center"><a href= {`/bets/${bet.id}`}>
                       {bet.mediator_id ? "Personal" : "Sport"}
                     </a></td>
                     <td className="text-center"><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
                     <td className="text-center"><a href= {`/bets/${bet.id}`}>
-                      { this.betStatus(bet) }
+                      { this.betStatus(bet)[0] }
                     </a></td>
                     {/* <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td> */}
                   </tr>

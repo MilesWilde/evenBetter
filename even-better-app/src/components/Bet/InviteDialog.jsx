@@ -4,6 +4,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import InvitePossibility from './InvitePossibility'
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 
 var config = {
   headers: {
@@ -16,6 +17,8 @@ const style = {
   backgroundColor: '#FFC0CB'
 }
 
+
+
 // Will need betID prop
 class InviteDialog extends Component {
   constructor(props) {
@@ -25,6 +28,11 @@ class InviteDialog extends Component {
       possibilities: [],
       selected: {}
     };
+  }
+
+  redirectToBet = (betId) => {
+    //Routing to the bets page
+    this.props.history.push('/bets/' + betId)
   }
 
   handleOpen = () => {
@@ -41,6 +49,7 @@ class InviteDialog extends Component {
     });
     this.props.loadInvites()
     this.props.loadBets()
+
   };
 
 
@@ -76,6 +85,8 @@ class InviteDialog extends Component {
       console.log("Response: ")
       console.log(response.data)
       this.handleClose()
+
+      this.redirectToBet(this.props.bet.id)
     })
     .catch(error => {
       console.log("Error: " + error)
@@ -152,4 +163,4 @@ class InviteDialog extends Component {
   }
 }
 
-export default InviteDialog
+export default withRouter(InviteDialog);

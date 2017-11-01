@@ -3,6 +3,7 @@ import axios from 'axios';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 
 var config = {
   headers: {
@@ -20,6 +21,11 @@ class MediationRequestDialog extends Component {
       selected: {},
       // currentTime: Date().getTime()
     };
+  }
+
+  redirectToBet = (betId) => {
+    //Routing to the bets page
+    this.props.history.push('/bets/' + betId)
   }
 
   handleOpen = () => {
@@ -47,6 +53,7 @@ class MediationRequestDialog extends Component {
       console.log("Response: ")
       console.log(response.data)
       this.handleClose()
+      this.redirectToBet(this.props.bet.id)
     })
     .catch(error => {
       console.log("Error: " + error)
@@ -102,4 +109,4 @@ class MediationRequestDialog extends Component {
   }
 }
 
-export default MediationRequestDialog
+export default withRouter(MediationRequestDialog);

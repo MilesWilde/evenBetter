@@ -4,19 +4,13 @@ import {
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 
 import NameDesc from './personalbetcontent/NameDesc';
 import BettingPool from './personalbetcontent/BettingPool'
 import PossibleBets from './personalbetcontent/PossibleBets'
 import ChoosePossibility from './personalbetcontent/ChoosePossibility'
-import Bet from '../../Bet/Bet'
 import axios from 'axios';
-import moment from 'moment';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Redirect } from 'react-router';
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
  * Avoid using long step names in horizontal steppers.

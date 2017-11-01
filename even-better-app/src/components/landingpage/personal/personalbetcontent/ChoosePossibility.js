@@ -1,11 +1,7 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import {List, ListItem} from 'material-ui/List';
-import Chip from 'material-ui/Chip';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import ChipInput from 'material-ui-chip-input'
 import axios from 'axios';
 
 const style = {'text-align': 'center'};

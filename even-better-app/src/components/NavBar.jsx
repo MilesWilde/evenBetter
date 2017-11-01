@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import ContentPaste from 'material-ui/svg-icons/content/content-paste';
-import Leaderboard from './Leaderboard/Leaderboard'
 
 const styles = {
   bar: {

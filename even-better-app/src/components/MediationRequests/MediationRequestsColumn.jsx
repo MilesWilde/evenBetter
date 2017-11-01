@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
-import Divider from 'material-ui/Divider';
 import MediationRequest from './MediationRequest'
-import axios from 'axios'
 
 const style = {
   display: 'inline-block',
@@ -12,21 +8,10 @@ const style = {
   backgroundColor: 'E0E0E0'
 };
 
-var config = {
-  headers: {
-    "Authorization": "Bearer " + window.localStorage.auth_token,
-  }
-}
-
-
 // api call in componentdidmnt - sets state
 // render function reads state
 
 class MediationRequestColumn extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.props.loadMediationRequests()
   }

@@ -42,7 +42,7 @@ const BetDetails = (props) => {
       { props.possibilities.map( (possibility, index) => {
         let backgroundColor = '#0097A7'
         // default background red (lose) when outcome deadlind reached
-        new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : null
+        new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : backgroundColor = '#0097A7'
         if (props.outcomeId && props.outcomeId === possibility.id) {
           backgroundColor = '#00C853' // green for the winning outcome
         } else if (props.outcomeId) {
@@ -69,7 +69,7 @@ const BetDetails = (props) => {
         if (user.id !== props.mediatorId) {
           let backgroundColor = undefined
           // default background red (lose) when outcome deadlind reached
-          new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : null
+          new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : backgroundColor = undefined
           if (props.outcomeId && props.outcomeId === user.possibility_id) {
             backgroundColor = '#00C853' // green for the winner(s)
           } else if (props.outcomeId) {
@@ -87,7 +87,10 @@ const BetDetails = (props) => {
       })}
       </div>
       { props.mediator &&
-      [<h3 style={ styles.header }>Mediator</h3>,<Chip style={ styles.chip }>{ props.mediator.username }</Chip>]
+      <div>
+        <h3 style={ styles.header }>Mediator</h3>
+        <Chip key={props.mediator} style={ styles.chip }>{ props.mediator.username }</Chip>
+      </div>
       }
       <p style={ styles.p }>User acceptance cutoff { new Date(Date.now()) < new Date(props.bettingDeadline) ? 'is' : 'was' } <span style={ styles.dates }>{ Moment(props.bettingDeadline).local().calendar() }</span></p>
       <p style={ styles.p }>This bet { new Date(Date.now()) < new Date(props.bettingDeadline) ? 'ends' : 'ended' } <span style={ styles.dates }>{ Moment(props.outcomeDeadline).local().calendar() }</span></p>

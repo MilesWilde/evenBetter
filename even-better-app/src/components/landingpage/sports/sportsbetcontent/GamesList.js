@@ -1,7 +1,5 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -24,8 +22,8 @@ class GamesList extends React.Component {
 
     componentWillMount() {
         var listOfFixtures = []
-        var teamLogos = []
-        var gameCodes = []
+        // var teamLogos = []
+        // var gameCodes = []
         console.log("this.props.data", this.props.data)
         GameStore.findAll({
             params: {

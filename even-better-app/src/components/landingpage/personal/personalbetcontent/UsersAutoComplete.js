@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 import Chip from 'material-ui/Chip';
-import ChipInput from 'material-ui-chip-input'
 import Resource from '../../../../models/resource'
 const UserCompleteStore = Resource('users')
 
@@ -55,7 +54,7 @@ export default class UsersAutoComplete extends Component {
       searchText: searchText,
     });
   };
-  
+
   handleNewRequest = (searchText) => {
 
     this.chipCallback(searchText)
@@ -63,7 +62,7 @@ export default class UsersAutoComplete extends Component {
     this.setState({
       searchText: ''
     });
- 
+
   };
 
   handleRequestDelete = (data) => {
@@ -84,7 +83,7 @@ export default class UsersAutoComplete extends Component {
         {
           this.state.chipValue.map((chip) => {
           let chipUsername = chip.username
-          
+
           return <Chip  style={this.styles.chip}
                         onRequestDelete={() => this.handleRequestDelete(chip)}>
             {chipUsername}
@@ -100,7 +99,7 @@ export default class UsersAutoComplete extends Component {
           dataSource={this.props.usersList}
           filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
           openOnFocus={true}
-          errorText = {this.props.error} 
+          errorText = {this.props.error}
         />
       </div>
     );

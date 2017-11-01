@@ -24,7 +24,6 @@ const styles = {
   }
 }
 const UserStore = Resource('users')
-var topUsers = []
 
 class Leaderboard extends Component {
   constructor(props) {

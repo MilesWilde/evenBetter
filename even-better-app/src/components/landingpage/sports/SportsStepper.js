@@ -4,8 +4,6 @@ import {
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 import DateandSport from './sportsbetcontent/DateandSport';
 import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
 import GamesList from './sportsbetcontent/GamesList';
@@ -67,7 +65,7 @@ class SportsStepper extends React.Component {
     userIDArray.push(window.localStorage.user_id)
 
     console.log("Game date before post: ", this.state.data[0].gameDate)
-    
+
     const momentDate = moment(this.state.data[0].gameDate).add(1, 'days').format()
 
 
@@ -94,7 +92,7 @@ class SportsStepper extends React.Component {
                       console.log("Possibility ID: ", creatorPossId)
                     })
                     this.setState({ betId: betId,
-                                    creatorPossId: creatorPossId})    
+                                    creatorPossId: creatorPossId})
                     }
       ).then(res => {
         var data = {
@@ -111,9 +109,9 @@ class SportsStepper extends React.Component {
         })
       });
 
-        
-        
-      
+
+
+
 
 
     } //End of makeAxiosCall()

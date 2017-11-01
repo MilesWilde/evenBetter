@@ -1,21 +1,8 @@
 import React, {Component} from 'react';
-
-import Resource from '../../models/resource'
-import axios from 'axios'
 import './css/BetsColumn.css';
-
-var config = {
-  headers: {
-    "Authorization": "Bearer " + window.localStorage.auth_token,
-  }
-}
 
 // This receives getMainState() as prop
 export default class BetsColumn extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     this.props.loadBets();
   }

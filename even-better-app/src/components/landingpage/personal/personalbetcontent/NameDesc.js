@@ -1,11 +1,5 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-
-import {
-  Step,
-  Stepper,
-  StepLabel,
-} from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -43,7 +37,7 @@ class NameDesc extends React.Component {
     }
 
     if (errors.length === 0) {
- 
+
       this.props.handleNext({
         name: this.state.name,
         description: this.state.description
@@ -57,17 +51,17 @@ class NameDesc extends React.Component {
     return (
       <div>
         <div>
-          <TextField 
-            value={this.state.name} 
+          <TextField
+            value={this.state.name}
             onChange={this._handleNameFieldChange}
             floatingLabelText="Name your bet"
             errorText = {this.state.errors[0]} />
           <br />
-          <TextField 
-            value={this.state.description} 
+          <TextField
+            value={this.state.description}
             onChange={this._handleDescFieldChange}
             floatingLabelText="Describe your bet"
-            errorText={this.state.errors[1]} 
+            errorText={this.state.errors[1]}
             multiLine={true}
             rows={2}
             rowsMax={4}/>
@@ -84,11 +78,11 @@ class NameDesc extends React.Component {
         <RaisedButton
           label={this.props.stepIndex === 3 ? 'Finish' : 'Next'}
           primary={true}
-          onClick={this.handleMoveNext}          //Check e.target.vale of text field in <NameDesc /> for data. 
+          onClick={this.handleMoveNext}          //Check e.target.vale of text field in <NameDesc /> for data.
         />
         </div>
       </div>
-     
+
     );
   }
 }

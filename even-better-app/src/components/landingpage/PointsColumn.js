@@ -14,12 +14,9 @@ class PointsColumn extends Component {
         <strong>
               <MenuItem
                 style={{color: '#FFF'}}
-                primaryText={`Your points: ${this.props.user.points}`}
-              />
-              <MenuItem
-                style={{color: '#FFF'}}
-                primaryText={`Points to next rank: ${pointsFunction.rankDetermine(this.props.user.points).pointsToNext}`}
-              />
+              >
+              <h3 style = {{color: '#FFF'}}>Points: {this.props.user.points}</h3>
+              </MenuItem>              
         </strong>
         </div>
       </MuiThemeProvider>

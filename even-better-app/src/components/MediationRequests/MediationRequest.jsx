@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import MenuItem from 'material-ui/MenuItem';
-import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
-import Divider from 'material-ui/Divider';
 import axios from 'axios';
 import MediationRequestDialog from './MediationRequestDialog'
 

@@ -5,7 +5,6 @@ import Container from 'muicss/lib/react/container'
 import Col from 'muicss/lib/react/col'
 import RaisedButton from 'material-ui/RaisedButton';
 import './login.css'
-var pointsFunction = require('../landingpage/ranklogic')
 
 class Login extends Component {
   constructor(props) {

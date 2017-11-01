@@ -4,7 +4,7 @@ import './css/LandingPage.css';
 
 var pointsFunction = require('./ranklogic')
 
-class ChangingProgressbar extends React.Component {
+class ChangingProgressbar extends Component {
   constructor(props) {
     super(props);
 
@@ -22,7 +22,7 @@ class ChangingProgressbar extends React.Component {
   }
   render() {
     return <CircularProgressbar
-      {...this.props} 
+      {...this.props}
       percentage={this.props.percentages[this.state.currentPercentageIndex]}
       textForPercentage={(percentage) => `${pointsFunction.rankDetermine(this.props.user.points).pointsToNext} to go!`}
        />;

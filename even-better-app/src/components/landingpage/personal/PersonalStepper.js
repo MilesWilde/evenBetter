@@ -4,16 +4,12 @@ import {
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 
 import NameDesc from './personalbetcontent/NameDesc';
 import BettingPool from './personalbetcontent/BettingPool'
 import PossibleBets from './personalbetcontent/PossibleBets'
 import ChoosePossibility from './personalbetcontent/ChoosePossibility'
-import Bet from '../../Bet/Bet'
 import axios from 'axios';
-import moment from 'moment';
 
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 /**

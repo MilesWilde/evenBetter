@@ -1,29 +1,12 @@
 import React, {Component} from 'react';
-import Paper from 'material-ui/Paper';
 import Menu from 'material-ui/Menu';
 import Invite from '../Bet/Invite'
-
-const style = {
-  display: 'inline-block',
-  margin: '16px 32px 16px 0',
-  backgroundColor: 'E0E0E0'
-};
-
-var config = {
-  headers: {
-    "Authorization": "Bearer " + window.localStorage.auth_token,
-  }
-}
 
 
 // api call in componentdidmnt - sets state
 // render function reads state
 
 class InviteColumn extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.props.loadInvites()
   }
@@ -44,7 +27,7 @@ class InviteColumn extends Component {
   render () {
     let content = {};
       if (!this.props.getMainState().invites[0]) {
-        content = <h3 className="title" style={{paddingTop: '25px'}}><strong>You have no invites at the moment.</strong></h3>;
+        content = <h3 className="title" style={{paddingTop: '25px'}}><strong>No Invites</strong></h3>;
       } else {
         content =
         <div className = "invite-column">

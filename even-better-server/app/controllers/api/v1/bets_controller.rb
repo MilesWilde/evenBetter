@@ -130,8 +130,9 @@ module Api::V1
             bets_to_update.each do |bet|
               outcome = bet.possibilities.find_by description: game['gameWinner']
               bet.outcome = outcome
-              bet.save!
-              distribute_points_among_winners(bet, outcome)
+              if bet.save!
+                distribute_points_among_winners(bet, outcome)
+              end
             end
           end
         end

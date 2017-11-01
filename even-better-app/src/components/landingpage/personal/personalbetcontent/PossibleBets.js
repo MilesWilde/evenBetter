@@ -1,7 +1,4 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Chip from 'material-ui/Chip';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import ChipInput from 'material-ui-chip-input'
@@ -44,7 +41,7 @@ class PossibleBets extends React.Component {
       //Making the axios call to persist to db
       this.props.makeAxiosCall()
 
-      
+
     } else {
       this.setState({error: error})
     }

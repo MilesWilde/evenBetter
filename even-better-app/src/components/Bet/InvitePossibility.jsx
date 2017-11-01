@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import MenuItem from 'material-ui/MenuItem';
 
 class InvitePossibility extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   handleSelect = (e, option) => {
     e.target.style.backgroundColor = "#91a6c9";

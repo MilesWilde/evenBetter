@@ -1,7 +1,5 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -24,8 +22,8 @@ class GamesList extends React.Component {
 
     componentWillMount() {
         var listOfFixtures = []
-        var teamLogos = []
-        var gameCodes = []
+        // var teamLogos = []
+        // var gameCodes = []
         console.log("this.props.data", this.props.data)
         GameStore.findAll({
             params: {
@@ -80,7 +78,6 @@ class GamesList extends React.Component {
                     {
                     this.state.fixtures.map((fixture) => {
                     return <ListItem
-                                primaryText={fixture.fixture}
                                 onClick = {(event) => this._handleGameClick(fixture,event)}
                                 style = {style}
                                 /* leftAvatar = {
@@ -93,7 +90,7 @@ class GamesList extends React.Component {
                                     size={50}
                                     /> */
                                 /* } */
-                            />
+                            >{fixture.fixture}</ListItem>
                     })
                     }
                 </List>

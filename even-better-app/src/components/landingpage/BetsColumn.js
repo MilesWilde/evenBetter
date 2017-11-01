@@ -44,7 +44,7 @@ export default class BetsColumn extends Component {
         return  [ "LOST", "#F08080" ]
       }
     } else {
-      return "NO CONTEST"
+      return [ "NO CONTEST", "inherit" ]
     }
   }
 

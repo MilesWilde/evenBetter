@@ -37,7 +37,7 @@ export default class BetsColumn extends Component {
         }
       }
       if (bet.outcome_id === user_picked) {
-        return [ "WON", "#00FF7F" ]
+        return [ "WON", "#00C853" ]
       } else if (bet.mediator_id === this.props.user.id) {
         return [ "REF'D", "inherit" ]
       } else {

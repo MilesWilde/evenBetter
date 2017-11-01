@@ -1,11 +1,7 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import {List, ListItem} from 'material-ui/List';
-import Chip from 'material-ui/Chip';
-
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import ChipInput from 'material-ui-chip-input'
 import axios from 'axios';
 
 const style = {'text-align': 'center'};
@@ -47,23 +43,25 @@ class ChoosePossibility extends React.Component {
     if (error.length === 0) {
 
       //Making the axios call to persist to db
+      this.props.handleNext({
+        sendPossibility: this.state.possibilities
+      })
       this.makeAxiosPatch()
-      this.props.handleNext()
 
       this.props.redirectToBet(this.state.chosen)
-     
+
     } else {
       this.setState({error: error})
     }
   }
 
     _handlePossibilityClick = (poss,event) => {
-        
+
         event.target.style.backgroundColor = "#91a6c9";
         console.log("Chosen possibility is: ", poss)
         this.setState({
             chosen: poss
-        })       
+        })
     }
 
   render () {
@@ -73,12 +71,11 @@ class ChoosePossibility extends React.Component {
             {
             this.state.possibilities.map((poss) => {
             console.log("Each Poss is: ", poss)
-            return <ListItem    
-                        primaryText={poss.description}
+            return <ListItem
                         onClick = {(event) => this._handlePossibilityClick(poss,event)}
                         style = {style}
-                        
-                    />
+
+                    >{poss.description}</ListItem>
             })
             }
         </List>

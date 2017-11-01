@@ -37,6 +37,9 @@ export default class SportsDropdown extends Component {
     if(this.state.value === 5) {
       sport = 'MLS'
     }
+    if(this.state.value === 6) {
+      sport = 'NHL'
+    }
     
     console.log("Setting the state for temphold here: ", this.state.gameDate)
     
@@ -69,6 +72,7 @@ export default class SportsDropdown extends Component {
           <MenuItem value={3} primaryText="MLB - Baseball" />
           <MenuItem value={4} primaryText="EPL - English Soccer" />
           <MenuItem value={5} primaryText="MLS - American Soccer" />
+          <MenuItem value={6} primaryText="NHL - Hockey" />
         </SelectField>
         <DatePicker   hintText="Date for game"
                       mode="landscape"

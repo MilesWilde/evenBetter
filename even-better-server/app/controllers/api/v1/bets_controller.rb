@@ -26,7 +26,7 @@ module Api::V1
         @bet.save!
         # Add users to the bet
         @users.map{ |user| @bet.users << user }
-        @bet.users << User.find(params[:mediator_id]) if params[:mediator_id]
+        @bet.users << User.find(params[:mediator_id]) if params[:mediator_id] && current_user.id != params[:mediator_id]
         render json: @bet.to_json({ include: [:possibilities, :users] }), status: :created
       else
         json_response({ message: "Validation failed: Users must have at least 2 users"}, :unprocessable_entity)
@@ -60,20 +60,10 @@ module Api::V1
         json_response({ message: 'Validation failed: Cannot select a possibility from another bet' }, :forbidden)
       else
         @bet.outcome_id = params[:outcome_id]
-        @bet.save!
-        distribute_points_among_winners(@bet, Possibility.find(params[:outcome_id]))
-        render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
-
-        # ---THIS IS UNTESTED ---
-        bet_user_count = BetUser.where(bet_id: bet_id).count
-        pool = Bet.where(bet_id: bet_id).pool
-        winnings = pool / bet_user_count
-
-        BetUser.where(possibility_id: outcome).each do |winner|
-           winner.user.points += winnings
-           winner.user.save!(validate: false)
+        if @bet.save!
+          distribute_points_among_winners(@bet, Possibility.find(params[:outcome_id]))
         end
-
+          render json: @bet.to_json({ include: [:possibilities, :users, :creator, :mediator] })
       end
     end
 
@@ -130,8 +120,9 @@ module Api::V1
             bets_to_update.each do |bet|
               outcome = bet.possibilities.find_by description: game['gameWinner']
               bet.outcome = outcome
-              bet.save!
-              distribute_points_among_winners(bet, outcome)
+              if bet.save!
+                distribute_points_among_winners(bet, outcome)
+              end
             end
           end
         end

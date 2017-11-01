@@ -6,11 +6,8 @@ import MediationRequestsColumn from '../MediationRequests/MediationRequestsColum
 import PopupBets from './PopupBets'
 import PointsColumn from './PointsColumn'
 import ChangingProgressbar from './ChangingProgressbar'
-import CircularProgressbar from 'react-circular-progressbar';
 import Resource from '../../models/resource'
 import axios from 'axios'
-
-import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import Container from 'muicss/lib/react/container'
 import Row from 'muicss/lib/react/row'

@@ -1,21 +1,8 @@
 import React, {Component} from 'react';
-
-import Resource from '../../models/resource'
-import axios from 'axios'
 import './css/BetsColumn.css';
-
-var config = {
-  headers: {
-    "Authorization": "Bearer " + window.localStorage.auth_token,
-  }
-}
 
 // This receives getMainState() as prop
 export default class BetsColumn extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     this.props.loadBets();
   }
@@ -36,9 +23,13 @@ export default class BetsColumn extends Component {
   // Checks if outcome exists, and if user picked the winning outcome
 
   betStatus(bet) {
-    // This needs to get the bet_user for this current bet
-    // and pull the outcome_id
-    if (bet.outcome_id) {
+    if (Date.now() < this.betTimestamp(bet.outcome_deadline) && !bet.outcome_id) {
+      if (bet.mediator_id === this.props.user.id) {
+        return "REF"
+      } else {
+        return "PENDING"
+      }
+    } else if (bet.outcome_id) {
       var user_picked = 0;
       for (var betUser of this.props.getMainState().betsUsers) {
         if (betUser.bet_id === bet.id) {
@@ -46,12 +37,13 @@ export default class BetsColumn extends Component {
         }
       }
       if (bet.outcome_id === user_picked) {
-        return "WIN"
+        return "WON"
+      } else if (bet.mediator_id === this.props.user.id) {
+        return "REF'D"
       } else {
-        return "LOSE"
+        return "LOST"
       }
     } else {
-      // Returns NO CONTEST if outcome is not provided by deadline
       return "NO CONTEST"
     }
   }
@@ -66,9 +58,9 @@ export default class BetsColumn extends Component {
         <thead>
           {
             <tr>
-              <th>Type</th>
-              <th>Bet Name</th>
-              <th>Result</th>
+              <th className="text-center">Type</th>
+              <th className="text-center">Bet Name</th>
+              <th className="text-center">Result</th>
               {/* <th>Deadline</th> */}
             </tr>
           }
@@ -84,7 +76,7 @@ export default class BetsColumn extends Component {
                     </a></td>
                     <td className="text-center"><a href= {`/bets/${bet.id}`}>{bet.title}</a></td>
                     <td className="text-center"><a href= {`/bets/${bet.id}`}>
-                      { Date.now() < this.betTimestamp(bet.outcome_deadline) && !bet.outcome_id ? "PENDING" : this.betStatus(bet) }
+                      { this.betStatus(bet) }
                     </a></td>
                     {/* <td><a href= {`/bets/${bet.id}`}>{ bet["betting_deadline"] ? bet["betting_deadline"].substring(0,9) : ""}</a></td> */}
                   </tr>

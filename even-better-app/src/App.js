@@ -22,15 +22,6 @@ injectTapEventPlugin();
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400
-  },
-};
-
 const PrivateRoute = ({ component: Component, currentUser, ...rest }) => (
   <Route {...rest} render={props => (
     currentUser ? (
@@ -84,26 +75,28 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <NavBar
-          currentUser={ this.state.currentUser }
-          currentUsername={ this.state.currentUsername }
-          handleLogout = {this.logOut}
-          handleNavMenuOpen={ this.handleNavMenuOpen }
-        />
-        <div style={{ paddingTop: 64 }}></div>
-        <main>
-          <Switch>
-            <Route exact path='/' component={SplashPage} />
-            <Route path='/signup' component={UserRegistration}/>
-            <Route path='/login'
-              render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}
-            />
-            <PrivateRoute path='/home' currentUser={ this.state.currentUser } component={LandingPage}/>
-            <PrivateRoute path='/bets/:id' currentUser={ this.state.currentUser } component={ Bet } />
-            <PrivateRoute path='/leaderboard' currentUser={ this.state.currentUser } component={Leaderboard}/>
-            <Route component={ NotFound } />
-          </Switch>
-        </main>
+        <div>
+          <NavBar
+            currentUser={ this.state.currentUser }
+            currentUsername={ this.state.currentUsername }
+            handleLogout = {this.logOut}
+            handleNavMenuOpen={ this.handleNavMenuOpen }
+          />
+          <div style={{ paddingTop: 64 }}></div>
+          <main>
+            <Switch>
+              <PrivateRoute exact path='/' currentUser={ this.state.currentUser } component={LandingPage} />
+              <Route path='/signup' component={UserRegistration}/>
+              <Route path='/login'
+                render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}
+              />
+              <PrivateRoute path='/home' currentUser={ this.state.currentUser } component={LandingPage}/>
+              <PrivateRoute path='/bets/:id' currentUser={ this.state.currentUser } component={ Bet } />
+              <PrivateRoute path='/leaderboard' currentUser={ this.state.currentUser } component={Leaderboard}/>
+              <Route component={ NotFound } />
+            </Switch>
+          </main>
+        </div>
       </MuiThemeProvider>
     )
   }

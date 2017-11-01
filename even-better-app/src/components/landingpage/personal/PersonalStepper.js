@@ -4,19 +4,14 @@ import {
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
 
 import NameDesc from './personalbetcontent/NameDesc';
 import BettingPool from './personalbetcontent/BettingPool'
 import PossibleBets from './personalbetcontent/PossibleBets'
 import ChoosePossibility from './personalbetcontent/ChoosePossibility'
-import Bet from '../../Bet/Bet'
 import axios from 'axios';
-import moment from 'moment';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Redirect } from 'react-router';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
  * Avoid using long step names in horizontal steppers.
@@ -50,12 +45,10 @@ class PersonalStepper extends React.Component {
     }
   }
 
-  redirectToBet = (poss) => {
-    console.log("Inside the redirect to Bet function")
-  // <Switch>
-  //   <Route path={"/bets/" + poss.bet_id} component={Bet} />
-  //   <Redirect from="/home" to= {"/bets/" + poss.bet_id} push />
-  // </Switch>
+  redirectToBet = (chosen) => {
+    //Routing to the bets page
+    this.props.history.push('/bets/' + chosen.bet_id)
+
   }
 
   makeAxiosCall = () => {
@@ -94,10 +87,6 @@ class PersonalStepper extends React.Component {
         });
       }
 
-
-
-
-
   handleNext = (userData) => {
     const {stepIndex, data} = this.state;
     const tempStateHold = data;
@@ -119,6 +108,12 @@ class PersonalStepper extends React.Component {
     if (stepIndex === 2) {
       tempStateHold[2] = {
         possibilities: userData.possibilities
+      }
+    }
+
+    if (stepIndex === 3) {
+      tempStateHold[3] = {
+        sendPossibility: userData.sendPossibility
       }
     }
     console.log("State at Personal Stepper: ", tempStateHold)
@@ -215,4 +210,4 @@ class PersonalStepper extends React.Component {
   }
 }
 
-export default PersonalStepper;
+export default withRouter(PersonalStepper);

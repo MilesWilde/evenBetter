@@ -7,17 +7,20 @@ class Api::V1::BetsUsersController < ApplicationController
 
   def update
     # Finds bet_user using user_id and bet_id
-    @betUser=BetUser.where(user_id: current_user[:id]).find_by(bet_id: params[:bet_id])
-    @user = User.find(current_user[:id])
-    @bet=Bet.find(@betUser.bet_id)
+    @betUser = BetUser.find_by(user: current_user, bet_id: params[:bet_id])
+    @user = current_user
+    @bet = @betUser.bet
+
     @betUser[:has_accepted] = params[:has_accepted]
-    if @bet.mediator_id != @user.id && @betUser[:has_accepted] === true
+
+    if @bet.mediator != @user && @betUser[:has_accepted] === true
         @user.points -= 100
         @bet.pool += 100
+        @betUser[:possibility_id] = params[:possibility_id]
+        @bet.save!
+        @user.save!(validate: false)
     end
-    @user.save!(validate: false)
-    @bet.save!
-    @betUser[:possibility_id] = params[:possibility_id]
+
     @betUser.save!
     # Returning json to make sure column has been updated
     render json: @betUser

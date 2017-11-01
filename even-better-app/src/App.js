@@ -85,7 +85,7 @@ class App extends Component {
           <div style={{ paddingTop: 64 }}></div>
           <main>
             <Switch>
-              <Route exact path='/' component={SplashPage} />
+              <PrivateRoute exact path='/' currentUser={ this.state.currentUser } component={LandingPage} />
               <Route path='/signup' component={UserRegistration}/>
               <Route path='/login'
                 render={(props) => <Login {...props} handleLoginSuccess={ this.handleLoginSuccess }/>}

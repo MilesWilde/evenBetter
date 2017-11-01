@@ -132,7 +132,7 @@ class LandingPage extends Component {
               <div style={{ minHeight: 'calc(100vh - 64px)'}}>
                 {/* <div> */}
                   <h1 style={{color: '#80DEEA', paddingLeft: 15}}>Hello, <strong>{this.state.user.username}!</strong></h1>
-                  <h1 style={{color: '#80DEEA', paddingLeft: 15}}>Rank: {pointsFunction.rankDetermine(this.state.user.points).rank}</h1>
+                  <h3 style={{color: '#80DEEA', paddingLeft: 15}}><strong>Rank</strong>: {pointsFunction.rankDetermine(this.state.user.points).rank}</h3>
                   <PointsColumn user={this.state.user}/>
                 {/* </div> */}
                 <ChangingProgressbar

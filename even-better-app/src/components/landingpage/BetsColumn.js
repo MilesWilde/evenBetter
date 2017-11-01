@@ -58,9 +58,9 @@ export default class BetsColumn extends Component {
         <thead>
           {
             <tr>
-              <th>Type</th>
-              <th>Bet Name</th>
-              <th>Result</th>
+              <th className="text-center">Type</th>
+              <th className="text-center">Bet Name</th>
+              <th className="text-center">Result</th>
               {/* <th>Deadline</th> */}
             </tr>
           }

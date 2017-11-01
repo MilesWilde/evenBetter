@@ -8,7 +8,10 @@ import DateandSport from './sportsbetcontent/DateandSport';
 import BetPoolandOutcome from './sportsbetcontent/BetPoolandOutcome';
 import GamesList from './sportsbetcontent/GamesList';
 import axios from 'axios';
+
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 var moment = require('moment');
+var betId;
 
 var config = {
   headers: {
@@ -47,7 +50,13 @@ class SportsStepper extends React.Component {
     creatorPossId: null
   };
 
+  redirectToBet = () => {
+    //Routing to the bets page
+    this.props.history.push('/bets/' + betId)
+  }
+
   makeAxiosCall = () => {
+      console.log("Stateee iin sportsss isss: ", this.state)
 
     const zerver = axios.create({
       baseURL: 'http://localhost:3001',
@@ -63,12 +72,7 @@ class SportsStepper extends React.Component {
     });
 
     userIDArray.push(window.localStorage.user_id)
-
-    console.log("Game date before post: ", this.state.data[0].gameDate)
-
     const momentDate = moment(this.state.data[0].gameDate).add(1, 'days').format()
-
-
 
     zerver.post('/api/v1/bets', {
       title: `${this.state.data[1].homeTeam} vs. ${this.state.data[1].awayTeam}` ,
@@ -83,7 +87,8 @@ class SportsStepper extends React.Component {
       outcome_id: null,
       possibilities: [this.state.data[1].homeTeam, "Tie Game", this.state.data[1].awayTeam]
     }).then(res => {
-                    let betId = res.data.possibilities[0].bet_id
+                    betId = res.data.possibilities[0].bet_id
+                    // this.setState({betId:betId})
                     let creatorPossId = null
                     res.data.possibilities.forEach((poss) => {
                       if(this.state.data[2].chosenWinner == poss.description) {
@@ -103,16 +108,12 @@ class SportsStepper extends React.Component {
         .then(response => {
           console.log("Response from sports patch: ")
           console.log(response.data)
+          this.redirectToBet()          
         })
         .catch(error => {
           console.log("Error: " + error)
         })
       });
-
-
-
-
-
 
     } //End of makeAxiosCall()
 
@@ -180,6 +181,7 @@ class SportsStepper extends React.Component {
                                   homeTeam={this.state.data[1].homeTeam}
                                   awayTeam={this.state.data[1].awayTeam}
                                   makeAxiosCall = {this.makeAxiosCall}
+                                  redirectToBet = {this.redirectToBet}
                                   />
       default:
         return 'Come on, make a Sports Bet!!';
@@ -219,4 +221,4 @@ class SportsStepper extends React.Component {
   }
 }
 
-export default SportsStepper;
+export default withRouter(SportsStepper);

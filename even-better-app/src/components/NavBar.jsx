@@ -34,7 +34,7 @@ const NavBar = (props) => {
         props.currentUser ?
         <div>
           <FlatButton label="Home" style={ styles.button } primary={true} containerElement={<Link to='/home'/>} />
-          <FlatButton label="About" style={ styles.button } primary={true} containerElement={<Link to='/'/>} />
+          {/* <FlatButton label="About" style={ styles.button } primary={true} containerElement={<Link to='/'/>} /> */}
           <FlatButton label="Leaderboard" style={ styles.button } primary={true} containerElement={<Link to='/leaderboard'/>} />
           <FlatButton label={ `Sign Out (${props.currentUsername})`} style = {styles.button} primary={true} containerElement={<Link to = '/' />} onClick = { props.handleLogout } />
         </div>
@@ -42,7 +42,7 @@ const NavBar = (props) => {
         <div>
           <FlatButton label="Login" style={ styles.button } primary={true} containerElement={<Link to='/login'/>} />
           <FlatButton label="Sign Up" style={ styles.button } primary={true} containerElement={<Link to='/signup'/>} />
-          <FlatButton label="About" style={ styles.button } primary={true} containerElement={<Link to='/'/>} />
+          {/* <FlatButton label="About" style={ styles.button } primary={true} containerElement={<Link to='/'/>} /> */}
         </div>
       }
     />

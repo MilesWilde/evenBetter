@@ -43,8 +43,10 @@ class ChoosePossibility extends React.Component {
     if (error.length === 0) {
 
       //Making the axios call to persist to db
+      this.props.handleNext({
+        sendPossibility: this.state.possibilities
+      })
       this.makeAxiosPatch()
-      this.props.handleNext()
 
       this.props.redirectToBet(this.state.chosen)
 

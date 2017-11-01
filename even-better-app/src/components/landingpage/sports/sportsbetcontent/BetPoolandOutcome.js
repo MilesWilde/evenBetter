@@ -79,6 +79,7 @@ class BetPoolandOutcome extends React.Component {
 
             //Making the axios call to persist to db
         this.props.makeAxiosCall()
+        // this.props.redirectToBet(sendchosenWinner)
             
         } else {
           this.setState({error: error})

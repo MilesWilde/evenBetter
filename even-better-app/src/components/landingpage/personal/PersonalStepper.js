@@ -16,7 +16,6 @@ import axios from 'axios';
 import moment from 'moment';
 
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
-import { Redirect } from 'react-router';
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
  * Avoid using long step names in horizontal steppers.
@@ -51,9 +50,6 @@ class PersonalStepper extends React.Component {
   }
 
   redirectToBet = (chosen) => {
-    console.log("Inside the redirect to Bet function");
-    console.log(chosen);
-
     //Routing to the bets page
     this.props.history.push('/bets/' + chosen.bet_id)
 
@@ -94,10 +90,6 @@ class PersonalStepper extends React.Component {
           this.setState({sendPossibility: response.data.possibilities})
         });
       }
-
-
-
-
 
   handleNext = (userData) => {
     const {stepIndex, data} = this.state;

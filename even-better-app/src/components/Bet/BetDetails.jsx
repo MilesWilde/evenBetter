@@ -57,7 +57,7 @@ const BetDetails = (props) => {
             backgroundColor={ backgroundColor }
             labelColor='#FFF'
           >
-            <Avatar>{ index + 1 }</Avatar>
+            <Avatar backgroundColor={ '#263238' }>{ index + 1 }</Avatar>
             { possibility.description }
           </Chip>
         )
@@ -80,7 +80,7 @@ const BetDetails = (props) => {
             possibilityIndex = index
             return possibility.id === user.possibility_id
           })
-          return <Chip style={ styles.chip } key={user.id} labelColor='#FFF' backgroundColor={ backgroundColor }><Avatar>{ userPossibility ? possibilityIndex + 1 : '-' }</Avatar>{ user.username }</Chip>
+          return <Chip style={ styles.chip } key={user.id} labelColor='#FFF' backgroundColor={ backgroundColor }><Avatar backgroundColor={ '#263238' }>{ userPossibility ? possibilityIndex + 1 : '-' }</Avatar>{ user.username }</Chip>
         } else {
           return null
         }

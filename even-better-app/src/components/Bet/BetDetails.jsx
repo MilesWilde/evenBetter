@@ -55,7 +55,7 @@ const BetDetails = (props) => {
             style={ styles.chip }
             onClick={ props.outcomeId ? undefined : props.handlePossibilitySelectionConfirmationOpen }
             backgroundColor={ backgroundColor }
-            labelColor='#000'
+            labelColor='#FFF'
           >
             <Avatar>{ index + 1 }</Avatar>
             { possibility.description }
@@ -67,9 +67,9 @@ const BetDetails = (props) => {
       <div style={ styles.wrapper }>
       { props.users.map( (user) => {
         if (user.id !== props.mediatorId) {
-          let backgroundColor = undefined
+          let backgroundColor = '#0097A7'
           // default background red (lose) when outcome deadlind reached
-          new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : backgroundColor = undefined
+          new Date(props.outcomeDeadline) < new Date(Date.now()) ? backgroundColor = '#FF5252' : backgroundColor = '#0097A7'
           if (props.outcomeId && props.outcomeId === user.possibility_id) {
             backgroundColor = '#00C853' // green for the winner(s)
           } else if (props.outcomeId) {
@@ -80,7 +80,7 @@ const BetDetails = (props) => {
             possibilityIndex = index
             return possibility.id === user.possibility_id
           })
-          return <Chip style={ styles.chip } key={user.id} labelColor='#000' backgroundColor={ backgroundColor }><Avatar>{ userPossibility ? possibilityIndex + 1 : '-' }</Avatar>{ user.username }</Chip>
+          return <Chip style={ styles.chip } key={user.id} labelColor='#FFF' backgroundColor={ backgroundColor }><Avatar>{ userPossibility ? possibilityIndex + 1 : '-' }</Avatar>{ user.username }</Chip>
         } else {
           return null
         }
